@@ -1,0 +1,96 @@
+/* ملف السمات اللونية المختلفة للموقع */
+
+/* السمة الافتراضية - الأزرق */
+:root {
+    --primary-color: #1a5276;
+    --secondary-color: #2980b9;
+    --accent-color: #3498db;
+}
+
+/* السمة الحمراء */
+body.theme-red {
+    --primary-color: #c0392b;
+    --secondary-color: #e74c3c;
+    --accent-color: #f39c12;
+}
+
+/* السمة الخضراء */
+body.theme-green {
+    --primary-color: #27ae60;
+    --secondary-color: #2ecc71;
+    --accent-color: #1abc9c;
+}
+
+/* السمة البنفسجية */
+body.theme-purple {
+    --primary-color: #8e44ad;
+    --secondary-color: #9b59b6;
+    --accent-color: #d6a2e8;
+}
+
+/* السمة البرتقالية */
+body.theme-orange {
+    --primary-color: #d35400;
+    --secondary-color: #e67e22;
+    --accent-color: #f39c12;
+}
+
+/* السمة الوردية */
+body.theme-pink {
+    --primary-color: #c2185b;
+    --secondary-color: #e91e63;
+    --accent-color: #ff4081;
+}
+
+/* تطبيق الألوان في الوضع الليلي */
+body.dark-mode.theme-red,
+body.dark-mode.theme-green,
+body.dark-mode.theme-purple,
+body.dark-mode.theme-orange,
+body.dark-mode.theme-pink {
+    --icon-color: var(--accent-color);
+}
+
+/* تعديلات خاصة للوضع الليلي لكل سمة */
+body.dark-mode.theme-red .option-icon,
+body.dark-mode.theme-green .option-icon,
+body.dark-mode.theme-purple .option-icon,
+body.dark-mode.theme-orange .option-icon,
+body.dark-mode.theme-pink .option-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* تعديلات الأزرار في الوضع الليلي */
+body.dark-mode.theme-red .btn-primary,
+body.dark-mode.theme-green .btn-primary,
+body.dark-mode.theme-purple .btn-primary,
+body.dark-mode.theme-orange .btn-primary,
+body.dark-mode.theme-pink .btn-primary {
+    background-color: var(--primary-color);
+}
+
+body.dark-mode.theme-red .btn-primary:hover,
+body.dark-mode.theme-green .btn-primary:hover,
+body.dark-mode.theme-purple .btn-primary:hover,
+body.dark-mode.theme-orange .btn-primary:hover,
+body.dark-mode.theme-pink .btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* تعديلات القوائم المنسدلة في الوضع الليلي */
+body.dark-mode.theme-red .dropdown-content,
+body.dark-mode.theme-green .dropdown-content,
+body.dark-mode.theme-purple .dropdown-content,
+body.dark-mode.theme-orange .dropdown-content,
+body.dark-mode.theme-pink .dropdown-content {
+    border-top: 3px solid var(--accent-color);
+}
+
+/* تعديلات البطاقات في الوضع الليلي */
+body.dark-mode.theme-red .card:hover,
+body.dark-mode.theme-green .card:hover,
+body.dark-mode.theme-purple .card:hover,
+body.dark-mode.theme-orange .card:hover,
+body.dark-mode.theme-pink .card:hover {
+    border-color: var(--accent-color);
+}

@@ -1,0 +1,173 @@
+/* Enhanced Navigation Dark Mode Styles */
+
+/* Desktop Navigation Theme Compatibility */
+body.dark-mode .desktop-nav {
+    background-color: rgba(26, 26, 38, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(74, 192, 252, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Theme-specific desktop navigation styles */
+body.dark-mode[data-theme="green"] .desktop-nav {
+    border-color: rgba(46, 204, 113, 0.2);
+}
+
+body.dark-mode[data-theme="purple"] .desktop-nav {
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+body.dark-mode[data-theme="orange"] .desktop-nav {
+    border-color: rgba(230, 126, 34, 0.2);
+}
+
+/* Active Navigation Item */
+body.dark-mode .desktop-nav ul li.nav-item.active a {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Dropdown Menus */
+body.dark-mode .dropdown-content {
+    background-color: rgba(26, 26, 38, 0.95);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(74, 192, 252, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode[data-theme="green"] .dropdown-content {
+    border-color: rgba(46, 204, 113, 0.2);
+}
+
+body.dark-mode[data-theme="purple"] .dropdown-content {
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+body.dark-mode[data-theme="orange"] .dropdown-content {
+    border-color: rgba(230, 126, 34, 0.2);
+}
+
+/* Navigation Icons */
+body.dark-mode .nav-icon {
+    color: var(--icon-color);
+}
+
+body.dark-mode .desktop-nav ul li.nav-item a:hover .nav-icon {
+    color: var(--icon-hover);
+    transform: scale(1.2);
+}
+
+/* Hover Effects */
+body.dark-mode .desktop-nav ul li.nav-item a:hover {
+    background-color: rgba(74, 192, 252, 0.2);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+body.dark-mode[data-theme="green"] .desktop-nav ul li.nav-item a:hover {
+    background-color: rgba(46, 204, 113, 0.2);
+}
+
+body.dark-mode[data-theme="purple"] .desktop-nav ul li.nav-item a:hover {
+    background-color: rgba(155, 89, 182, 0.2);
+}
+
+body.dark-mode[data-theme="orange"] .desktop-nav ul li.nav-item a:hover {
+    background-color: rgba(230, 126, 34, 0.2);
+}
+
+/* Logo in Dark Mode */
+body.dark-mode .logo h1 {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .logo h1 i {
+    color: var(--icon-color);
+}
+
+body.dark-mode .logo .tagline {
+    color: var(--text-secondary);
+}
+
+/* Mobile Navigation in Dark Mode */
+body.dark-mode .mobile-nav {
+    background-color: rgba(18, 18, 18, 0.95);
+    border-top: 1px solid rgba(74, 192, 252, 0.2);
+}
+
+body.dark-mode .mobile-nav ul li.nav-item a {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .mobile-nav ul li.nav-item.active a {
+    color: var(--icon-color);
+}
+
+body.dark-mode .mobile-nav ul li.nav-item a:hover {
+    color: var(--icon-hover);
+}
+
+body.dark-mode .nav-indicator {
+    background-color: var(--primary-color);
+}
+
+/* Theme-specific mobile navigation styles */
+body.dark-mode[data-theme="green"] .mobile-nav {
+    border-color: rgba(46, 204, 113, 0.2);
+}
+
+body.dark-mode[data-theme="purple"] .mobile-nav {
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+body.dark-mode[data-theme="orange"] .mobile-nav {
+    border-color: rgba(230, 126, 34, 0.2);
+}
+
+/* Glass effect for navigation in dark mode */
+body.dark-mode .desktop-nav,
+body.dark-mode .dropdown-content,
+body.dark-mode header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* High contrast mode overrides */
+body.dark-mode.high-contrast .desktop-nav {
+    background-color: #000;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+body.dark-mode.high-contrast .desktop-nav ul li.nav-item a {
+    color: #fff;
+}
+
+body.dark-mode.high-contrast .desktop-nav ul li.nav-item a:hover,
+body.dark-mode.high-contrast .desktop-nav ul li.nav-item.active a {
+    background-color: #fff;
+    color: #000;
+    box-shadow: none;
+}
+
+body.dark-mode.high-contrast .nav-icon,
+body.dark-mode.high-contrast .desktop-nav ul li.nav-item a:hover .nav-icon {
+    color: inherit;
+}
+
+body.dark-mode.high-contrast .dropdown-content {
+    background-color: #000;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+body.dark-mode.high-contrast .dropdown-content a {
+    border-bottom: 1px solid #fff;
+}
+
+body.dark-mode.high-contrast .dropdown-content a:hover {
+    background-color: #fff;
+    color: #000;
+}

@@ -1,0 +1,206 @@
+/* Accessibility CSS */
+
+/* High Contrast Mode */
+body.high-contrast {
+    --text-color: #000;
+    --text-secondary: #000;
+    --background-color: #fff;
+    --border-color: #000;
+}
+
+body.high-contrast a,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast p,
+body.high-contrast span,
+body.high-contrast label {
+    color: #000 !important;
+    text-shadow: none !important;
+}
+
+body.high-contrast button,
+body.high-contrast .btn,
+body.high-contrast .nav-item a,
+body.high-contrast .dropdown-content a {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #000 !important;
+    text-shadow: none !important;
+}
+
+body.high-contrast .card,
+body.high-contrast .service-card,
+body.high-contrast .feature-item,
+body.high-contrast .settings-option,
+body.high-contrast .dropdown-content {
+    background-color: #fff !important;
+    border: 2px solid #000 !important;
+    box-shadow: none !important;
+}
+
+body.high-contrast .hero,
+body.high-contrast section,
+body.high-contrast footer {
+    background-color: #fff !important;
+    border-top: 2px solid #000 !important;
+    border-bottom: 2px solid #000 !important;
+}
+
+body.high-contrast .hero .overlay {
+    background: rgba(255, 255, 255, 0.8) !important;
+}
+
+body.high-contrast img {
+    filter: grayscale(100%) contrast(120%);
+}
+
+body.high-contrast .icon,
+body.high-contrast i.fas,
+body.high-contrast i.fab {
+    color: #000 !important;
+}
+
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+}
+
+/* Dark High Contrast Mode */
+body.dark-mode.high-contrast {
+    --text-color: #fff;
+    --text-secondary: #fff;
+    --background-color: #000;
+    --border-color: #fff;
+}
+
+body.dark-mode.high-contrast a,
+body.dark-mode.high-contrast h1,
+body.dark-mode.high-contrast h2,
+body.dark-mode.high-contrast h3,
+body.dark-mode.high-contrast h4,
+body.dark-mode.high-contrast h5,
+body.dark-mode.high-contrast h6,
+body.dark-mode.high-contrast p,
+body.dark-mode.high-contrast span,
+body.dark-mode.high-contrast label {
+    color: #fff !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode.high-contrast button,
+body.dark-mode.high-contrast .btn,
+body.dark-mode.high-contrast .nav-item a,
+body.dark-mode.high-contrast .dropdown-content a {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 2px solid #fff !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode.high-contrast .card,
+body.dark-mode.high-contrast .service-card,
+body.dark-mode.high-contrast .feature-item,
+body.dark-mode.high-contrast .settings-option,
+body.dark-mode.high-contrast .dropdown-content {
+    background-color: #000 !important;
+    border: 2px solid #fff !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode.high-contrast .hero,
+body.dark-mode.high-contrast section,
+body.dark-mode.high-contrast footer {
+    background-color: #000 !important;
+    border-top: 2px solid #fff !important;
+    border-bottom: 2px solid #fff !important;
+}
+
+body.dark-mode.high-contrast .hero .overlay {
+    background: rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-mode.high-contrast .icon,
+body.dark-mode.high-contrast i.fas,
+body.dark-mode.high-contrast i.fab {
+    color: #fff !important;
+}
+
+body.dark-mode.high-contrast input,
+body.dark-mode.high-contrast select,
+body.dark-mode.high-contrast textarea {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+}
+
+/* Focus Mode */
+body.focus-mode .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+body.focus-mode section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+body.focus-mode .feature-item,
+body.focus-mode .card,
+body.focus-mode .service-card,
+body.focus-mode .settings-option {
+    transform: none !important;
+    transition: none !important;
+}
+
+body.focus-mode .nav-item:not(.active),
+body.focus-mode .footer-links,
+body.focus-mode .social-icons,
+body.focus-mode .hero-wave,
+body.focus-mode .section-divider {
+    opacity: 0.6;
+}
+
+body.focus-mode p, 
+body.focus-mode h1, 
+body.focus-mode h2, 
+body.focus-mode h3 {
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+body.focus-mode .section-header {
+    margin-bottom: 30px;
+}
+
+/* Reduce Animations */
+body.reduce-animations * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+body.reduce-animations .animated-title,
+body.reduce-animations .animated-subtitle,
+body.reduce-animations .hero-buttons,
+body.reduce-animations .hero-features,
+body.reduce-animations .card-inner,
+body.reduce-animations .service-card:hover .card-inner {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+body.reduce-animations .settings-icon,
+body.reduce-animations .floating-settings-btn i {
+    animation: none !important;
+}

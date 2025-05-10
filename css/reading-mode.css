@@ -1,0 +1,201 @@
+/* Reading Mode CSS */
+
+/* Reading Mode Styles */
+body.reading-mode {
+    --reading-font-family: 'Cairo', sans-serif;
+    --reading-line-height: 1.8;
+    --reading-font-size: 1.05em;
+    --reading-paragraph-spacing: 1.5em;
+    --reading-max-width: 800px;
+    --reading-background: #f9f9f9;
+    --reading-text-color: #333;
+    --reading-link-color: #2980b9;
+}
+
+/* Dark Mode Reading Mode */
+body.dark-mode.reading-mode {
+    --reading-background: #1a1a1a;
+    --reading-text-color: #e6e6e6;
+    --reading-link-color: #4dabf7;
+}
+
+/* Typography Improvements */
+body.reading-mode p,
+body.reading-mode .card-text,
+body.reading-mode .service-card .card-front p,
+body.reading-mode .service-card .card-back p,
+body.reading-mode .org-card-content p,
+body.reading-mode .tab-pane p,
+body.reading-mode .section-header p {
+    font-family: var(--reading-font-family);
+    line-height: var(--reading-line-height);
+    font-size: var(--reading-font-size);
+    margin-bottom: var(--reading-paragraph-spacing);
+    text-align: justify;
+    hyphens: auto;
+    color: var(--reading-text-color);
+}
+
+/* Headings in Reading Mode */
+body.reading-mode h1,
+body.reading-mode h2,
+body.reading-mode h3,
+body.reading-mode h4,
+body.reading-mode h5,
+body.reading-mode h6,
+body.reading-mode .section-header h2,
+body.reading-mode .card-title,
+body.reading-mode .service-card .card-front h3,
+body.reading-mode .service-card .card-back h3,
+body.reading-mode .org-card-header h3 {
+    font-family: var(--reading-font-family);
+    line-height: 1.4;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+    color: var(--reading-text-color);
+}
+
+/* Links in Reading Mode */
+body.reading-mode a {
+    color: var(--reading-link-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+}
+
+body.reading-mode a:hover {
+    color: var(--accent-color);
+}
+
+/* Content Width Constraints */
+body.reading-mode .container,
+body.reading-mode .hero-content,
+body.reading-mode .section-header,
+body.reading-mode .cards-container {
+    max-width: var(--reading-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Background and Spacing */
+body.reading-mode section {
+    background-color: var(--reading-background);
+    padding: 3rem 1.5rem;
+}
+
+body.reading-mode .card,
+body.reading-mode .service-card,
+body.reading-mode .org-card {
+    background-color: var(--reading-background);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode.reading-mode .card,
+body.dark-mode.reading-mode .service-card,
+body.dark-mode.reading-mode .org-card {
+    background-color: #222;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Focus on Content */
+body.reading-mode .hero-wave,
+body.reading-mode .section-divider,
+body.reading-mode .floating-settings-btn {
+    opacity: 0.5;
+}
+
+/* Improved Lists */
+body.reading-mode ul,
+body.reading-mode ol {
+    padding-right: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+body.reading-mode li {
+    margin-bottom: 0.5em;
+    line-height: var(--reading-line-height);
+}
+
+/* Tables */
+body.reading-mode table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+}
+
+body.reading-mode th,
+body.reading-mode td {
+    padding: 0.75em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: right;
+}
+
+body.dark-mode.reading-mode th,
+body.dark-mode.reading-mode td {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.reading-mode th {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-weight: 700;
+}
+
+body.dark-mode.reading-mode th {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Blockquotes */
+body.reading-mode blockquote {
+    border-right: 4px solid var(--primary-color);
+    padding: 1em;
+    margin: 1.5em 0;
+    background-color: rgba(0, 0, 0, 0.02);
+    font-style: italic;
+}
+
+body.dark-mode.reading-mode blockquote {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Focus Indicators */
+body.reading-mode a:focus,
+body.reading-mode button:focus,
+body.reading-mode input:focus,
+body.reading-mode select:focus,
+body.reading-mode textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Reading Progress Indicator */
+body.reading-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--primary-color);
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+/* Reading Mode Indicator */
+body.reading-mode::after {
+    content: 'وضع القراءة مفعل';
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+    opacity: 0.8;
+    pointer-events: none;
+}

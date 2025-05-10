@@ -1,0 +1,325 @@
+/* Modern Toggle Switches Styles */
+
+/* Base Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+    z-index: 2;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider Base */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e0e0e0;
+    transition: .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    overflow: hidden;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Slider Effects */
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.5));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+/* Switch Circle */
+.slider .switch-circle {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    border-radius: 50%;
+}
+
+/* Switch Icons */
+.slider .switch-circle::before,
+.slider .switch-circle::after {
+    content: '';
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+/* Off Icon (X) */
+.slider .switch-circle::before {
+    width: 8px;
+    height: 2px;
+    background-color: #ccc;
+    transform: rotate(45deg);
+    top: 10px;
+    left: 7px;
+}
+
+.slider .switch-circle::after {
+    width: 8px;
+    height: 2px;
+    background-color: #ccc;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 7px;
+}
+
+/* On State */
+input:checked + .slider {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+input:checked + .slider::before {
+    opacity: 1;
+}
+
+input:checked + .slider .switch-circle {
+    transform: translateX(30px);
+    background-color: white;
+}
+
+/* On Icon (✓) */
+input:checked + .slider .switch-circle::before {
+    width: 5px;
+    height: 10px;
+    border-right: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transform: rotate(45deg);
+    background-color: transparent;
+    top: 4px;
+    left: 8px;
+}
+
+input:checked + .slider .switch-circle::after {
+    opacity: 0;
+}
+
+/* Hover Effects */
+.switch:hover .slider .switch-circle {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.switch:hover input:checked + .slider {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+}
+
+/* Focus Effects */
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+/* Rounded Sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+/* Theme-specific colors */
+[data-theme="green"] .switch input:checked + .slider {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+[data-theme="purple"] .switch input:checked + .slider {
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+}
+
+[data-theme="orange"] .switch input:checked + .slider {
+    background: linear-gradient(135deg, #d35400, #e67e22);
+}
+
+/* Notification Toggle Special Styles */
+.notification-option .option-icon {
+    position: relative;
+}
+
+.notification-option .option-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    animation: notificationDot 2s infinite;
+}
+
+#notificationToggle:checked + .slider {
+    background: linear-gradient(135deg, #e74c3c, #f39c12);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+#notificationToggle:not(:checked) + .slider {
+    background-color: #ccc;
+}
+
+#notificationToggle:checked + .slider .switch-circle {
+    background-color: white;
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
+}
+
+#notificationToggle:checked + .slider .switch-circle::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #e74c3c;
+    top: 8px;
+    left: 8px;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.8);
+    animation: pulse 1.5s infinite;
+}
+
+#notificationToggle:checked + .slider .switch-circle::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(231, 76, 60, 0.3);
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    animation: notificationPulse 1.5s infinite;
+    opacity: 1;
+}
+
+/* Animation for notification bell icon */
+.notification-option:hover .option-icon {
+    animation: bellShake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform-origin: top center;
+}
+
+@keyframes bellShake {
+    0% { transform: rotate(0); }
+    15% { transform: rotate(10deg); }
+    30% { transform: rotate(-10deg); }
+    45% { transform: rotate(6deg); }
+    60% { transform: rotate(-6deg); }
+    75% { transform: rotate(3deg); }
+    85% { transform: rotate(-3deg); }
+    92% { transform: rotate(1deg); }
+    100% { transform: rotate(0); }
+}
+
+@keyframes notificationPulse {
+    0% { transform: scale(0.8); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.5; }
+    100% { transform: scale(0.8); opacity: 1; }
+}
+
+@keyframes notificationDot {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .switch .slider {
+    background-color: #333;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .switch .slider .switch-circle {
+    background-color: #444;
+}
+
+body.dark-mode input:checked + .slider .switch-circle {
+    background-color: white;
+}
+
+/* High Contrast Mode */
+body.high-contrast .switch .slider {
+    background-color: #000;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .switch .slider .switch-circle {
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+body.high-contrast input:checked + .slider {
+    background: #000;
+}
+
+body.high-contrast input:checked + .slider .switch-circle {
+    background-color: #fff;
+}
+
+body.high-contrast input:checked + .slider .switch-circle::before {
+    border-color: #000;
+}
+
+/* Animation for toggle switch */
+@keyframes toggleOn {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(32px); }
+    70% { transform: translateX(28px); }
+    100% { transform: translateX(30px); }
+}
+
+@keyframes toggleOff {
+    0% { transform: translateX(30px); }
+    50% { transform: translateX(-2px); }
+    70% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
+}
+
+input:checked + .slider .switch-circle {
+    animation: toggleOn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.switch input:not(:checked) + .slider .switch-circle {
+    animation: toggleOff 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Ripple Effect */
+.switch::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.switch:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0) translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(20) translate(-50%, -50%);
+        opacity: 0;
+    }
+}

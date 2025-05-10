@@ -1,0 +1,293 @@
+/* High Contrast Navigation Styles */
+
+/* Desktop Navigation - High Contrast Mode */
+body.high-contrast .desktop-nav {
+    background-color: #000 !important;
+    border-bottom: 3px solid #fff !important;
+    padding: 10px 0 !important;
+    position: relative !important;
+}
+
+/* Add a visible outline to the entire navigation bar */
+body.high-contrast .desktop-nav::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: #000 !important;
+    border-bottom: 5px solid #fff !important;
+    z-index: -1 !important;
+}
+
+body.high-contrast .desktop-nav .container {
+    background-color: #000 !important;
+    border: 2px solid #fff !important;
+    border-radius: 8px !important;
+    padding: 5px !important;
+}
+
+body.high-contrast .desktop-nav ul {
+    display: flex !important;
+    justify-content: space-around !important;
+    background-color: #000 !important;
+    padding: 5px !important;
+    border-radius: 5px !important;
+}
+
+body.high-contrast .desktop-nav ul li.nav-item {
+    margin: 0 5px !important;
+    position: relative !important;
+}
+
+body.high-contrast .desktop-nav ul li.nav-item a {
+    color: #fff !important;
+    background-color: #000 !important;
+    border: 2px solid #fff !important;
+    margin: 0;
+    padding: 8px 15px !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: visible !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Add a highlight effect to make links more visible */
+body.high-contrast .desktop-nav ul li.nav-item a::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: -2px !important;
+    right: -2px !important;
+    bottom: -2px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 8px !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
+body.high-contrast .desktop-nav ul li.nav-item a:hover,
+body.high-contrast .desktop-nav ul li.nav-item.active a {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+    box-shadow: 0 0 0 2px #000, 0 0 0 4px #fff !important;
+}
+
+/* Dropdown Menu in High Contrast Mode */
+body.high-contrast .desktop-nav .dropdown-content {
+    background-color: #000 !important;
+    border: 3px solid #fff !important;
+    padding: 10px !important;
+    margin-top: 5px !important;
+    width: 250px !important;
+    box-shadow: 0 0 0 4px #000, 0 0 0 6px #fff !important;
+    z-index: 100 !important;
+}
+
+body.high-contrast .desktop-nav .dropdown-content a {
+    color: #fff !important;
+    background-color: #000 !important;
+    border: 2px solid #fff !important;
+    margin: 8px !important;
+    padding: 10px !important;
+    text-align: center !important;
+    display: block !important;
+    font-weight: bold !important;
+    border-radius: 6px !important;
+}
+
+body.high-contrast .desktop-nav .dropdown-content a:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Logo in High Contrast Mode */
+body.high-contrast .logo a {
+    color: #fff !important;
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    text-shadow: none !important;
+    background-color: #000 !important;
+    padding: 5px 15px !important;
+    border: 3px solid #fff !important;
+    border-radius: 10px !important;
+    display: inline-block !important;
+}
+
+body.high-contrast .logo a:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+/* Dropdown Indicator in High Contrast Mode */
+body.high-contrast .desktop-nav .has-dropdown > a::after {
+    content: '▼' !important;
+    display: inline-block !important;
+    margin-right: 8px !important;
+    font-size: 12px !important;
+    color: #fff !important;
+    position: relative !important;
+    top: 2px !important;
+}
+
+body.high-contrast .desktop-nav .has-dropdown:hover > a::after,
+body.high-contrast .desktop-nav .has-dropdown > a:hover::after {
+    color: #000 !important;
+}
+
+/* Mobile Navigation - High Contrast Mode */
+body.high-contrast .mobile-nav {
+    background-color: #000 !important;
+    border-top: 3px solid #fff !important;
+}
+
+body.high-contrast .mobile-nav ul li.nav-item a {
+    color: #fff !important;
+    background-color: transparent !important;
+    border: none !important;
+    position: relative;
+    z-index: 2;
+}
+
+body.high-contrast .mobile-nav ul li.nav-item a i,
+body.high-contrast .mobile-nav ul li.nav-item a span {
+    color: #fff !important;
+    font-weight: 700;
+}
+
+body.high-contrast .mobile-nav ul li.nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    background-color: #fff !important;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+body.high-contrast .mobile-nav ul li.nav-item.active a i,
+body.high-contrast .mobile-nav ul li.nav-item.active a span {
+    color: #000 !important;
+    font-weight: 900;
+    position: relative;
+    z-index: 3;
+}
+
+body.high-contrast .nav-indicator {
+    background: #fff !important;
+    height: 5px !important;
+    box-shadow: 0 0 10px #fff !important;
+}
+
+/* Dark High Contrast Mode - Desktop Navigation */
+body.dark-mode.high-contrast .desktop-nav {
+    background-color: #000 !important;
+    border-bottom: 3px solid #fff !important;
+}
+
+body.dark-mode.high-contrast .desktop-nav ul li.nav-item a {
+    color: #fff !important;
+    background-color: #000 !important;
+    border: 2px solid #fff !important;
+}
+
+body.dark-mode.high-contrast .desktop-nav ul li.nav-item a:hover,
+body.dark-mode.high-contrast .desktop-nav ul li.nav-item.active a {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+/* Dark High Contrast Mode - Mobile Navigation */
+body.dark-mode.high-contrast .mobile-nav {
+    background-color: #000 !important;
+    border-top: 3px solid #fff !important;
+}
+
+body.dark-mode.high-contrast .mobile-nav ul li.nav-item a {
+    color: #fff !important;
+}
+
+body.dark-mode.high-contrast .mobile-nav ul li.nav-item a i,
+body.dark-mode.high-contrast .mobile-nav ul li.nav-item a span {
+    color: #fff !important;
+}
+
+body.dark-mode.high-contrast .mobile-nav ul li.nav-item.active::before {
+    background-color: #fff !important;
+}
+
+body.dark-mode.high-contrast .mobile-nav ul li.nav-item.active a i,
+body.dark-mode.high-contrast .mobile-nav ul li.nav-item.active a span {
+    color: #000 !important;
+}
+
+/* Floating Settings Button - High Contrast */
+body.high-contrast .floating-settings-btn {
+    background-color: #000 !important;
+    border: 3px solid #fff !important;
+}
+
+body.high-contrast .floating-settings-btn i {
+    color: #fff !important;
+}
+
+body.high-contrast .floating-settings-btn:hover {
+    background-color: #fff !important;
+}
+
+body.high-contrast .floating-settings-btn:hover i {
+    color: #000 !important;
+}
+
+/* Focus Styles for Accessibility */
+body.high-contrast a:focus,
+body.high-contrast button:focus,
+body.high-contrast .nav-item a:focus {
+    outline: 3px solid #fff !important;
+    outline-offset: 2px;
+}
+
+body.dark-mode.high-contrast a:focus,
+body.dark-mode.high-contrast button:focus,
+body.dark-mode.high-contrast .nav-item a:focus {
+    outline: 3px solid #fff !important;
+    outline-offset: 2px;
+}
+
+/* Mobile Menu Button - High Contrast */
+body.high-contrast .mobile-menu-btn,
+body.high-contrast .search-btn,
+body.high-contrast .settings-btn {
+    background-color: #000 !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+}
+
+body.high-contrast .mobile-menu-btn:hover,
+body.high-contrast .search-btn:hover,
+body.high-contrast .settings-btn:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .mobile-menu-btn i,
+body.high-contrast .search-btn i,
+body.high-contrast .settings-btn i {
+    color: #fff !important;
+}
+
+body.high-contrast .mobile-menu-btn:hover i,
+body.high-contrast .search-btn:hover i,
+body.high-contrast .settings-btn:hover i {
+    color: #000 !important;
+}
