@@ -113,6 +113,75 @@ body.dark-mode .nav-indicator {
     background-color: var(--primary-color);
 }
 
+/* Mobile Dropdown Menu in Dark Mode */
+body.dark-mode .mobile-menu-popup {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .popup-content {
+    background-color: rgba(26, 26, 38, 0.95);
+    border-top: 4px solid var(--primary-color);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(74, 192, 252, 0.2);
+    border-right: 1px solid rgba(74, 192, 252, 0.2);
+}
+
+body.dark-mode .popup-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .popup-header h2 {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .close-popup,
+body.dark-mode .close-search-popup,
+body.dark-mode .close-settings-popup {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+}
+
+body.dark-mode .popup-header h2 i::after {
+    background-color: rgba(74, 192, 252, 0.2);
+}
+
+body.dark-mode .menu-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .menu-item a {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .menu-item a:hover {
+    background-color: rgba(74, 192, 252, 0.1);
+}
+
+body.dark-mode .menu-item i {
+    color: var(--icon-color);
+}
+
+/* Mobile Dropdown Menus */
+body.dark-mode .mobile-dropdown-content {
+    background-color: rgba(20, 20, 30, 0.95) !important;
+    border: 1px solid rgba(74, 192, 252, 0.2) !important;
+}
+
+body.dark-mode .mobile-dropdown-content li a {
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .mobile-dropdown-content li a:hover {
+    background-color: rgba(74, 192, 252, 0.2) !important;
+    color: var(--text-primary-dark) !important;
+}
+
+body.dark-mode .mobile-dropdown-content li a i {
+    color: var(--icon-color) !important;
+}
+
 /* Theme-specific mobile navigation styles */
 body.dark-mode[data-theme="green"] .mobile-nav {
     border-color: rgba(46, 204, 113, 0.2);
