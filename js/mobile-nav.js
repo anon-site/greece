@@ -193,15 +193,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Dark Mode Toggle
     if (darkModeToggle) {
-        // Check if dark mode is enabled
+        // Check if dark mode is enabled - only if explicitly set by user
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
             darkModeToggle.checked = true;
-        } else if (localStorage.getItem('darkMode') === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            // If user hasn't set preference but their system is in dark mode
-            document.body.classList.add('dark-mode');
-            darkModeToggle.checked = true;
-            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            // Default to day mode regardless of system preference
+            document.body.classList.remove('dark-mode');
+            darkModeToggle.checked = false;
+            localStorage.setItem('darkMode', 'disabled');
         }
         
         darkModeToggle.addEventListener('change', function() {
