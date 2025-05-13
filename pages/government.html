@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل الحكومي | الحياة في اليونان</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { background: #f7f8fa; font-family: 'Cairo', sans-serif; }
+      .gov-header {
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 48px 0 24px 0;
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .gov-header h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: #1a5276;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+      .gov-header p {
+        color: #444;
+        font-size: 1.13rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .gov-section {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px #1a52760a;
+        margin: 0 auto 36px auto;
+        padding: 36px 28px;
+        max-width: 950px;
+      }
+      .gov-section-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #1a5276;
+        margin-bottom: 18px;
+        border-right: 4px solid #8e44ad;
+        padding-right: 12px;
+      }
+      .gov-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: #fafbfc;
+      }
+      .gov-table th, .gov-table td {
+        border: 1px solid #e5e7eb;
+        padding: 10px 8px;
+        text-align: right;
+        font-size: 1.01rem;
+      }
+      .gov-table th {
+        background: #f0f3f7;
+        color: #1a5276;
+        font-weight: 700;
+      }
+      .gov-steps {
+        margin: 0 0 18px 0;
+        padding: 0 0 0 0;
+        list-style: decimal inside;
+        color: #333;
+      }
+      .gov-steps li {
+        margin-bottom: 7px;
+        font-size: 1.01rem;
+      }
+      .gov-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .gov-link-btn {
+        background: #1a5276;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 22px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s;
+        display: inline-block;
+      }
+      .gov-link-btn:hover { background: #8e44ad; }
+      .gov-faq {
+        margin: 0 auto 18px auto;
+        max-width: 900px;
+      }
+      .gov-faq-item {
+        background: #f7f8fa;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+      .gov-faq-q {
+        font-weight: 700;
+        color: #1a5276;
+        font-size: 1.07rem;
+        padding: 14px 18px;
+        cursor: pointer;
+        position: relative;
+      }
+      .gov-faq-q:after {
+        content: '\f078';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8e44ad;
+        transition: transform 0.3s;
+      }
+      .gov-faq-item.open .gov-faq-q:after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      .gov-faq-a {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s, opacity 0.4s;
+        color: #333;
+        font-size: 0.99rem;
+        padding: 0 18px;
+        background: #fff;
+      }
+      .gov-faq-item.open .gov-faq-a {
+        max-height: 200px;
+        opacity: 1;
+        padding-bottom: 14px;
+      }
+      .gov-tips {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .gov-tip-box {
+        background: #f0f3f7;
+        border-right: 4px solid #8e44ad;
+        border-radius: 10px;
+        padding: 16px 14px;
+        color: #333;
+        font-size: 1.01rem;
+        font-weight: 500;
+      }
+      @media (max-width: 700px) {
+        .gov-section { padding: 18px 6px; }
+        .gov-header { padding: 28px 0 14px 0; }
+        .gov-header h1 { font-size: 1.3rem; }
+        .gov-section-title { font-size: 1.1rem; }
+      }
+    </style>
+</head>
+<body>
+  <div class="gov-header">
+    <h1>الدليل الحكومي الرسمي في اليونان</h1>
+    <p>كل ما تحتاج معرفته عن الدوائر الحكومية والخدمات الرسمية للمقيمين واللاجئين في اليونان، بخطوات عملية وروابط مباشرة.</p>
+  </div>
+
+  <!-- البلدية -->
+  <section class="gov-section">
+    <div class="gov-section-title">البلدية (Δήμος)</div>
+    <table class="gov-table">
+      <tr><th>الخدمات</th><td>شهادات الميلاد والزواج، تسجيل السكن، تسجيل الأطفال بالمدارس، إثبات العنوان.</td></tr>
+      <tr><th>العنوان</th><td>حسب منطقتك، مثال: بلدية أثينا، شارع أثيناس 63.</td></tr>
+      <tr><th>أوقات الدوام</th><td>الاثنين-الجمعة 8:00-14:00</td></tr>
+    </table>
+    <div class="gov-links">
+      <a href="https://www.cityofathens.gr/" target="_blank" class="gov-link-btn">موقع بلدية أثينا</a>
+    </div>
+    <ul class="gov-steps">
+      <li>تأكد من إحضار جميع الوثائق الأصلية والمترجمة.</li>
+      <li>يفضل الحضور باكرًا لتجنب الازدحام.</li>
+      <li>بعض المعاملات تتطلب حجز موعد مسبق.</li>
+    </ul>
+  </section>
+
+  <!-- مكتب الضرائب -->
+  <section class="gov-section">
+    <div class="gov-section-title">مكتب الضرائب (AADE)</div>
+    <table class="gov-table">
+      <tr><th>الخدمات</th><td>فتح رقم AFM (الرقم الضريبي)، التصاريح الضريبية، دفع الضرائب، فتح حساب بنكي.</td></tr>
+      <tr><th>رابط رسمي</th><td><a href="https://www.aade.gr/" target="_blank" class="gov-link-btn">موقع AADE</a></td></tr>
+    </table>
+    <ol class="gov-steps">
+      <li>حجز موعد عبر الموقع أو زيارة المكتب.</li>
+      <li>تجهيز جواز السفر، إثبات سكن (عقد إيجار أو فاتورة)، تصريح إقامة.</li>
+      <li>تعبئة استمارة الطلب وتقديمها للموظف.</li>
+      <li>استلام رقم AFM فورًا أو خلال يومين.</li>
+    </ol>
+    <div class="gov-tip-box">لا عمل أو عقد إيجار بدون AFM.</div>
+  </section>
+
+  <!-- الهجرة والإقامة -->
+  <section class="gov-section">
+    <div class="gov-section-title">الهجرة والإقامة</div>
+    <table class="gov-table">
+      <tr><th>الخدمات</th><td>إصدار وتجديد الإقامة، متابعة طلبات اللجوء، تصاريح العمل للأجانب.</td></tr>
+      <tr><th>رابط رسمي</th><td><a href="https://www.immigration.gov.gr/" target="_blank" class="gov-link-btn">موقع الهجرة</a></td></tr>
+    </table>
+    <ol class="gov-steps">
+      <li>حجز موعد إلكتروني عبر الموقع.</li>
+      <li>تجهيز المستندات: جواز السفر، تصريح الإقامة القديم، صور شخصية، إثبات سكن، عقد عمل أو دراسة.</li>
+      <li>الحضور في الموعد وتقديم الطلب.</li>
+      <li>استلام الإقامة الجديدة بعد الموافقة.</li>
+    </ol>
+    <div class="gov-tip-box">المواعيد غالبًا إلكترونية ويجب الحجز مسبقًا.</div>
+  </section>
+
+  <!-- الشرطة -->
+  <section class="gov-section">
+    <div class="gov-section-title">الشرطة (ΕΛ.ΑΣ)</div>
+    <table class="gov-table">
+      <tr><th>الخدمات</th><td>توثيق المستندات، البلاغات، تصاريح الإقامة المؤقتة، شهادات فقدان.</td></tr>
+      <tr><th>أرقام هامة</th><td>الطوارئ 100، فقدان مستندات 210 69 80 200</td></tr>
+      <tr><th>رابط رسمي</th><td><a href="https://www.astynomia.gr/" target="_blank" class="gov-link-btn">شرطة اليونان</a></td></tr>
+    </table>
+    <ul class="gov-steps">
+      <li>راجع الشرطة فور فقدان أي مستند.</li>
+      <li>احتفظ بنسخة من البلاغ لأي معاملة رسمية لاحقة.</li>
+    </ul>
+  </section>
+
+  <!-- التأمينات الاجتماعية -->
+  <section class="gov-section">
+    <div class="gov-section-title">التأمينات الاجتماعية (EFKA)</div>
+    <table class="gov-table">
+      <tr><th>الخدمات</th><td>التسجيل في AMKA، التأمين الصحي، خدمات التقاعد، دعم الأسرة.</td></tr>
+      <tr><th>رابط رسمي</th><td><a href="https://www.efka.gov.gr/" target="_blank" class="gov-link-btn">EFKA</a></td></tr>
+    </table>
+    <ol class="gov-steps">
+      <li>زيارة أقرب مكتب EFKA أو مركز خدمة المواطنين (KEP).</li>
+      <li>تقديم جواز السفر، تصريح الإقامة، إثبات سكن.</li>
+      <li>استلام رقم AMKA فورًا.</li>
+    </ol>
+    <div class="gov-tip-box">رقم AMKA ضروري للعلاج والعمل الرسمي.</div>
+  </section>
+
+  <!-- السجل المدني -->
+  <section class="gov-section">
+    <div class="gov-section-title">السجل المدني</div>
+    <table class="gov-table">
+      <tr><th>الخدمات</th><td>إصدار شهادات الميلاد، الوفاة، الزواج، الطلاق، توثيق الحالة المدنية.</td></tr>
+      <tr><th>العنوان</th><td>حسب منطقتك، مثال: السجل المدني المركزي بأثينا.</td></tr>
+      <tr><th>أوقات الدوام</th><td>الاثنين-الجمعة 8:00-14:00</td></tr>
+    </table>
+    <ul class="gov-steps">
+      <li>راجع السجل المدني عند أي تغيير في الحالة الشخصية.</li>
+      <li>تأكد من إحضار جميع الوثائق الأصلية والمترجمة.</li>
+    </ul>
+  </section>
+
+  <!-- روابط وأرقام هامة -->
+  <section class="gov-section">
+    <div class="gov-section-title">روابط وأرقام هامة</div>
+    <div class="gov-links">
+      <a href="https://www.aade.gr/" target="_blank" class="gov-link-btn">موقع الضرائب اليوناني (AADE)</a>
+      <a href="https://www.efka.gov.gr/" target="_blank" class="gov-link-btn">موقع التأمين الاجتماعي (EFKA)</a>
+      <a href="https://www.immigration.gov.gr/" target="_blank" class="gov-link-btn">موقع الهجرة والإقامة</a>
+      <a href="https://www.gov.gr/" target="_blank" class="gov-link-btn">بوابة الحكومة اليونانية (gov.gr)</a>
+      <a href="tel:1555" class="gov-link-btn">رقم استعلامات الحكومة 1555</a>
+    </div>
+  </section>
+
+  <!-- أسئلة شائعة -->
+  <section class="gov-section">
+    <div class="gov-section-title">أسئلة شائعة حول الدوائر الحكومية</div>
+    <div class="gov-faq">
+      <div class="gov-faq-item">
+        <div class="gov-faq-q">كيف أفتح ملف ضريبي لأول مرة؟</div>
+        <div class="gov-faq-a">تحتاج جواز سفر، إثبات سكن، وتقديم الطلب في مكتب الضرائب أو عبر موقع AADE. غالبًا تحتاج موعدًا مسبقًا.</div>
+      </div>
+      <div class="gov-faq-item">
+        <div class="gov-faq-q">هل أحتاج لمترجم في كل دائرة؟</div>
+        <div class="gov-faq-a">ليس دائمًا، لكن وجود مترجم أو صديق يتقن اليونانية يسهل عليك كثيرًا ويوفر الوقت.</div>
+      </div>
+      <div class="gov-faq-item">
+        <div class="gov-faq-q">ما هي أسرع طريقة لحجز موعد؟</div>
+        <div class="gov-faq-a">استخدم المواقع الرسمية لكل دائرة أو اتصل برقم 1555 للاستفسار عن المواعيد المتاحة.</div>
+      </div>
+      <div class="gov-faq-item">
+        <div class="gov-faq-q">ماذا أفعل إذا فقدت مستندًا رسميًا؟</div>
+        <div class="gov-faq-a">توجه فورًا إلى أقرب مركز شرطة للإبلاغ، واطلب شهادة فقدان لتقديمها للجهات الرسمية.</div>
+      </div>
+      <div class="gov-faq-item">
+        <div class="gov-faq-q">كيف أتابع معاملتي إلكترونيًا؟</div>
+        <div class="gov-faq-a">معظم الدوائر توفر خدمة متابعة الطلبات عبر مواقعها الرسمية أو عبر gov.gr.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- نصائح عملية -->
+  <section class="gov-section">
+    <div class="gov-section-title">نصائح عملية لنجاح معاملتك</div>
+    <div class="gov-tips">
+      <div class="gov-tip-box">تعلم كلمات يونانية أساسية، فهذا يسهل عليك التواصل مع الموظفين.</div>
+      <div class="gov-tip-box">احجز مواعيدك مبكرًا، فالمواعيد قد تكون ممتلئة.</div>
+      <div class="gov-tip-box">احتفظ بنسخ إلكترونية من مستنداتك على هاتفك أو بريدك الإلكتروني.</div>
+      <div class="gov-tip-box">استعن بصديق أو مترجم إذا لم تكن تتقن اليونانية.</div>
+    </div>
+  </section>
+
+  <footer style="background:#fff;border-top:1px solid #e5e7eb;margin-top:36px;">
+    <div style="max-width:950px;margin:0 auto;padding:24px 0 12px 0;text-align:center;">
+      <div style="font-weight:700;color:#1a5276;font-size:1.1rem;">الحياة في اليونان</div>
+      <div style="color:#888;font-size:0.97rem;margin:6px 0 0 0;">&copy; 2025 جميع الحقوق محفوظة.</div>
+    </div>
+  </footer>
+  <script>
+    // أكورديون الأسئلة الشائعة
+    document.querySelectorAll('.gov-faq-q').forEach(q => {
+      q.onclick = function() {
+        const item = this.closest('.gov-faq-item');
+        if(item.classList.contains('open')) {item.classList.remove('open'); return;}
+        document.querySelectorAll('.gov-faq-item').forEach(i=>i.classList.remove('open'));
+        item.classList.add('open');
+      }
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عقارات وسكن | الحياة في اليونان</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/tabs.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/mobile-popups.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="../css/accessibility.css">
+    <link rel="stylesheet" href="../css/nav-dark-mode.css">
+    <link rel="stylesheet" href="../css/reading-mode.css">
+    <link rel="stylesheet" href="../css/toggle-switches.css">
+    <link rel="stylesheet" href="../css/high-contrast-nav.css">
+    <link rel="stylesheet" href="../css/toast.css">
+    <link rel="stylesheet" href="../css/color-themes.css">
+    <link rel="stylesheet" href="../css/modern-mobile-popups.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    @media (max-width:600px) {
+      body { font-size: 0.97rem; }
+      header .container, .container { padding: 0 6px !important; }
+      h1, h2, h3, h4, h5 { font-size: 1.05em !important; }
+      .service-detail-hero, .service-hero, .asylum-hero, .asylum-hero-modern, .asylum-hero-pro, .asylum-hero-ultra {
+        min-height: 60vh !important; height: auto !important; padding: 30px 0 20px 0 !important;
+      }
+      .hero-content, .hero-flex, .hero-flex-pro { flex-direction: column !important; gap: 14px !important; }
+      .hero-img, .hero-avatar-pro img { max-width: 120px !important; height: auto !important; }
+      .service-detail-content .container, .asylum-hero-glass, .asylum-hero-glass-modern, .hero-glass-pro, .asylum-hero-glass-ultra {
+        padding: 14px 2vw 14px 2vw !important; max-width: 98vw !important;
+      }
+      .details-grid, .timeline, .office-cards, .gallery-map-flex, .stories-grid, .org-cards-pro, .links-grid-pro, .faq-glass-list {
+        flex-direction: column !important; gap: 10px !important; max-width: 99vw !important;
+      }
+      .timeline-step, .office-card, .doc-card, .org-card-pro, .link-card-pro, .faq-glass-item, .detail-card, .info-box {
+        min-width: 0 !important; max-width: 100vw !important; padding: 12px 6px !important; font-size: 0.97em !important;
+      }
+      .office-card img, .org-img-pro img, .gallery img { max-width: 100% !important; height: auto !important; }
+      .tips-box, .story-card, .tips-section .tips-box, .faq-glass-item, .faq-card-pro {
+        padding: 10px 8px !important; font-size: 0.97em !important;
+      }
+      .links-header-pro h3, .links-header-pro h2 { font-size: 1.1em !important; }
+      .links-desc-pro { font-size: 0.93em !important; }
+      .org-img-pro, .link-icon-pro { width: 38px !important; height: 38px !important; font-size: 1em !important; }
+      .org-card-pro h4, .link-title-pro { font-size: 1em !important; }
+      .org-badge-pro, .link-desc-pro { font-size: 0.89em !important; }
+      .footer-content-wrapper, .footer-content, .footer-center-wrapper { flex-direction: column !important; gap: 8px !important; }
+      .footer-center-logo, .footer-center-text, .footer-center-social { text-align: center !important; }
+      .footer-center-logo .logo-icon { font-size: 1.5em !important; }
+      .footer-bottom { flex-direction: column !important; gap: 6px !important; font-size: 0.93em !important; }
+      .footer-bottom-links a { font-size: 0.93em !important; }
+      .mobile-menu-popup .popup-content, .mobile-settings-popup .popup-content, .mobile-search-popup .popup-content { padding: 10px 4px !important; }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-globe-europe"></i> الحياة في اليونان</h1>
+                <div class="tagline">دليلك الشامل للحياة في اليونان</div>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="asylum.html"><i class="fas fa-passport"></i> دوائر اللجوء</a>
+                            <a href="government.html"><i class="fas fa-landmark"></i> دوائر حكومية</a>
+                            <a href="housing.html"><i class="fas fa-home"></i> عقارات وسكن</a>
+                            <a href="hospitals.html"><i class="fas fa-hospital"></i> مستشفيات</a>
+                            <a href="transportation.html"><i class="fas fa-bus"></i> خطوط النقل</a>
+                            <a href="tourism-services.html"><i class="fas fa-umbrella-beach"></i> سياحة</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i> منظمات إنسانية</a>
+                            <a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</a>
+                            <a href="../index.html#educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#service-offices"><i class="fas fa-cogs"></i> مكاتب خدمية</a>
+                            <a href="../index.html#accounting"><i class="fas fa-calculator"></i> مكاتب محاسبة</a>
+                            <a href="../index.html#lawyers"><i class="fas fa-gavel"></i> مكاتب محامين</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#hotels"><i class="fas fa-hotel"></i> فنادق</a>
+                            <a href="../index.html#pharmacies"><i class="fas fa-store"></i> صيدليات ومتاجر</a>
+                            <a href="../index.html#restaurants"><i class="fas fa-utensils"></i> مطاعم</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="nav-indicator"></div>
+        <ul>
+            <li class="nav-item"><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
+            <li class="nav-item search-btn"><a href="#search"><i class="fas fa-search"></i><span>البحث</span></a></li>
+            <li class="nav-item mobile-menu-btn"><a href="#menu"><i class="fas fa-bars"></i><span>القائمة</span></a></li>
+            <li class="nav-item settings-btn"><a href="#settings"><i class="fas fa-cog"></i><span>الإعدادات</span></a></li>
+        </ul>
+    </nav>
+    <!-- Main Content -->
+    <section class="service-detail-hero housing-hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1><i class="fas fa-home"></i> السكن والعقارات في اليونان</h1>
+                <p>دليلك للبحث عن سكن، الإيجار، الشراء، النصائح، والأوراق المطلوبة.</p>
+            </div>
+        </div>
+    </section>
+    <section class="service-detail-content">
+        <div class="container">
+            <div class="info-box">
+                <h2><i class="fas fa-info-circle"></i> مقدمة عن السكن في اليونان</h2>
+                <p>تتوفر في اليونان خيارات سكن متنوعة تناسب جميع الميزانيات، من الاستوديوهات الصغيرة إلى الشقق والفيلات. تعرف على أهم النصائح والمواقع.</p>
+            </div>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3><i class="fas fa-search"></i> نصائح البحث عن سكن</h3>
+                    <ul>
+                        <li>استخدم مواقع موثوقة مثل Spitogatos.gr و xe.gr و Homie.gr</li>
+                        <li>قم بزيارة العقار قبل توقيع العقد</li>
+                        <li>تأكد من وجود عقد قانوني مسجل</li>
+                        <li>اسأل عن تكاليف الخدمات (الكهرباء، الماء، الإنترنت)</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><i class="fas fa-file-alt"></i> الأوراق المطلوبة للإيجار</h3>
+                    <ul>
+                        <li>إقامة سارية</li>
+                        <li>عقد عمل أو إثبات دخل</li>
+                        <li>ضمان مالي أو كفيل أحياناً</li>
+                        <li>رقم AFM (الرقم الضريبي)</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><i class="fas fa-euro-sign"></i> متوسط الأسعار</h3>
+                    <ul>
+                        <li>استوديو: 300-500€ شهرياً</li>
+                        <li>شقة غرفة نوم: 500-700€ شهرياً</li>
+                        <li>شقة غرفتين: 700-1000€ شهرياً</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><i class="fas fa-lightbulb"></i> نصائح هامة</h3>
+                    <ul>
+                        <li>لا تدفع أي مبلغ قبل توقيع العقد</li>
+                        <li>احتفظ بنسخة من العقد والإيصالات</li>
+                        <li>تأكد من حالة العقار قبل الاستلام</li>
+                        <li>اسأل عن حقوقك كمستأجر</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="links-section links-section-pro">
+                <div class="container">
+                    <div class="links-header-pro">
+                        <h3><i class="fas fa-link"></i> روابط هامة وأدوات تواصل</h3>
+                        <p class="links-desc-pro">أهم المواقع والمنصات للبحث عن سكن وعقارات في اليونان</p>
+                    </div>
+                    <div class="links-grid-pro">
+                        <div class="link-card-pro" style="--card-color:#1a5276;">
+                            <div class="link-icon-pro"><i class="fas fa-home"></i></div>
+                            <div class="link-content-pro">
+                                <a href="https://www.spitogatos.gr/" target="_blank" class="link-title-pro">Spitogatos - البحث عن سكن</a>
+                                <div class="link-desc-pro">أكبر منصة إلكترونية للبحث عن شقق واستوديوهات للإيجار والشراء.</div>
+                            </div>
+                        </div>
+                        <div class="link-card-pro" style="--card-color:#27ae60;">
+                            <div class="link-icon-pro"><i class="fas fa-building"></i></div>
+                            <div class="link-content-pro">
+                                <a href="https://www.xe.gr/property" target="_blank" class="link-title-pro">Xe.gr - عقارات</a>
+                                <div class="link-desc-pro">موقع شامل للعقارات بجميع أنواعها في اليونان.</div>
+                            </div>
+                        </div>
+                        <div class="link-card-pro" style="--card-color:#2980b9;">
+                            <div class="link-icon-pro"><i class="fas fa-key"></i></div>
+                            <div class="link-content-pro">
+                                <a href="https://www.homie.gr/" target="_blank" class="link-title-pro">Homie - إيجار وشراء</a>
+                                <div class="link-desc-pro">خدمات متكاملة للبحث عن سكن مع دعم للمغتربين.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-section-glass" id="faq">
+                <div class="container">
+                    <div class="faq-glass-header">
+                        <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة حول السكن والعقارات</h2>
+                        <p class="faq-glass-desc">أجوبة مختصرة وواضحة لأهم التساؤلات حول السكن والإيجار في اليونان</p>
+                    </div>
+                    <div class="faq-glass-list">
+                        <div class="faq-glass-item" data-faq>
+                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#1a5276;"><span class="faq-glass-icon"><i class="fas fa-file-contract"></i></span> هل يجب تسجيل عقد الإيجار رسمياً؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
+                            <div class="faq-glass-a">نعم، يجب تسجيل العقد في مصلحة الضرائب (AADE) ليكون قانونياً.</div>
+                        </div>
+                        <div class="faq-glass-item" data-faq>
+                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#27ae60;"><span class="faq-glass-icon"><i class="fas fa-euro-sign"></i></span> ما متوسط أسعار الإيجار؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
+                            <div class="faq-glass-a">تتراوح بين 300-1000 يورو حسب المدينة ونوع العقار.</div>
+                        </div>
+                        <div class="faq-glass-item" data-faq>
+                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#2980b9;"><span class="faq-glass-icon"><i class="fas fa-lightbulb"></i></span> ما أهم النصائح عند البحث عن سكن؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
+                            <div class="faq-glass-a">زيارة العقار قبل التوقيع، التأكد من العقد، وعدم دفع أي مبلغ قبل التأكد من المالك.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2c3e50" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+        
+        <div class="footer-content-wrapper">
+            <div class="container">
+                <!-- Main Footer Content -->
+                <div class="footer-content">
+                    <div class="footer-center-wrapper">
+                        <!-- Logo Section -->
+                        <div class="footer-center-logo">
+                            <div class="logo-icon"><i class="fas fa-globe-europe"></i></div>
+                        </div>
+                        <!-- Title and Description -->
+                        <div class="footer-center-text">
+                            <h2>الحياة في اليونان</h2>
+                            <p>دليلك الشامل للحياة والخدمات في اليونان</p>
+                        </div>
+                        <!-- Social Media Icons -->
+                        <div class="footer-center-social">
+                            <div class="social-icons">
+                                <a href="#" class="telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+                                <a href="#" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>&copy; 2025 الحياة في اليونان. جميع الحقوق محفوظة.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#">سياسة الخصوصية</a>
+                        <a href="#">الشروط والأحكام</a>
+                        <a href="#">اتصل بنا</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Search Popup -->
+    <div class="mobile-search-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2><i class="fas fa-search"></i> البحث</h2>
+                <span class="close-search-popup"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="search-form">
+                <input type="text" placeholder="ابحث هنا..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <!-- Settings Popup -->
+    <div class="mobile-settings-popup">
+        <div class="popup-content settings-popup-content">
+            <div class="popup-header settings-header">
+                <div class="settings-title">
+                    <div class="settings-icon-wrapper">
+                        <i class="fas fa-cog settings-icon"></i>
+                    </div>
+                    <h2>الإعدادات</h2>
+                </div>
+                <span class="close-settings-popup"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="settings-tabs">
+                <button class="settings-tab-btn active" data-tab="appearance">
+                    <i class="fas fa-palette"></i> المظهر
+                </button>
+                <button class="settings-tab-btn" data-tab="accessibility">
+                    <i class="fas fa-universal-access"></i> سهولة الوصول
+                </button>
+                <button class="settings-tab-btn" data-tab="preferences">
+                    <i class="fas fa-sliders-h"></i> التفضيلات
+                </button>
+            </div>
+            <div class="settings-options">
+                <!-- Appearance Tab -->
+                <div class="settings-tab-content active" id="appearance-content">
+                    <div class="settings-option dark-mode-option">
+                        <div class="option-info">
+                            <i class="fas fa-moon option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">الوضع المظلم</span>
+                                <span class="option-description">تغيير مظهر الموقع إلى الوضع الليلي</span>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider round">
+                                <span class="switch-circle"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="settings-option theme-option">
+                        <div class="option-info">
+                            <i class="fas fa-paint-brush option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">السمة اللونية</span>
+                                <span class="option-description">اختر السمة اللونية المفضلة لديك</span>
+                            </div>
+                        </div>
+                        <div class="theme-selector">
+                            <button class="theme-btn active" data-theme="default" style="background: linear-gradient(135deg, #1a5276, #2980b9);"></button>
+                            <button class="theme-btn" data-theme="red" style="background: linear-gradient(135deg, #c0392b, #e74c3c);"></button>
+                            <button class="theme-btn" data-theme="pink" style="background: linear-gradient(135deg, #c2185b, #e91e63);"></button>
+                            <button class="theme-btn" data-theme="green" style="background: linear-gradient(135deg, #27ae60, #2ecc71);"></button>
+                            <button class="theme-btn" data-theme="purple" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);"></button>
+                            <button class="theme-btn" data-theme="orange" style="background: linear-gradient(135deg, #d35400, #e67e22);"></button>
+                        </div>
+                    </div>
+                    <div class="settings-option reading-mode-option">
+                        <div class="option-info">
+                            <i class="fas fa-book-reader option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">وضع القراءة</span>
+                                <span class="option-description">تحسين تنسيق النصوص لتجربة قراءة أفضل</span>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="readingModeToggle">
+                            <span class="slider round">
+                                <span class="switch-circle"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Accessibility Tab -->
+                <div class="settings-tab-content" id="accessibility-content">
+                    <div class="settings-option font-option">
+                        <div class="option-info">
+                            <i class="fas fa-font option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">حجم الخط</span>
+                                <span class="option-description">تغيير حجم الخط للموقع بالكامل</span>
+                            </div>
+                        </div>
+                        <div class="font-size-controls">
+                            <button class="font-size-btn" id="decreaseFontBtn"><i class="fas fa-minus"></i></button>
+                            <span class="font-size-value">متوسط</span>
+                            <button class="font-size-btn" id="increaseFontBtn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="settings-option contrast-option">
+                        <div class="option-info">
+                            <i class="fas fa-adjust option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">تباين عالي</span>
+                                <span class="option-description">تحسين التباين لسهولة القراءة</span>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="contrastToggle">
+                            <span class="slider round">
+                                <span class="switch-circle"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="settings-option focus-option">
+                        <div class="option-info">
+                            <i class="fas fa-eye option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">وضع التركيز</span>
+                                <span class="option-description">تقليل التشتيت وإبراز المحتوى المهم</span>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="focusModeToggle">
+                            <span class="slider round">
+                                <span class="switch-circle"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Preferences Tab -->
+                <div class="settings-tab-content" id="preferences-content">
+                    <div class="settings-option language-option">
+                        <div class="option-info">
+                            <i class="fas fa-language option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">اللغة</span>
+                                <span class="option-description">تغيير لغة الموقع</span>
+                            </div>
+                        </div>
+                        <select class="language-select">
+                            <option value="ar" selected>العربية</option>
+                            <option value="en">English</option>
+                            <option value="gr">Ελληνικά</option>
+                            <option value="de">Deutsch</option>
+                            <option value="es">Español</option>
+                            <option value="tr">Türkçe</option>
+                            <option value="fr">Français</option>
+                        </select>
+                    </div>
+                    <div class="settings-option notification-option">
+                        <div class="option-info">
+                            <i class="fas fa-bell option-icon"></i>
+                            <div class="option-text">
+                                <span class="option-label">الإشعارات</span>
+                                <span class="option-description">تفعيل إشعارات الموقع والتحديثات</span>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="notificationToggle" checked>
+                            <span class="slider round">
+                                <span class="switch-circle"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-footer">
+                    <button class="reset-settings-btn">إعادة ضبط الإعدادات</button>
+                    <div class="settings-version">الإصدار 1.2.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Popup -->
+    <div class="mobile-menu-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2><i class="fas fa-bars"></i> القائمة</h2>
+                <span class="close-popup"><i class="fas fa-times"></i></span>
+            </div>
+            <ul class="mobile-menu-list">
+                <li><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
+                <li class="mobile-dropdown">
+                    <a href="#services"><i class="fas fa-hands-helping"></i><span>الخدمات</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="asylum.html"><i class="fas fa-passport"></i><span>دوائر اللجوء</span></a></li>
+                        <li><a href="government.html"><i class="fas fa-landmark"></i><span>دوائر حكومية</span></a></li>
+                        <li><a href="housing.html"><i class="fas fa-home"></i><span>عقارات وسكن</span></a></li>
+                        <li><a href="hospitals.html"><i class="fas fa-hospital"></i><span>مستشفيات</span></a></li>
+                        <li><a href="transportation.html"><i class="fas fa-bus"></i><span>خطوط النقل</span></a></li>
+                        <li><a href="tourism-services.html"><i class="fas fa-umbrella-beach"></i><span>سياحة</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#work"><i class="fas fa-briefcase"></i><span>العمل</span></a></li>
+                <li class="mobile-dropdown">
+                    <a href="#organizations"><i class="fas fa-users"></i><span>المنظمات</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i><span>منظمات إنسانية</span></a></li>
+                        <li><a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i><span>منظمات طبية</span></a></li>
+                        <li><a href="../index.html#educational"><i class="fas fa-graduation-cap"></i><span>منظمات تعليمية</span></a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <a href="#offices"><i class="fas fa-building"></i><span>المكاتب</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="../index.html#service-offices"><i class="fas fa-cogs"></i><span>مكاتب خدمية</span></a></li>
+                        <li><a href="../index.html#accounting"><i class="fas fa-calculator"></i><span>مكاتب محاسبة</span></a></li>
+                        <li><a href="../index.html#lawyers"><i class="fas fa-gavel"></i><span>مكاتب محامين</span></a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <a href="#tourism"><i class="fas fa-plane"></i><span>السياحة</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="../index.html#hotels"><i class="fas fa-hotel"></i><span>فنادق</span></a></li>
+                        <li><a href="../index.html#pharmacies"><i class="fas fa-store"></i><span>صيدليات ومتاجر</span></a></li>
+                        <li><a href="../index.html#restaurants"><i class="fas fa-utensils"></i><span>مطاعم</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/services.js"></script>
+    <script src="../js/tabs.js"></script>
+    <script src="../js/mobile-nav.js"></script>
+    <script src="../js/theme-manager.js"></script>
+    <script>
+    document.querySelectorAll('.faq-glass-q').forEach(q => {
+        q.onclick = function() {
+            const item = this.closest('.faq-glass-item');
+            if(item.classList.contains('open')) {item.classList.remove('open'); return;}
+            document.querySelectorAll('.faq-glass-item').forEach(i=>i.classList.remove('open'));
+            item.classList.add('open');
+        }
+    });
+    </script>
+</body>
+</html> 
