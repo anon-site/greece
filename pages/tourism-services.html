@@ -21,42 +21,7 @@
     <link rel="stylesheet" href="../css/modern-mobile-popups.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-    @media (max-width:600px) {
-      body { font-size: 0.97rem; }
-      header .container, .container { padding: 0 6px !important; }
-      h1, h2, h3, h4, h5 { font-size: 1.05em !important; }
-      .service-detail-hero, .service-hero, .asylum-hero, .asylum-hero-modern, .asylum-hero-pro, .asylum-hero-ultra {
-        min-height: 60vh !important; height: auto !important; padding: 30px 0 20px 0 !important;
-      }
-      .hero-content, .hero-flex, .hero-flex-pro { flex-direction: column !important; gap: 14px !important; }
-      .hero-img, .hero-avatar-pro img { max-width: 120px !important; height: auto !important; }
-      .service-detail-content .container, .asylum-hero-glass, .asylum-hero-glass-modern, .hero-glass-pro, .asylum-hero-glass-ultra {
-        padding: 14px 2vw 14px 2vw !important; max-width: 98vw !important;
-      }
-      .details-grid, .timeline, .office-cards, .gallery-map-flex, .stories-grid, .org-cards-pro, .links-grid-pro, .faq-glass-list {
-        flex-direction: column !important; gap: 10px !important; max-width: 99vw !important;
-      }
-      .timeline-step, .office-card, .doc-card, .org-card-pro, .link-card-pro, .faq-glass-item, .detail-card, .info-box {
-        min-width: 0 !important; max-width: 100vw !important; padding: 12px 6px !important; font-size: 0.97em !important;
-      }
-      .office-card img, .org-img-pro img, .gallery img { max-width: 100% !important; height: auto !important; }
-      .tips-box, .story-card, .tips-section .tips-box, .faq-glass-item, .faq-card-pro {
-        padding: 10px 8px !important; font-size: 0.97em !important;
-      }
-      .links-header-pro h3, .links-header-pro h2 { font-size: 1.1em !important; }
-      .links-desc-pro { font-size: 0.93em !important; }
-      .org-img-pro, .link-icon-pro { width: 38px !important; height: 38px !important; font-size: 1em !important; }
-      .org-card-pro h4, .link-title-pro { font-size: 1em !important; }
-      .org-badge-pro, .link-desc-pro { font-size: 0.89em !important; }
-      .footer-content-wrapper, .footer-content, .footer-center-wrapper { flex-direction: column !important; gap: 8px !important; }
-      .footer-center-logo, .footer-center-text, .footer-center-social { text-align: center !important; }
-      .footer-center-logo .logo-icon { font-size: 1.5em !important; }
-      .footer-bottom { flex-direction: column !important; gap: 6px !important; font-size: 0.93em !important; }
-      .footer-bottom-links a { font-size: 0.93em !important; }
-      .mobile-menu-popup .popup-content, .mobile-settings-popup .popup-content, .mobile-search-popup .popup-content { padding: 10px 4px !important; }
-    }
-    </style>
+    <link rel="stylesheet" href="../css/tourism-services.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -72,7 +37,7 @@
                         <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="#"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
                             <a href="asylum.html"><i class="fas fa-passport"></i> دوائر اللجوء</a>
                             <a href="government.html"><i class="fas fa-landmark"></i> دوائر حكومية</a>
@@ -83,30 +48,30 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                        <a href="#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i> منظمات إنسانية</a>
-                            <a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</a>
-                            <a href="../index.html#educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</a>
+                            <a href="#humanitarian"><i class="fas fa-hand-holding-heart"></i> منظمات إنسانية</a>
+                            <a href="#medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</a>
+                            <a href="#educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</a>
                         </div>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#service-offices"><i class="fas fa-cogs"></i> مكاتب خدمية</a>
-                            <a href="../index.html#accounting"><i class="fas fa-calculator"></i> مكاتب محاسبة</a>
-                            <a href="../index.html#lawyers"><i class="fas fa-gavel"></i> مكاتب محامين</a>
+                            <a href="#service-offices"><i class="fas fa-cogs"></i> مكاتب خدمية</a>
+                            <a href="#accounting"><i class="fas fa-calculator"></i> مكاتب محاسبة</a>
+                            <a href="#lawyers"><i class="fas fa-gavel"></i> مكاتب محامين</a>
                         </div>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#hotels"><i class="fas fa-hotel"></i> فنادق</a>
-                            <a href="../index.html#pharmacies"><i class="fas fa-store"></i> صيدليات ومتاجر</a>
-                            <a href="../index.html#restaurants"><i class="fas fa-utensils"></i> مطاعم</a>
+                            <a href="#hotels"><i class="fas fa-hotel"></i> فنادق</a>
+                            <a href="#pharmacies"><i class="fas fa-store"></i> صيدليات ومتاجر</a>
+                            <a href="#restaurants"><i class="fas fa-utensils"></i> مطاعم</a>
                         </div>
                     </li>
                 </ul>
@@ -116,123 +81,19 @@
             </div>
         </div>
     </header>
-
+    <div class="settings-desktop-btn" id="settingsDesktopBtn">
+        <i class="fas fa-cog"></i>
+    </div>
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
         <div class="nav-indicator"></div>
         <ul>
-            <li class="nav-item"><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
+            <li class="nav-item active"><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
             <li class="nav-item search-btn"><a href="#search"><i class="fas fa-search"></i><span>البحث</span></a></li>
             <li class="nav-item mobile-menu-btn"><a href="#menu"><i class="fas fa-bars"></i><span>القائمة</span></a></li>
             <li class="nav-item settings-btn"><a href="#settings"><i class="fas fa-cog"></i><span>الإعدادات</span></a></li>
         </ul>
     </nav>
-    <!-- Main Content -->
-    <section class="service-detail-hero tourism-hero">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1><i class="fas fa-umbrella-beach"></i> السياحة في اليونان</h1>
-                <p>دليلك لأهم المعالم السياحية، الجزر، المتاحف، الأنشطة، النصائح، وأهم الروابط.</p>
-            </div>
-        </div>
-    </section>
-    <section class="service-detail-content">
-        <div class="container">
-            <div class="info-box">
-                <h2><i class="fas fa-info-circle"></i> مقدمة عن السياحة في اليونان</h2>
-                <p>اليونان من أشهر الوجهات السياحية في العالم، تشتهر بجزرها الخلابة، معالمها التاريخية، ومأكولاتها المميزة. استكشف أهم الأماكن والنصائح.</p>
-            </div>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <h3><i class="fas fa-landmark"></i> أهم المعالم السياحية</h3>
-                    <ul>
-                        <li>الأكروبوليس في أثينا - تذكرة الدخول 20€</li>
-                        <li>متحف الأكروبوليس والمتحف الأثري الوطني</li>
-                        <li>ساحة سينتاجما وحدائق أثينا الوطنية</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3><i class="fas fa-water"></i> أشهر الجزر اليونانية</h3>
-                    <ul>
-                        <li>سانتوريني: مناظر خلابة وغروب ساحر</li>
-                        <li>ميكونوس: شواطئ وحياة ليلية</li>
-                        <li>كريت: أكبر الجزر وتنوع ثقافي وطبيعي</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3><i class="fas fa-ticket-alt"></i> أسعار ونصائح</h3>
-                    <ul>
-                        <li>تذاكر المتاحف: 5-20€ حسب المكان</li>
-                        <li>استخدم وسائل النقل العامة للتوفير</li>
-                        <li>احجز الفنادق مسبقاً في المواسم السياحية</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3><i class="fas fa-lightbulb"></i> نصائح هامة</h3>
-                    <ul>
-                        <li>احمل معك واقي شمس وزجاجة ماء دائماً</li>
-                        <li>جرب المأكولات المحلية في التافيرنا</li>
-                        <li>احترم القوانين المحلية في المواقع الأثرية</li>
-                        <li>تأكد من أوقات عمل المواقع السياحية</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="links-section links-section-pro">
-                <div class="container">
-                    <div class="links-header-pro">
-                        <h3><i class="fas fa-link"></i> روابط هامة وأدوات تواصل</h3>
-                        <p class="links-desc-pro">أهم المواقع الرسمية للسياحة والسفر في اليونان</p>
-                    </div>
-                    <div class="links-grid-pro">
-                        <div class="link-card-pro" style="--card-color:#1a5276;">
-                            <div class="link-icon-pro"><i class="fas fa-globe-europe"></i></div>
-                            <div class="link-content-pro">
-                                <a href="https://www.visitgreece.gr/" target="_blank" class="link-title-pro">Visit Greece - الموقع الرسمي للسياحة</a>
-                                <div class="link-desc-pro">دليلك الرسمي لاكتشاف المعالم والجزر والأنشطة السياحية.</div>
-                            </div>
-                        </div>
-                        <div class="link-card-pro" style="--card-color:#27ae60;">
-                            <div class="link-icon-pro"><i class="fas fa-plane"></i></div>
-                            <div class="link-content-pro">
-                                <a href="https://www.aia.gr/traveler/" target="_blank" class="link-title-pro">مطار أثينا الدولي</a>
-                                <div class="link-desc-pro">معلومات الرحلات، الوصول والمغادرة، وخدمات المطار.</div>
-                            </div>
-                        </div>
-                        <div class="link-card-pro" style="--card-color:#2980b9;">
-                            <div class="link-icon-pro"><i class="fas fa-ship"></i></div>
-                            <div class="link-content-pro">
-                                <a href="https://www.ferryhopper.com/" target="_blank" class="link-title-pro">Ferryhopper - حجز العبارات للجزر</a>
-                                <div class="link-desc-pro">أفضل منصة لحجز تذاكر العبارات بين الجزر اليونانية.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-section-glass" id="faq">
-                <div class="container">
-                    <div class="faq-glass-header">
-                        <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة حول السياحة في اليونان</h2>
-                        <p class="faq-glass-desc">أجوبة مختصرة وواضحة لأهم التساؤلات حول السفر والسياحة في اليونان</p>
-                    </div>
-                    <div class="faq-glass-list">
-                        <div class="faq-glass-item" data-faq>
-                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#1a5276;"><span class="faq-glass-icon"><i class="fas fa-passport"></i></span> هل أحتاج إلى تأشيرة لدخول اليونان؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-                            <div class="faq-glass-a">يعتمد ذلك على جنسيتك، تحقق من متطلبات التأشيرة عبر الموقع الرسمي للسفارة اليونانية.</div>
-                        </div>
-                        <div class="faq-glass-item" data-faq>
-                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#27ae60;"><span class="faq-glass-icon"><i class="fas fa-umbrella-beach"></i></span> ما أفضل وقت لزيارة الجزر؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-                            <div class="faq-glass-a">أفضل الأوقات من مايو إلى سبتمبر حيث الطقس معتدل والأنشطة متنوعة.</div>
-                        </div>
-                        <div class="faq-glass-item" data-faq>
-                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#2980b9;"><span class="faq-glass-icon"><i class="fas fa-euro-sign"></i></span> كيف أوفر في تكاليف السفر؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-                            <div class="faq-glass-a">احجز الفنادق والعبارات مسبقاً، واستخدم وسائل النقل العامة، وجرب المطاعم المحلية.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Mobile Search Popup -->
     <div class="mobile-search-popup">
         <div class="popup-content">
@@ -434,30 +295,67 @@
                 <li class="mobile-dropdown">
                     <a href="#organizations"><i class="fas fa-users"></i><span>المنظمات</span></a>
                     <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i><span>منظمات إنسانية</span></a></li>
-                        <li><a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i><span>منظمات طبية</span></a></li>
-                        <li><a href="../index.html#educational"><i class="fas fa-graduation-cap"></i><span>منظمات تعليمية</span></a></li>
+                        <li><a href="#humanitarian"><i class="fas fa-hand-holding-heart"></i><span>منظمات إنسانية</span></a></li>
+                        <li><a href="#medical-org"><i class="fas fa-stethoscope"></i><span>منظمات طبية</span></a></li>
+                        <li><a href="#educational"><i class="fas fa-graduation-cap"></i><span>منظمات تعليمية</span></a></li>
                     </ul>
                 </li>
                 <li class="mobile-dropdown">
                     <a href="#offices"><i class="fas fa-building"></i><span>المكاتب</span></a>
                     <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#service-offices"><i class="fas fa-cogs"></i><span>مكاتب خدمية</span></a></li>
-                        <li><a href="../index.html#accounting"><i class="fas fa-calculator"></i><span>مكاتب محاسبة</span></a></li>
-                        <li><a href="../index.html#lawyers"><i class="fas fa-gavel"></i><span>مكاتب محامين</span></a></li>
+                        <li><a href="#service-offices"><i class="fas fa-cogs"></i><span>مكاتب خدمية</span></a></li>
+                        <li><a href="#accounting"><i class="fas fa-calculator"></i><span>مكاتب محاسبة</span></a></li>
+                        <li><a href="#lawyers"><i class="fas fa-gavel"></i><span>مكاتب محامين</span></a></li>
                     </ul>
                 </li>
                 <li class="mobile-dropdown">
                     <a href="#tourism"><i class="fas fa-plane"></i><span>السياحة</span></a>
                     <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#hotels"><i class="fas fa-hotel"></i><span>فنادق</span></a></li>
-                        <li><a href="../index.html#pharmacies"><i class="fas fa-store"></i><span>صيدليات ومتاجر</span></a></li>
-                        <li><a href="../index.html#restaurants"><i class="fas fa-utensils"></i><span>مطاعم</span></a></li>
+                        <li><a href="#hotels"><i class="fas fa-hotel"></i><span>فنادق</span></a></li>
+                        <li><a href="#pharmacies"><i class="fas fa-store"></i><span>صيدليات ومتاجر</span></a></li>
+                        <li><a href="#restaurants"><i class="fas fa-utensils"></i><span>مطاعم</span></a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
+    <!-- Hero Section -->
+    <section class="service-hero tourism-hero">
+        <div class="hero-flex">
+            <div class="hero-content">
+                <div class="hero-glass-pro">
+                    <h1>دليل السياحة في اليونان</h1>
+                    <p>استكشف أجمل الوجهات السياحية، وأهم الخدمات والمعلومات التي تهم السائح والزائر في اليونان.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main class="container">
+        <section class="info-box">
+            <h2><i class="fas fa-map-marked-alt"></i> أشهر الوجهات السياحية</h2>
+            <ul>
+                <li>أثينا: الأكروبوليس، متحف الآثار الوطني</li>
+                <li>سانتوريني: الشواطئ والمناظر الخلابة</li>
+                <li>ميكونوس: الحياة الليلية والشواطئ</li>
+                <li>كريت: القلاع والشواطئ والتاريخ</li>
+            </ul>
+        </section>
+        <section class="info-box">
+            <h2><i class="fas fa-info-circle"></i> نصائح للسياح</h2>
+            <ul>
+                <li>استخدم وسائل النقل العامة للتنقل بين المدن.</li>
+                <li>احرص على تجربة المأكولات اليونانية التقليدية.</li>
+                <li>احمل معك دائماً نسخة من جواز السفر.</li>
+            </ul>
+        </section>
+        <section class="tips-box">
+            <h2><i class="fas fa-lightbulb"></i> خدمات سياحية مهمة</h2>
+            <ul>
+                <li>مكاتب الاستعلامات السياحية متوفرة في المطارات والمدن الكبرى.</li>
+                <li>تتوفر تطبيقات ومواقع لحجز الفنادق والرحلات بسهولة.</li>
+            </ul>
+        </section>
+    </main>
     <!-- Footer -->
     <footer>
         <div class="footer-wave">
@@ -504,19 +402,8 @@
         </div>
     </footer>
     <script src="../js/main.js"></script>
-    <script src="../js/services.js"></script>
-    <script src="../js/tabs.js"></script>
     <script src="../js/mobile-nav.js"></script>
     <script src="../js/theme-manager.js"></script>
-    <script>
-    document.querySelectorAll('.faq-glass-q').forEach(q => {
-        q.onclick = function() {
-            const item = this.closest('.faq-glass-item');
-            if(item.classList.contains('open')) {item.classList.remove('open'); return;}
-            document.querySelectorAll('.faq-glass-item').forEach(i=>i.classList.remove('open'));
-            item.classList.add('open');
-        }
-    });
-    </script>
+    <script src="../js/language-manager.js"></script>
 </body>
-</html> 
+</html>

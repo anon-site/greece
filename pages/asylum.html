@@ -21,627 +21,6 @@
     <link rel="stylesheet" href="../css/modern-mobile-popups.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { background: #f4f8fb; font-family: 'Cairo', sans-serif; }
-        .service-hero.asylum-hero {
-            background: linear-gradient(135deg, #1a5276 60%, #2980b9 100%); color: #fff; height: 100vh; min-height: 600px; margin-top: 70px; padding: 0; position: relative; overflow: hidden;
-        }
-        .service-hero.asylum-hero::before {
-            content: '';
-            position: absolute;
-            top: -80px; left: -80px;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, #fff2 60%, transparent 100%);
-            z-index: 0;
-        }
-        .hero-flex { position: relative; z-index: 1; }
-        .hero-img { transition: transform 0.3s; box-shadow: 0 8px 32px #0002; }
-        .hero-img:hover { transform: scale(1.05) rotate(-2deg); }
-        .info-box, .office-card, .tips-box, .story-card {
-            box-shadow: 0 4px 24px #0001;
-            border-radius: 18px;
-            background: #fff;
-        }
-        .timeline {
-            display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
-        }
-        .timeline-step {
-            background: linear-gradient(120deg, #e3f0fa 60%, #f8fafd 100%);
-            border-radius: 14px;
-            box-shadow: 0 2px 12px #1a527610;
-            padding: 24px 18px;
-            min-width: 180px; max-width: 220px;
-            text-align: center;
-            position: relative;
-            transition: transform 0.2s;
-        }
-        .timeline-step:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 8px 32px #1a527620; }
-        .timeline-icon {
-            font-size: 2.2rem;
-            color: #1a5276;
-            background: #eaf6fb;
-            border-radius: 50%;
-            width: 54px; height: 54px;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 12px auto;
-            box-shadow: 0 2px 8px #1a527610;
-        }
-        .office-cards { gap: 24px; }
-        .office-card {
-            border: 2px solid #e3f0fa;
-            transition: box-shadow 0.2s, border 0.2s;
-        }
-        .office-card:hover { box-shadow: 0 8px 32px #1a527620; border: 2px solid #1a5276; }
-        .map-mini iframe { border-radius: 8px; border: none; }
-        .asylum-documents ul.doc-list li {
-            margin-bottom: 10px;
-            padding-right: 18px;
-            position: relative;
-        }
-        .asylum-documents ul.doc-list li:before {
-            content: '\f15c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #1a5276;
-            position: absolute;
-            right: 0; top: 2px;
-        }
-        .tips-box {
-            background: linear-gradient(120deg, #fffbe6 60%, #fff9c4 100%);
-            border-right: 6px solid #f7ca18;
-        }
-        .tips-box ul li:before {
-            content: '\f0eb';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #f7ca18;
-            margin-left: 8px;
-        }
-        .faq-section details {
-            background: #fff;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 8px #1a527610;
-            padding: 0 18px;
-            transition: box-shadow 0.2s;
-        }
-        .faq-section details[open] { box-shadow: 0 8px 32px #1a527620; }
-        .faq-section summary {
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            padding: 18px 0;
-            color: #1a5276;
-        }
-        .faq-section details div { padding-bottom: 16px; color: #333; }
-        .important-links li a {
-            color: #1a5276;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .important-links li a:hover { color: #e67e22; text-decoration: underline; }
-        .contact-buttons .contact-btn {
-            display: inline-block;
-            margin: 0 8px 8px 0;
-            padding: 10px 24px;
-            border-radius: 25px;
-            background: linear-gradient(90deg, #1a5276 60%, #2980b9 100%);
-            color: #fff;
-            font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 2px 8px #1a527610;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .contact-buttons .contact-btn.whatsapp { background: linear-gradient(90deg, #25d366 60%, #128c7e 100%); }
-        .contact-buttons .contact-btn.telegram { background: linear-gradient(90deg, #0088cc 60%, #1a5276 100%); }
-        .contact-buttons .contact-btn:hover { transform: scale(1.05); }
-        .gallery img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 12px #1a527610;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-        }
-        .gallery img:hover {
-            transform: scale(1.04) rotate(-1deg);
-            box-shadow: 0 8px 32px #1a527620;
-        }
-        .asylum-stories .story-card {
-            border-right: 5px solid #1a5276;
-            background: linear-gradient(120deg, #f8fafd 60%, #e3f0fa 100%);
-            position: relative;
-        }
-        .asylum-stories .story-author {
-            margin-top: 12px;
-            color: #1a5276;
-            font-weight: bold;
-            font-size: 0.95rem;
-            display: flex; align-items: center; gap: 6px;
-        }
-        @media (max-width: 900px) {
-            .timeline, .office-cards, .gallery-map-flex, .stories-grid { flex-direction: column; gap: 18px; }
-        }
-        @keyframes fadeInDown { from { opacity:0; transform: translateY(-30px);} to {opacity:1; transform: none;} }
-        @keyframes fadeInUp { from { opacity:0; transform: translateY(30px);} to {opacity:1; transform: none;} }
-        @keyframes fadeInLeft { from { opacity:0; transform: translateX(40px);} to {opacity:1; transform: none;} }
-        @keyframes fadeIn { from { opacity:0;} to {opacity:1;} }
-        .hero-info-bar { margin-top: 0; }
-        @media (max-width: 700px) {
-            .hero-info-bar .container { flex-direction: column; gap: 10px; }
-            .service-hero.asylum-hero { min-height: 320px; padding: 40px 0 30px 0; }
-        }
-        .office-fallback-icon { width:100%; height:180px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:#1a5276; background:#f8fafd; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 8px #1a527610; }
-        .hero-bubbles { position:absolute; left:0; right:0; top:0; bottom:0; z-index:0; pointer-events:none; }
-        .hero-bubbles .bubble {
-            position:absolute; border-radius:50%; filter:blur(1px); animation: heroBubbleMove 7s infinite alternate ease-in-out;
-        }
-        @keyframes heroBubbleMove {
-            0% { transform: scale(1) translateY(0); }
-            100% { transform: scale(1.12) translateY(-18px); }
-        }
-        .service-hero.asylum-hero .hero-img:hover {
-            transform: scale(1.07) rotate(-2deg);
-            box-shadow: 0 12px 40px #1a527670;
-        }
-        .service-hero.asylum-hero .hero-btn:hover {
-            box-shadow: 0 8px 32px #1a527640;
-            transform: scale(1.06);
-            background: linear-gradient(90deg,#eaf6fb 60%,#fff 100%);
-        }
-        @media (max-width: 900px) {
-            .service-hero.asylum-hero { min-height: 320px; padding: 50px 0 30px 0; }
-            .service-hero.asylum-hero .hero-flex { flex-direction: column; gap: 28px; }
-            .service-hero.asylum-hero h1 { font-size:2rem; }
-            .service-hero.asylum-hero .hero-img { max-width: 220px; }
-        }
-        @media (max-width: 576px) {
-            .service-hero.asylum-hero {
-                height: auto;
-                min-height: 100vh;
-                padding: 80px 0 40px;
-            }
-        }
-        .asylum-hero-overlay {
-            position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(120deg,rgba(26,82,118,0.72) 60%,rgba(41,128,185,0.82) 100%);z-index:1;}
-        .asylum-hero-glass {animation: fadeInDown 1.2s;}
-        .asylum-hero-glass .hero-btn:hover {box-shadow: 0 8px 32px #1a527640;transform: scale(1.06);background: linear-gradient(90deg,#eaf6fb 60%,#fff 100%);}
-        @media (max-width:900px){
-            .service-hero.asylum-hero{min-height:320px;padding:0;}
-            .asylum-hero-glass{padding:28px 10px 24px 10px;max-width:98vw;}
-            .asylum-hero-glass h1{font-size:1.5rem;}
-        }
-        @media (max-width:576px){
-            .service-hero.asylum-hero{height:auto;min-height:100vh;padding:0;}
-            .asylum-hero-glass{padding:18px 2vw 18px 2vw;}
-        }
-        .asylum-hero-modern {
-          position: relative;
-          background: linear-gradient(120deg, #1a5276 60%, #2980b9 100%);
-          min-height: 90vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-        }
-        .hero-top-wave, .hero-bottom-wave {
-          position: absolute; left: 0; right: 0; width: 100%; z-index: 2;
-        }
-        .hero-top-wave { top: 0; }
-        .hero-bottom-wave { bottom: 0; }
-        .asylum-hero-bg-silhouette {
-          position: absolute; right: 0; bottom: 0; top: 0; width: 50%; z-index: 1;
-          background: url('https://cdn.pixabay.com/photo/2017/01/31/13/14/walking-2026446_1280.png') right bottom/contain no-repeat;
-          opacity: 0.13;
-          pointer-events: none;
-        }
-        .asylum-hero-glass-modern {
-          position: relative; z-index: 3;
-          background: rgba(255,255,255,0.18);
-          backdrop-filter: blur(10px);
-          border-radius: 32px;
-          box-shadow: 0 8px 40px #1a527650;
-          padding: 54px 38px 38px 38px;
-          max-width: 520px;
-          margin: 0 auto;
-          text-align: center;
-          display: flex; flex-direction: column; align-items: center;
-          animation: fadeInDown 1.2s;
-        }
-        .hero-icon {
-          font-size: 3.2rem;
-          color: #e67e22;
-          margin-bottom: 18px;
-        }
-        .asylum-hero-glass-modern h1 {
-          font-size: 2.7rem;
-          font-weight: 900;
-          letter-spacing: 1px;
-          line-height: 1.2;
-          margin-bottom: 18px;
-          color: #1a5276;
-          text-shadow: 0 2px 12px #fff4;
-        }
-        .asylum-hero-glass-modern p {
-          font-size: 1.18rem;
-          color: #fff;
-          margin-bottom: 32px;
-          text-shadow: 0 1px 6px #1a527640;
-        }
-        .hero-main-btn {
-          background: linear-gradient(90deg,#e67e22 60%,#f8b500 100%);
-          color: #fff;
-          font-weight: bold;
-          border-radius: 30px;
-          padding: 15px 44px;
-          font-size: 1.18rem;
-          box-shadow: 0 4px 24px #1a527620;
-          border: none;
-          transition: box-shadow 0.2s, transform 0.2s;
-          text-decoration: none;
-          display: inline-block;
-        }
-        .hero-main-btn:hover {
-          box-shadow: 0 8px 32px #e67e2260;
-          transform: scale(1.06);
-        }
-        @media (max-width:900px){
-          .asylum-hero-glass-modern{padding:28px 10px 24px 10px;max-width:98vw;}
-          .asylum-hero-glass-modern h1{font-size:1.5rem;}
-          .asylum-hero-bg-silhouette{width: 80%; opacity: 0.09;}
-        }
-        @media (max-width:576px){
-          .asylum-hero-modern{min-height: 70vh;}
-          .asylum-hero-glass-modern{padding:18px 2vw 18px 2vw;}
-        }
-        .asylum-hero-pro {
-          position: relative;
-          background: linear-gradient(120deg, #1a5276 60%, #2980b9 100%);
-          min-height: 85vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-        }
-        .hero-flex-pro {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 48px;
-          position: relative;
-          z-index: 2;
-          flex-wrap: wrap;
-        }
-        .hero-avatar-pro {
-          flex: 0 0 220px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .hero-avatar-pro img {
-          width: 180px;
-          height: 180px;
-          border-radius: 50%;
-          object-fit: cover;
-          box-shadow: 0 8px 32px #1a527650;
-          background: #fff;
-          border: 6px solid #eaf6fb;
-          animation: fadeInLeft 1.2s;
-        }
-        .hero-glass-pro {
-          background: rgba(255,255,255,0.18);
-          backdrop-filter: blur(10px);
-          border-radius: 32px 32px 48px 32px/32px 32px 48px 32px;
-          box-shadow: 0 8px 40px #1a527650;
-          padding: 54px 38px 38px 38px;
-          max-width: 520px;
-          min-width: 270px;
-          text-align: center;
-          display: flex; flex-direction: column; align-items: center;
-          animation: fadeInUp 1.2s;
-          transform: skewY(-2deg);
-        }
-        .hero-icon-pro {
-          font-size: 3.2rem;
-          color: #e67e22;
-          margin-bottom: 18px;
-        }
-        .hero-glass-pro h1 {
-          font-size: 2.5rem;
-          font-weight: 900;
-          letter-spacing: 1px;
-          line-height: 1.2;
-          margin-bottom: 18px;
-          color: #1a5276;
-          text-shadow: 0 2px 12px #fff4;
-        }
-        .gradient-text {
-          background: linear-gradient(90deg,#e67e22 30%,#2980b9 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          text-fill-color: transparent;
-          font-weight: 900;
-        }
-        .hero-glass-pro p {
-          font-size: 1.13rem;
-          color: #fff;
-          margin-bottom: 32px;
-          text-shadow: 0 1px 6px #1a527640;
-        }
-        .hero-main-btn-pro {
-          background: linear-gradient(90deg,#e67e22 60%,#f8b500 100%);
-          color: #fff;
-          font-weight: bold;
-          border-radius: 30px;
-          padding: 15px 44px;
-          font-size: 1.18rem;
-          box-shadow: 0 4px 24px #1a527620;
-          border: none;
-          transition: box-shadow 0.2s, transform 0.2s;
-          text-decoration: none;
-          display: inline-block;
-          animation: fadeIn 1.5s;
-        }
-        .hero-main-btn-pro:hover {
-          box-shadow: 0 8px 32px #e67e2260;
-          transform: scale(1.06);
-        }
-        .hero-bottom-wave-pro {
-          position: absolute; left: 0; right: 0; bottom: 0; width: 100%; z-index: 1;
-        }
-        @media (max-width:900px){
-          .hero-flex-pro{flex-direction:column;gap:24px;}
-          .hero-avatar-pro img{width:120px;height:120px;}
-          .hero-glass-pro{padding:28px 10px 24px 10px;max-width:98vw;}
-          .hero-glass-pro h1{font-size:1.3rem;}
-        }
-        @media (max-width:576px){
-          .asylum-hero-pro{min-height: 60vh;}
-          .hero-glass-pro{padding:14px 2vw 14px 2vw;}
-        }
-        .asylum-hero-ultra {
-          position: relative;
-          background: linear-gradient(120deg, #1a5276 60%, #2980b9 100%);
-          min-height: 90vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-        }
-        .hero-top-wave-ultra, .hero-bottom-wave-ultra {
-          position: absolute; left: 0; right: 0; width: 100%; z-index: 2;
-        }
-        .hero-top-wave-ultra { top: 0; }
-        .hero-bottom-wave-ultra { bottom: 0; }
-        .asylum-hero-bg-art {
-          position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 1;
-          background: url('https://cdn.pixabay.com/photo/2017/01/31/13/14/walking-2026446_1280.png') left 8% bottom 0/340px no-repeat,
-                      url('https://www.svgrepo.com/show/303251/family.svg') right 8% bottom 0/220px no-repeat;
-          opacity: 0.10;
-          pointer-events: none;
-        }
-        .asylum-hero-glass-ultra {
-          position: relative; z-index: 3;
-          background: rgba(255,255,255,0.18);
-          backdrop-filter: blur(12px);
-          border-radius: 32px;
-          box-shadow: 0 8px 40px #1a527650;
-          padding: 54px 38px 38px 38px;
-          max-width: 540px;
-          margin: 0 auto;
-          text-align: center;
-          display: flex; flex-direction: column; align-items: center;
-          animation: fadeInDown 1.2s;
-        }
-        .asylum-hero-glass-ultra h1 {
-          font-size: 2.7rem;
-          font-weight: 900;
-          letter-spacing: 1px;
-          line-height: 1.2;
-          margin-bottom: 18px;
-          color: #1a5276;
-          text-shadow: 0 2px 12px #fff4;
-        }
-        .gradient-text-ultra {
-          background: linear-gradient(90deg,#e67e22 30%,#2980b9 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          text-fill-color: transparent;
-          font-weight: 900;
-        }
-        .asylum-hero-glass-ultra p {
-          font-size: 1.18rem;
-          color: #fff;
-          margin-bottom: 38px;
-          text-shadow: 0 1px 6px #1a527640;
-        }
-        .hero-fab-ultra {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 64px;
-          height: 64px;
-          border-radius: 50%;
-          background: linear-gradient(135deg,#e67e22 60%,#f8b500 100%);
-          color: #fff;
-          font-size: 2rem;
-          box-shadow: 0 4px 24px #e67e2260;
-          border: none;
-          transition: box-shadow 0.2s, transform 0.2s;
-          margin: 0 auto;
-          cursor: pointer;
-          animation: fadeInUp 1.3s;
-        }
-        .hero-fab-ultra:hover {
-          box-shadow: 0 8px 32px #e67e2260;
-          transform: scale(1.09) rotate(-8deg);
-        }
-        @media (max-width:900px){
-          .asylum-hero-glass-ultra{padding:28px 10px 24px 10px;max-width:98vw;}
-          .asylum-hero-glass-ultra h1{font-size:1.5rem;}
-        }
-        @media (max-width:576px){
-          .asylum-hero-ultra{min-height: 65vh;}
-          .asylum-hero-glass-ultra{padding:14px 2vw 14px 2vw;}
-        }
-        .asylum-hero-btn {
-          font-size: 1.35rem;
-          padding: 18px 48px;
-          border-radius: 32px;
-          background: linear-gradient(90deg,#1a5276 60%,#2980b9 100%);
-          color: #fff;
-          font-weight: bold;
-          box-shadow: 0 6px 32px #1a527650;
-          border: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 14px;
-          transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-          margin: 0 auto;
-          margin-top: 18px;
-          position: relative;
-          z-index: 2;
-        }
-        .asylum-hero-btn i {
-          font-size: 1.5em;
-          margin-left: 8px;
-        }
-        .asylum-hero-btn:hover {
-          background: linear-gradient(90deg,#e67e22 40%,#2980b9 100%);
-          color: #fff;
-          box-shadow: 0 12px 40px #e67e2250;
-          transform: translateY(-3px) scale(1.04);
-        }
-        @media (max-width:600px){
-          .asylum-hero-btn{font-size:1.05rem;padding:13px 18px;}
-          .asylum-hero-btn i{font-size:1.2em;}
-        }
-        .links-section-pro {background: linear-gradient(120deg,#f8fafd 60%,#e3f0fa 100%); padding: 60px 0 40px 0;}
-        .links-header-pro h3 {color:#1a5276; font-weight:bold; font-size:2rem; margin-bottom:8px; text-align:center; letter-spacing:0.5px;}
-        .links-desc-pro {text-align:center; color:#2980b9; font-size:1.13rem; margin-bottom:38px;}
-        .links-grid-pro {display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:28px; margin-bottom:32px;}
-        .link-card-pro {
-          background:#fff; border-radius:18px; box-shadow:0 4px 24px #1a527610; padding:28px 18px; display:flex; align-items:center; gap:18px; transition:box-shadow 0.2s,transform 0.2s; border-top:6px solid var(--card-color,#1a5276); position:relative; overflow:hidden;
-        }
-        .link-card-pro:hover {box-shadow:0 8px 32px var(--card-color,#1a5276)22; transform:translateY(-6px) scale(1.04);}
-        .link-icon-pro {font-size:2.5rem; color:#fff; background:linear-gradient(135deg,var(--card-color,#1a5276) 60%,#fff 100%); border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px var(--card-color,#1a5276)30;}
-        .link-content-pro {flex:1;}
-        .link-title-pro {color:var(--card-color,#1a5276); font-weight:bold; font-size:1.13rem; text-decoration:none; transition:color 0.2s;}
-        .link-title-pro:hover {color:#e67e22; text-decoration:underline;}
-        .link-desc-pro {color:#444; font-size:0.97rem; margin-top:6px;}
-        .contact-buttons-pro {display:flex; gap:18px; justify-content:center; margin-top:10px; flex-wrap:wrap;}
-        .contact-btn-pro {
-          display:inline-flex; align-items:center; gap:10px; padding:13px 32px; border-radius:28px; font-size:1.13rem; font-weight:bold; color:#fff; background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); box-shadow:0 2px 8px #1a527610; transition:background 0.2s,transform 0.2s; text-decoration:none; margin-bottom:8px;
-        }
-        .contact-btn-pro.whatsapp {background:linear-gradient(90deg,#25d366 60%,#128c7e 100%);}
-        .contact-btn-pro.telegram {background:linear-gradient(90deg,#0088cc 60%,#1a5276 100%);}
-        .contact-btn-pro:hover {transform:scale(1.05); box-shadow:0 8px 32px #1a527620;}
-        @media (max-width:700px){.links-grid-pro{grid-template-columns:1fr;}}
-        /* شريط تواصل عائم للجوال */
-        @media (max-width:600px){
-          .contact-buttons-pro {position:fixed; bottom:18px; right:0; left:0; z-index:99; background:rgba(255,255,255,0.95); box-shadow:0 2px 12px #1a527610; border-radius:18px 18px 0 0; padding:10px 0; margin:0;}
-        }
-        .org-cards-pro {gap:28px;}
-        .org-card-pro {
-          background: linear-gradient(120deg,#f8fafd 60%,#e3f0fa 100%);
-          border-radius: 18px;
-          box-shadow: 0 4px 24px #1a527610;
-          padding: 28px 18px 22px 18px;
-          min-width: 260px; max-width: 340px; text-align:center; position:relative;
-          display:flex; flex-direction:column; align-items:center; transition:box-shadow 0.2s,transform 0.2s;
-          border-top:6px solid var(--org-color,#1a5276);
-        }
-        .org-card-pro:hover {box-shadow:0 8px 32px var(--org-color,#1a5276)22; transform:translateY(-6px) scale(1.04);}
-        .org-img-pro {width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--org-color,#1a5276) 60%,#fff 100%); display:flex; align-items:center; justify-content:center; margin-bottom:12px; box-shadow:0 2px 12px var(--org-color,#1a5276)30; overflow:hidden;}
-        .org-img-pro img {width:60px; height:60px; object-fit:contain; border-radius:50%; background:#fff;}
-        .org-icon-pro {font-size:2.5rem; color:#fff; display:flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,var(--org-color,#1a5276) 60%,#fff 100%);}
-        .org-badge-pro {color:#fff; font-size:0.85rem; border-radius:8px; padding:2px 10px; margin-bottom:8px; display:inline-block; font-weight:bold;}
-        .org-card-pro h4 {color:#1a5276; font-weight:bold; font-size:1.18rem; margin-bottom:8px;}
-        .org-card-pro p {color:#444; font-size:0.97rem; margin:10px 0 16px 0;}
-        .org-links-pro {margin-bottom:8px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
-        .org-links-pro a {color:var(--org-color,#1a5276); font-weight:bold; text-decoration:none; transition:color 0.2s;}
-        .org-links-pro a:hover {color:#e67e22; text-decoration:underline;}
-        @media (max-width:900px){.org-cards-pro{flex-direction:column;gap:18px;}}
-        .faq-section-pro {background: linear-gradient(120deg,#f8fafd 60%,#e3f0fa 100%); padding: 0 0 32px 0; position:relative;}
-        .faq-header-pro h2 {font-size:1.35rem; margin-bottom:4px;}
-        .faq-desc-pro {font-size:0.98rem; margin-bottom:22px;}
-        .faq-wave-top {position:relative; top:0; left:0; width:100%; z-index:1;}
-        .faq-grid-pro {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; max-width:650px; margin:0 auto;}
-        .faq-card-pro {
-          background:linear-gradient(120deg,#fff 60%,#e3f0fa 100%);
-          border-radius:14px;
-          box-shadow:0 2px 12px #1a527610;
-          padding:0; margin-top:8px;
-          transition:box-shadow 0.2s,transform 0.2s;
-          position:relative;
-          overflow:hidden;
-          border-top:4px solid var(--faq-color,#1a5276);
-        }
-        .faq-card-pro.open {box-shadow:0 6px 18px var(--faq-color,#1a5276)20; background:linear-gradient(120deg,#e3f0fa 60%,#fff 100%);}
-        .faq-q-pro {
-          color:var(--faq-color,#1a5276);
-          font-weight:bold;
-          font-size:0.98rem;
-          padding:13px 16px 10px 16px;
-          display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
-          background:linear-gradient(90deg,#fff 60%,#f8fafd 100%);
-          transition:background 0.2s;
-        }
-        .faq-card-pro.open .faq-q-pro {background:linear-gradient(90deg,var(--faq-color,#1a5276) 10%,#fff 100%); color:#fff;}
-        .faq-q-pro i {font-size:1.1em; color:var(--faq-color,#e67e22); transition:color 0.2s;}
-        .faq-card-pro.open .faq-q-pro i {color:#fff;}
-        .faq-arrow {margin-right:auto; transition:transform 0.3s; font-size:0.9em;}
-        .faq-card-pro.open .faq-arrow {transform:rotate(180deg);}
-        .faq-a-pro {
-          color:#444; font-size:0.93rem; line-height:1.7; background:#f8fafd; border-radius:0 0 12px 12px; padding:0 16px 12px 16px; box-shadow:0 1px 4px #1a527610; transition:max-height 0.4s,opacity 0.3s,background 0.2s; max-height:0; opacity:0; overflow:hidden;
-        }
-        .faq-card-pro.open .faq-a-pro {background:linear-gradient(90deg,#fff 60%,#e3f0fa 100%); max-height:180px; opacity:1; padding:10px 16px 14px 16px;}
-        @media (max-width:700px){.faq-grid-pro{grid-template-columns:1fr; max-width:98vw;}}
-        @media (max-width:600px) {
-          body { font-size: 0.97rem; }
-          header .container, .container { padding: 0 6px !important; }
-          h1, h2, h3, h4, h5 { font-size: 1.05em !important; }
-          .service-hero.asylum-hero, .asylum-hero-modern, .asylum-hero-pro, .asylum-hero-ultra {
-            min-height: 60vh !important; height: auto !important; padding: 30px 0 20px 0 !important;
-          }
-          .hero-flex, .hero-flex-pro { flex-direction: column !important; gap: 14px !important; }
-          .hero-img, .hero-avatar-pro img { max-width: 120px !important; height: auto !important; }
-          .asylum-hero-glass, .asylum-hero-glass-modern, .hero-glass-pro, .asylum-hero-glass-ultra {
-            padding: 14px 2vw 14px 2vw !important; max-width: 98vw !important;
-          }
-          .timeline, .office-cards, .gallery-map-flex, .stories-grid, .org-cards-pro, .links-grid-pro, .faq-glass-list {
-            flex-direction: column !important; gap: 10px !important; max-width: 99vw !important;
-          }
-          .timeline-step, .office-card, .doc-card, .org-card-pro, .link-card-pro, .faq-glass-item {
-            min-width: 0 !important; max-width: 100vw !important; padding: 12px 6px !important; font-size: 0.97em !important;
-          }
-          .office-card img, .org-img-pro img, .gallery img { max-width: 100% !important; height: auto !important; }
-          .tips-box, .story-card, .tips-section .tips-box, .faq-glass-item, .faq-card-pro {
-            padding: 10px 8px !important; font-size: 0.97em !important;
-          }
-          .faq-glass-header h2, .faq-header-pro h2 { font-size: 1em !important; }
-          .faq-glass-desc, .faq-desc-pro { font-size: 0.89em !important; }
-          .faq-glass-q, .faq-q-pro { font-size: 0.93em !important; padding: 8px 8px 6px 8px !important; }
-          .faq-glass-a, .faq-a-pro { font-size: 0.89em !important; padding: 0 8px 8px 8px !important; }
-          .faq-glass-icon { width: 26px !important; height: 26px !important; font-size: 1em !important; }
-          .faq-glass-arrow { font-size: 0.8em !important; }
-          .contact-buttons-pro, .contact-buttons { flex-direction: column !important; gap: 8px !important; padding: 8px 0 !important; }
-          .contact-btn-pro, .contact-btn { width: 100% !important; font-size: 0.97em !important; padding: 10px 0 !important; }
-          .links-header-pro h3, .links-header-pro h2 { font-size: 1.1em !important; }
-          .links-desc-pro { font-size: 0.93em !important; }
-          .org-img-pro, .link-icon-pro { width: 38px !important; height: 38px !important; font-size: 1em !important; }
-          .org-card-pro h4, .link-title-pro { font-size: 1em !important; }
-          .org-badge-pro, .link-desc-pro { font-size: 0.89em !important; }
-          .footer-content-wrapper, .footer-content, .footer-center-wrapper { flex-direction: column !important; gap: 8px !important; }
-          .footer-center-logo, .footer-center-text, .footer-center-social { text-align: center !important; }
-          .footer-center-logo .logo-icon { font-size: 1.5em !important; }
-          .footer-bottom { flex-direction: column !important; gap: 6px !important; font-size: 0.93em !important; }
-          .footer-bottom-links a { font-size: 0.93em !important; }
-          .mobile-menu-popup .popup-content, .mobile-settings-popup .popup-content, .mobile-search-popup .popup-content { padding: 10px 4px !important; }
-        }
-    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -657,7 +36,7 @@
                         <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="#"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
                             <a href="asylum.html"><i class="fas fa-passport"></i> دوائر اللجوء</a>
                             <a href="government.html"><i class="fas fa-landmark"></i> دوائر حكومية</a>
@@ -668,30 +47,30 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                        <a href="#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i> منظمات إنسانية</a>
-                            <a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</a>
-                            <a href="../index.html#educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</a>
+                            <a href="#humanitarian"><i class="fas fa-hand-holding-heart"></i> منظمات إنسانية</a>
+                            <a href="#medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</a>
+                            <a href="#educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</a>
                         </div>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#service-offices"><i class="fas fa-cogs"></i> مكاتب خدمية</a>
-                            <a href="../index.html#accounting"><i class="fas fa-calculator"></i> مكاتب محاسبة</a>
-                            <a href="../index.html#lawyers"><i class="fas fa-gavel"></i> مكاتب محامين</a>
+                            <a href="#service-offices"><i class="fas fa-cogs"></i> مكاتب خدمية</a>
+                            <a href="#accounting"><i class="fas fa-calculator"></i> مكاتب محاسبة</a>
+                            <a href="#lawyers"><i class="fas fa-gavel"></i> مكاتب محامين</a>
                         </div>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#hotels"><i class="fas fa-hotel"></i> فنادق</a>
-                            <a href="../index.html#pharmacies"><i class="fas fa-store"></i> صيدليات ومتاجر</a>
-                            <a href="../index.html#restaurants"><i class="fas fa-utensils"></i> مطاعم</a>
+                            <a href="#hotels"><i class="fas fa-hotel"></i> فنادق</a>
+                            <a href="#pharmacies"><i class="fas fa-store"></i> صيدليات ومتاجر</a>
+                            <a href="#restaurants"><i class="fas fa-utensils"></i> مطاعم</a>
                         </div>
                     </li>
                 </ul>
@@ -701,7 +80,9 @@
             </div>
         </div>
     </header>
-
+    <div class="settings-desktop-btn" id="settingsDesktopBtn">
+        <i class="fas fa-cog"></i>
+    </div>
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
         <div class="nav-indicator"></div>
@@ -712,609 +93,6 @@
             <li class="nav-item settings-btn"><a href="#settings"><i class="fas fa-cog"></i><span>الإعدادات</span></a></li>
         </ul>
     </nav>
-    <!-- Main Content -->
-    <section class="hero asylum-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(26, 82, 118, 0.7)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; color: white; margin-top: 70px; position: relative; overflow: hidden; padding: 20px 0;">
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="animated-title"><i class="fas fa-passport"></i> مرحباً بك في بوابة اللجوء في اليونان</h1>
-          <p class="animated-subtitle">كل ما تحتاجه من معلومات وخدمات ونصائح لرحلة لجوء آمنة وواضحة.</p>
-        </div>
-      </div>
-      <div class="hero-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-      </div>
-    </section>
-    <!-- نهاية الهيرو -->
-    <!-- قسم لماذا اللجوء في اليونان -->
-    <section class="why-asylum-gr" style="background: #f8fafd; padding: 60px 0 30px 0;">
-        <div class="container">
-            <h2 style="text-align:center; color:#1a5276; font-weight:bold; margin-bottom: 36px;"><i class="fas fa-question"></i> لماذا اللجوء في اليونان؟</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center;">
-                <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #0001; padding: 28px 22px; min-width: 220px; flex:1 1 220px; max-width: 320px; text-align:center;">
-                    <i class="fas fa-hands-helping" style="font-size:2.2rem; color:#1a5276; margin-bottom: 10px;"></i>
-                    <h4 style="color:#1a5276; font-weight:bold;">دعم إنساني وقانوني</h4>
-                    <p style="color:#444;">توفر منظمات دولية ومحلية دعمًا مجانيًا للاجئين في جميع مراحل الطلب.</p>
-                </div>
-                <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #0001; padding: 28px 22px; min-width: 220px; flex:1 1 220px; max-width: 320px; text-align:center;">
-                    <i class="fas fa-balance-scale" style="font-size:2.2rem; color:#1a5276; margin-bottom: 10px;"></i>
-                    <h4 style="color:#1a5276; font-weight:bold;">إجراءات رسمية شفافة</h4>
-                    <p style="color:#444;">نظام اللجوء في اليونان يخضع لمعايير الاتحاد الأوروبي ويوفر حق الاستئناف.</p>
-                </div>
-                <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #0001; padding: 28px 22px; min-width: 220px; flex:1 1 220px; max-width: 320px; text-align:center;">
-                    <i class="fas fa-users" style="font-size:2.2rem; color:#1a5276; margin-bottom: 10px;"></i>
-                    <h4 style="color:#1a5276; font-weight:bold;">مجتمع متنوع وفرص اندماج</h4>
-                    <p style="color:#444;">تجد في اليونان جاليات عربية ودعمًا اجتماعيًا وفرصًا للتعلم والعمل.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Timeline خطوات اللجوء -->
-    <section class="asylum-timeline" style="background: #fff; padding: 60px 0 40px 0;">
-      <div class="container">
-        <h2 style="text-align:center; margin-bottom: 18px; color:#1a5276; font-weight:bold; font-size:2.1rem; letter-spacing:0.5px;">
-          <i class="fas fa-stream"></i> خطوات وإجراءات اللجوء في اليونان
-        </h2>
-        <div style="text-align:center; color:#2980b9; font-size:1.13rem; margin-bottom:38px; max-width:600px; margin-left:auto; margin-right:auto;">
-          تعرف على المراحل الأساسية التي يمر بها طلب اللجوء في اليونان من البداية حتى القرار النهائي، مع نصائح عملية في كل خطوة.
-        </div>
-        <div class="modern-timeline-horizontal">
-          <div class="modern-timeline-step" style="--step-color:#1a5276;">
-            <div class="modern-timeline-dot"><span>1</span><i class="fas fa-file-signature"></i></div>
-            <div class="modern-timeline-content">
-              <h4>تقديم الطلب</h4>
-              <p>في أحد مكاتب اللجوء أو عبر المنصة الإلكترونية الرسمية.</p>
-            </div>
-          </div>
-          <div class="modern-timeline-step" style="--step-color:#2980b9;">
-            <div class="modern-timeline-dot"><span>2</span><i class="fas fa-comments"></i></div>
-            <div class="modern-timeline-content">
-              <h4>مقابلة أولية</h4>
-              <p>تقديم بياناتك وأسباب اللجوء بحضور مترجم إذا لزم الأمر.</p>
-            </div>
-          </div>
-          <div class="modern-timeline-step" style="--step-color:#27ae60;">
-            <div class="modern-timeline-dot"><span>3</span><i class="fas fa-id-card"></i></div>
-            <div class="modern-timeline-content">
-              <h4>بطاقة طالب لجوء</h4>
-              <p>استلام بطاقة مؤقتة (أبيض/أصفر) تتيح لك الإقامة والعمل مؤقتًا.</p>
-            </div>
-          </div>
-          <div class="modern-timeline-step" style="--step-color:#e67e22;">
-            <div class="modern-timeline-dot"><span>4</span><i class="fas fa-user-check"></i></div>
-            <div class="modern-timeline-content">
-              <h4>مقابلة رئيسية</h4>
-              <p>مقابلة مفصلة حول أسباب اللجوء بحضور محامٍ أو ممثل منظمة.</p>
-            </div>
-          </div>
-          <div class="modern-timeline-step" style="--step-color:#8e44ad;">
-            <div class="modern-timeline-dot"><span>5</span><i class="fas fa-balance-scale"></i></div>
-            <div class="modern-timeline-content">
-              <h4>القرار</h4>
-              <p>استلام قرار القبول أو الرفض أو إعادة الدراسة. يمكنك الاستئناف في حال الرفض.</p>
-            </div>
-          </div>
-          <div class="modern-timeline-line"></div>
-        </div>
-      </div>
-      <style>
-        .modern-timeline-horizontal {
-          position: relative;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: 0px;
-          max-width: 1000px;
-          margin: 0 auto;
-          padding-bottom: 60px;
-          padding-top: 20px;
-        }
-        .modern-timeline-line {
-          position: absolute;
-          top: 56px;
-          left: 0;
-          right: 0;
-          height: 6px;
-          background: linear-gradient(90deg, #1a5276 0%, #2980b9 25%, #27ae60 50%, #e67e22 75%, #8e44ad 100%);
-          z-index: 0;
-          border-radius: 3px;
-          box-shadow: 0 2px 16px #1a527620;
-        }
-        .modern-timeline-step {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          flex: 1 1 0;
-          min-width: 160px;
-          max-width: 220px;
-          position: relative;
-          z-index: 1;
-          animation: fadeInUp 0.9s;
-          transition: box-shadow 0.2s, transform 0.2s;
-        }
-        .modern-timeline-step:hover {
-          box-shadow: 0 8px 32px var(--step-color, #1a5276)22;
-          transform: translateY(-8px) scale(1.05);
-        }
-        .modern-timeline-dot {
-          width: 64px; height: 64px;
-          background: linear-gradient(135deg, var(--step-color, #1a5276) 60%, #fff 100%);
-          color: #fff;
-          border-radius: 50%;
-          display: flex; flex-direction: column; align-items: center; justify-content: center;
-          font-size: 2.1rem;
-          font-weight: bold;
-          box-shadow: 0 2px 12px var(--step-color, #1a5276)30;
-          margin-bottom: 18px;
-          position: relative;
-          z-index: 2;
-          border: 5px solid #fff;
-          transition: box-shadow 0.2s, background 0.2s;
-        }
-        .modern-timeline-dot span {
-          font-size: 1.15rem;
-          font-weight: bold;
-          margin-bottom: 2px;
-          color: #fff;
-          background: var(--step-color, #1a5276);
-          border-radius: 50%; padding: 2px 10px; margin-bottom: 4px;
-          box-shadow: 0 1px 4px #0001;
-        }
-        .modern-timeline-content {
-          background: #f8fafd;
-          border-radius: 16px;
-          box-shadow: 0 2px 8px #1a527610;
-          padding: 22px 18px;
-          min-width: 140px;
-          margin-top: 10px;
-          border-top: 6px solid var(--step-color, #1a5276);
-          transition: border 0.2s;
-        }
-        .modern-timeline-content h4 {
-          color: var(--step-color, #1a5276);
-          font-size: 1.13rem;
-          font-weight: bold;
-          margin-bottom: 8px;
-        }
-        .modern-timeline-content p {
-          color: #444;
-          font-size: 1.01rem;
-          margin: 0;
-        }
-        @media (max-width: 900px) {
-          .modern-timeline-horizontal { flex-direction: column; align-items: stretch; gap: 32px; padding-bottom: 0; }
-          .modern-timeline-line { left: 38px; right: auto; top: 0; bottom: 0; width: 6px; height: 100%; background: linear-gradient(180deg, #1a5276 0%, #2980b9 25%, #27ae60 50%, #e67e22 75%, #8e44ad 100%); }
-          .modern-timeline-step { flex-direction: row; align-items: flex-start; max-width: none; min-width: 0; margin-bottom: 0; }
-          .modern-timeline-dot { margin-bottom: 0; margin-left: 18px; }
-          .modern-timeline-content { margin-top: 0; border-top: none; border-right: 6px solid var(--step-color, #1a5276); }
-        }
-      </style>
-    </section>
-    <!-- مقدمة قسم مكاتب اللجوء في اليونان -->
-    <section class="asylum-offices-intro" style="background: #f8fafd; padding: 36px 0 0 0;">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto 18px auto; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px #1a527610; padding: 22px 28px; color: #1a5276;">
-                <h2 style="color:#1a5276; font-weight:bold; margin-bottom: 12px;"><i class="fas fa-map-marker-alt"></i> ما أهمية مكاتب اللجوء في اليونان؟</h2>
-                <p style="color:#444; font-size:1.08rem; margin-bottom: 8px;">مكاتب اللجوء هي الجهة الرسمية الوحيدة لاستقبال طلبات اللجوء ومتابعة الإجراءات القانونية في اليونان. اختيار المكتب الأقرب لمكان إقامتك يسرّع الإجراءات ويوفر عليك عناء التنقل. ننصح دائمًا بالاطلاع على الموقع الرسمي للمكتب قبل الزيارة للتأكد من أوقات الدوام أو أي تحديثات.</p>
-                <ul style="margin:0 0 0 18px; padding-right:18px; color:#1a5276; font-size:0.98rem;">
-                    <li>بعض المكاتب تتطلب حجز موعد مسبق إلكترونيًا أو عبر الهاتف.</li>
-                    <li>تتوفر خدمات الترجمة في معظم المكاتب، خاصة في أثينا وسالونيكا.</li>
-                    <li>للحالات الإنسانية (نساء، أطفال، ذوي إعاقة) يُنصح بإبلاغ المكتب عند الوصول لسرعة المساعدة.</li>
-                </ul>
-                <div style="margin-top:10px; color:#e67e22; font-size:0.97rem;"><i class="fas fa-exclamation-triangle"></i> المعلومات قابلة للتغيير. راجع <a href="https://migration.gov.gr/en/ypiresia-asyloy/" target="_blank" style="color:#2980b9; font-weight:bold;">الموقع الرسمي</a> أو اتصل بالمكتب قبل زيارتك.</div>
-            </div>
-        </div>
-    </section>
-    <!-- بطاقات معلومات المكاتب -->
-    <section class="asylum-offices" id="offices" style="background: #f8fafd; padding: 60px 0 40px 0;">
-        <div class="container">
-            <h2 style="margin-bottom: 32px; color:#1a5276; text-align:center; font-weight:bold;"><i class="fas fa-map-marker-alt"></i> مكاتب اللجوء في اليونان</h2>
-            <div class="office-cards" style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center;">
-                <!-- مكتب أثينا -->
-                <div class="office-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #1a527610; padding: 28px 18px; flex: 1 1 280px; min-width: 280px; max-width: 370px; text-align:center; position:relative;">
-                    <img src="https://www.athensasylo.gov.gr/images/asylo-athens-office.jpg" alt="مكتب اللجوء أثينا - مدخل مكتب خدمة اللجوء أثينا" style="width:100%; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 8px #1a527610;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=\'office-fallback-icon\'><i class=\'fas fa-building\'></i></div>');">
-                    <h4 style="color:#1a5276; font-weight:bold; font-size:1.25rem; margin-bottom:8px;">مكتب أثينا
-                        <span style="background:#e67e22; color:#fff; font-size:0.85rem; border-radius:8px; padding:2px 10px; margin-right:8px;">الأكثر ازدحامًا</span>
-                    </h4>
-                    <div style="text-align:right; margin-bottom:8px;">
-                        <div style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color:#1a5276;"></i> شارع كاتاخاني 5، أثينا</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-phone-alt" style="color:#1a5276;"></i> <a href="tel:2101234567" style="color:#2980b9;">210-1234567</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-envelope" style="color:#1a5276;"></i> <a href="mailto:athens@asylum.gr" style="color:#2980b9;">athens@asylum.gr</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-clock" style="color:#1a5276;"></i> الاثنين-الجمعة (8:00-14:00)</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-link" style="color:#1a5276;"></i> <a href="https://migration.gov.gr/en/ypiresia-asyloy/" target="_blank" style="color:#1a5276; font-weight:bold;">الموقع الرسمي للمكتب</a></div>
-                    </div>
-                    <div style="background:#f8fafd; border-radius:8px; padding:7px 10px; color:#e67e22; font-size:0.97rem; margin-bottom:10px;">
-                        <i class="fas fa-info-circle"></i> يفضل الحضور باكرًا لتجنب الازدحام.
-                    </div>
-                    <a href="https://maps.google.com/?q=5+Katakhanis+Athens" target="_blank" class="btn btn-primary" style="background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); color:#fff; border-radius:22px; padding:10px 22px; font-size:1rem; font-weight:bold; margin-bottom:6px;"><i class="fas fa-location-arrow"></i> الاتجاه عبر Google Maps</a>
-                </div>
-                <!-- مكتب سالونيكا -->
-                <div class="office-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #1a527610; padding: 28px 18px; flex: 1 1 280px; min-width: 280px; max-width: 370px; text-align:center; position:relative;">
-                    <img src="https://www.gcr.gr/media/k2/items/cache/2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e_XL.jpg" alt="مكتب اللجوء سالونيكا - مدخل مكتب خدمة اللجوء سالونيكا" style="width:100%; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 8px #1a527610;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=\'office-fallback-icon\'><i class=\'fas fa-building\'></i></div>');">
-                    <h4 style="color:#1a5276; font-weight:bold; font-size:1.25rem; margin-bottom:8px;">مكتب سالونيكا
-                        <span style="background:#27ae60; color:#fff; font-size:0.85rem; border-radius:8px; padding:2px 10px; margin-right:8px;">يوجد مترجم عربي</span>
-                    </h4>
-                    <div style="text-align:right; margin-bottom:8px;">
-                        <div style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color:#1a5276;"></i> شارع موناستيريو 85</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-phone-alt" style="color:#1a5276;"></i> <a href="tel:2310765432" style="color:#2980b9;">2310-765432</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-envelope" style="color:#1a5276;"></i> <a href="mailto:thess@asylum.gr" style="color:#2980b9;">thess@asylum.gr</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-clock" style="color:#1a5276;"></i> الاثنين-الجمعة (8:00-14:00)</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-link" style="color:#1a5276;"></i> <a href="https://migration.gov.gr/en/ypiresia-asyloy/" target="_blank" style="color:#1a5276; font-weight:bold;">الموقع الرسمي للمكتب</a></div>
-                    </div>
-                    <div style="background:#f8fafd; border-radius:8px; padding:7px 10px; color:#27ae60; font-size:0.97rem; margin-bottom:10px;">
-                        <i class="fas fa-info-circle"></i> يوجد مترجم عربي في أغلب الأوقات.
-                    </div>
-                    <a href="https://maps.google.com/?q=85+Monastiriou+Thessaloniki" target="_blank" class="btn btn-primary" style="background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); color:#fff; border-radius:22px; padding:10px 22px; font-size:1rem; font-weight:bold; margin-bottom:6px;"><i class="fas fa-location-arrow"></i> الاتجاه عبر Google Maps</a>
-                </div>
-                <!-- مكتب كريت -->
-                <div class="office-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #1a527610; padding: 28px 18px; flex: 1 1 280px; min-width: 280px; max-width: 370px; text-align:center; position:relative;">
-                    <img src="https://www.crete.gov.gr/wp-content/uploads/2020/01/heraklion-migration-office.jpg" alt="مكتب اللجوء كريت - مدخل مكتب الهجرة هيراكليون" style="width:100%; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 8px #1a527610;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=\'office-fallback-icon\'><i class=\'fas fa-building\'></i></div>');">
-                    <h4 style="color:#1a5276; font-weight:bold; font-size:1.25rem; margin-bottom:8px;">مكتب كريت
-                        <span style="background:#27ae60; color:#fff; font-size:0.85rem; border-radius:8px; padding:2px 10px; margin-right:8px;">يوجد مترجم عربي</span>
-                    </h4>
-                    <div style="text-align:right; margin-bottom:8px;">
-                        <div style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color:#1a5276;"></i> شارع هيراكليون، كريت</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-phone-alt" style="color:#1a5276;"></i> <a href="tel:2810765432" style="color:#2980b9;">2810-765432</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-envelope" style="color:#1a5276;"></i> <a href="mailto:crete@asylum.gr" style="color:#2980b9;">crete@asylum.gr</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-clock" style="color:#1a5276;"></i> الاثنين-الجمعة (8:00-14:00)</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-link" style="color:#1a5276;"></i> <a href="https://migration.gov.gr/en/ypiresia-asyloy/" target="_blank" style="color:#1a5276; font-weight:bold;">الموقع الرسمي للمكتب</a></div>
-                    </div>
-                    <div style="background:#f8fafd; border-radius:8px; padding:7px 10px; color:#27ae60; font-size:0.97rem; margin-bottom:10px;">
-                        <i class="fas fa-info-circle"></i> المكتب يخدم جميع الوافدين إلى جزيرة كريت.
-                    </div>
-                    <a href="https://maps.google.com/?q=Heraklion+Crete+Greece" target="_blank" class="btn btn-primary" style="background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); color:#fff; border-radius:22px; padding:10px 22px; font-size:1rem; font-weight:bold; margin-bottom:6px;"><i class="fas fa-location-arrow"></i> الاتجاه عبر Google Maps</a>
-                </div>
-                <!-- مكتب ليسبوس -->
-                <div class="office-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #1a527610; padding: 28px 18px; flex: 1 1 280px; min-width: 280px; max-width: 370px; text-align:center; position:relative;">
-                    <img src="https://www.unhcr.org/gr/wp-content/uploads/sites/10/2021/06/Lesvos-Asylum-Office.jpg" alt="مكتب اللجوء ليسبوس - مدخل مكتب خدمة اللجوء ليسبوس" style="width:100%; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 8px #1a527610;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=\'office-fallback-icon\'><i class=\'fas fa-island-tropical\'></i></div>');">
-                    <h4 style="color:#1a5276; font-weight:bold; font-size:1.15rem; margin-bottom:8px;">مكتب ليسبوس</h4>
-                    <div style="text-align:right; margin-bottom:8px;">
-                        <div style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color:#1a5276;"></i> مخيم كارا تيبي، ليسبوس</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-phone-alt" style="color:#1a5276;"></i> <a href="tel:2251045678" style="color:#2980b9;">2251-045678</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-envelope" style="color:#1a5276;"></i> <a href="mailto:lesvos@asylum.gr" style="color:#2980b9;">lesvos@asylum.gr</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-clock" style="color:#1a5276;"></i> الدوام: الاثنين-الجمعة (8:00-14:00)</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-link" style="color:#1a5276;"></i> <a href="https://migration.gov.gr/en/ypiresia-asyloy/" target="_blank" style="color:#1a5276; font-weight:bold;">الموقع الرسمي للمكتب</a></div>
-                    </div>
-                    <div style="background:#f8fafd; border-radius:8px; padding:7px 10px; color:#1a5276; font-size:0.97rem; margin-bottom:10px;">
-                        <i class="fas fa-info-circle"></i> يفضل التأكد من أوقات الدوام قبل الذهاب، المكتب يخدم جميع الوافدين للجزيرة.
-                    </div>
-                    <a href="https://maps.google.com/?q=Kara+Tepe+Lesvos+Greece" target="_blank" class="btn btn-primary" style="background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); color:#fff; border-radius:22px; padding:10px 22px; font-size:1rem; font-weight:bold; margin-bottom:6px;"><i class="fas fa-location-arrow"></i> الاتجاه عبر Google Maps</a>
-                </div>
-                <!-- مكتب ساموس -->
-                <div class="office-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #1a527610; padding: 28px 18px; flex: 1 1 280px; min-width: 280px; max-width: 370px; text-align:center; position:relative;">
-                    <img src="https://www.unhcr.org/gr/wp-content/uploads/sites/10/2021/06/Samos-Asylum-Office.jpg" alt="مكتب اللجوء ساموس - مدخل مكتب خدمة اللجوء ساموس" style="width:100%; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 8px #1a527610;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=\'office-fallback-icon\'><i class=\'fas fa-island-tropical\'></i></div>');">
-                    <h4 style="color:#1a5276; font-weight:bold; font-size:1.15rem; margin-bottom:8px;">مكتب ساموس</h4>
-                    <div style="text-align:right; margin-bottom:8px;">
-                        <div style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color:#1a5276;"></i> مخيم زرفو، ساموس</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-phone-alt" style="color:#1a5276;"></i> <a href="tel:2273087654" style="color:#2980b9;">2273-087654</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-envelope" style="color:#1a5276;"></i> <a href="mailto:samos@asylum.gr" style="color:#2980b9;">samos@asylum.gr</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-clock" style="color:#1a5276;"></i> الدوام: الاثنين-الجمعة (8:00-14:00)</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-link" style="color:#1a5276;"></i> <a href="https://migration.gov.gr/en/ypiresia-asyloy/" target="_blank" style="color:#1a5276; font-weight:bold;">الموقع الرسمي للمكتب</a></div>
-                    </div>
-                    <div style="background:#f8fafd; border-radius:8px; padding:7px 10px; color:#1a5276; font-size:0.97rem; margin-bottom:10px;">
-                        <i class="fas fa-info-circle"></i> المكتب يخدم جميع الوافدين إلى جزيرة ساموس.
-                    </div>
-                    <a href="https://maps.google.com/?q=Zervou+Samos+Greece" target="_blank" class="btn btn-primary" style="background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); color:#fff; border-radius:22px; padding:10px 22px; font-size:1rem; font-weight:bold; margin-bottom:6px;"><i class="fas fa-location-arrow"></i> الاتجاه عبر Google Maps</a>
-                </div>
-                <!-- مكتب كوس -->
-                <div class="office-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #1a527610; padding: 28px 18px; flex: 1 1 280px; min-width: 280px; max-width: 370px; text-align:center; position:relative;">
-                    <img src="https://www.unhcr.org/gr/wp-content/uploads/sites/10/2021/06/Kos-Asylum-Office.jpg" alt="مكتب اللجوء كوس - مدخل مكتب خدمة اللجوء كوس" style="width:100%; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 8px #1a527610;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=\'office-fallback-icon\'><i class=\'fas fa-island-tropical\'></i></div>');">
-                    <h4 style="color:#1a5276; font-weight:bold; font-size:1.15rem; margin-bottom:8px;">مكتب كوس</h4>
-                    <div style="text-align:right; margin-bottom:8px;">
-                        <div style="margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color:#1a5276;"></i> مخيم كوس، كوس</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-phone-alt" style="color:#1a5276;"></i> <a href="tel:2242054321" style="color:#2980b9;">2242-054321</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-envelope" style="color:#1a5276;"></i> <a href="mailto:kos@asylum.gr" style="color:#2980b9;">kos@asylum.gr</a></div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-clock" style="color:#1a5276;"></i> الدوام: الاثنين-الجمعة (8:00-14:00)</div>
-                        <div style="margin-bottom:4px;"><i class="fas fa-link" style="color:#1a5276;"></i> <a href="https://migration.gov.gr/en/ypiresia-asyloy/" target="_blank" style="color:#1a5276; font-weight:bold;">الموقع الرسمي للمكتب</a></div>
-                    </div>
-                    <div style="background:#f8fafd; border-radius:8px; padding:7px 10px; color:#1a5276; font-size:0.97rem; margin-bottom:10px;">
-                        <i class="fas fa-info-circle"></i> المكتب يخدم جميع الوافدين إلى جزيرة كوس.
-                    </div>
-                    <a href="https://maps.google.com/?q=Kos+Greece+Camp" target="_blank" class="btn btn-primary" style="background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); color:#fff; border-radius:22px; padding:10px 22px; font-size:1rem; font-weight:bold; margin-bottom:6px;"><i class="fas fa-location-arrow"></i> الاتجاه عبر Google Maps</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- مربع نصائح سريع -->
-    <div style="margin: 36px auto 0 auto; max-width: 700px;">
-        <div style="background:linear-gradient(90deg,#fffbe6 60%,#fff9c4 100%); border-right:6px solid #f7ca18; border-radius:14px; box-shadow:0 2px 12px #1a527610; padding:18px 24px; color:#1a5276; font-size:1.05rem;">
-            <i class="fas fa-lightbulb"></i> <b>نصائح عند زيارة مكاتب اللجوء:</b>
-            <ul style="margin:10px 0 0 0; padding-right:18px; color:#444;">
-                <li>احضر باكرًا لتجنب الازدحام.</li>
-                <li>تأكد من اصطحاب جميع الأوراق المطلوبة.</li>
-                <li>اسأل عن وجود مترجم إذا كنت بحاجة.</li>
-                <li>احترم الدور وتعامل بلطف مع الموظفين.</li>
-                <li>احتفظ بنسخة من أي ورقة تستلمها.</li>
-            </ul>
-        </div>
-    </div>
-    <!-- قسم الأوراق والمستندات المطلوبة -->
-    <section class="asylum-documents" style="background: #f8fafd; padding: 60px 0 40px 0;">
-        <div class="container">
-            <h2 style="color:#1a5276; text-align:center; font-weight:bold; margin-bottom: 36px;"><i class="fas fa-file-alt"></i> الأوراق والمستندات المطلوبة</h2>
-            <div class="doc-cards" style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center;">
-                <div class="doc-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #1a527610; padding: 28px 18px; flex: 1 1 220px; min-width: 220px; max-width: 300px; text-align:center;">
-                    <div style="font-size:2.2rem; color:#1a5276; margin-bottom:10px;"><i class="fas fa-passport"></i></div>
-                    <h4 style="color:#1a5276; font-weight:bold;">جواز سفر أو هوية</h4>
-                    <p style="color:#444; font-size:0.97rem; margin:10px 0 8px 0;">لإثبات الشخصية. إذا لم يتوفر، قدم أي وثيقة رسمية لديك.</p>
-                    <div style="color:#e67e22; font-size:0.97rem; margin-bottom:8px;"><i class="fas fa-lightbulb"></i> احتفظ بنسخة ورقية ورقمية.</div>
-                </div>
-                <div class="doc-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #1a527610; padding: 28px 18px; flex: 1 1 220px; min-width: 220px; max-width: 300px; text-align:center;">
-                    <div style="font-size:2.2rem; color:#1a5276; margin-bottom:10px;"><i class="fas fa-image"></i></div>
-                    <h4 style="color:#1a5276; font-weight:bold;">صور شخصية حديثة</h4>
-                    <p style="color:#444; font-size:0.97rem; margin:10px 0 8px 0;">مطلوبة للملف الرسمي وبطاقة طالب اللجوء.</p>
-                    <div style="color:#e67e22; font-size:0.97rem; margin-bottom:8px;"><i class="fas fa-lightbulb"></i> يفضل إحضار أكثر من نسخة.</div>
-                </div>
-                <div class="doc-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #1a527610; padding: 28px 18px; flex: 1 1 220px; min-width: 220px; max-width: 300px; text-align:center;">
-                    <div style="font-size:2.2rem; color:#1a5276; margin-bottom:10px;"><i class="fas fa-file-medical"></i></div>
-                    <h4 style="color:#1a5276; font-weight:bold;">شهادات أو تقارير داعمة</h4>
-                    <p style="color:#444; font-size:0.97rem; margin:10px 0 8px 0;">مثل شهادات الميلاد، الزواج، تقارير طبية، أو وثائق تثبت أسباب اللجوء.</p>
-                    <div style="color:#e67e22; font-size:0.97rem; margin-bottom:8px;"><i class="fas fa-lightbulb"></i> كل وثيقة داعمة تزيد فرص قبول الطلب.</div>
-                </div>
-                <div class="doc-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #1a527610; padding: 28px 18px; flex: 1 1 220px; min-width: 220px; max-width: 300px; text-align:center;">
-                    <div style="font-size:2.2rem; color:#1a5276; margin-bottom:10px;"><i class="fas fa-home"></i></div>
-                    <h4 style="color:#1a5276; font-weight:bold;">إثبات سكن (إن وجد)</h4>
-                    <p style="color:#444; font-size:0.97rem; margin:10px 0 8px 0;">عقد إيجار أو ورقة استضافة تساعد في تسريع الإجراءات.</p>
-                    <div style="color:#e67e22; font-size:0.97rem; margin-bottom:8px;"><i class="fas fa-lightbulb"></i> ليس إلزاميًا لكنه مفيد جدًا.</div>
-                </div>
-                <div class="doc-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px #1a527610; padding: 28px 18px; flex: 1 1 220px; min-width: 220px; max-width: 300px; text-align:center;">
-                    <div style="font-size:2.2rem; color:#1a5276; margin-bottom:10px;"><i class="fas fa-file-signature"></i></div>
-                    <h4 style="color:#1a5276; font-weight:bold;">استمارة طلب اللجوء</h4>
-                    <p style="color:#444; font-size:0.97rem; margin:10px 0 8px 0;">يتم تعبئتها في المكتب أو تحميلها من المنصة الرسمية.</p>
-                    <div style="color:#e67e22; font-size:0.97rem; margin-bottom:8px;"><i class="fas fa-link"></i> <a href="https://asylum-greece.gr/ar/" target="_blank" style="color:#2980b9; font-weight:bold;">تحميل الاستمارة</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- نصائح ذهبية -->
-    <section class="tips-section">
-        <div class="container">
-            <div class="tips-box" style="background: #fffbe6; border-radius: 14px; box-shadow: 0 2px 12px #0001; padding: 24px;">
-                <h3><i class="fas fa-lightbulb"></i> نصائح ذهبية للنجاح في طلب اللجوء</h3>
-                <ul>
-                    <li>كن صادقًا ودقيقًا في كل معلومة تقدمها.</li>
-                    <li>لا توقع على أي ورقة لا تفهمها واطلب مترجمًا دائمًا.</li>
-                    <li>احتفظ بنسخ من كل مستند (ورقي ورقمي).</li>
-                    <li>احضر جميع المواعيد في الوقت المحدد.</li>
-                    <li>استعن بمحامٍ أو منظمة دعم قانوني عند الحاجة.</li>
-                    <li>تعرف على حقوقك وواجباتك كمقيم مؤقت.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- FAQ Glassmorphism Minimal -->
-    <section class="faq-section-glass" id="faq">
-      <div class="container">
-        <div class="faq-glass-header">
-          <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة حول اللجوء</h2>
-          <p class="faq-glass-desc">أجوبة مختصرة وواضحة لأهم التساؤلات حول إجراءات اللجوء في اليونان</p>
-        </div>
-        <div class="faq-glass-list">
-          <div class="faq-glass-item" data-faq>
-            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#1a5276;"><span class="faq-glass-icon"><i class="fas fa-hourglass-half"></i></span> ما هي مدة دراسة طلب اللجوء؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-            <div class="faq-glass-a">تختلف حسب الحالة، غالباً من 3 إلى 6 أشهر، وقد تطول في بعض الحالات المعقدة.</div>
-          </div>
-          <div class="faq-glass-item" data-faq>
-            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#2980b9;"><span class="faq-glass-icon"><i class="fas fa-briefcase"></i></span> هل يمكنني العمل أثناء انتظار القرار؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-            <div class="faq-glass-a">نعم، بعد استلام بطاقة طالب اللجوء المؤقتة يمكنك العمل قانونياً في معظم القطاعات.</div>
-          </div>
-          <div class="faq-glass-item" data-faq>
-            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#e67e22;"><span class="faq-glass-icon"><i class="fas fa-gavel"></i></span> هل أحتاج إلى محامٍ؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-            <div class="faq-glass-a">يفضل الاستعانة بمحامٍ أو منظمة دعم قانوني خاصة في حالات الرفض أو الاستئناف. بعض المنظمات تقدم هذه الخدمة مجانًا.</div>
-          </div>
-          <div class="faq-glass-item" data-faq>
-            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#27ae60;"><span class="faq-glass-icon"><i class="fas fa-home"></i></span> هل يحق لي السكن أو المساعدة المالية؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-            <div class="faq-glass-a">بعض الحالات (العائلات، الفئات الضعيفة) تحصل على سكن أو دعم مالي من المنظمات الدولية.</div>
-          </div>
-          <div class="faq-glass-item" data-faq>
-            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#8e44ad;"><span class="faq-glass-icon"><i class="fas fa-times-circle"></i></span> ماذا أفعل إذا تم رفض طلبي؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-            <div class="faq-glass-a">يحق لك الاستئناف خلال فترة محددة. استعن بمحامٍ فورًا ولا تتأخر في تقديم الطعن.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <style>
-    .faq-section-glass {background: none; padding: 0 0 24px 0;}
-    .faq-glass-header h2 {font-size:1.15rem; color:#1a5276; font-weight:bold; margin-bottom:2px; text-align:center;}
-    .faq-glass-desc {text-align:center; color:#2980b9; font-size:0.93rem; margin-bottom:18px;}
-    .faq-glass-list {max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:10px;}
-    .faq-glass-item {
-      background:rgba(255,255,255,0.38); backdrop-filter:blur(8px);
-      border-radius:14px; box-shadow:0 2px 12px #1a527610;
-      margin-bottom:0; transition:box-shadow 0.2s,transform 0.2s;
-      border:1.5px solid #e3f0fa; overflow:hidden;
-    }
-    .faq-glass-item.open {box-shadow:0 6px 18px var(--faq-color,#1a5276)20; transform:scale(1.01);}
-    .faq-glass-q {
-      display:flex; align-items:center; gap:10px; font-size:0.97rem; font-weight:600; color:var(--faq-color,#1a5276);
-      padding:10px 14px 8px 10px; cursor:pointer; user-select:none; background:none; transition:color 0.2s;
-    }
-    .faq-glass-icon {
-      width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--faq-color,#1a5276) 60%,#fff 100%);
-      display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.15em; box-shadow:0 1px 6px var(--faq-color,#1a5276)10;}
-    .faq-glass-arrow {margin-right:auto; font-size:0.95em; color:#bbb; transition:transform 0.3s;}
-    .faq-glass-item.open .faq-glass-arrow {transform:rotate(180deg); color:var(--faq-color,#1a5276);}
-    .faq-glass-a {
-      color:#333; font-size:0.92rem; line-height:1.7; background:rgba(255,255,255,0.65); border-radius:0 0 12px 12px;
-      padding:0 14px 10px 14px; box-shadow:0 1px 4px #1a527610; transition:max-height 0.4s,opacity 0.3s,background 0.2s; max-height:0; opacity:0; overflow:hidden;
-    }
-    .faq-glass-item.open .faq-glass-a {max-height:120px; opacity:1; padding:8px 14px 12px 14px;}
-    @media (max-width:600px){.faq-glass-list{max-width:98vw;}}
-    </style>
-    <script>
-    document.querySelectorAll('.faq-glass-item').forEach(card => {
-      card.querySelector('[data-faq-toggle]').onclick = function() {
-        card.classList.toggle('open');
-        document.querySelectorAll('.faq-glass-item').forEach(other => {if(other!==card) other.classList.remove('open');});
-      };
-    });
-    </script>
-    <!-- روابط هامة وأدوات تواصل (تصميم احترافي) -->
-    <section class="links-section links-section-pro">
-      <div class="container">
-        <div class="links-header-pro">
-          <h3><i class="fas fa-link"></i> روابط هامة وأدوات تواصل</h3>
-          <p class="links-desc-pro">أهم المصادر الرسمية والدعم المباشر لطالبي اللجوء في اليونان</p>
-        </div>
-        <div class="links-grid-pro">
-          <div class="link-card-pro" style="--card-color:#1a5276;">
-            <div class="link-icon-pro"><i class="fas fa-globe"></i></div>
-            <div class="link-content-pro">
-              <a href="https://asylum-greece.gr/ar/" target="_blank" class="link-title-pro">منصة اللجوء الرسمية (بالعربية)</a>
-              <div class="link-desc-pro">جميع المعلومات والإجراءات الرسمية باللغة العربية.</div>
-            </div>
-          </div>
-          <div class="link-card-pro" style="--card-color:#2980b9;">
-            <div class="link-icon-pro"><i class="fas fa-users"></i></div>
-            <div class="link-content-pro">
-              <a href="https://www.unhcr.org/greece.html" target="_blank" class="link-title-pro">مفوضية اللاجئين UNHCR اليونان</a>
-              <div class="link-desc-pro">الدعم القانوني والإنساني من المفوضية الرسمية.</div>
-            </div>
-          </div>
-          <div class="link-card-pro" style="--card-color:#27ae60;">
-            <div class="link-icon-pro"><i class="fas fa-balance-scale"></i></div>
-            <div class="link-content-pro">
-              <a href="https://www.gcr.gr/en/" target="_blank" class="link-title-pro">المجلس اليوناني للاجئين</a>
-              <div class="link-desc-pro">استشارات قانونية مجانية ومرافقة في جميع المراحل.</div>
-            </div>
-          </div>
-          <div class="link-card-pro" style="--card-color:#e67e22;">
-            <div class="link-icon-pro"><i class="fas fa-envelope"></i></div>
-            <div class="link-content-pro">
-              <a href="mailto:info@asylum-greece.gr" class="link-title-pro">البريد الإلكتروني للدعم</a>
-              <div class="link-desc-pro">تواصل مع فريق الدعم عبر البريد الإلكتروني.</div>
-            </div>
-          </div>
-        </div>
-        <div class="contact-buttons-pro">
-          <!-- احذف جميع أزرار التواصل هنا (واتساب وتيليجرام) -->
-        </div>
-      </div>
-    </section>
-    <style>
-    .links-section-pro {background: linear-gradient(120deg,#f8fafd 60%,#e3f0fa 100%); padding: 60px 0 40px 0;}
-    .links-header-pro h3 {color:#1a5276; font-weight:bold; font-size:2rem; margin-bottom:8px; text-align:center; letter-spacing:0.5px;}
-    .links-desc-pro {text-align:center; color:#2980b9; font-size:1.13rem; margin-bottom:38px;}
-    .links-grid-pro {display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:28px; margin-bottom:32px;}
-    .link-card-pro {
-      background:#fff; border-radius:18px; box-shadow:0 4px 24px #1a527610; padding:28px 18px; display:flex; align-items:center; gap:18px; transition:box-shadow 0.2s,transform 0.2s; border-top:6px solid var(--card-color,#1a5276); position:relative; overflow:hidden;
-    }
-    .link-card-pro:hover {box-shadow:0 8px 32px var(--card-color,#1a5276)22; transform:translateY(-6px) scale(1.04);}
-    .link-icon-pro {font-size:2.5rem; color:#fff; background:linear-gradient(135deg,var(--card-color,#1a5276) 60%,#fff 100%); border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px var(--card-color,#1a5276)30;}
-    .link-content-pro {flex:1;}
-    .link-title-pro {color:var(--card-color,#1a5276); font-weight:bold; font-size:1.13rem; text-decoration:none; transition:color 0.2s;}
-    .link-title-pro:hover {color:#e67e22; text-decoration:underline;}
-    .link-desc-pro {color:#444; font-size:0.97rem; margin-top:6px;}
-    .contact-buttons-pro {display:flex; gap:18px; justify-content:center; margin-top:10px; flex-wrap:wrap;}
-    .contact-btn-pro {
-      display:inline-flex; align-items:center; gap:10px; padding:13px 32px; border-radius:28px; font-size:1.13rem; font-weight:bold; color:#fff; background:linear-gradient(90deg,#1a5276 60%,#2980b9 100%); box-shadow:0 2px 8px #1a527610; transition:background 0.2s,transform 0.2s; text-decoration:none; margin-bottom:8px;
-    }
-    .contact-btn-pro.whatsapp {background:linear-gradient(90deg,#25d366 60%,#128c7e 100%);}
-    .contact-btn-pro.telegram {background:linear-gradient(90deg,#0088cc 60%,#1a5276 100%);}
-    .contact-btn-pro:hover {transform:scale(1.05); box-shadow:0 8px 32px #1a527620;}
-    @media (max-width:700px){.links-grid-pro{grid-template-columns:1fr;}}
-    /* شريط تواصل عائم للجوال */
-    @media (max-width:600px){
-      .contact-buttons-pro {position:fixed; bottom:18px; right:0; left:0; z-index:99; background:rgba(255,255,255,0.95); box-shadow:0 2px 12px #1a527610; border-radius:18px 18px 0 0; padding:10px 0; margin:0;}
-    }
-    </style>
-    <!-- قسم الدعم والمنظمات -->
-    <section class="asylum-support-orgs" style="background: #fff; padding: 60px 0 40px 0;">
-        <div class="container">
-            <h2 style="text-align:center; color:#1a5276; font-weight:bold; margin-bottom: 36px;"><i class="fas fa-hands-helping"></i> الدعم والمنظمات المساندة</h2>
-            <div class="org-cards org-cards-pro" style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center;">
-                <!-- UNHCR -->
-                <div class="org-card-pro" style="--org-color:#27ae60;">
-                    <div class="org-img-pro"><img src="../images/unhcr-logo.png" alt="UNHCR" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'org-icon-pro\'><i class=\'fas fa-hands-helping\'></i></span>';" /></div>
-                    <h4>مفوضية اللاجئين UNHCR</h4>
-                    <span class="org-badge-pro" style="background:#27ae60;">دعم قانوني واجتماعي</span>
-                    <p>تقدم الدعم القانوني والمساعدات الإنسانية للاجئين وطالبي اللجوء في اليونان.</p>
-                    <div class="org-links-pro">
-                        <a href="https://help.unhcr.org/greece/ar/" target="_blank"><i class="fas fa-globe"></i> الموقع الرسمي</a>
-                        <a href="mailto:grath@unhcr.org"><i class="fas fa-envelope"></i> بريد</a>
-                    </div>
-                </div>
-                <!-- GCR -->
-                <div class="org-card-pro" style="--org-color:#2980b9;">
-                    <div class="org-img-pro"><img src="../images/gcr-logo.png" alt="GCR" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'org-icon-pro\'><i class=\'fas fa-balance-scale\'></i></span>';" /></div>
-                    <h4>المجلس اليوناني للاجئين GCR</h4>
-                    <span class="org-badge-pro" style="background:#2980b9;">استشارات قانونية</span>
-                    <p>يقدم استشارات قانونية مجانية ومرافقة في جميع مراحل طلب اللجوء.</p>
-                    <div class="org-links-pro">
-                        <a href="https://www.gcr.gr/ar/" target="_blank"><i class="fas fa-globe"></i> الموقع الرسمي</a>
-                        <a href="mailto:info@gcr.gr"><i class="fas fa-envelope"></i> بريد</a>
-                    </div>
-                </div>
-                <!-- SolidarityNow -->
-                <div class="org-card-pro" style="--org-color:#8e44ad;">
-                    <div class="org-img-pro"><img src="../images/solidaritynow-logo.png" alt="SolidarityNow" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'org-icon-pro\'><i class=\'fas fa-people-carry\'></i></span>';" /></div>
-                    <h4>SolidarityNow</h4>
-                    <span class="org-badge-pro" style="background:#8e44ad;">دعم اجتماعي ونفسي</span>
-                    <p>تقدم خدمات اجتماعية، دعم نفسي، وتوجيه للاجئين في مراكزها.</p>
-                    <div class="org-links-pro">
-                        <a href="https://www.solidaritynow.org/en/" target="_blank"><i class="fas fa-globe"></i> الموقع الرسمي</a>
-                        <a href="mailto:info@solidaritynow.org"><i class="fas fa-envelope"></i> بريد</a>
-                    </div>
-                </div>
-                <!-- PRAKSIS -->
-                <div class="org-card-pro" style="--org-color:#e67e22;">
-                    <div class="org-img-pro"><img src="../images/praksis-logo.png" alt="PRAKSIS" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'org-icon-pro\'><i class=\'fas fa-user-md\'></i></span>';" /></div>
-                    <h4>PRAKSIS</h4>
-                    <span class="org-badge-pro" style="background:#e67e22;">دعم طبي واجتماعي</span>
-                    <p>تقدم خدمات طبية أولية، دعم اجتماعي، ومساعدة في السكن.</p>
-                    <div class="org-links-pro">
-                        <a href="https://www.praksis.gr/en/" target="_blank"><i class="fas fa-globe"></i> الموقع الرسمي</a>
-                        <a href="mailto:info@praksis.gr"><i class="fas fa-envelope"></i> بريد</a>
-                    </div>
-                </div>
-                <!-- METAdrasi -->
-                <div class="org-card-pro" style="--org-color:#2980b9;">
-                    <div class="org-img-pro"><img src="../images/metadrasi-logo.png" alt="METAdrasi" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'org-icon-pro\'><i class=\'fas fa-language\'></i></span>';" /></div>
-                    <h4>METAdrasi</h4>
-                    <span class="org-badge-pro" style="background:#2980b9;">ترجمة ودعم قانوني</span>
-                    <p>تقدم خدمات الترجمة الفورية والدعم القانوني للاجئين في جميع أنحاء اليونان.</p>
-                    <div class="org-links-pro">
-                        <a href="https://metadrasi.org/en/" target="_blank"><i class="fas fa-globe"></i> الموقع الرسمي</a>
-                        <a href="mailto:info@metadrasi.org"><i class="fas fa-envelope"></i> بريد</a>
-                    </div>
-                </div>
-                <!-- منصة اللجوء الرسمية -->
-                <div class="org-card-pro" style="--org-color:#1a5276;">
-                    <div class="org-img-pro"><img src="../images/asylum-greece-logo.png" alt="منصة اللجوء الرسمية" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'org-icon-pro\'><i class=\'fas fa-globe\'></i></span>';" /></div>
-                    <h4>منصة اللجوء الرسمية</h4>
-                    <span class="org-badge-pro" style="background:#1a5276;">معلومات رسمية</span>
-                    <p>المصدر الرسمي لجميع المعلومات والإجراءات والنماذج الخاصة باللجوء في اليونان.</p>
-                    <div class="org-links-pro">
-                        <a href="https://asylum-greece.gr/ar/" target="_blank"><i class="fas fa-globe"></i> الموقع الرسمي</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <style>
-    .org-cards-pro {gap:28px;}
-    .org-card-pro {
-      background: linear-gradient(120deg,#f8fafd 60%,#e3f0fa 100%);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px #1a527610;
-      padding: 28px 18px 22px 18px;
-      min-width: 260px; max-width: 340px; text-align:center; position:relative;
-      display:flex; flex-direction:column; align-items:center; transition:box-shadow 0.2s,transform 0.2s;
-      border-top:6px solid var(--org-color,#1a5276);
-    }
-    .org-card-pro:hover {box-shadow:0 8px 32px var(--org-color,#1a5276)22; transform:translateY(-6px) scale(1.04);}
-    .org-img-pro {width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--org-color,#1a5276) 60%,#fff 100%); display:flex; align-items:center; justify-content:center; margin-bottom:12px; box-shadow:0 2px 12px var(--org-color,#1a5276)30; overflow:hidden;}
-    .org-img-pro img {width:60px; height:60px; object-fit:contain; border-radius:50%; background:#fff;}
-    .org-icon-pro {font-size:2.5rem; color:#fff; display:flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,var(--org-color,#1a5276) 60%,#fff 100%);}
-    .org-badge-pro {color:#fff; font-size:0.85rem; border-radius:8px; padding:2px 10px; margin-bottom:8px; display:inline-block; font-weight:bold;}
-    .org-card-pro h4 {color:#1a5276; font-weight:bold; font-size:1.18rem; margin-bottom:8px;}
-    .org-card-pro p {color:#444; font-size:0.97rem; margin:10px 0 16px 0;}
-    .org-links-pro {margin-bottom:8px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
-    .org-links-pro a {color:var(--org-color,#1a5276); font-weight:bold; text-decoration:none; transition:color 0.2s;}
-    .org-links-pro a:hover {color:#e67e22; text-decoration:underline;}
-    @media (max-width:900px){.org-cards-pro{flex-direction:column;gap:18px;}}
-    </style>
     <!-- Mobile Search Popup -->
     <div class="mobile-search-popup">
         <div class="popup-content">
@@ -1326,6 +104,54 @@
                 <input type="text" placeholder="ابحث هنا..." class="search-input">
                 <button class="search-button"><i class="fas fa-search"></i></button>
             </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Popup -->
+    <div class="mobile-menu-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2><i class="fas fa-bars"></i> القائمة</h2>
+                <span class="close-popup"><i class="fas fa-times"></i></span>
+            </div>
+            <ul class="mobile-menu-list">
+                <li><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
+                <li class="mobile-dropdown">
+                    <a href="#services"><i class="fas fa-hands-helping"></i><span>الخدمات</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="asylum.html"><i class="fas fa-passport"></i><span>دوائر اللجوء</span></a></li>
+                        <li><a href="government.html"><i class="fas fa-landmark"></i><span>دوائر حكومية</span></a></li>
+                        <li><a href="housing.html"><i class="fas fa-home"></i><span>عقارات وسكن</span></a></li>
+                        <li><a href="hospitals.html"><i class="fas fa-hospital"></i><span>مستشفيات</span></a></li>
+                        <li><a href="transportation.html"><i class="fas fa-bus"></i><span>خطوط النقل</span></a></li>
+                        <li><a href="tourism-services.html"><i class="fas fa-umbrella-beach"></i><span>سياحة</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#work"><i class="fas fa-briefcase"></i><span>العمل</span></a></li>
+                <li class="mobile-dropdown">
+                    <a href="#organizations"><i class="fas fa-users"></i><span>المنظمات</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="#humanitarian"><i class="fas fa-hand-holding-heart"></i><span>منظمات إنسانية</span></a></li>
+                        <li><a href="#medical-org"><i class="fas fa-stethoscope"></i><span>منظمات طبية</span></a></li>
+                        <li><a href="#educational"><i class="fas fa-graduation-cap"></i><span>منظمات تعليمية</span></a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <a href="#offices"><i class="fas fa-building"></i><span>المكاتب</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="#service-offices"><i class="fas fa-cogs"></i><span>مكاتب خدمية</span></a></li>
+                        <li><a href="#accounting"><i class="fas fa-calculator"></i><span>مكاتب محاسبة</span></a></li>
+                        <li><a href="#lawyers"><i class="fas fa-gavel"></i><span>مكاتب محامين</span></a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <a href="#tourism"><i class="fas fa-plane"></i><span>السياحة</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="#hotels"><i class="fas fa-hotel"></i><span>فنادق</span></a></li>
+                        <li><a href="#pharmacies"><i class="fas fa-store"></i><span>صيدليات ومتاجر</span></a></li>
+                        <li><a href="#restaurants"><i class="fas fa-utensils"></i><span>مطاعم</span></a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
     <!-- Settings Popup -->
@@ -1492,55 +318,54 @@
             </div>
         </div>
     </div>
-    <!-- Mobile Menu Popup -->
-    <div class="mobile-menu-popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <h2><i class="fas fa-bars"></i> القائمة</h2>
-                <span class="close-popup"><i class="fas fa-times"></i></span>
+    <!-- Hero Section -->
+    <section class="service-hero asylum-hero">
+        <div class="hero-flex">
+            <div class="hero-content">
+                <div class="hero-glass-pro">
+                    <h1>دليل دوائر اللجوء في اليونان</h1>
+                    <p>كل ما تحتاج معرفته حول إجراءات اللجوء، الوثائق المطلوبة، أهم النصائح، وأماكن الدوائر الرسمية.</p>
+                </div>
             </div>
-            <ul class="mobile-menu-list">
-                <li><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
-                <li class="mobile-dropdown">
-                    <a href="#services"><i class="fas fa-hands-helping"></i><span>الخدمات</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="asylum.html"><i class="fas fa-passport"></i><span>دوائر اللجوء</span></a></li>
-                        <li><a href="government.html"><i class="fas fa-landmark"></i><span>دوائر حكومية</span></a></li>
-                        <li><a href="housing.html"><i class="fas fa-home"></i><span>عقارات وسكن</span></a></li>
-                        <li><a href="hospitals.html"><i class="fas fa-hospital"></i><span>مستشفيات</span></a></li>
-                        <li><a href="transportation.html"><i class="fas fa-bus"></i><span>خطوط النقل</span></a></li>
-                        <li><a href="tourism-services.html"><i class="fas fa-umbrella-beach"></i><span>سياحة</span></a></li>
-                    </ul>
-                </li>
-                <li><a href="../index.html#work"><i class="fas fa-briefcase"></i><span>العمل</span></a></li>
-                <li class="mobile-dropdown">
-                    <a href="#organizations"><i class="fas fa-users"></i><span>المنظمات</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i><span>منظمات إنسانية</span></a></li>
-                        <li><a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i><span>منظمات طبية</span></a></li>
-                        <li><a href="../index.html#educational"><i class="fas fa-graduation-cap"></i><span>منظمات تعليمية</span></a></li>
-                    </ul>
-                </li>
-                <li class="mobile-dropdown">
-                    <a href="#offices"><i class="fas fa-building"></i><span>المكاتب</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#service-offices"><i class="fas fa-cogs"></i><span>مكاتب خدمية</span></a></li>
-                        <li><a href="../index.html#accounting"><i class="fas fa-calculator"></i><span>مكاتب محاسبة</span></a></li>
-                        <li><a href="../index.html#lawyers"><i class="fas fa-gavel"></i><span>مكاتب محامين</span></a></li>
-                    </ul>
-                </li>
-                <li class="mobile-dropdown">
-                    <a href="#tourism"><i class="fas fa-plane"></i><span>السياحة</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#hotels"><i class="fas fa-hotel"></i><span>فنادق</span></a></li>
-                        <li><a href="../index.html#pharmacies"><i class="fas fa-store"></i><span>صيدليات ومتاجر</span></a></li>
-                        <li><a href="../index.html#restaurants"><i class="fas fa-utensils"></i><span>مطاعم</span></a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
-    </div>
-    <!-- Footer -->
+    </section>
+    <main class="container">
+        <section class="info-box">
+            <h2><i class="fas fa-info-circle"></i> خطوات طلب اللجوء</h2>
+            <ol class="timeline">
+                <li class="timeline-step"><span class="timeline-icon"><i class="fas fa-user-plus"></i></span>تقديم الطلب</li>
+                <li class="timeline-step"><span class="timeline-icon"><i class="fas fa-file-alt"></i></span>مقابلة شخصية</li>
+                <li class="timeline-step"><span class="timeline-icon"><i class="fas fa-gavel"></i></span>دراسة الطلب</li>
+                <li class="timeline-step"><span class="timeline-icon"><i class="fas fa-check-circle"></i></span>القرار النهائي</li>
+            </ol>
+        </section>
+        <section class="asylum-documents info-box">
+            <h2><i class="fas fa-folder-open"></i> الوثائق المطلوبة</h2>
+            <ul class="doc-list">
+                <li>جواز السفر أو وثيقة هوية</li>
+                <li>صور شخصية حديثة</li>
+                <li>وثائق داعمة (إن وجدت)</li>
+            </ul>
+        </section>
+        <section class="office-cards">
+            <div class="office-card">
+                <h3><i class="fas fa-map-marker-alt"></i> دائرة اللجوء الرئيسية - أثينا</h3>
+                <p>العنوان: شارع كذا، أثينا<br>الهاتف: 210xxxxxxx</p>
+            </div>
+            <div class="office-card">
+                <h3><i class="fas fa-map-marker-alt"></i> دائرة اللجوء - سالونيك</h3>
+                <p>العنوان: شارع كذا، سالونيك<br>الهاتف: 231xxxxxxx</p>
+            </div>
+        </section>
+        <section class="tips-box">
+            <h2><i class="fas fa-lightbulb"></i> نصائح مهمة</h2>
+            <ul>
+                <li>احتفظ بنسخ من جميع أوراقك.</li>
+                <li>احضر في المواعيد المحددة.</li>
+                <li>اطلب المساعدة من المنظمات الإنسانية عند الحاجة.</li>
+            </ul>
+        </section>
+    </main>
     <footer>
         <div class="footer-wave">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2c3e50" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
@@ -1586,9 +411,8 @@
         </div>
     </footer>
     <script src="../js/main.js"></script>
-    <script src="../js/services.js"></script>
-    <script src="../js/tabs.js"></script>
     <script src="../js/mobile-nav.js"></script>
     <script src="../js/theme-manager.js"></script>
+    <script src="../js/language-manager.js"></script>
 </body>
-</html> 
+</html>

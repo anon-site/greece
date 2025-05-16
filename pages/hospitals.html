@@ -21,42 +21,7 @@
     <link rel="stylesheet" href="../css/modern-mobile-popups.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-    @media (max-width:600px) {
-      body { font-size: 0.97rem; }
-      header .container, .container { padding: 0 6px !important; }
-      h1, h2, h3, h4, h5 { font-size: 1.05em !important; }
-      .service-detail-hero, .service-hero, .asylum-hero, .asylum-hero-modern, .asylum-hero-pro, .asylum-hero-ultra {
-        min-height: 60vh !important; height: auto !important; padding: 30px 0 20px 0 !important;
-      }
-      .hero-content, .hero-flex, .hero-flex-pro { flex-direction: column !important; gap: 14px !important; }
-      .hero-img, .hero-avatar-pro img { max-width: 120px !important; height: auto !important; }
-      .service-detail-content .container, .asylum-hero-glass, .asylum-hero-glass-modern, .hero-glass-pro, .asylum-hero-glass-ultra {
-        padding: 14px 2vw 14px 2vw !important; max-width: 98vw !important;
-      }
-      .details-grid, .timeline, .office-cards, .gallery-map-flex, .stories-grid, .org-cards-pro, .links-grid-pro, .faq-glass-list {
-        flex-direction: column !important; gap: 10px !important; max-width: 99vw !important;
-      }
-      .timeline-step, .office-card, .doc-card, .org-card-pro, .link-card-pro, .faq-glass-item, .detail-card, .info-box {
-        min-width: 0 !important; max-width: 100vw !important; padding: 12px 6px !important; font-size: 0.97em !important;
-      }
-      .office-card img, .org-img-pro img, .gallery img { max-width: 100% !important; height: auto !important; }
-      .tips-box, .story-card, .tips-section .tips-box, .faq-glass-item, .faq-card-pro {
-        padding: 10px 8px !important; font-size: 0.97em !important;
-      }
-      .links-header-pro h3, .links-header-pro h2 { font-size: 1.1em !important; }
-      .links-desc-pro { font-size: 0.93em !important; }
-      .org-img-pro, .link-icon-pro { width: 38px !important; height: 38px !important; font-size: 1em !important; }
-      .org-card-pro h4, .link-title-pro { font-size: 1em !important; }
-      .org-badge-pro, .link-desc-pro { font-size: 0.89em !important; }
-      .footer-content-wrapper, .footer-content, .footer-center-wrapper { flex-direction: column !important; gap: 8px !important; }
-      .footer-center-logo, .footer-center-text, .footer-center-social { text-align: center !important; }
-      .footer-center-logo .logo-icon { font-size: 1.5em !important; }
-      .footer-bottom { flex-direction: column !important; gap: 6px !important; font-size: 0.93em !important; }
-      .footer-bottom-links a { font-size: 0.93em !important; }
-      .mobile-menu-popup .popup-content, .mobile-settings-popup .popup-content, .mobile-search-popup .popup-content { padding: 10px 4px !important; }
-    }
-    </style>
+    <link rel="stylesheet" href="../css/hospitals.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -72,7 +37,7 @@
                         <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="#"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
                             <a href="asylum.html"><i class="fas fa-passport"></i> دوائر اللجوء</a>
                             <a href="government.html"><i class="fas fa-landmark"></i> دوائر حكومية</a>
@@ -83,30 +48,30 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                        <a href="#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i> منظمات إنسانية</a>
-                            <a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</a>
-                            <a href="../index.html#educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</a>
+                            <a href="#humanitarian"><i class="fas fa-hand-holding-heart"></i> منظمات إنسانية</a>
+                            <a href="#medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</a>
+                            <a href="#educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</a>
                         </div>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#service-offices"><i class="fas fa-cogs"></i> مكاتب خدمية</a>
-                            <a href="../index.html#accounting"><i class="fas fa-calculator"></i> مكاتب محاسبة</a>
-                            <a href="../index.html#lawyers"><i class="fas fa-gavel"></i> مكاتب محامين</a>
+                            <a href="#service-offices"><i class="fas fa-cogs"></i> مكاتب خدمية</a>
+                            <a href="#accounting"><i class="fas fa-calculator"></i> مكاتب محاسبة</a>
+                            <a href="#lawyers"><i class="fas fa-gavel"></i> مكاتب محامين</a>
                         </div>
                     </li>
                     <li class="dropdown nav-item">
-                        <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <a href="#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
-                            <a href="../index.html#hotels"><i class="fas fa-hotel"></i> فنادق</a>
-                            <a href="../index.html#pharmacies"><i class="fas fa-store"></i> صيدليات ومتاجر</a>
-                            <a href="../index.html#restaurants"><i class="fas fa-utensils"></i> مطاعم</a>
+                            <a href="#hotels"><i class="fas fa-hotel"></i> فنادق</a>
+                            <a href="#pharmacies"><i class="fas fa-store"></i> صيدليات ومتاجر</a>
+                            <a href="#restaurants"><i class="fas fa-utensils"></i> مطاعم</a>
                         </div>
                     </li>
                 </ul>
@@ -116,8 +81,10 @@
             </div>
         </div>
     </header>
-
-    <!-- Mobile Navigation -->
+    <div class="settings-desktop-btn" id="settingsDesktopBtn">
+        <i class="fas fa-cog"></i>
+    </div>
+    <!-- Mobile Navigation Menu -->
     <nav class="mobile-nav">
         <div class="nav-indicator"></div>
         <ul>
@@ -127,112 +94,6 @@
             <li class="nav-item settings-btn"><a href="#settings"><i class="fas fa-cog"></i><span>الإعدادات</span></a></li>
         </ul>
     </nav>
-    <!-- Main Content -->
-    <section class="service-detail-hero hospitals-hero">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1><i class="fas fa-hospital"></i> المستشفيات في اليونان</h1>
-                <p>دليلك للرعاية الصحية، عناوين المستشفيات، النصائح، والأوراق المطلوبة للعلاج.</p>
-            </div>
-        </div>
-    </section>
-    <section class="service-detail-content">
-        <div class="container">
-            <div class="info-box">
-                <h2><i class="fas fa-info-circle"></i> مقدمة عن النظام الصحي</h2>
-                <p>توفر اليونان نظام رعاية صحية عام وخاص. تعرف على كيفية الاستفادة من الخدمات الطبية وأهم المستشفيات.</p>
-            </div>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> أهم المستشفيات في أثينا</h3>
-                    <ul>
-                        <li>المستشفى العام في أثينا (Evangelismos): شارع إيفانجيليسموس</li>
-                        <li>مستشفى أومونيا الصحي: ساحة أومونيا</li>
-                        <li>مستشفى الأطفال: شارع ثرياسيون</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3><i class="fas fa-id-card"></i> الأوراق المطلوبة للعلاج</h3>
-                    <ul>
-                        <li>بطاقة AMKA (للعلاج المجاني في القطاع العام)</li>
-                        <li>إثبات هوية أو إقامة</li>
-                        <li>تأمين صحي خاص (للمستشفيات الخاصة)</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3><i class="fas fa-ambulance"></i> خدمات الطوارئ</h3>
-                    <ul>
-                        <li>رقم الطوارئ: 112</li>
-                        <li>خدمة الإسعاف: متوفرة 24/7</li>
-                        <li>صيدليات مناوبة للطوارئ</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3><i class="fas fa-lightbulb"></i> نصائح هامة</h3>
-                    <ul>
-                        <li>احتفظ بنسخة من أوراقك الطبية دائماً</li>
-                        <li>اسأل عن التكاليف قبل العلاج في القطاع الخاص</li>
-                        <li>استخدم بطاقة AMKA للعلاج المجاني</li>
-                        <li>استعن بمترجم عند الحاجة</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="links-section links-section-pro">
-                <div class="container">
-                    <div class="links-header-pro">
-                        <h3><i class="fas fa-link"></i> روابط هامة وأدوات تواصل</h3>
-                        <p class="links-desc-pro">أهم المواقع الصحية والمصادر الطبية في اليونان</p>
-                    </div>
-                    <div class="links-grid-pro">
-                        <div class="link-card-pro" style="--card-color:#1a5276;">
-                            <div class="link-icon-pro"><i class="fas fa-id-card"></i></div>
-                            <div class="link-content-pro">
-                                <a href="https://www.amka.gr/" target="_blank" class="link-title-pro">موقع AMKA - التأمين الصحي</a>
-                                <div class="link-desc-pro">الحصول على بطاقة AMKA للعلاج المجاني في القطاع العام.</div>
-                            </div>
-                        </div>
-                        <div class="link-card-pro" style="--card-color:#27ae60;">
-                            <div class="link-icon-pro"><i class="fas fa-hospital"></i></div>
-                            <div class="link-content-pro">
-                                <a href="https://www.moh.gov.gr/" target="_blank" class="link-title-pro">وزارة الصحة اليونانية</a>
-                                <div class="link-desc-pro">المعلومات الرسمية حول المستشفيات والخدمات الصحية.</div>
-                            </div>
-                        </div>
-                        <div class="link-card-pro" style="--card-color:#2980b9;">
-                            <div class="link-icon-pro"><i class="fas fa-ambulance"></i></div>
-                            <div class="link-content-pro">
-                                <a href="https://www.ekab.gr/" target="_blank" class="link-title-pro">خدمات الإسعاف EKAB</a>
-                                <div class="link-desc-pro">خدمات الطوارئ والإسعاف على مدار الساعة.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-section-glass" id="faq">
-                <div class="container">
-                    <div class="faq-glass-header">
-                        <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة حول المستشفيات والرعاية الصحية</h2>
-                        <p class="faq-glass-desc">أجوبة مختصرة وواضحة لأهم التساؤلات حول العلاج والخدمات الصحية في اليونان</p>
-                    </div>
-                    <div class="faq-glass-list">
-                        <div class="faq-glass-item" data-faq>
-                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#1a5276;"><span class="faq-glass-icon"><i class="fas fa-id-card"></i></span> ما هي بطاقة AMKA؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-                            <div class="faq-glass-a">بطاقة التأمين الصحي الوطنية، تتيح لك العلاج المجاني في المستشفيات العامة.</div>
-                        </div>
-                        <div class="faq-glass-item" data-faq>
-                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#27ae60;"><span class="faq-glass-icon"><i class="fas fa-ambulance"></i></span> كيف أطلب الإسعاف؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-                            <div class="faq-glass-a">اتصل بالرقم 112 أو 166 لخدمات الإسعاف EKAB في أي وقت.</div>
-                        </div>
-                        <div class="faq-glass-item" data-faq>
-                            <div class="faq-glass-q" data-faq-toggle style="--faq-color:#2980b9;"><span class="faq-glass-icon"><i class="fas fa-language"></i></span> هل أحتاج لمترجم في المستشفى؟ <span class="faq-glass-arrow"><i class="fas fa-chevron-down"></i></span></div>
-                            <div class="faq-glass-a">يفضل وجود مترجم إذا لم تتقن اليونانية، خاصة في الحالات الطبية الطارئة.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Mobile Search Popup -->
     <div class="mobile-search-popup">
         <div class="popup-content">
@@ -244,6 +105,54 @@
                 <input type="text" placeholder="ابحث هنا..." class="search-input">
                 <button class="search-button"><i class="fas fa-search"></i></button>
             </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Popup -->
+    <div class="mobile-menu-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2><i class="fas fa-bars"></i> القائمة</h2>
+                <span class="close-popup"><i class="fas fa-times"></i></span>
+            </div>
+            <ul class="mobile-menu-list">
+                <li><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
+                <li class="mobile-dropdown">
+                    <a href="#services"><i class="fas fa-hands-helping"></i><span>الخدمات</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="asylum.html"><i class="fas fa-passport"></i><span>دوائر اللجوء</span></a></li>
+                        <li><a href="government.html"><i class="fas fa-landmark"></i><span>دوائر حكومية</span></a></li>
+                        <li><a href="housing.html"><i class="fas fa-home"></i><span>عقارات وسكن</span></a></li>
+                        <li><a href="hospitals.html"><i class="fas fa-hospital"></i><span>مستشفيات</span></a></li>
+                        <li><a href="transportation.html"><i class="fas fa-bus"></i><span>خطوط النقل</span></a></li>
+                        <li><a href="tourism-services.html"><i class="fas fa-umbrella-beach"></i><span>سياحة</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#work"><i class="fas fa-briefcase"></i><span>العمل</span></a></li>
+                <li class="mobile-dropdown">
+                    <a href="#organizations"><i class="fas fa-users"></i><span>المنظمات</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="#humanitarian"><i class="fas fa-hand-holding-heart"></i><span>منظمات إنسانية</span></a></li>
+                        <li><a href="#medical-org"><i class="fas fa-stethoscope"></i><span>منظمات طبية</span></a></li>
+                        <li><a href="#educational"><i class="fas fa-graduation-cap"></i><span>منظمات تعليمية</span></a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <a href="#offices"><i class="fas fa-building"></i><span>المكاتب</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="#service-offices"><i class="fas fa-cogs"></i><span>مكاتب خدمية</span></a></li>
+                        <li><a href="#accounting"><i class="fas fa-calculator"></i><span>مكاتب محاسبة</span></a></li>
+                        <li><a href="#lawyers"><i class="fas fa-gavel"></i><span>مكاتب محامين</span></a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <a href="#tourism"><i class="fas fa-plane"></i><span>السياحة</span></a>
+                    <ul class="mobile-dropdown-content">
+                        <li><a href="#hotels"><i class="fas fa-hotel"></i><span>فنادق</span></a></li>
+                        <li><a href="#pharmacies"><i class="fas fa-store"></i><span>صيدليات ومتاجر</span></a></li>
+                        <li><a href="#restaurants"><i class="fas fa-utensils"></i><span>مطاعم</span></a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
     <!-- Settings Popup -->
@@ -410,55 +319,41 @@
             </div>
         </div>
     </div>
-    <!-- Mobile Menu Popup -->
-    <div class="mobile-menu-popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <h2><i class="fas fa-bars"></i> القائمة</h2>
-                <span class="close-popup"><i class="fas fa-times"></i></span>
+    <!-- Hero Section -->
+    <section class="service-hero hospital-hero">
+        <div class="hero-flex">
+            <div class="hero-content">
+                <div class="hero-glass-pro">
+                    <h1>دليل المستشفيات والخدمات الطبية</h1>
+                    <p>تعرف على النظام الصحي في اليونان، وأهم المستشفيات والخدمات الطبية المتوفرة للمقيمين والزوار.</p>
+                </div>
             </div>
-            <ul class="mobile-menu-list">
-                <li><a href="../index.html"><i class="fas fa-home"></i><span>الرئيسية</span></a></li>
-                <li class="mobile-dropdown">
-                    <a href="#services"><i class="fas fa-hands-helping"></i><span>الخدمات</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="asylum.html"><i class="fas fa-passport"></i><span>دوائر اللجوء</span></a></li>
-                        <li><a href="government.html"><i class="fas fa-landmark"></i><span>دوائر حكومية</span></a></li>
-                        <li><a href="housing.html"><i class="fas fa-home"></i><span>عقارات وسكن</span></a></li>
-                        <li><a href="hospitals.html"><i class="fas fa-hospital"></i><span>مستشفيات</span></a></li>
-                        <li><a href="transportation.html"><i class="fas fa-bus"></i><span>خطوط النقل</span></a></li>
-                        <li><a href="tourism-services.html"><i class="fas fa-umbrella-beach"></i><span>سياحة</span></a></li>
-                    </ul>
-                </li>
-                <li><a href="../index.html#work"><i class="fas fa-briefcase"></i><span>العمل</span></a></li>
-                <li class="mobile-dropdown">
-                    <a href="#organizations"><i class="fas fa-users"></i><span>المنظمات</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#humanitarian"><i class="fas fa-hand-holding-heart"></i><span>منظمات إنسانية</span></a></li>
-                        <li><a href="../index.html#medical-org"><i class="fas fa-stethoscope"></i><span>منظمات طبية</span></a></li>
-                        <li><a href="../index.html#educational"><i class="fas fa-graduation-cap"></i><span>منظمات تعليمية</span></a></li>
-                    </ul>
-                </li>
-                <li class="mobile-dropdown">
-                    <a href="#offices"><i class="fas fa-building"></i><span>المكاتب</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#service-offices"><i class="fas fa-cogs"></i><span>مكاتب خدمية</span></a></li>
-                        <li><a href="../index.html#accounting"><i class="fas fa-calculator"></i><span>مكاتب محاسبة</span></a></li>
-                        <li><a href="../index.html#lawyers"><i class="fas fa-gavel"></i><span>مكاتب محامين</span></a></li>
-                    </ul>
-                </li>
-                <li class="mobile-dropdown">
-                    <a href="#tourism"><i class="fas fa-plane"></i><span>السياحة</span></a>
-                    <ul class="mobile-dropdown-content">
-                        <li><a href="../index.html#hotels"><i class="fas fa-hotel"></i><span>فنادق</span></a></li>
-                        <li><a href="../index.html#pharmacies"><i class="fas fa-store"></i><span>صيدليات ومتاجر</span></a></li>
-                        <li><a href="../index.html#restaurants"><i class="fas fa-utensils"></i><span>مطاعم</span></a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
-    </div>
-    <!-- Footer -->
+    </section>
+    <main class="container">
+        <section class="info-box">
+            <h2><i class="fas fa-hospital"></i> النظام الصحي في اليونان</h2>
+            <p>اليونان توفر نظام رعاية صحية عام وخاص. يحق للمقيمين الاستفادة من المستشفيات الحكومية بعد التسجيل في التأمين الصحي الوطني (EOPYY). توجد أيضاً مستشفيات وعيادات خاصة.</p>
+        </section>
+        <section class="office-cards">
+            <div class="office-card">
+                <h3><i class="fas fa-hospital-alt"></i> مستشفى إيفانجيليسموس - أثينا</h3>
+                <p>العنوان: شارع ميكاليس، أثينا<br>الهاتف: 210xxxxxxxx</p>
+            </div>
+            <div class="office-card">
+                <h3><i class="fas fa-hospital-alt"></i> مستشفى باباجورجيو - سالونيك</h3>
+                <p>العنوان: شارع كذا، سالونيك<br>الهاتف: 231xxxxxxxx</p>
+            </div>
+        </section>
+        <section class="tips-box">
+            <h2><i class="fas fa-lightbulb"></i> نصائح طبية مهمة</h2>
+            <ul>
+                <li>احتفظ ببطاقة التأمين الصحي دائماً.</li>
+                <li>في حالات الطوارئ اتصل بالرقم 166 للإسعاف.</li>
+                <li>تأكد من معرفة أقرب مستشفى لمنزلك.</li>
+            </ul>
+        </section>
+    </main>
     <footer>
         <div class="footer-wave">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2c3e50" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
@@ -504,19 +399,8 @@
         </div>
     </footer>
     <script src="../js/main.js"></script>
-    <script src="../js/services.js"></script>
-    <script src="../js/tabs.js"></script>
     <script src="../js/mobile-nav.js"></script>
     <script src="../js/theme-manager.js"></script>
-    <script>
-    document.querySelectorAll('.faq-glass-q').forEach(q => {
-        q.onclick = function() {
-            const item = this.closest('.faq-glass-item');
-            if(item.classList.contains('open')) {item.classList.remove('open'); return;}
-            document.querySelectorAll('.faq-glass-item').forEach(i=>i.classList.remove('open'));
-            item.classList.add('open');
-        }
-    });
-    </script>
+    <script src="../js/language-manager.js"></script>
 </body>
-</html> 
+</html>

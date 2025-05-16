@@ -1,0 +1,34 @@
+@media (max-width:600px) {
+  body { font-size: 0.97rem; }
+  header .container, .container { padding: 0 6px !important; }
+  h1, h2, h3, h4, h5 { font-size: 1.05em !important; }
+  .service-detail-hero, .service-hero, .asylum-hero, .asylum-hero-modern, .asylum-hero-pro, .asylum-hero-ultra {
+    min-height: 60vh !important; height: auto !important; padding: 30px 0 20px 0 !important;
+  }
+  .hero-content, .hero-flex, .hero-flex-pro { flex-direction: column !important; gap: 14px !important; }
+  .hero-img, .hero-avatar-pro img { max-width: 120px !important; height: auto !important; }
+  .service-detail-content .container, .asylum-hero-glass, .asylum-hero-glass-modern, .hero-glass-pro, .asylum-hero-glass-ultra {
+    padding: 14px 2vw 14px 2vw !important; max-width: 98vw !important;
+  }
+  .details-grid, .timeline, .office-cards, .gallery-map-flex, .stories-grid, .org-cards-pro, .links-grid-pro, .faq-glass-list {
+    flex-direction: column !important; gap: 10px !important; max-width: 99vw !important;
+  }
+  .timeline-step, .office-card, .doc-card, .org-card-pro, .link-card-pro, .faq-glass-item, .detail-card, .info-box {
+    min-width: 0 !important; max-width: 100vw !important; padding: 12px 6px !important; font-size: 0.97em !important;
+  }
+  .office-card img, .org-img-pro img, .gallery img { max-width: 100% !important; height: auto !important; }
+  .tips-box, .story-card, .tips-section .tips-box, .faq-glass-item, .faq-card-pro {
+    padding: 10px 8px !important; font-size: 0.97em !important;
+  }
+  .links-header-pro h3, .links-header-pro h2 { font-size: 1.1em !important; }
+  .links-desc-pro { font-size: 0.93em !important; }
+  .org-img-pro, .link-icon-pro { width: 38px !important; height: 38px !important; font-size: 1em !important; }
+  .org-card-pro h4, .link-title-pro { font-size: 1em !important; }
+  .org-badge-pro, .link-desc-pro { font-size: 0.89em !important; }
+  .footer-content-wrapper, .footer-content, .footer-center-wrapper { flex-direction: column !important; gap: 8px !important; }
+  .footer-center-logo, .footer-center-text, .footer-center-social { text-align: center !important; }
+  .footer-center-logo .logo-icon { font-size: 1.5em !important; }
+  .footer-bottom { flex-direction: column !important; gap: 6px !important; font-size: 0.93em !important; }
+  .footer-bottom-links a { font-size: 0.93em !important; }
+  .mobile-menu-popup .popup-content, .mobile-settings-popup .popup-content, .mobile-search-popup .popup-content { padding: 10px 4px !important; }
+} 
