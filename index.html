@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحياة في اليونان</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tabs.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-globe-europe"></i> الحياة في اليونان</h1>
+                <div class="tagline">دليلك الشامل للحياة في اليونان</div>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="#home"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="pages/asylum.html">دوائر اللجوء</a>
+                            <a href="pages/government.html">دوائر حكومية</a>
+                            <a href="pages/housing.html">عقارات وسكن</a>
+                            <a href="pages/hospitals.html">مستشفيات</a>
+                            <a href="pages/transportation.html">خطوط النقل</a>
+                            <a href="pages/tourism-services.html">سياحة</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#humanitarian">منظمات إنسانية</a>
+                            <a href="#medical-org">منظمات طبية</a>
+                            <a href="#educational">منظمات تعليمية</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#service-offices">مكاتب خدمية</a>
+                            <a href="#accounting">مكاتب محاسبة</a>
+                            <a href="#lawyers">مكاتب محامين</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#hotels">فنادق</a>
+                            <a href="#pharmacies">صيدليات ومتاجر</a>
+                            <a href="#restaurants">مطاعم</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <button class="desktop-settings-btn" title="الإعدادات">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="desktop-search-btn" title="بحث">
+                <i class="fas fa-search"></i>
+            </button>
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="فتح القائمة الرئيسية">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav">
+        <ul>
+            <li class="nav-item">
+                <a href="#home"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="pages/asylum.html">دوائر اللجوء</a></li>
+                    <li><a href="pages/government.html">دوائر حكومية</a></li>
+                    <li><a href="pages/housing.html">عقارات وسكن</a></li>
+                    <li><a href="pages/hospitals.html">مستشفيات</a></li>
+                    <li><a href="pages/transportation.html">خطوط النقل</a></li>
+                    <li><a href="pages/tourism-services.html">سياحة</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="#humanitarian">منظمات إنسانية</a></li>
+                    <li><a href="#medical-org">منظمات طبية</a></li>
+                    <li><a href="#educational">منظمات تعليمية</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="#service-offices">مكاتب خدمية</a></li>
+                    <li><a href="#accounting">مكاتب محاسبة</a></li>
+                    <li><a href="#lawyers">مكاتب محامين</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="#hotels">فنادق</a></li>
+                    <li><a href="#pharmacies">صيدليات ومتاجر</a></li>
+                    <li><a href="#restaurants">مطاعم</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="animated-title">مرحباً بك في اليونان</h1>
+                <p class="animated-subtitle">دليلك الشامل للحياة والخدمات والفرص في اليونان</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">استكشف الخدمات <i class="fas fa-arrow-left"></i></a>
+                    <a href="#work" class="btn btn-secondary">فرص العمل <i class="fas fa-briefcase"></i></a>
+                </div>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>دليل شامل</h3>
+                    <p>لجميع الخدمات والمعلومات</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h3>محتوى بالعربية</h3>
+                    <p>معلومات بلغتك لسهولة الوصول</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>تحديث مستمر</h3>
+                    <p>معلومات محدثة باستمرار</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">استكشف خدماتنا</span>
+                <div class="section-title-wrapper">
+                    <h2>الخدمات</h2>
+                    <a href="services.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>استكشف مجموعة متنوعة من الخدمات المتاحة في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+            
+            <div class="services-categories">
+                <!-- احذف أزرار التبويب الخاصة بجميع الخدمات وخدمات رسمية وخدمات يومية وسياحة وترفيه -->
+            </div>
+            
+            <div class="cards-container">
+                <div class="service-card" id="asylum" data-category="official">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <h3>دوائر اللجوء</h3>
+                            <p class="card-info">مساعدة في إجراءات اللجوء، مواقع المكاتب، الأوراق المطلوبة.</p>
+                            <p class="card-brief">إجراءات وخدمات اللجوء الرسمية</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>دوائر اللجوء</h3>
+                            <p>معلومات عن إجراءات اللجوء والمكاتب المختصة</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مكتب اللجوء في أثينا: شارع كاتاخاني 5</li>
+                                <li><i class="fas fa-check-circle"></i> مواعيد العمل: من الاثنين إلى الجمعة (8 ص - 2 م)</li>
+                                <li><i class="fas fa-check-circle"></i> الأوراق المطلوبة: جواز سفر، صور شخصية، وثائق هوية</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card" id="government" data-category="official">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <h3>دوائر حكومية</h3>
+                            <p class="card-info">مساعدة في الدوائر الرسمية والحكومية، دليل المكاتب، التأمين الاجتماعي.</p>
+                            <p class="card-brief">خدمات الدوائر الرسمية والحكومية</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>دوائر حكومية</h3>
+                            <p>دليل للدوائر الحكومية والخدمات العامة</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مكتب الضرائب (TAX): شارع ستاديو 29، أثينا</li>
+                                <li><i class="fas fa-check-circle"></i> مكتب الإقامة: شارع بيترو رالي 24</li>
+                                <li><i class="fas fa-check-circle"></i> التأمين الاجتماعي (EFKA): شارع أجيو كونستانتينو 8</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card" id="housing" data-category="daily">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>عقارات وسكن</h3>
+                            <p class="card-info">خدمات السكن والإيجار والشراء، مواقع البحث، متوسط الإيجار.</p>
+                            <p class="card-brief">خدمات السكن والإيجار وشراء العقارات</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>عقارات وسكن</h3>
+                            <p>خيارات السكن والإيجار وشراء العقارات</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مواقع البحث عن سكن: Spitogatos.gr, xe.gr, Homie.gr</li>
+                                <li><i class="fas fa-check-circle"></i> متوسط الإيجار: 300-500€ للاستوديو، 500-700€ لشقة بغرفة نوم</li>
+                                <li><i class="fas fa-check-circle"></i> المستندات المطلوبة: إقامة سارية، عقد عمل، ضمان مالي</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card" id="hospitals" data-category="daily">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <h3>مستشفيات</h3>
+                            <p class="card-info">خدمات صحية وطبية متكاملة، مستشفيات الطوارئ، التأمين الصحي.</p>
+                            <p class="card-brief">خدمات صحية وطبية متكاملة</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>مستشفيات</h3>
+                            <p>دليل المستشفيات والمراكز الصحية</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مستشفى الطوارئ: المستشفى العام في أثينا - هاتف: 112</li>
+                                <li><i class="fas fa-check-circle"></i> التأمين الصحي: مطلوب بطاقة AMKA للعلاج المجاني</li>
+                                <li><i class="fas fa-check-circle"></i> مراكز صحية: مركز أومونيا، مستشفى إيفانجيليسموس</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card" id="transportation" data-category="daily">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <h3>خطوط النقل</h3>
+                            <p class="card-info">وسائل النقل العام والمواصلات، مترو أثينا، بطاقة النقل.</p>
+                            <p class="card-brief">وسائل النقل العام والخاص</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>خطوط النقل</h3>
+                            <p>معلومات عن وسائل النقل العام والخاص</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مترو أثينا: 3 خطوط رئيسية تغطي معظم المدينة</li>
+                                <li><i class="fas fa-check-circle"></i> بطاقة النقل: بطاقة اثينا كارد بسعر 1.20 لمدة 90 دقيقة</li>
+                                <li><i class="fas fa-check-circle"></i> الحافلات: شبكة واسعة تغطي كل المناطق والضواحي</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card" id="tourism-services" data-category="tourism">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                            <h3>سياحة</h3>
+                            <p class="card-info">معالم سياحية وأنشطة ترفيهية، أهم المعالم السياحية والأنشطة الترفيهية.</p>
+                            <p class="card-brief">معالم سياحية وأنشطة ترفيهية</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>سياحة</h3>
+                            <p>أهم المعالم السياحية والأنشطة الترفيهية</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> الأكروبوليس: المعلم الأشهر في أثينا - سعر التذكرة 20€</li>
+                                <li><i class="fas fa-check-circle"></i> الجزر: سانتوريني، ميكونوس، كريت من أشهر الجزر</li>
+                                <li><i class="fas fa-check-circle"></i> المتاحف: متحف الأكروبوليس والمتحف الأثري الوطني</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">فرص العمل</span>
+                <div class="section-title-wrapper">
+                    <h2>العمل</h2>
+                    <a href="work.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>أفضل المواقع للبحث عن فرص العمل والتوظيف في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+            
+            <div class="work-info-box">
+                <div class="info-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>معلومات مهمة عن العمل في اليونان</h3>
+                </div>
+                <div class="info-content">
+                    <ul class="info-list">
+                        <li><i class="fas fa-check-circle"></i> <strong>الحد الأدنى للأجور:</strong> 831€ شهرياً لعام 2025</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>ساعات العمل:</strong> 40 ساعة أسبوعياً بشكل قانوني</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>الإجازة السنوية:</strong> 20 يوم عمل كحد أدنى</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>المستندات المطلوبة:</strong> تصريح إقامة، رقم ضريبي (AFM)، رقم التأمين الاجتماعي (AMKA)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cards-container">
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>منصة مهنية للتواصل وفرص العمل</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-globe"></i> عالمي</span>
+                        <span class="job-tag"><i class="fas fa-language"></i> متعدد اللغات</span>
+                    </div>
+                    <a href="https://www.linkedin.com" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Indeed</h3>
+                    <p>محرك بحث عالمي للوظائف</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-globe"></i> عالمي</span>
+                        <span class="job-tag"><i class="fas fa-language"></i> متعدد اللغات</span>
+                    </div>
+                    <a href="https://www.indeed.com" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Kariera.gr</h3>
+                    <p>موقع توظيف يوناني مشهور</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-map-marker-alt"></i> يوناني</span>
+                        <span class="job-tag"><i class="fas fa-star"></i> موصى به</span>
+                    </div>
+                    <a href="https://www.kariera.gr" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Skywalker.gr</h3>
+                    <p>بوابة توظيف شاملة في اليونان</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-map-marker-alt"></i> يوناني</span>
+                        <span class="job-tag"><i class="fas fa-star"></i> موصى به</span>
+                    </div>
+                    <a href="https://www.skywalker.gr" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>EURES</h3>
+                    <p>بوابة التوظيف الأوروبية</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-flag-checkered"></i> أوروبي</span>
+                        <span class="job-tag"><i class="fas fa-check-circle"></i> رسمي</span>
+                    </div>
+                    <a href="https://ec.europa.eu/eures/" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Glassdoor</h3>
+                    <p>تقييمات الشركات وفرص العمل</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-globe"></i> عالمي</span>
+                        <span class="job-tag"><i class="fas fa-comments"></i> تقييمات</span>
+                    </div>
+                    <a href="https://www.glassdoor.com" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizations Section -->
+    <section id="organizations" class="organizations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الدعم والمساعدة</span>
+                <div class="section-title-wrapper">
+                    <h2>المنظمات</h2>
+                    <a href="organizations.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>المنظمات الإنسانية والطبية والتعليمية التي تقدم خدمات للمهاجرين واللاجئين</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-hands-helping"></i></span>
+                </div>
+            </div>
+            
+            <div class="org-intro">
+                <div class="org-intro-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="org-intro-text">
+                    <p>تقدم المنظمات في اليونان خدمات متنوعة مثل المساعدة القانونية، الدعم النفسي، الرعاية الصحية، والتعليم. معظم الخدمات مجانية ومتاحة بلغات متعددة.</p>
+                </div>
+            </div>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="humanitarian"><i class="fas fa-hands-helping"></i> منظمات إنسانية</button>
+                    <button class="tab-btn" data-tab="medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</button>
+                    <button class="tab-btn" data-tab="educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="humanitarian-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-hands-helping"></i>
+                                    </div>
+                                    <h3>الصليب الأحمر اليوناني</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة إنسانية تقدم المساعدات الطارئة والدعم</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> خدمات البحث عن المفقودين ولم شمل العائلات</li>
+                                        <li><i class="fas fa-check-circle"></i> مساعدات غذائية وملابس ومواد أساسية</li>
+                                        <li><i class="fas fa-check-circle"></i> الإسعافات الأولية والدعم النفسي</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، سالونيكا، باتراس</span>
+                                        <span><i class="fas fa-globe"></i> متوفر باللغة العربية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.redcross.gr" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <h3>UNHCR اليونان</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>المفوضية السامية للأمم المتحدة لشؤون اللاجئين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مساعدة قانونية مجانية لطالبي اللجوء</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج إسكان ومساعدات مالية</li>
+                                        <li><i class="fas fa-check-circle"></i> توفير معلومات عن إجراءات اللجوء</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> مكاتب في أثينا والجزر</span>
+                                        <span><i class="fas fa-phone"></i> خط مساعدة: 214 1009 800</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.unhcr.org/greece.html" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h3>Solidarity Now</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة تقدم الدعم القانوني والنفسي والاجتماعي</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراكز تضامن في أثينا وسالونيكا</li>
+                                        <li><i class="fas fa-check-circle"></i> دعم التوظيف والتدريب المهني</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج تعليمية للأطفال والبالغين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع أخارنون 12</span>
+                                        <span><i class="fas fa-language"></i> خدمات الترجمة متوفرة</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.solidaritynow.org" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="medical-org-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-stethoscope"></i>
+                                    </div>
+                                    <h3>أطباء بلا حدود</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة طبية إنسانية دولية تقدم الرعاية الصحية للاجئين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> عيادات متنقلة في مخيمات اللاجئين والمناطق النائية</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات طبية مجانية للفئات الضعيفة</li>
+                                        <li><i class="fas fa-check-circle"></i> دعم نفسي واجتماعي للمتضررين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ليسبوس، ساموس</span>
+                                        <span><i class="fas fa-globe"></i> متوفر بعدة لغات</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.msf.org/greece" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-heartbeat"></i>
+                                    </div>
+                                    <h3>أطباء العالم</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة طبية تقدم الرعاية الصحية للفئات المحرومة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> عيادات مفتوحة للمهاجرين واللاجئين</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج توعية صحية ووقائية</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات طب الأسنان والرعاية النفسية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ثيسالونيكي</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 32 13 150</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://mdmgreece.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-first-aid"></i>
+                                    </div>
+                                    <h3>مركز PRAKSIS الطبي</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة طبية يونانية تقدم خدمات صحية للمهمشين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> عيادات طبية مجانية للمهاجرين واللاجئين</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات الصحة العقلية والدعم النفسي</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج الوقاية والتوعية الصحية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، بيرياس</span>
+                                        <span><i class="fas fa-globe"></i> خدمات الترجمة متوفرة</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.praksis.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="educational-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <h3>مؤسسة التعليم اليونانية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مؤسسة تقدم دعم تعليمي وبرامج تدريبية للاجئين والمهاجرين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> دروس اللغة اليونانية والإنجليزية للمهاجرين</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج تعليمية للأطفال والشباب</li>
+                                        <li><i class="fas fa-check-circle"></i> دورات مهنية وتقنية للبالغين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ثيسالونيكي</span>
+                                        <span><i class="fas fa-globe"></i> متوفر بعدة لغات</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.iky.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-book-reader"></i>
+                                    </div>
+                                    <h3>منظمة ميتادراسي</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة تعليمية تقدم خدمات تعليمية للاجئين والمهاجرين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراكز تعليمية للأطفال والشباب</li>
+                                        <li><i class="fas fa-check-circle"></i> دروس اللغة والمهارات الحياتية</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج التوجيه المهني والتدريب</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ليسبوس</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 88 39 877</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://metadrasi.org/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <h3>مؤسسة Bodossaki</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مؤسسة تقدم منح دراسية وبرامج تعليمية للطلاب والباحثين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> منح دراسية للدراسات العليا والبحث العلمي</li>
+                                        <li><i class="fas fa-check-circle"></i> دعم المشاريع التعليمية والثقافية</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج لدعم الطلاب اللاجئين والمهاجرين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا</span>
+                                        <span><i class="fas fa-globe"></i> متوفر باللغة الإنجليزية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.bodossaki.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offices Section -->
+    <section id="offices" class="offices">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">خدمات متخصصة</span>
+                <div class="section-title-wrapper">
+                    <h2>المكاتب</h2>
+                    <a href="offices.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>مكاتب الخدمات والمحاسبة والمحاماة التي تقدم خدمات للمهاجرين واللاجئين</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-briefcase"></i></span>
+                </div>
+            </div>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="service-offices">مكاتب خدمية</button>
+                    <button class="tab-btn" data-tab="accounting">مكاتب محاسبة</button>
+                    <button class="tab-btn" data-tab="lawyers">مكاتب محامين</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="service-offices-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-language"></i>
+                                    </div>
+                                    <h3>مكاتب الترجمة المعتمدة</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خدمات ترجمة معتمدة للوثائق الرسمية والمستندات القانونية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> ترجمة معتمدة للشهادات والوثائق الرسمية</li>
+                                        <li><i class="fas fa-check-circle"></i> ترجمة المستندات القانونية والعقود</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات الترجمة الفورية للمقابلات والاجتماعات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع ستاديو 15</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 32 45 678</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#translation" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <h3>مكاتب المعاملات الحكومية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مساعدة في إنجاز المعاملات الحكومية والرسمية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> استخراج وتجديد تصاريح الإقامة والعمل</li>
+                                        <li><i class="fas fa-check-circle"></i> التسجيل في التأمين الاجتماعي والضرائب</li>
+                                        <li><i class="fas fa-check-circle"></i> توثيق وتصديق المستندات الرسمية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع بانيبيستيميو 25</span>
+                                        <span><i class="fas fa-clock"></i> من الإثنين إلى الجمعة: 9ص - 5م</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#government" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <h3>مكاتب التأمين</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خدمات التأمين الصحي والعقاري والسيارات</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> تأمين صحي خاص للمهاجرين واللاجئين</li>
+                                        <li><i class="fas fa-check-circle"></i> تأمين الممتلكات والعقارات</li>
+                                        <li><i class="fas fa-check-circle"></i> تأمين السيارات والمركبات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> فروع متعددة في أثينا وسالونيكا</span>
+                                        <span><i class="fas fa-globe"></i> خدمات بعدة لغات</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#insurance" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="accounting-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                    <h3>مكاتب ضريبية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات ضريبية وإعداد الإقرارات للمهاجرين والمقيمين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> إعداد وتقديم الإقرارات الضريبية السنوية</li>
+                                        <li><i class="fas fa-check-circle"></i> استخراج الرقم الضريبي (AFM) للمهاجرين</li>
+                                        <li><i class="fas fa-check-circle"></i> تقديم استشارات حول الإعفاءات والخصومات الضريبية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع ستاديو 29</span>
+                                        <span><i class="fas fa-clock"></i> مواعيد بحجز مسبق</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#tax" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h3>مكاتب محاسبة عامة</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خدمات محاسبية شاملة للأفراد والشركات الصغيرة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مسك الدفاتر والسجلات المحاسبية</li>
+                                        <li><i class="fas fa-check-circle"></i> إعداد الميزانيات والقوائم المالية</li>
+                                        <li><i class="fas fa-check-circle"></i> تسجيل الشركات الجديدة والمؤسسات الفردية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، سالونيكا</span>
+                                        <span><i class="fas fa-globe"></i> خدمات باللغة العربية والإنجليزية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#accounting" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <h3>مكاتب استشارات مالية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات مالية واستثمارية للمقيمين في اليونان</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> تخطيط مالي شخصي وعائلي</li>
+                                        <li><i class="fas fa-check-circle"></i> استشارات استثمارية وإدارة الأصول</li>
+                                        <li><i class="fas fa-check-circle"></i> تحويلات مالية دولية بأسعار تنافسية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع بانيبيستيميو 32</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 33 87 500</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#financial" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="lawyers-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-gavel"></i>
+                                    </div>
+                                    <h3>محامي الهجرة واللجوء</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات قانونية متخصصة في قضايا الهجرة واللجوء والإقامة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مساعدة قانونية في طلبات اللجوء والاستئناف</li>
+                                        <li><i class="fas fa-check-circle"></i> استخراج وتجديد تصاريح الإقامة والعمل</li>
+                                        <li><i class="fas fa-check-circle"></i> تمثيل قانوني أمام المحاكم والهيئات الحكومية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: بالقرب من محكمة أثينا</span>
+                                        <span><i class="fas fa-globe"></i> خدمات بعدة لغات منها العربية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#immigration-lawyers" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <h3>محامي العمل</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات قانونية في قضايا العمل وحقوق العمال والموظفين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراجعة عقود العمل والتفاوض بشأنها</li>
+                                        <li><i class="fas fa-check-circle"></i> قضايا الفصل التعسفي والتعويضات</li>
+                                        <li><i class="fas fa-check-circle"></i> مشاكل التأمينات الاجتماعية وحقوق العمال</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع ستاديو 35</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 32 56 789</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#labor-lawyers" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <h3>محامي العقارات</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات قانونية في قضايا العقارات والإيجارات والملكية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراجعة عقود الإيجار والبيع والشراء</li>
+                                        <li><i class="fas fa-check-circle"></i> التحقق من الملكية والمستندات القانونية</li>
+                                        <li><i class="fas fa-check-circle"></i> حل نزاعات الملكية ومشاكل الإخلاء</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، سالونيكا</span>
+                                        <span><i class="fas fa-envelope"></i> البريد الإلكتروني: property@lawyers.gr</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#property-lawyers" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourism Section -->
+    <section id="tourism" class="tourism">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">استكشف اليونان</span>
+                <div class="section-title-wrapper">
+                    <h2>السياحة</h2>
+                    <a href="tourism.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>استكشف أماكن الإقامة والتسوق والمطاعم في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-umbrella-beach"></i></span>
+                </div>
+            </div>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="hotels">فنادق</button>
+                    <button class="tab-btn" data-tab="pharmacies">صيدليات ومتاجر</button>
+                    <button class="tab-btn" data-tab="restaurants">مطاعم</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="hotels-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-hotel"></i>
+                                    </div>
+                                    <h3>فنادق 5 نجوم</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>أفخم الفنادق في اليونان للباحثين عن الرفاهية والخدمات المميزة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> فنادق Grande Bretagne و King George في أثينا</li>
+                                        <li><i class="fas fa-check-circle"></i> منتجعات فاخرة في سانتوريني وميكونوس</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار تبدأ من 200€ لليلة مع إفطار فاخر</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> مواقع مركزية في أثينا والجزر</span>
+                                        <span><i class="fas fa-concierge-bell"></i> خدمات الكونسيرج والسبا</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#luxury-hotels" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-bed"></i>
+                                    </div>
+                                    <h3>فنادق متوسطة</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خيارات إقامة مريحة بأسعار معقولة للسياح والزوار</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> فنادق 3-4 نجوم في مناطق مختلفة من اليونان</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار تتراوح بين 70-150€ لليلة حسب الموسم</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات مثل الإفطار والواي فاي ومواقف السيارات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> منتشرة في معظم المدن والجزر</span>
+                                        <span><i class="fas fa-globe"></i> حجز عبر Booking.com و Hotels.com</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#mid-range-hotels" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <h3>شقق سياحية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>شقق مفروشة للإيجار القصير مناسبة للعائلات والمجموعات</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> شقق متوفرة على Airbnb و Booking و VRBO</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار تبدأ من 50€ لليلة مع مطبخ مجهز</li>
+                                        <li><i class="fas fa-check-circle"></i> خيارات متنوعة من الاستوديو إلى شقق بعدة غرف</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> متوفرة في جميع أنحاء اليونان</span>
+                                        <span><i class="fas fa-star"></i> البحث عن التقييمات قبل الحجز</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#apartments" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="pharmacies-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-prescription-bottle-alt"></i>
+                                    </div>
+                                    <h3>صيدليات</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>صيدليات منتشرة في جميع أنحاء اليونان مع صيدليات مناوبة ليلية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> صيدليات مناوبة على مدار 24 ساعة (قائمة منشورة أسبوعياً)</li>
+                                        <li><i class="fas fa-check-circle"></i> أدوية بوصفة طبية وبدون وصفة طبية</li>
+                                        <li><i class="fas fa-check-circle"></i> منتجات العناية الشخصية ومستحضرات التجميل</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> منتشرة في جميع المناطق والأحياء</span>
+                                        <span><i class="fas fa-phone"></i> رقم الطوارئ: 14944 لمعرفة الصيدليات المناوبة</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#pharmacies" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <h3>سوبر ماركت</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>متاجر للمواد الغذائية والاحتياجات اليومية بأسعار متنوعة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> سلاسل كبرى: AB Vassilopoulos، Sklavenitis، Lidl، My Market</li>
+                                        <li><i class="fas fa-check-circle"></i> متاجر صغيرة محلية منتشرة في كل الأحياء</li>
+                                        <li><i class="fas fa-check-circle"></i> منتجات محلية وعالمية بأسعار مختلفة</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-clock"></i> مواعيد العمل: 8ص - 9م معظم الأيام</span>
+                                        <span><i class="fas fa-credit-card"></i> قبول بطاقات الائتمان والدفع الإلكتروني</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#supermarkets" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-tshirt"></i>
+                                    </div>
+                                    <h3>متاجر الملابس</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>متاجر للملابس والأحذية والإكسسوارات بمختلف الماركات والأسعار</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراكز تسوق: شارع إرمو في أثينا، مول اتيكا، مول ذا مول</li>
+                                        <li><i class="fas fa-check-circle"></i> ماركات عالمية ومحلية بمختلف الأسعار</li>
+                                        <li><i class="fas fa-check-circle"></i> مواسم التخفيضات في يناير ويوليو</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-clock"></i> مواعيد العمل: 9ص - 9م معظم الأيام</span>
+                                        <span><i class="fas fa-info-circle"></i> المحلات مغلقة أيام الأحد في بعض المناطق</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#shopping" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="restaurants-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <h3>مطاعم يونانية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>تذوق المأكولات اليونانية التقليدية والأطباق المحلية الأصيلة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> تافيرنا تقليدية تقدم المزات اليونانية والمشاوي</li>
+                                        <li><i class="fas fa-check-circle"></i> مطاعم للمأكولات البحرية الطازجة في المناطق الساحلية</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار متنوعة تبدأ من 10€ للوجبة الكاملة</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> منتشرة في جميع المدن والجزر</span>
+                                        <span><i class="fas fa-info-circle"></i> أشهر المناطق: بلاكا وبسيري في أثينا، ليمينوس في سالونيكا</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#greek-restaurants" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-coffee"></i>
+                                    </div>
+                                    <h3>مطاعم عربية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مطاعم تقدم المأكولات العربية المتنوعة من مختلف البلدان العربية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مطاعم سورية ولبنانية ومصرية في مناطق مختلفة</li>
+                                        <li><i class="fas fa-check-circle"></i> وجبات شاورما وفلافل وكباب وحلويات شرقية</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار معقولة تناسب جميع الميزانيات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> تتركز في أثينا: منطقة أومونيا وفيكتوريا</span>
+                                        <span><i class="fas fa-language"></i> طاقم عمل يتحدث العربية في معظم المطاعم</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#arabic-restaurants" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <h3>مطاعم عالمية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مطاعم متنوعة من مختلف المطابخ العالمية لتجربة طعام متنوعة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مطابخ إيطالية وآسيوية وأمريكية وهندية وغيرها</li>
+                                        <li><i class="fas fa-check-circle"></i> سلاسل مطاعم عالمية ومطاعم محلية فاخرة</li>
+                                        <li><i class="fas fa-check-circle"></i> خيارات للنباتيين ومطاعم صديقة للأطفال</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> تتركز في المناطق السياحية والمراكز التجارية</span>
+                                        <span><i class="fas fa-clock"></i> معظمها يعمل من الظهر حتى منتصف الليل</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#international-restaurants" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2c3e50" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+        
+        <div class="footer-content-wrapper">
+            <div class="container">
+                <!-- Main Footer Content -->
+                <div class="footer-content">
+                    <div class="footer-center-wrapper">
+                        <!-- Logo Section -->
+                        <div class="footer-center-logo">
+                            <div class="logo-icon"><i class="fas fa-globe-europe"></i></div>
+                        </div>
+                        
+                        <!-- Title and Description -->
+                        <div class="footer-center-text">
+                            <h2>الحياة في اليونان</h2>
+                            <p>دليلك الشامل للحياة والخدمات في اليونان</p>
+                        </div>
+                        
+                        <!-- Social Media Icons -->
+                        <div class="footer-center-social">
+                            <div class="social-icons">
+                                <a href="#" class="telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+                                <a href="#" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- No Language Section -->
+                
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>&copy; 2025 الحياة في اليونان. جميع الحقوق محفوظة.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#">سياسة الخصوصية</a>
+                        <a href="#">الشروط والأحكام</a>
+                        <a href="#">اتصل بنا</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/tabs.js"></script>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+        <a href="#home" class="mobile-bottom-nav-link" title="الرئيسية">
+            <i class="fas fa-house-chimney-window"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="#menu" class="mobile-bottom-nav-link menu-icon" title="القائمة">
+            <i class="fas fa-grip-lines"></i>
+            <span>القائمة</span>
+        </a>
+        <button class="mobile-bottom-nav-center" title="الصعود للأعلى" aria-label="الصعود للأعلى">
+            <i class="fas fa-circle-chevron-up"></i>
+        </button>
+        <a href="#search" class="mobile-bottom-nav-link" title="البحث">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>البحث</span>
+        </a>
+        <a href="#settings" class="mobile-bottom-nav-link" title="الإعدادات">
+            <i class="fas fa-sliders"></i>
+            <span>الإعدادات</span>
+        </a>
+    </nav>
+
+    <!-- Popup Menu Overlay and Window -->
+    <div class="menu-popup-overlay" id="menuPopupOverlay"></div>
+    <div class="menu-popup" id="menuPopup">
+      <button class="menu-popup-close" id="closeMenuPopup" aria-label="إغلاق القائمة">&times;</button>
+      <div class="menu-popup-content">
+        <h2>القائمة الرئيسية</h2>
+        <ul class="menu-popup-list">
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#services" class="submenu-anchor-popup"><i class="fas fa-hands-helping"></i> الخدمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="pages/asylum.html">دوائر اللجوء</a></li>
+              <li><a href="pages/government.html">دوائر حكومية</a></li>
+              <li><a href="pages/housing.html">عقارات وسكن</a></li>
+              <li><a href="pages/hospitals.html">مستشفيات</a></li>
+              <li><a href="pages/transportation.html">خطوط النقل</a></li>
+              <li><a href="pages/tourism-services.html">سياحة</a></li>
+            </ul>
+          </li>
+          <li><a href="#work" class="submenu-anchor-popup"><i class="fas fa-briefcase"></i> العمل</a></li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#organizations" class="submenu-anchor-popup"><i class="fas fa-users"></i> المنظمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="#humanitarian">منظمات إنسانية</a></li>
+              <li><a href="#medical-org">منظمات طبية</a></li>
+              <li><a href="#educational">منظمات تعليمية</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#offices" class="submenu-anchor-popup"><i class="fas fa-building"></i> المكاتب</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="#service-offices">مكاتب خدمية</a></li>
+              <li><a href="#accounting">مكاتب محاسبة</a></li>
+              <li><a href="#lawyers">مكاتب محامين</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#tourism" class="submenu-anchor-popup"><i class="fas fa-plane"></i> السياحة</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="#hotels">فنادق</a></li>
+              <li><a href="#pharmacies">صيدليات ومتاجر</a></li>
+              <li><a href="#restaurants">مطاعم</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+</body>
+</html>
