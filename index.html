@@ -174,20 +174,86 @@
         <button class="menu-btn" id="openSidebar"><i class="fas fa-bars"></i></button>
         <button class="settings-btn" id="openSettings"><i class="fas fa-cog"></i></button>
     </div>
-
-    <!-- قسم الهيرو -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>الحياة في اليونان</h1>
-            <p>دليلك الشامل للحياة والعمل والسياحة في اليونان</p>
-            <div class="hero-buttons">
-                <a href="#services" class="hero-btn primary-btn"><i class="fas fa-info-circle"></i> استكشف الخدمات</a>
-                <a href="#tourism" class="hero-btn secondary-btn"><i class="fas fa-plane"></i> السياحة</a>
+    <!-- قسم الهيرو الاحترافي المحسن -->
+    <section class="hero professional-hero" id="hero">
+        <div class="hero-background">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?q=80&w=1920')"></div>
+            <div class="overlay"></div>
+            <div class="hero-shape">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,96L48,128C96,160,192,224,288,240C384,256,480,224,576,186.7C672,149,768,107,864,112C960,117,1056,171,1152,186.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
             </div>
         </div>
-        <div class="overlay"></div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge-wrapper">
+                    <div class="badge">دليلك الشامل في اليونان</div>
+                </div>
+                
+                <div class="hero-headline">
+                    <h1>الحياة في <span>اليونان</span></h1>
+                    <p>استكشف بلد الحضارة والجمال واحصل على كل ما تحتاجه للحياة والعمل والسياحة</p>
+                </div>
+                
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>خدمات شاملة</h3>
+                            <p>جميع الخدمات التي تحتاجها</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>منظمات داعمة</h3>
+                            <p>منظمات تقدم الدعم والمساعدة</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>سياحة واستكشاف</h3>
+                            <p>المعالم السياحية والأماكن الترفيهية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <div class="hero-cta">
+                        <a href="#services" class="btn btn-primary"><i class="fas fa-th-large"></i> استكشف الخدمات</a>
+                        <a href="#tourism" class="btn btn-secondary"><i class="fas fa-umbrella-beach"></i> السياحة في اليونان</a>
+                    </div>
+                    
+                    <div class="quick-links-wrapper">
+                        <div class="quick-links">
+                            <div class="links">
+                                <a href="#asylum" class="quick-link"><i class="fas fa-balance-scale"></i> اللجوء</a>
+                                <a href="#jobs" class="quick-link"><i class="fas fa-briefcase"></i> العمل</a>
+                                <a href="#housing" class="quick-link"><i class="fas fa-home"></i> السكن</a>
+                                <a href="#transportation" class="quick-link"><i class="fas fa-bus"></i> المواصلات</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-scroll-indicator">
+                    <a href="#services">
+                        <div class="scroll-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <span>اسكرول للأسفل</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
-
     <!-- قسم الخدمات -->
     <section id="services" class="section">
         <div class="container">
@@ -202,102 +268,192 @@
             <div class="cards-container">
                 <!-- بطاقة دوائر اللجوء -->
                 <div class="card service-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f" alt="دوائر اللجوء">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-passport"></i>
+                    <div class="service-card-inner">
+                        <!-- الوجه الأمامي -->
+                        <div class="service-card-front">
+                            <div class="card-img">
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173" alt="دوائر اللجوء">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h3>دوائر اللجوء</h3>
+                                <p>معلومات أساسية عن مكاتب اللجوء وإجراءات تقديم طلبات اللجوء والمواعيد والمستندات المطلوبة.</p>
+                            </div>
                         </div>
-                        <h3>دوائر اللجوء</h3>
-                        <p>معلومات أساسية عن مكاتب اللجوء وإجراءات تقديم طلبات اللجوء والمواعيد والمستندات المطلوبة.</p>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                        <!-- الوجه الخلفي -->
+                        <div class="service-card-back">
+                            <h3>دوائر اللجوء</h3>
+                            <p>خدمات شاملة لمساعدتك في عملية اللجوء بطريقة سلسة ومنظمة.</p>
+                            <ul class="back-features">
+                                <li><i class="fas fa-check-circle"></i> مواقع مكاتب اللجوء وأوقات العمل</li>
+                                <li><i class="fas fa-check-circle"></i> إجراءات التقديم والمستندات المطلوبة</li>
+                                <li><i class="fas fa-check-circle"></i> نظام حجز المواعيد ومتابعة الطلبات</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="pages/asylum.html" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- بطاقة الدوائر الحكومية -->
+                <!-- بطاقة دوائر حكومية -->
                 <div class="card service-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1534073828943-f801091bb18c" alt="دوائر حكومية">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-landmark"></i>
+                    <div class="service-card-inner">
+                        <!-- الوجه الأمامي -->
+                        <div class="service-card-front">
+                            <div class="card-img">
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1534073828943-f801091bb18c" alt="دوائر حكومية">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <h3>دوائر حكومية</h3>
+                                <p>معلومات عن الدوائر الحكومية الرئيسية ومواقعها وساعات العمل والخدمات التي تقدمها.</p>
+                            </div>
                         </div>
-                        <h3>دوائر حكومية</h3>
-                        <p>معلومات عن الدوائر الحكومية الرئيسية ومواقعها وساعات العمل والخدمات التي تقدمها.</p>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                        <!-- الوجه الخلفي -->
+                        <div class="service-card-back">
+                            <h3>دوائر حكومية</h3>
+                            <p>دليل شامل للدوائر الحكومية في اليونان ومعلومات مهمة عن الخدمات المقدمة.</p>
+                            <ul class="back-features">
+                                <li><i class="fas fa-check-circle"></i> قائمة بأهم الدوائر الحكومية ومواقعها</li>
+                                <li><i class="fas fa-check-circle"></i> مواعيد العمل وطرق حجز المواعيد</li>
+                                <li><i class="fas fa-check-circle"></i> إجراءات إصدار الوثائق والمعاملات</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#government" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- بطاقة العقارات والسكن -->
                 <div class="card service-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" alt="عقارات وسكن">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-home"></i>
+                    <div class="service-card-inner">
+                        <!-- الوجه الأمامي -->
+                        <div class="service-card-front">
+                            <div class="card-img">
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" alt="عقارات وسكن">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h3>عقارات وسكن</h3>
+                                <p>دليل شامل للبحث عن سكن في اليونان، ومعلومات عن أسعار الإيجارات والمناطق السكنية الرئيسية.</p>
+                            </div>
                         </div>
-                        <h3>عقارات وسكن</h3>
-                        <p>دليل شامل للبحث عن سكن في اليونان، ومعلومات عن أسعار الإيجارات والمناطق السكنية الرئيسية.</p>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                        <!-- الوجه الخلفي -->
+                        <div class="service-card-back">
+                            <h3>عقارات وسكن</h3>
+                            <p>كل ما تحتاج معرفته عن سوق العقارات في اليونان وكيفية العثور على سكن مناسب.</p>
+                            <ul class="back-features">
+                                <li><i class="fas fa-check-circle"></i> مناطق سكنية وأسعار الإيجار والشراء</li>
+                                <li><i class="fas fa-check-circle"></i> نصائح لعقود الإيجار وحقوق المستأجرين</li>
+                                <li><i class="fas fa-check-circle"></i> مواقع بحث عن السكن ومكاتب عقارية</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#housing" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- بطاقة المستشفيات -->
                 <div class="card service-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b" alt="مستشفيات">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-hospital"></i>
+                    <div class="service-card-inner">
+                        <!-- الوجه الأمامي -->
+                        <div class="service-card-front">
+                            <div class="card-img">
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b" alt="مستشفيات">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
+                                <h3>مستشفيات</h3>
+                                <p>قائمة بالمستشفيات الرئيسية والمراكز الصحية في اليونان، مع معلومات الاتصال وخدمات الطوارئ.</p>
+                            </div>
                         </div>
-                        <h3>مستشفيات</h3>
-                        <p>قائمة بالمستشفيات الرئيسية والمراكز الصحية في اليونان، مع معلومات الاتصال وخدمات الطوارئ.</p>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                        <!-- الوجه الخلفي -->
+                        <div class="service-card-back">
+                            <h3>مستشفيات</h3>
+                            <p>معلومات عن المرافق الصحية والخدمات الطبية المتاحة في اليونان.</p>
+                            <ul class="back-features">
+                                <li><i class="fas fa-check-circle"></i> قائمة المستشفيات الحكومية والخاصة</li>
+                                <li><i class="fas fa-check-circle"></i> مراكز الطوارئ وأرقام الاتصال</li>
+                                <li><i class="fas fa-check-circle"></i> التأمين الصحي والخدمات المجانية</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#hospitals" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- بطاقة خطوط النقل -->
                 <div class="card service-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957" alt="خطوط النقل">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-bus"></i>
+                    <div class="service-card-inner">
+                        <!-- الوجه الأمامي -->
+                        <div class="service-card-front">
+                            <div class="card-img">
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957" alt="خطوط النقل">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon">
+                                    <i class="fas fa-bus"></i>
+                                </div>
+                                <h3>خطوط النقل</h3>
+                                <p>معلومات عن وسائل النقل العام في اليونان، والجداول الزمنية، وأسعار التذاكر، والتنقل بين المدن.</p>
+                            </div>
                         </div>
-                        <h3>خطوط النقل</h3>
-                        <p>معلومات عن وسائل النقل العام في اليونان، والجداول الزمنية، وأسعار التذاكر، والتنقل بين المدن.</p>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                        <!-- الوجه الخلفي -->
+                        <div class="service-card-back">
+                            <h3>خطوط النقل</h3>
+                            <p>معلومات عن وسائل النقل العام والتنقل في اليونان بشكل مفصل.</p>
+                            <ul class="back-features">
+                                <li><i class="fas fa-check-circle"></i> شبكات المترو والحافلات والقطارات</li>
+                                <li><i class="fas fa-check-circle"></i> بطاقات النقل وأسعار التذاكر</li>
+                                <li><i class="fas fa-check-circle"></i> المواصلات بين المدن والجزر</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#transportation" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- بطاقة السياحة -->
                 <div class="card service-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963" alt="سياحة">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-umbrella-beach"></i>
+                    <div class="service-card-inner">
+                        <!-- الوجه الأمامي -->
+                        <div class="service-card-front">
+                            <div class="card-img">
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963" alt="سياحة">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon">
+                                    <i class="fas fa-umbrella-beach"></i>
+                                </div>
+                                <h3>سياحة</h3>
+                                <p>دليل للمواقع السياحية الشهيرة في اليونان، والأنشطة الترفيهية، والمتاحف، والمعالم التاريخية.</p>
+                            </div>
                         </div>
-                        <h3>سياحة</h3>
-                        <p>دليل للمواقع السياحية الشهيرة في اليونان، والأنشطة الترفيهية، والمتاحف، والمعالم التاريخية.</p>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                        <!-- الوجه الخلفي -->
+                        <div class="service-card-back">
+                            <h3>سياحة</h3>
+                            <p>دليل شامل للأماكن السياحية والمعالم التاريخية في اليونان.</p>
+                            <ul class="back-features">
+                                <li><i class="fas fa-check-circle"></i> المواقع الأثرية والمتاحف الشهيرة</li>
+                                <li><i class="fas fa-check-circle"></i> الجزر والشواطئ والمنتجعات</li>
+                                <li><i class="fas fa-check-circle"></i> مطاعم وفنادق وأنشطة ترفيهية</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#tourism" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -306,7 +462,7 @@
     </section>
 
     <!-- قسم العمل -->
-    <section id="jobs" class="section">
+    <section id="jobs" class="section jobs-section">
         <div class="container">
             <div class="section-title modern">
                 <div class="section-icon">
@@ -316,106 +472,150 @@
                 <div class="title-separator"></div>
                 <p>أفضل مواقع البحث عن العمل والتوظيف في اليونان</p>
             </div>
-            <div class="cards-container jobs-container">
-                <!-- بطاقة موقع 1 -->
-                <div class="card job-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="LinkedIn">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
+            <div class="jobs-grid">
+                <!-- LinkedIn -->
+                <div class="job-card-compact">
+                    <div class="job-card-header">
+                        <div class="job-card-logo">
                             <i class="fab fa-linkedin"></i>
                         </div>
-                        <h3>LinkedIn</h3>
-                        <p>منصة مهنية عالمية للبحث عن وظائف في مختلف المجالات، مع فرص عمل للأجانب والمقيمين في اليونان.</p>
-                        <div class="card-footer">
-                            <a href="https://www.linkedin.com" target="_blank" class="card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="job-card-title">LinkedIn</h3>
+                    </div>
+                    <div class="job-card-content">
+                        <p class="job-card-desc">منصة مهنية عالمية للبحث عن وظائف في مختلف المجالات، مع فرص عمل للأجانب والمقيمين في اليونان.</p>
+                        <div class="job-card-features">
+                            <span class="job-card-feature">سيرة ذاتية احترافية</span>
+                            <span class="job-card-feature">تواصل مهني</span>
+                            <span class="job-card-feature">فرص دولية</span>
+                            <span class="job-card-feature">مناسب للمحترفين</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- بطاقة موقع 2 -->
-                <div class="card job-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1569230516306-5a8cb5586399" alt="Kariera.gr">
+                    <div class="job-card-footer">
+                        <div class="job-card-lang">إنجليزية | يونانية</div>
+                        <a href="https://www.linkedin.com" target="_blank" class="job-card-link">
+                            <i class="fas fa-external-link-alt"></i> زيارة
+                        </a>
                     </div>
-                    <div class="card-content">
-                        <div class="card-icon">
+                </div>
+                <!-- Kariera.gr -->
+                <div class="job-card-compact">
+                    <div class="job-card-header">
+                        <div class="job-card-logo">
                             <i class="fas fa-briefcase"></i>
                         </div>
-                        <h3>Kariera.gr</h3>
-                        <p>أكبر موقع للوظائف في اليونان، يقدم فرص عمل في مختلف المجالات مع إمكانية البحث حسب المدينة والمهارات.</p>
-                        <div class="card-footer">
-                            <a href="https://www.kariera.gr" target="_blank" class="card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="job-card-title">Kariera.gr</h3>
+                    </div>
+                    <div class="job-card-content">
+                        <p class="job-card-desc">أكبر موقع للوظائف في اليونان، يقدم فرص عمل في مختلف المجالات مع إمكانية البحث حسب المدينة والمهارات.</p>
+                        <div class="job-card-features">
+                            <span class="job-card-feature">بحث متقدم</span>
+                            <span class="job-card-feature">تنبيهات وظيفية</span>
+                            <span class="job-card-feature">جميع المستويات</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- بطاقة موقع 3 -->
-                <div class="card job-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1568598035424-7070b67317d2" alt="Skywalker.gr">
+                    <div class="job-card-footer">
+                        <div class="job-card-lang">يونانية | إنجليزية</div>
+                        <a href="https://www.kariera.gr" target="_blank" class="job-card-link">
+                            <i class="fas fa-external-link-alt"></i> زيارة
+                        </a>
                     </div>
-                    <div class="card-content">
-                        <div class="card-icon">
+                </div>
+                <!-- Skywalker.gr -->
+                <div class="job-card-compact">
+                    <div class="job-card-header">
+                        <div class="job-card-logo">
                             <i class="fas fa-search-dollar"></i>
                         </div>
-                        <h3>Skywalker.gr</h3>
-                        <p>موقع يوناني متخصص في الوظائف، يقدم فرص عمل متنوعة مع إمكانية تصفية النتائج حسب الخبرة والراتب.</p>
-                        <div class="card-footer">
-                            <a href="https://www.skywalker.gr" target="_blank" class="card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="job-card-title">Skywalker.gr</h3>
+                    </div>
+                    <div class="job-card-content">
+                        <p class="job-card-desc">موقع يوناني متخصص في الوظائف، يقدم فرص عمل متنوعة مع إمكانية تصفية النتائج حسب الخبرة والراتب.</p>
+                        <div class="job-card-features">
+                            <span class="job-card-feature">تصفية متقدمة</span>
+                            <span class="job-card-feature">إشعارات بريدية</span>
+                            <span class="job-card-feature">المبتدئين</span>
+                            <span class="job-card-feature">ذوي الخبرة</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- بطاقة موقع 4 -->
-                <div class="card job-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1484981138541-3d074aa97716" alt="Indeed">
+                    <div class="job-card-footer">
+                        <div class="job-card-lang">يونانية</div>
+                        <a href="https://www.skywalker.gr" target="_blank" class="job-card-link">
+                            <i class="fas fa-external-link-alt"></i> زيارة
+                        </a>
                     </div>
-                    <div class="card-content">
-                        <div class="card-icon">
+                </div>
+                <!-- Indeed -->
+                <div class="job-card-compact">
+                    <div class="job-card-header">
+                        <div class="job-card-logo">
                             <i class="fas fa-globe"></i>
                         </div>
-                        <h3>Indeed</h3>
-                        <p>منصة عالمية للبحث عن وظائف، تجمع الوظائف من مختلف المصادر وتوفر أدوات متقدمة للبحث والتقديم.</p>
-                        <div class="card-footer">
-                            <a href="https://gr.indeed.com" target="_blank" class="card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="job-card-title">Indeed</h3>
+                    </div>
+                    <div class="job-card-content">
+                        <p class="job-card-desc">منصة عالمية للبحث عن وظائف، تجمع الوظائف من مختلف المصادر وتوفر أدوات متقدمة للبحث والتقديم.</p>
+                        <div class="job-card-features">
+                            <span class="job-card-feature">بحث شامل</span>
+                            <span class="job-card-feature">تقديم سهل</span>
+                            <span class="job-card-feature">جميع المستويات</span>
+                            <span class="job-card-feature">مختلف المجالات</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- بطاقة موقع 5 -->
-                <div class="card job-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1571805529673-0f56b922b359" alt="JobFinder.gr">
+                    <div class="job-card-footer">
+                        <div class="job-card-lang">متعددة | يونانية</div>
+                        <a href="https://gr.indeed.com" target="_blank" class="job-card-link">
+                            <i class="fas fa-external-link-alt"></i> زيارة
+                        </a>
                     </div>
-                    <div class="card-content">
-                        <div class="card-icon">
+                </div>
+
+                <!-- JobFinder.gr -->
+                <div class="job-card-compact">
+                    <div class="job-card-header">
+                        <div class="job-card-logo">
                             <i class="fas fa-user-tie"></i>
                         </div>
-                        <h3>JobFinder.gr</h3>
-                        <p>موقع يوناني مخصص للباحثين عن عمل، يضم مجموعة واسعة من الوظائف في القطاعين العام والخاص.</p>
-                        <div class="card-footer">
-                            <a href="https://www.jobfinder.gr" target="_blank" class="card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="job-card-title">JobFinder.gr</h3>
+                    </div>
+                    <div class="job-card-content">
+                        <p class="job-card-desc">موقع يوناني مخصص للباحثين عن عمل، يضم مجموعة واسعة من الوظائف في القطاعين العام والخاص.</p>
+                        <div class="job-card-features">
+                            <span class="job-card-feature">فرص متنوعة</span>
+                            <span class="job-card-feature">ملف شخصي</span>
+                            <span class="job-card-feature">المحليين</span>
+                            <span class="job-card-feature">المقيمين</span>
                         </div>
+                    </div>
+                    <div class="job-card-footer">
+                        <div class="job-card-lang">يونانية</div>
+                        <a href="https://www.jobfinder.gr" target="_blank" class="job-card-link">
+                            <i class="fas fa-external-link-alt"></i> زيارة
+                        </a>
                     </div>
                 </div>
-                
-                <!-- بطاقة موقع 6 -->
-                <div class="card job-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" alt="EURES">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
+
+                <!-- EURES -->
+                <div class="job-card-compact">
+                    <div class="job-card-header">
+                        <div class="job-card-logo">
                             <i class="fas fa-euro-sign"></i>
                         </div>
-                        <h3>EURES</h3>
-                        <p>بوابة التوظيف الأوروبية، تقدم معلومات عن سوق العمل وفرص العمل في اليونان ودول الاتحاد الأوروبي.</p>
-                        <div class="card-footer">
-                            <a href="https://ec.europa.eu/eures" target="_blank" class="card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="job-card-title">EURES</h3>
+                    </div>
+                    <div class="job-card-content">
+                        <p class="job-card-desc">بوابة التوظيف الأوروبية، تقدم معلومات عن سوق العمل وفرص العمل في اليونان ودول الاتحاد الأوروبي.</p>
+                        <div class="job-card-features">
+                            <span class="job-card-feature">معلومات سوق العمل</span>
+                            <span class="job-card-feature">فرص دولية</span>
+                            <span class="job-card-feature">مواطني الاتحاد</span>
+                            <span class="job-card-feature">المهاجرين</span>
                         </div>
+                    </div>
+                    <div class="job-card-footer">
+                        <div class="job-card-lang">متعددة | إنجليزية</div>
+                        <a href="https://ec.europa.eu/eures" target="_blank" class="job-card-link">
+                            <i class="fas fa-external-link-alt"></i> زيارة
+                        </a>
                     </div>
                 </div>
             </div>
@@ -621,171 +821,171 @@
                 <p>مكاتب خدمية ومحاسبة ومحامين لمساعدتك في اليونان</p>
             </div>
             
-            <!-- مكاتب خدمية -->
-            <div class="office-category">
-                <h3 class="category-title enhanced"><i class="fas fa-concierge-bell"></i> مكاتب خدمية</h3>
-                <div class="cards-container">
-                    <!-- مكتب 1 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1557425493-6f90ae4659fc" alt="مكاتب ترجمة">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-language"></i>
-                            </div>
-                            <h3>مكاتب ترجمة</h3>
-                            <p>مكاتب متخصصة في ترجمة الوثائق والمستندات الرسمية وتوفير خدمات الترجمة الفورية.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- مكتب 2 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85" alt="خدمات الإقامة">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-id-card"></i>
-                            </div>
-                            <h3>خدمات الإقامة</h3>
-                            <p>مكاتب متخصصة في مساعدة المقيمين في استخراج وتجديد تصاريح الإقامة والأوراق الرسمية.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- مكتب 3 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0" alt="مكاتب توظيف">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <h3>مكاتب توظيف</h3>
-                            <p>مكاتب متخصصة في مساعدة الباحثين عن عمل في إيجاد فرص عمل مناسبة وتحسين السيرة الذاتية.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- قائمة علامات التبويب للمكاتب -->
+            <div class="offices-tabs">
+                <div class="tabs-navigation">
+                    <button class="tab-btn active" data-tab="service">
+                        <i class="fas fa-concierge-bell"></i>
+                        <span>مكاتب خدمية</span>
+                    </button>
+                    <button class="tab-btn" data-tab="accounting">
+                        <i class="fas fa-calculator"></i>
+                        <span>مكاتب محاسبة</span>
+                    </button>
+                    <button class="tab-btn" data-tab="legal">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>مكاتب محامين</span>
+                    </button>
                 </div>
-            </div>
-            
-            <!-- مكاتب محاسبة -->
-            <div class="office-category">
-                <h3 class="category-title enhanced"><i class="fas fa-calculator"></i> مكاتب محاسبة</h3>
-                <div class="cards-container">
-                    <!-- مكتب 1 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" alt="محاسبة ضريبية">
+                
+                <div class="tabs-content">
+                    <!-- محتوى مكاتب خدمية -->
+                    <div class="tab-content active" id="service">
+                        <div class="tab-intro">
+                            <h3>المكاتب الخدمية في اليونان</h3>
+                            <p>مكاتب متخصصة تقدم خدمات متنوعة للمقيمين والزوار في اليونان، من ترجمة المستندات إلى مساعدة في معاملات الإقامة.</p>
                         </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-file-invoice-dollar"></i>
+                        <div class="org-grid">
+                            <!-- مكتب 1: مكاتب ترجمة -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1557425493-6f90ae4659fc')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-language"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>مكاتب ترجمة</h3>
+                                    <p>مكاتب متخصصة في ترجمة الوثائق والمستندات الرسمية وتوفير خدمات الترجمة الفورية.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
-                            <h3>محاسبة ضريبية</h3>
-                            <p>مكاتب متخصصة في تقديم خدمات المحاسبة الضريبية والإقرارات الضريبية للأفراد والشركات.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            
+                            <!-- مكتب 2: خدمات الإقامة -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>خدمات الإقامة</h3>
+                                    <p>مكاتب متخصصة في مساعدة المقيمين في استخراج وتجديد تصاريح الإقامة والأوراق الرسمية.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <!-- مكتب 2 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="تأسيس شركات">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <h3>تأسيس شركات</h3>
-                            <p>مكاتب متخصصة في مساعدة رواد الأعمال على تأسيس شركاتهم وإنهاء الإجراءات القانونية والمحاسبية.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- مكتب 3 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=1000" alt="استشارات مالية">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>استشارات مالية</h3>
-                            <p>مكاتب متخصصة في تقديم الاستشارات المالية والمحاسبية للأفراد والشركات وإدارة الأصول.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            
+                            <!-- مكتب 3: مكاتب توظيف -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>مكاتب توظيف</h3>
+                                    <p>مكاتب متخصصة في مساعدة الباحثين عن عمل في إيجاد فرص عمل مناسبة وتحسين السيرة الذاتية.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- مكاتب محامين -->
-            <div class="office-category">
-                <h3 class="category-title enhanced"><i class="fas fa-balance-scale"></i> مكاتب محامين</h3>
-                <div class="cards-container">
-                    <!-- مكتب 1 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f" alt="قانون اللجوء">
+                    <!-- محتوى مكاتب محاسبة -->
+                    <div class="tab-content" id="accounting">
+                        <div class="tab-intro">
+                            <h3>مكاتب المحاسبة في اليونان</h3>
+                            <p>مكاتب متخصصة في تقديم الخدمات المالية والمحاسبية للأفراد والشركات، من الضرائب إلى تأسيس الشركات.</p>
                         </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-gavel"></i>
+                        <div class="org-grid">
+                            <!-- مكتب 1: محاسبة ضريبية -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>محاسبة ضريبية</h3>
+                                    <p>مكاتب متخصصة في تقديم خدمات المحاسبة الضريبية والإقرارات الضريبية للأفراد والشركات.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
-                            <h3>قانون اللجوء</h3>
-                            <p>مكاتب محاماة متخصصة في قضايا اللجوء والهجرة ومساعدة اللاجئين في الحصول على حقوقهم.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            
+                            <!-- مكتب 2: تأسيس شركات -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>تأسيس شركات</h3>
+                                    <p>مكاتب متخصصة في مساعدة رواد الأعمال على تأسيس شركاتهم وإنهاء الإجراءات القانونية والمحاسبية.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <!-- مكتب 3: استشارات مالية -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=1000')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>استشارات مالية</h3>
+                                    <p>مكاتب متخصصة في تقديم الاستشارات المالية والمحاسبية للأفراد والشركات وإدارة الأصول.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- مكتب 2 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb" alt="قانون مدني">
+                    <!-- محتوى مكاتب محامين -->
+                    <div class="tab-content" id="legal">
+                        <div class="tab-intro">
+                            <h3>مكاتب المحاماة في اليونان</h3>
+                            <p>مكاتب محاماة متخصصة في مختلف جوانب القانون اليوناني والأوروبي، تقدم خدمات قانونية للمقيمين واللاجئين.</p>
                         </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-file-contract"></i>
+                        <div class="org-grid">
+                            <!-- مكتب 1: قانون اللجوء -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-gavel"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>قانون اللجوء</h3>
+                                    <p>مكاتب محاماة متخصصة في قضايا اللجوء والهجرة ومساعدة اللاجئين في الحصول على حقوقهم.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
-                            <h3>قانون مدني</h3>
-                            <p>مكاتب محاماة متخصصة في القضايا المدنية والعقود وقضايا الأسرة والميراث.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            
+                            <!-- مكتب 2: قانون مدني -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-file-contract"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>قانون مدني</h3>
+                                    <p>مكاتب محاماة متخصصة في القضايا المدنية والعقود وقضايا الأسرة والميراث.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <!-- مكتب 3 -->
-                    <div class="card office-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c?q=80&w=1000" alt="قانون العمل">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-icon">
-                                <i class="fas fa-user-shield"></i>
-                            </div>
-                            <h3>قانون العمل</h3>
-                            <p>مكاتب محاماة متخصصة في قضايا العمل وحقوق العمال والنزاعات بين الموظفين وأرباب العمل.</p>
-                            <div class="card-footer">
-                                <a href="#" class="card-btn">المزيد <i class="fas fa-arrow-left"></i></a>
+                            
+                            <!-- مكتب 3: قانون العمل -->
+                            <div class="org-card">
+                                <div class="org-banner" style="background-image: url('https://images.unsplash.com/photo-1589578527966-fdac0f44566c?q=80&w=1000')">
+                                    <div class="org-logo">
+                                        <i class="fas fa-user-shield"></i>
+                                    </div>
+                                </div>
+                                <div class="org-info">
+                                    <h3>قانون العمل</h3>
+                                    <p>مكاتب محاماة متخصصة في قضايا العمل وحقوق العمال والنزاعات بين الموظفين وأرباب العمل.</p>
+                                    <a href="#" class="org-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -795,7 +995,7 @@
     </section>
 
     <!-- قسم السياحة -->
-    <section id="tourism" class="section">
+    <section id="tourism" class="section tourism-section">
         <div class="container">
             <div class="section-title modern">
                 <div class="section-icon">
@@ -803,76 +1003,200 @@
                 </div>
                 <h2>السياحة والاستكشاف</h2>
                 <div class="title-separator"></div>
-                <p>معلومات سياحية مهمة للمقيمين والزائرين في اليونان</p>
+                <p>اكتشف روائع اليونان وأشهر الأماكن السياحية والخدمات الأساسية للزائرين</p>
             </div>
-            <div class="cards-container tourism-container">
-                <!-- بطاقة الفنادق -->
-                <div class="card tourism-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="فنادق">
+            
+            <!-- بطاقات الصور الرئيسية -->
+            <div class="tourism-showcase">
+                <!-- البطاقة الرئيسية - الجزر اليونانية -->
+                <div class="tourism-fullwidth-card">
+                    <div class="tourism-card-img">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713" alt="الجزر اليونانية">
                     </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-hotel"></i>
-                        </div>
-                        <h3>فنادق</h3>
-                        <p>دليل شامل لأفضل الفنادق والإقامات السياحية في مختلف المدن اليونانية، مع معلومات عن الأسعار والخدمات والمواقع.</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> فنادق فئة خمس نجوم</li>
-                            <li><i class="fas fa-check-circle"></i> شقق سياحية مفروشة</li>
-                            <li><i class="fas fa-check-circle"></i> فنادق اقتصادية</li>
-                            <li><i class="fas fa-check-circle"></i> منتجعات ساحلية</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">عرض الفنادق <i class="fas fa-arrow-left"></i></a>
-                        </div>
+                    <div class="tourism-card-overlay"></div>
+                    <div class="tourism-card-content">
+                        <h2 class="tourism-card-title">الجزر اليونانية الساحرة</h2>
+                        <p class="tourism-card-desc">استكشف أجمل الجزر اليونانية بشواطئها الذهبية ومياهها الفيروزية وقراها البيضاء الساحرة. تعرف على أشهر الجزر السياحية وكيفية التنقل بينها وأفضل الأوقات لزيارتها.</p>
+                        <a href="#islands" class="tourism-card-btn"><i class="fas fa-ship"></i> استكشف الجزر</a>
                     </div>
                 </div>
                 
-                <!-- بطاقة الصيدليات والمتاجر -->
-                <div class="card tourism-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1562408590-e32931084e23" alt="صيدليات ومتاجر">
+                <!-- بطاقات جانبية -->
+                <div class="tourism-cards-row">
+                    <!-- المطبخ اليوناني -->
+                    <div class="tourism-half-card">
+                        <div class="tourism-card-img">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="المطبخ اليوناني">
+                        </div>
+                        <div class="tourism-card-overlay"></div>
+                        <div class="tourism-card-content">
+                            <h2 class="tourism-card-title">المطبخ اليوناني</h2>
+                            <p class="tourism-card-desc">تذوق أشهر الأطباق اليونانية والمأكولات البحرية الطازجة</p>
+                            <a href="#cuisine" class="tourism-card-btn"><i class="fas fa-utensils"></i> المزيد</a>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <i class="fas fa-shopping-bag"></i>
+                    
+                    <!-- المعالم التاريخية -->
+                    <div class="tourism-half-card">
+                        <div class="tourism-card-img">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb" alt="المعالم التاريخية">
                         </div>
-                        <h3>صيدليات ومتاجر</h3>
-                        <p>دليل لأشهر الصيدليات ومراكز التسوق والمتاجر المتخصصة في اليونان، مع معلومات عن ساعات العمل والمنتجات.</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> صيدليات تعمل على مدار 24 ساعة</li>
-                            <li><i class="fas fa-check-circle"></i> مراكز تسوق كبرى</li>
-                            <li><i class="fas fa-check-circle"></i> أسواق شعبية وتقليدية</li>
-                            <li><i class="fas fa-check-circle"></i> متاجر الهدايا والتذكارات</li>
+                        <div class="tourism-card-overlay"></div>
+                        <div class="tourism-card-content">
+                            <h2 class="tourism-card-title">المعالم التاريخية</h2>
+                            <p class="tourism-card-desc">رحلة عبر التاريخ اليوناني العريق والحضارة القديمة</p>
+                            <a href="#historical" class="tourism-card-btn"><i class="fas fa-monument"></i> المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- عنوان الخدمات السياحية -->
+            <h3 class="text-center mt-5 mb-4">خدمات سياحية أساسية</h3>
+            
+            <!-- شبكة الخدمات السياحية -->
+            <div class="tourism-feature-grid">
+                <!-- بطاقة الفنادق -->
+                <div class="tourism-feature-card">
+                    <div class="tourism-feature-header">
+                        <div class="tourism-feature-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h4 class="tourism-feature-title">فنادق وإقامة</h4>
+                    </div>
+                    <div class="tourism-feature-content">
+                        <ul class="tourism-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <a href="#hotels-5star">فنادق خمس نجوم</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#hotels-budget">فنادق اقتصادية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#hotels-apartments">شقق سياحية مفروشة</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#hotels-resorts">منتجعات ساحلية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#hotels-boutique">فنادق بوتيك</a></li>
                         </ul>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">عرض المتاجر <i class="fas fa-arrow-left"></i></a>
-                        </div>
+                    </div>
+                    <div class="tourism-feature-footer">
+                        <a href="#hotels" class="tourism-more-btn"><i class="fas fa-external-link-alt"></i> كل الفنادق</a>
                     </div>
                 </div>
                 
                 <!-- بطاقة المطاعم -->
-                <div class="card tourism-card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="مطاعم">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-icon">
+                <div class="tourism-feature-card">
+                    <div class="tourism-feature-header">
+                        <div class="tourism-feature-icon">
                             <i class="fas fa-utensils"></i>
                         </div>
-                        <h3>مطاعم</h3>
-                        <p>دليل لأشهر المطاعم والمقاهي في مختلف المدن اليونانية، مع معلومات عن الأكلات الشهيرة والأسعار.</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check-circle"></i> مطاعم يونانية تقليدية</li>
-                            <li><i class="fas fa-check-circle"></i> مطاعم عالمية</li>
-                            <li><i class="fas fa-check-circle"></i> مطاعم عربية وشرقية</li>
-                            <li><i class="fas fa-check-circle"></i> مقاهي وحلويات</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">عرض المطاعم <i class="fas fa-arrow-left"></i></a>
-                        </div>
+                        <h4 class="tourism-feature-title">مطاعم ومقاهي</h4>
                     </div>
+                    <div class="tourism-feature-content">
+                        <ul class="tourism-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <a href="#restaurant-greek">مطاعم يونانية تقليدية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#restaurant-international">مطاعم عالمية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#restaurant-arabic">مطاعم عربية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#restaurant-seafood">مطاعم مأكولات بحرية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#restaurant-cafe">مقاهي وحلويات</a></li>
+                        </ul>
+                    </div>
+                    <div class="tourism-feature-footer">
+                        <a href="#restaurants" class="tourism-more-btn"><i class="fas fa-external-link-alt"></i> كل المطاعم</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة المواصلات -->
+                <div class="tourism-feature-card">
+                    <div class="tourism-feature-header">
+                        <div class="tourism-feature-icon">
+                            <i class="fas fa-bus-alt"></i>
+                        </div>
+                        <h4 class="tourism-feature-title">المواصلات</h4>
+                    </div>
+                    <div class="tourism-feature-content">
+                        <ul class="tourism-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <a href="#transport-metro">مترو أثينا</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#transport-bus">حافلات المدن</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#transport-taxi">سيارات الأجرة</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#transport-ferry">العبارات والقوارب</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#transport-rent">تأجير السيارات</a></li>
+                        </ul>
+                    </div>
+                    <div class="tourism-feature-footer">
+                        <a href="#transportation" class="tourism-more-btn"><i class="fas fa-external-link-alt"></i> خيارات التنقل</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة التسوق -->
+                <div class="tourism-feature-card">
+                    <div class="tourism-feature-header">
+                        <div class="tourism-feature-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h4 class="tourism-feature-title">التسوق</h4>
+                    </div>
+                    <div class="tourism-feature-content">
+                        <ul class="tourism-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <a href="#shopping-malls">مراكز التسوق</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#shopping-markets">الأسواق الشعبية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#shopping-souvenir">متاجر الهدايا والتذكارات</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#shopping-fashion">متاجر الأزياء</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#shopping-food">متاجر المنتجات الغذائية</a></li>
+                        </ul>
+                    </div>
+                    <div class="tourism-feature-footer">
+                        <a href="#shopping" class="tourism-more-btn"><i class="fas fa-external-link-alt"></i> وجهات التسوق</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة الصحة -->
+                <div class="tourism-feature-card">
+                    <div class="tourism-feature-header">
+                        <div class="tourism-feature-icon">
+                            <i class="fas fa-first-aid"></i>
+                        </div>
+                        <h4 class="tourism-feature-title">الخدمات الصحية</h4>
+                    </div>
+                    <div class="tourism-feature-content">
+                        <ul class="tourism-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <a href="#health-emergency">أرقام الطوارئ</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#health-hospitals">المستشفيات الرئيسية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#health-pharmacy">صيدليات 24 ساعة</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#health-insurance">التأمين الصحي للسياح</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#health-clinics">عيادات متحدثة بالعربية</a></li>
+                        </ul>
+                    </div>
+                    <div class="tourism-feature-footer">
+                        <a href="#healthcare" class="tourism-more-btn"><i class="fas fa-external-link-alt"></i> معلومات صحية</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة الأنشطة -->
+                <div class="tourism-feature-card">
+                    <div class="tourism-feature-header">
+                        <div class="tourism-feature-icon">
+                            <i class="fas fa-swimmer"></i>
+                        </div>
+                        <h4 class="tourism-feature-title">الأنشطة السياحية</h4>
+                    </div>
+                    <div class="tourism-feature-content">
+                        <ul class="tourism-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <a href="#activity-tours">الجولات السياحية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#activity-water">الرياضات المائية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#activity-hiking">المشي لمسافات طويلة</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#activity-night">الحياة الليلية</a></li>
+                            <li><i class="fas fa-check-circle"></i> <a href="#activity-family">أنشطة عائلية</a></li>
+                        </ul>
+                    </div>
+                    <div class="tourism-feature-footer">
+                        <a href="#activities" class="tourism-more-btn"><i class="fas fa-external-link-alt"></i> كل الأنشطة</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- التبويبات والارتباطات السريعة -->
+            <div class="tourism-tab-container">
+                <div class="tourism-tabs">
+                    <div class="tourism-tab active"><i class="fas fa-map-marked-alt"></i> المدن الرئيسية</div>
+                    <div class="tourism-tab"><i class="fas fa-umbrella-beach"></i> الشواطئ</div>
+                    <div class="tourism-tab"><i class="fas fa-monument"></i> المعالم الأثرية</div>
+                    <div class="tourism-tab"><i class="fas fa-passport"></i> معلومات التأشيرات</div>
+                    <div class="tourism-tab"><i class="fas fa-calendar-alt"></i> فعاليات سنوية</div>
                 </div>
             </div>
         </div>
@@ -938,7 +1262,7 @@
     </button>
 
     <script src="js/script.js"></script>
-    <!-- سكريبت علامات التبويب -->
     <script src="js/tabs.js"></script>
+    <script src="js/smooth-navigation.js"></script>
 </body>
 </html>

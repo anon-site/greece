@@ -309,6 +309,25 @@ document.addEventListener('DOMContentLoaded', function() {
             if (hasSubmenu) {
                 e.preventDefault();
                 const submenu = this.nextElementSibling;
+                
+                // إغلاق جميع القوائم الفرعية المفتوحة الأخرى
+                const allOpenSubmenus = document.querySelectorAll('.submenu.active');
+                const allExpandedLinks = document.querySelectorAll('.sidebar-menu li a.expanded');
+                
+                // التحقق مما إذا كان القائمة الفرعية الحالية ليست هي المفتوحة
+                allOpenSubmenus.forEach(openSubmenu => {
+                    if (openSubmenu !== submenu) {
+                        openSubmenu.classList.remove('active');
+                    }
+                });
+                
+                allExpandedLinks.forEach(expandedLink => {
+                    if (expandedLink !== this) {
+                        expandedLink.classList.remove('expanded');
+                    }
+                });
+                
+                // تبديل حالة القائمة الفرعية الحالية
                 submenu.classList.toggle('active');
                 this.classList.toggle('expanded');
             } else {
@@ -316,24 +335,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 menuItems.forEach(i => i.parentElement.classList.remove('active'));
                 this.parentElement.classList.add('active');
                 
+                // إغلاق جميع القوائم الفرعية عند النقر على رابط غير قائمة فرعية
+                const allOpenSubmenus = document.querySelectorAll('.submenu.active');
+                const allExpandedLinks = document.querySelectorAll('.sidebar-menu li a.expanded');
+                
+                allOpenSubmenus.forEach(openSubmenu => {
+                    openSubmenu.classList.remove('active');
+                });
+                
+                allExpandedLinks.forEach(expandedLink => {
+                    expandedLink.classList.remove('expanded');
+                });
+                
                 // لا نغلق القائمة الجانبية عند النقر على الروابط
             }
         });
     });
     
-    // إضافة تأثيرات انتقال سلسة للأقسام
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if(targetId !== '#' && document.querySelector(targetId)) {
-                e.preventDefault();
-                
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // تم استبدال نظام الانتقال السلس بنظام محسن في ملف smooth-navigation.js
+    // لتحسين الأداء وتجنب التقطيع عند التنقل بين الأقسام التي تحتوي على صور
     
     // إضافة تأثيرات حركية للبطاقات
     const cards = document.querySelectorAll('.card');
