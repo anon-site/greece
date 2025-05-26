@@ -101,7 +101,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Cairo', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -162,20 +162,178 @@ h2 {
     padding-bottom: 15px;
 }
 
+/* Removing default h2 style since we're using a new design */
 h2::after {
+    display: none;
+}
+
+/* Elegant section titles */
+.section-title {
+    margin-bottom: 60px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title.elegant {
+    padding-top: 30px;
+}
+
+.section-title.elegant h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin: 30px 0 20px;
+    background-image: linear-gradient(to left, var(--theme-color), var(--theme-color-light));
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 100% 88%;
+    background-size: 100% 10px;
+    color: var(--text-color);
+    display: inline-block;
+    padding: 0 15px 8px;
+    position: relative;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+.section-title.elegant p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.title-decoration {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(var(--theme-color-rgb), 0.3);
+    z-index: 2;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.5s ease;
+}
+
+.title-circle::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 80px;
-    height: 4px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px dashed var(--theme-color);
+    animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.title-circle i {
+    font-size: 2rem;
+    color: white;
+}
+
+.decoration-left,
+.decoration-right {
+    height: 3px;
+    flex: 1;
+    background-image: linear-gradient(to left, var(--theme-color), transparent);
+    position: relative;
+    z-index: 1;
+}
+
+.decoration-right {
+    background-image: linear-gradient(to right, var(--theme-color), transparent);
+}
+
+.decoration-left::before,
+.decoration-left::after,
+.decoration-right::before,
+.decoration-right::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
     background: var(--theme-color);
-    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.decoration-left::before {
+    right: 30px;
+}
+
+.decoration-left::after {
+    right: 60px;
+    width: 6px;
+    height: 6px;
+    opacity: 0.7;
+}
+
+.decoration-right::before {
+    left: 30px;
+}
+
+.decoration-right::after {
+    left: 60px;
+    width: 6px;
+    height: 6px;
+    opacity: 0.7;
+}
+
+.section-title.elegant:hover .title-circle {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(var(--theme-color-rgb), 0.4);
 }
 
 h3 {
     font-size: 1.5rem;
+}
+
+/* Enhanced category titles */
+.category-title.enhanced {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 25px;
+    padding: 10px 20px 10px 65px;
+    background: linear-gradient(135deg, rgba(var(--theme-color-rgb), 0.1), transparent);
+    border-right: 4px solid var(--theme-color);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: var(--theme-color);
+    box-shadow: 0 3px 10px rgba(var(--theme-color-rgb), 0.1);
+}
+
+.category-title.enhanced i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--theme-color), var(--theme-color-light));
+    color: var(--text-color-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 8px rgba(var(--theme-color-rgb), 0.3);
 }
 
 p {
