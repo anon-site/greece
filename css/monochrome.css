@@ -1,0 +1,87 @@
+/* Monochrome (Grayscale) Mode Styles */
+
+/* Basic grayscale filter for all elements */
+body.color-blind-monochromacy {
+    --primary-color: #666666;
+    --secondary-color: #999999;
+    --accent-color: #444444;
+    --success-color: #444444;
+    --warning-color: #999999;
+    --danger-color: #222222;
+    --text-contrast: #000000;
+    --bg-contrast: #F0F0F0;
+}
+
+/* Hero section in monochrome mode */
+body.color-blind-monochromacy .hero {
+    filter: grayscale(100%) !important;
+    transition: filter 0.3s ease;
+}
+
+/* Adjust the background overlay for better contrast in monochrome mode */
+body.color-blind-monochromacy .hero .overlay {
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(60, 60, 60, 0.7) 100%) !important;
+}
+
+/* Enhance text visibility in monochrome mode */
+body.color-blind-monochromacy .animated-title,
+body.color-blind-monochromacy .animated-subtitle {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Enhance buttons in hero section */
+body.color-blind-monochromacy .hero-buttons .btn {
+    background: #555 !important;
+    border: 2px solid #777 !important;
+    color: #fff !important;
+}
+
+body.color-blind-monochromacy .hero-buttons .btn:hover {
+    background: #666 !important;
+    border-color: #888 !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Fix for hero wave in monochrome mode */
+body.color-blind-monochromacy .hero-wave svg path {
+    fill: #333 !important;
+}
+
+/* Make icons more visible in monochrome mode */
+body.color-blind-monochromacy .hero-buttons .btn i,
+body.color-blind-monochromacy .nav-icon {
+    color: #fff !important;
+}
+
+/* Add a subtle pattern to improve visual distinction in monochrome mode */
+body.color-blind-monochromacy .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Adjust other sections in monochrome mode */
+body.color-blind-monochromacy .site-content,
+body.color-blind-monochromacy .main-content,
+body.color-blind-monochromacy .hero-section,
+body.color-blind-monochromacy .card,
+body.color-blind-monochromacy .feature-section,
+body.color-blind-monochromacy .popular-section,
+body.color-blind-monochromacy .testimonials-section,
+body.color-blind-monochromacy .cta-section,
+body.color-blind-monochromacy .footer {
+    filter: grayscale(100%);
+}
