@@ -444,7 +444,7 @@ header .container {
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../images/hero-1.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     height: 100vh;
     min-height: 350px;
     width: 100%;
@@ -1759,6 +1759,12 @@ footer {
     header {
         display: none !important;
     }
+
+    .mobile-menu-btn,
+    .mobile-menu-overlay,
+    .mobile-nav {
+        display: none !important;
+    }
     body {
         padding-bottom: 80px !important;
     }
@@ -1801,8 +1807,8 @@ footer {
         display: block;
         position: fixed;
         top: 0; right: 0;
-        width: 85vw;
-        max-width: 340px;
+        width: 60vw;
+        max-width: 250px;
         height: 100vh;
         background: #fff;
         box-shadow: -2px 0 16px rgba(41,128,185,0.08);
