@@ -59,10 +59,12 @@
 
 /* تأثير التألق للعناوين */
 .hero .animated-title {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    animation: text-glow 3s ease-in-out infinite alternate;
+    color: #fff; /* Set text color to white for better contrast */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); /* Add a subtle dark shadow for depth */
+    /* animation: text-glow 3s ease-in-out infinite alternate; */ /* Temporarily remove animation to assess base style */
 }
 
+/*
 @keyframes text-glow {
     from {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -72,6 +74,7 @@
                      0 0 30px rgba(66, 165, 245, 0.6);
     }
 }
+*/
 
 /* تأثير النجوم في الخلفية */
 .stars-container {
