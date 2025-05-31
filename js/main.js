@@ -249,4 +249,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // --- تم إزالة الكود الزائد المتعلق بـ menu popup ---
 });
