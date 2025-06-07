@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeOptions = document.querySelectorAll('.theme-option');
     const fontSizeOptions = document.querySelectorAll('.font-size-option');
     
+    // Color and accessibility options
+    const colorOptions = document.querySelectorAll('.color-option');
+    const accessibilityOptions = document.querySelectorAll('.accessibility-option');
+
     // Current settings
     let currentSettings = {
         theme: 'light',
@@ -47,11 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
         applySettings(currentSettings);
     }
     
-    // Apply settings to the page with smooth transitions
+    // Apply settings to the page
     function applySettings(settings) {
-        // Add transition class for smooth theme change
-        document.documentElement.classList.add('theme-transition');
-        
         // Apply theme
         document.documentElement.setAttribute('data-theme', settings.theme);
         
@@ -61,25 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
             'medium': '16px',
             'large': '18px'
         };
-        document.documentElement.style.setProperty('--base-font-size', fontSizeMap[settings.fontSize] || '16px');
+        document.documentElement.style.fontSize = fontSizeMap[settings.fontSize] || '16px';
         
         // Apply language
-        document.documentElement.setAttribute('dir', settings.language === 'ar' ? 'rtl' : 'ltr');
-        document.documentElement.setAttribute('lang', settings.language);
+        if (languageSelect) languageSelect.value = settings.language;
         
-        // Update direction based on language
-        if (settings.language === 'ar') {
-            document.body.classList.add('rtl');
-            document.body.classList.remove('ltr');
-        } else {
-            document.body.classList.add('ltr');
-            document.body.classList.remove('rtl');
-        }
-        
-        // Remove transition class after animation completes
-        setTimeout(() => {
-            document.documentElement.classList.remove('theme-transition');
-        }, 500);
+        // Update UI to reflect current settings
+        updateSettingsUI(settings);
     }
     
     // Update UI to reflect current settings
@@ -108,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showNotification('تم حفظ الإعدادات بنجاح');
     }
     
-    // Reset settings to defaults
+    // Reset settings to defaults (شامل)
     function resetSettings() {
         // Reset to default settings
         currentSettings = {
@@ -116,74 +105,44 @@ document.addEventListener('DOMContentLoaded', function() {
             fontSize: 'medium',
             language: 'ar'
         };
-        
-        // Apply and save
+        localStorage.removeItem('theme');
+        localStorage.removeItem('fontSize');
+        localStorage.removeItem('language');
+        localStorage.removeItem('mainColor');
+        localStorage.removeItem('accessOptions');
+        document.documentElement.removeAttribute('data-main-color');
+        document.body.classList.remove('high-contrast', 'highlight-links', 'dyslexia-font', 'colorblind');
         applySettings(currentSettings);
-        saveSettings();
-        
-        // Update UI
+        // إعادة تعيين واجهة الأزرار
         updateSettingsUI(currentSettings);
-        
-        // Show notification
-        showNotification('تم إعادة تعيين الإعدادات إلى القيم الافتراضية');
+        // إعادة تعيين خيارات الألوان
+        document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+        // إعادة تعيين خيارات التسهيلات
+        document.querySelectorAll('.accessibility-option').forEach(opt => opt.checked = false);
+        showNotification('تمت إعادة تعيين جميع الإعدادات إلى الافتراضي');
     }
     
     // Show notification
     function showNotification(message) {
-        // Create notification element if it doesn't exist
-        let notification = document.getElementById('settingsNotification');
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
         
-        if (!notification) {
-            notification = document.createElement('div');
-            notification.id = 'settingsNotification';
-            notification.style.position = 'fixed';
-            notification.style.bottom = '30px';
-            notification.style.right = '30px';
-            notification.style.padding = '15px 25px';
-            notification.style.backgroundColor = 'var(--primary-color, #1a5276)';
-            notification.style.color = 'white';
-            notification.style.borderRadius = '10px';
-            notification.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-            notification.style.zIndex = '2000';
-            notification.style.opacity = '0';
-            notification.style.transform = 'translateY(20px)';
-            notification.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-            notification.style.display = 'flex';
-            notification.style.alignItems = 'center';
-            notification.style.gap = '10px';
-            notification.style.fontSize = '0.95rem';
-            notification.style.fontWeight = '500';
-            notification.style.maxWidth = '320px';
-            notification.style.lineHeight = '1.5';
-            
-            // Add icon
-            const icon = document.createElement('i');
-            icon.className = 'fas fa-check-circle';
-            notification.prepend(icon);
-            
-            document.body.appendChild(notification);
-        }
+        document.body.appendChild(notification);
         
-        // Update message
-        notification.querySelector('i').className = 'fas fa-check-circle';
-        notification.lastChild.textContent = message;
+        // Trigger reflow
+        notification.offsetHeight;
         
-        // Show with animation
+        // Add show class
+        notification.classList.add('show');
+        
+        // Remove notification after delay
         setTimeout(() => {
-            notification.style.opacity = '1';
-            notification.style.transform = 'translateY(0)';
-        }, 10);
-        
-        // Hide after 3 seconds with fade out
-        setTimeout(() => {
-            notification.style.opacity = '0';
-            notification.style.transform = 'translateY(-10px)';
+            notification.classList.remove('show');
             
-            // Remove after animation completes
+            // Remove from DOM after animation
             setTimeout(() => {
-                if (notification && notification.parentNode) {
-                    notification.style.display = 'none';
-                }
+                notification.remove();
             }, 300);
         }, 3000);
     }
@@ -266,69 +225,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeSettings) closeSettings.addEventListener('click', closeSettingsPanel);
     if (settingsOverlay) settingsOverlay.addEventListener('click', closeSettingsPanel);
     
-    // Theme change handler with smooth transition
+    // Theme change handler
     themeOptions.forEach(option => {
         option.addEventListener('click', function() {
             const theme = this.getAttribute('data-theme');
             // Ensure theme is either 'light' or 'dark'
             const validTheme = (theme === 'light' || theme === 'dark') ? theme : 'light';
-            
-            // Don't do anything if clicking the active theme
-            if (currentSettings.theme === validTheme) return;
-            
-            // Update current settings
             currentSettings.theme = validTheme;
-            
-            // Update active state with animation
-            themeOptions.forEach(opt => {
-                opt.classList.remove('active');
-                opt.style.transform = '';
-            });
-            this.classList.add('active');
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
-            
-            // Apply settings and save
             applySettings(currentSettings);
-            saveSettings();
             
-            // Show feedback
-            showNotification(`تم تفعيل الوضع ${validTheme === 'dark' ? 'الداكن' : 'الفاتح'}`);
+            // Update active state
+            themeOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Save the new theme preference
+            saveSettings();
         });
     });
     
-    // Font size change handler with animation
+    // Font size switcher
     fontSizeOptions.forEach(option => {
         option.addEventListener('click', function() {
             const size = this.getAttribute('data-size');
-            
-            // Don't do anything if clicking the active size
-            if (currentSettings.fontSize === size) return;
-            
             currentSettings.fontSize = size;
-            
-            // Update active state with animation
-            fontSizeOptions.forEach(opt => {
-                opt.classList.remove('active');
-                opt.style.transform = '';
-            });
-            this.classList.add('active');
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
-            
-            // Apply settings and save
             applySettings(currentSettings);
-            saveSettings();
-            
-            // Show feedback
-            let sizeText = 'متوسط';
-            if (size === 'small') sizeText = 'صغير';
-            else if (size === 'large') sizeText = 'كبير';
-            showNotification(`تم تغيير حجم الخط إلى ${sizeText}`);
         });
     });
     
@@ -366,6 +286,50 @@ document.addEventListener('DOMContentLoaded', function() {
             closeSettingsPanel();
         }
     });
+    
+    // Load color and accessibility from localStorage
+    function loadCustomOptions() {
+        const savedColor = localStorage.getItem('mainColor');
+        if (savedColor) {
+            document.documentElement.setAttribute('data-main-color', savedColor);
+            colorOptions.forEach(opt => opt.classList.toggle('active', opt.getAttribute('data-color') === savedColor));
+        }
+        const savedAccess = JSON.parse(localStorage.getItem('accessOptions') || '[]');
+        document.body.classList.remove('high-contrast', 'highlight-links', 'dyslexia-font', 'colorblind');
+        accessibilityOptions.forEach(opt => {
+            opt.checked = savedAccess.includes(opt.dataset.access);
+            if (opt.checked) document.body.classList.add(opt.dataset.access);
+        });
+    }
+
+    // Color option click
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            colorOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            const color = this.getAttribute('data-color');
+            document.documentElement.setAttribute('data-main-color', color);
+            localStorage.setItem('mainColor', color);
+        });
+    });
+
+    // Accessibility option change
+    accessibilityOptions.forEach(option => {
+        option.addEventListener('change', function() {
+            const access = this.dataset.access;
+            if (this.checked) {
+                document.body.classList.add(access);
+            } else {
+                document.body.classList.remove(access);
+            }
+            // Save all enabled options
+            const enabled = Array.from(accessibilityOptions).filter(opt => opt.checked).map(opt => opt.dataset.access);
+            localStorage.setItem('accessOptions', JSON.stringify(enabled));
+        });
+    });
+
+    // Call on load
+    loadCustomOptions();
     
     // Initialize settings
     initSettings();

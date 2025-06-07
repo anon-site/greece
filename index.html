@@ -260,102 +260,94 @@
     <!-- Settings Panel -->
     <div class="settings-panel" id="settingsPanel">
         <div class="settings-header">
-            <div class="settings-header-content">
-                <i class="fas fa-sliders-h settings-icon"></i>
-                <h3>إعدادات العرض</h3>
-            </div>
+            <h3><i class="fas fa-cog"></i> الإعدادات</h3>
             <button class="close-settings" id="closeSettings" aria-label="إغلاق الإعدادات">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="settings-content">
-            <!-- إعداد المظهر -->
             <div class="setting-option">
-                <div class="setting-option-header">
-                    <div class="setting-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h4>المظهر</h4>
-                </div>
+                <h4><i class="fas fa-palette"></i> المظهر</h4>
+                <p class="setting-desc">اختر بين الوضع الفاتح أو الداكن حسب تفضيلك.</p>
                 <div class="theme-options">
-                    <button type="button" class="theme-option" data-theme="light" aria-label="الوضع الفاتح">
-                        <div class="theme-preview light-theme">
-                            <i class="fas fa-sun"></i>
-                        </div>
+                    <button type="button" class="theme-option" data-theme="light">
                         <span>فاتح</span>
                     </button>
-                    <button type="button" class="theme-option" data-theme="dark" aria-label="الوضع الداكن">
-                        <div class="theme-preview dark-theme">
-                            <i class="fas fa-moon"></i>
-                        </div>
+                    <button type="button" class="theme-option" data-theme="dark">
                         <span>داكن</span>
                     </button>
                 </div>
             </div>
-            
-            <div class="setting-divider"></div>
-            
-            <!-- إعداد حجم الخط -->
+            <hr class="settings-divider">
             <div class="setting-option">
-                <div class="setting-option-header">
-                    <div class="setting-icon">
-                        <i class="fas fa-text-height"></i>
-                    </div>
-                    <h4>حجم الخط</h4>
-                </div>
-                <div class="font-size-options">
-                    <button type="button" class="font-size-option" data-size="small" aria-label="حجم خط صغير">
-                        <div class="font-size-preview small">Aa</div>
+                <h4><i class="fas fa-text-height"></i> حجم الخط</h4>
+                <p class="setting-desc">يمكنك تغيير حجم الخط ليتناسب مع راحتك البصرية.</p>
+                <div class="font-size-options improved-font-size-options">
+                    <button type="button" class="font-size-option" data-size="small">
+                        <i class="fas fa-font fa-xs"></i>
                         <span>صغير</span>
                     </button>
-                    <button type="button" class="font-size-option active" data-size="medium" aria-label="حجم خط متوسط">
-                        <div class="font-size-preview medium">Aa</div>
+                    <button type="button" class="font-size-option" data-size="medium">
+                        <i class="fas fa-font fa-sm"></i>
                         <span>متوسط</span>
                     </button>
-                    <button type="button" class="font-size-option" data-size="large" aria-label="حجم خط كبير">
-                        <div class="font-size-preview large">Aa</div>
+                    <button type="button" class="font-size-option" data-size="large">
+                        <i class="fas fa-heading fa-lg"></i>
                         <span>كبير</span>
                     </button>
                 </div>
             </div>
-            
-            <div class="setting-divider"></div>
-            
-            <!-- إعداد اللغة -->
+            <hr class="settings-divider">
             <div class="setting-option">
-                <div class="setting-option-header">
-                    <div class="setting-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h4>اللغة</h4>
-                </div>
-                <div class="language-select-container">
-                    <div class="select-wrapper">
-                        <select id="languageSelect" class="language-select">
-                            <option value="ar">العربية</option>
-                            <option value="en">English</option>
-                            <option value="fr">Français</option>
-                            <option value="el">Ελληνικά</option>
-                        </select>
-                        <i class="fas fa-chevron-down select-arrow"></i>
-                    </div>
+                <h4><i class="fas fa-language"></i> اللغة</h4>
+                <p class="setting-desc">حدد اللغة المفضلة لواجهة الموقع.</p>
+                <div class="language-select-wrapper">
+                    <select class="language-select" aria-label="اختر اللغة">
+                        <option value="ar" selected>العربية</option>
+                        <option value="en">English</option>
+                        <option value="el">Ελληνικά</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="fa">فارسی</option>
+                    </select>
+                    <span class="language-arrow"><i class="fas fa-chevron-down"></i></span>
                 </div>
             </div>
-            
+            <hr class="settings-divider">
+            <div class="setting-option">
+                <h4><i class="fas fa-fill-drip"></i> ألوان الموقع</h4>
+                <p class="setting-desc">اختر لوناً رئيسياً للموقع حسب ذوقك.</p>
+                <div class="color-options">
+                    <button type="button" class="color-option" data-color="red" style="background: #e74c3c;"></button>
+                    <button type="button" class="color-option" data-color="green" style="background: #27ae60;"></button>
+                    <button type="button" class="color-option" data-color="blue" style="background: #3498db;"></button>
+                    <button type="button" class="color-option" data-color="orange" style="background: #f39c12;"></button>
+                    <button type="button" class="color-option" data-color="purple" style="background: #8e44ad;"></button>
+                </div>
+            </div>
+            <hr class="settings-divider">
+            <div class="setting-option">
+                <h4><i class="fas fa-eye"></i> تسهيلات لذوي مشاكل النظر</h4>
+                <p class="setting-desc">خيارات مفيدة لذوي ضعف البصر وعمى الألوان.</p>
+                <div class="accessibility-options">
+                    <label><input type="checkbox" class="accessibility-option" data-access="high-contrast"> تباين عالي</label>
+                    <label><input type="checkbox" class="accessibility-option" data-access="highlight-links"> إبراز الروابط</label>
+                    <label><input type="checkbox" class="accessibility-option" data-access="dyslexia-font"> خط أوضح (ديسليكسيا)</label>
+                    <label><input type="checkbox" class="accessibility-option" data-access="colorblind"> وضع عمى الألوان</label>
+                </div>
+            </div>
             <div class="settings-actions">
-                <button id="resetSettings" class="reset-settings" aria-label="إعادة تعيين الإعدادات">
+                <button id="resetSettings" class="reset-settings" title="إعادة تعيين جميع الإعدادات إلى الافتراضي">
                     <i class="fas fa-undo"></i>
-                    <span>إعادة تعيين</span>
+                    <span>إعادة تعيين الكل</span>
                 </button>
-                <button id="saveSettings" class="settings-save-btn" aria-label="حفظ الإعدادات">
-                    <i class="fas fa-check"></i>
-                    <span>حفظ التغييرات</span>
+                <button id="saveSettings" class="settings-save-btn">
+                    <i class="fas fa-save"></i>
+                    <span>حفظ الإعدادات</span>
                 </button>
             </div>
-        </div>
-        
-        <div class="settings-footer">
-            <span> 2025 جميع الحقوق محفوظة</span>
         </div>
     </div>
     <div class="settings-overlay" id="settingsOverlay" tabindex="-1"></div>
