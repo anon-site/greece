@@ -2772,79 +2772,50 @@ body.colorblind {
     filter: grayscale(0.7) contrast(1.2) !important;
 }
 
-/* ألوان رئيسية ديناميكية */
-:root[data-main-color="red"] {
-    --primary-color: #e74c3c;
-    --accent-color: #e74c3c;
+/* وضع ألوان مناسب لعمى الألوان */
+body.colorblind-mode {
+    filter: none;
 }
-:root[data-main-color="green"] {
-    --primary-color: #27ae60;
-    --accent-color: #27ae60;
+body.colorblind-mode,
+body.colorblind-mode .main-header,
+body.colorblind-mode .settings-panel,
+body.colorblind-mode .service-card,
+body.colorblind-mode .org-card,
+body.colorblind-mode .btn,
+body.colorblind-mode .feature-item {
+    /* ألوان صديقة لعمى الألوان: أزرق، برتقالي، بنفسجي، رمادي، أخضر داكن */
+    --primary-color: #0072b2;
+    --secondary-color: #e69f00;
+    --success-color: #009e73;
+    --danger-color: #d55e00;
+    --info-color: #56b4e9;
+    --warning-color: #f0e442;
+    --background-color: #f7f7fa;
+    --text-color: #222;
+    --card-bg: #fff;
+    --card-hover: #f0f0f0;
+    --border-color: #bdbdbd;
 }
-:root[data-main-color="blue"] {
-    --primary-color: #3498db;
-    --accent-color: #3498db;
-}
-:root[data-main-color="orange"] {
-    --primary-color: #f39c12;
-    --accent-color: #f39c12;
-}
-:root[data-main-color="purple"] {
-    --primary-color: #8e44ad;
-    --accent-color: #8e44ad;
-}
-
-/* تحسين خيارات حجم الخط */
-.improved-font-size-options {
-    display: flex;
-    gap: 14px;
-    margin-bottom: 0;
-    justify-content: flex-start;
-}
-.improved-font-size-options .font-size-option {
-    padding: 12px 14px;
-    font-size: 1.05rem;
-    border-radius: 10px;
-    border: 2px solid #e0e0e0;
-    background: #f9f9f9;
-    color: #444;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 90px;
-    font-weight: 600;
-}
-.improved-font-size-options .font-size-option.active,
-.improved-font-size-options .font-size-option:focus {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+body.colorblind-mode .color-option[data-color="red"] { background: #d55e00 !important; }
+body.colorblind-mode .color-option[data-color="green"] { background: #009e73 !important; }
+body.colorblind-mode .color-option[data-color="blue"] { background: #0072b2 !important; }
+body.colorblind-mode .color-option[data-color="orange"] { background: #e69f00 !important; }
+body.colorblind-mode .color-option[data-color="purple"] { background: #cc79a7 !important; }
+body.colorblind-mode .btn-primary {
+    background: #0072b2;
     color: #fff;
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 10px rgba(52,152,219,0.13);
+    border-color: #0072b2;
 }
-.improved-font-size-options .font-size-option:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-    background: #f0f8ff;
-}
-
-/* تحسين زر إعادة تعيين */
-.reset-settings {
-    background: linear-gradient(90deg, #fff 0%, #fbeee6 100%);
-    color: #c0392b;
-    border: 2px solid #e0e0e0;
-    font-weight: 700;
-    font-size: 1.05rem;
-    transition: all 0.2s;
-    box-shadow: 0 2px 8px rgba(231,76,60,0.07);
-}
-.reset-settings:hover, .reset-settings:focus {
-    background: linear-gradient(90deg, #e74c3c 0%, #f39c12 100%);
+body.colorblind-mode .btn-secondary {
+    background: #e69f00;
     color: #fff;
-    border-color: #e74c3c;
-    box-shadow: 0 4px 16px rgba(231,76,60,0.13);
-    transform: translateY(-2px) scale(1.04);
+    border-color: #e69f00;
 }
-.reset-settings i {
-    font-size: 1.1em;
+body.colorblind-mode .feature-icon {
+    color: #0072b2;
+}
+body.colorblind-mode .settings-panel,
+body.colorblind-mode .service-card,
+body.colorblind-mode .org-card {
+    border-color: #bdbdbd;
 }

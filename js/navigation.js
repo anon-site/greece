@@ -317,12 +317,24 @@ document.addEventListener('DOMContentLoaded', function() {
     accessibilityOptions.forEach(option => {
         option.addEventListener('change', function() {
             const access = this.dataset.access;
+            if (access === 'colorblind-mode') {
+                if (this.checked) {
+                    document.body.classList.add('colorblind-mode');
+                } else {
+                    document.body.classList.remove('colorblind-mode');
+                }
+                // حفظ الخيار
+                const enabled = Array.from(accessibilityOptions).filter(opt => opt.checked).map(opt => opt.dataset.access);
+                localStorage.setItem('accessOptions', JSON.stringify(enabled));
+                return;
+            }
+            // إبراز الروابط فقط
             if (this.checked) {
                 document.body.classList.add(access);
             } else {
                 document.body.classList.remove(access);
             }
-            // Save all enabled options
+            // حفظ الخيارات
             const enabled = Array.from(accessibilityOptions).filter(opt => opt.checked).map(opt => opt.dataset.access);
             localStorage.setItem('accessOptions', JSON.stringify(enabled));
         });
