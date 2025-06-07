@@ -32,23 +32,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize settings from localStorage
     function initSettings() {
-        // Load saved settings or use defaults
-        let savedTheme = localStorage.getItem('theme');
-        
-        // If saved theme is 'system', default to 'light'
-        if (savedTheme === 'system') {
-            savedTheme = 'light';
-            localStorage.setItem('theme', 'light');
-        }
-        
+        // عند تحميل الموقع، تجاهل أي إعدادات محفوظة وابدأ بالإعدادات الافتراضية
+        localStorage.removeItem('theme');
+        localStorage.removeItem('fontSize');
+        localStorage.removeItem('language');
+        localStorage.removeItem('mainColor');
+        localStorage.removeItem('accessOptions');
         currentSettings = {
-            theme: savedTheme || 'light',
-            fontSize: localStorage.getItem('fontSize') || 'medium',
-            language: localStorage.getItem('language') || 'ar'
+            theme: 'light',
+            fontSize: 'medium',
+            language: 'ar'
         };
-        
-        // Apply settings
         applySettings(currentSettings);
+        // إعادة تعيين خيارات الألوان والتسهيلات
+        document.documentElement.removeAttribute('data-main-color');
+        document.body.classList.remove('high-contrast', 'highlight-links', 'dyslexia-font', 'colorblind');
+        document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+        document.querySelectorAll('.accessibility-option').forEach(opt => opt.checked = false);
     }
     
     // Apply settings to the page
