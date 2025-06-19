@@ -159,7 +159,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile menu functionality has been removed as per user request
+    // --- Mobile Menu Functionality ---
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-nav');
+    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+
+    if (mobileMenuBtn && mobileMenu && mobileOverlay) {
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        // Close on overlay click
+        mobileOverlay.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        // Close on link click (except dropdown toggles)
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // If this is a dropdown toggle, prevent default
+                const parent = this.parentElement;
+                if (parent.classList.contains('dropdown')) {
+                    e.preventDefault();
+                    // Toggle dropdown
+                    parent.classList.toggle('open');
+                    // Close others
+                    mobileMenu.querySelectorAll('.dropdown').forEach(drop => {
+                        if (drop !== parent) drop.classList.remove('open');
+                    });
+                } else {
+                    // Close menu
+                    mobileMenu.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        // Also close menu on window resize to desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 992) {
+                mobileMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 
     // --- Mobile Bottom Navigation Bar Functionality ---
     const mobileBottomNavLinks = document.querySelectorAll('.mobile-bottom-nav-link');
