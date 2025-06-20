@@ -3020,3 +3020,61 @@ footer {
     margin-left: 2px;
   }
 }
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 2px;
+    margin-top: 0;
+  }
+  .animated-title {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .animated-title::after {
+    width: 18px;
+    height: 2px;
+    bottom: -2px;
+  }
+  .animated-subtitle {
+    font-size: 0.65rem;
+    margin-bottom: 6px;
+    max-width: 98vw;
+  }
+  .hero-buttons {
+    gap: 4px;
+    max-width: 100%;
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn {
+    padding: 6px 6px;
+    font-size: 0.85rem;
+    border-radius: 16px;
+  }
+  .hero-features {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+    max-width: 100%;
+  }
+  .feature-item {
+    max-width: 100%;
+    padding: 5px 2px;
+    border-radius: 8px;
+  }
+  .feature-icon {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 3px;
+  }
+  .feature-icon i {
+    font-size: 0.7rem;
+  }
+  .feature-item h3 {
+    font-size: 0.7rem;
+    margin-bottom: 2px;
+  }
+  .feature-item p {
+    font-size: 0.55rem;
+  }
+}
