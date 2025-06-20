@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل اللجوء في اليونان | دوائر اللجوء</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tabs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Timeline style */
+      .asylum-timeline {
+        position: relative;
+        margin: 40px 0 30px 0;
+        padding-right: 20px;
+        border-right: 3px solid var(--primary-color);
+      }
+      .asylum-timeline-step {
+        position: relative;
+        margin-bottom: 36px;
+        padding-right: 36px;
+      }
+      .asylum-timeline-step:last-child { margin-bottom: 0; }
+      .asylum-timeline-icon {
+        position: absolute;
+        right: -32px;
+        top: 0;
+        background: var(--primary-color);
+        color: #fff;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px rgba(41,128,185,0.13);
+      }
+      .asylum-timeline-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+        color: var(--primary-color);
+      }
+      .asylum-timeline-desc {
+        color: #444;
+        font-size: 0.98rem;
+      }
+      /* Cards for documents */
+      .asylum-docs-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin: 30px 0 40px 0;
+        justify-content: center;
+      }
+      .asylum-doc-card {
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+        padding: 22px 18px;
+        min-width: 210px;
+        max-width: 270px;
+        flex: 1 1 210px;
+        text-align: center;
+        border: 1.5px solid #e3eaf2;
+      }
+      .asylum-doc-card i {
+        font-size: 2.1rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+      .asylum-doc-card h4 {
+        font-size: 1.08rem;
+        margin-bottom: 7px;
+        color: var(--accent-color);
+      }
+      .asylum-doc-card p {
+        font-size: 0.97rem;
+        color: #555;
+      }
+      /* Accordion FAQ */
+      .faq-accordion {
+        margin: 30px 0 40px 0;
+        border-radius: 12px;
+        background: #f8fafc;
+        box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+        border: 1.5px solid #e3eaf2;
+        overflow: hidden;
+      }
+      .faq-item { border-bottom: 1px solid #e3eaf2; }
+      .faq-question {
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: right;
+        padding: 18px 22px;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        cursor: pointer;
+        outline: none;
+        transition: background 0.2s;
+      }
+      .faq-question:hover { background: #eaf4fb; }
+      .faq-answer {
+        padding: 0 22px 18px 22px;
+        color: #444;
+        font-size: 0.98rem;
+        display: none;
+      }
+      .faq-item.active .faq-answer { display: block; }
+      /* Offices & orgs cards */
+      .asylum-offices-grid, .asylum-orgs-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin: 30px 0 40px 0;
+        justify-content: center;
+      }
+      .asylum-office-card, .asylum-org-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+        padding: 22px 18px;
+        min-width: 210px;
+        max-width: 270px;
+        flex: 1 1 210px;
+        text-align: center;
+        border: 1.5px solid #e3eaf2;
+        transition: transform 0.18s, box-shadow 0.18s;
+      }
+      .asylum-office-card:hover, .asylum-org-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+      }
+      .asylum-office-card h3, .asylum-org-card h3 {
+        font-size: 1.13rem;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+      }
+      .asylum-office-card p, .asylum-org-card p {
+        color: #555;
+        font-size: 0.97rem;
+        margin-bottom: 6px;
+      }
+      .asylum-org-card a { color: var(--accent-color); text-decoration: underline; }
+      @media (max-width: 700px) {
+        .asylum-timeline { padding-right: 10px; }
+        .asylum-timeline-step { padding-right: 24px; }
+        .asylum-docs-grid, .asylum-offices-grid, .asylum-orgs-grid { gap: 8px; }
+        .asylum-doc-card, .asylum-office-card, .asylum-org-card { min-width: 150px; padding: 12px 6px; }
+      }
+      .asylum-section { margin-bottom: 48px; }
+      .asylum-map {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto 24px auto;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+        border: 1.5px solid #e3eaf2;
+      }
+      .asylum-type-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        justify-content: center;
+        margin: 30px 0 40px 0;
+      }
+      .asylum-type-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+        padding: 22px 18px;
+        min-width: 210px;
+        max-width: 270px;
+        flex: 1 1 210px;
+        text-align: center;
+        border: 1.5px solid #e3eaf2;
+      }
+      .asylum-type-card i {
+        font-size: 2.1rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+      .asylum-type-card h4 {
+        font-size: 1.08rem;
+        margin-bottom: 7px;
+        color: var(--accent-color);
+      }
+      .asylum-type-card p {
+        font-size: 0.97rem;
+        color: #555;
+      }
+      .asylum-camp-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin: 30px 0 40px 0;
+        justify-content: center;
+      }
+      .asylum-camp-card {
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+        padding: 22px 18px;
+        min-width: 210px;
+        max-width: 270px;
+        flex: 1 1 210px;
+        text-align: center;
+        border: 1.5px solid #e3eaf2;
+      }
+      .asylum-camp-card h4 {
+        font-size: 1.08rem;
+        margin-bottom: 7px;
+        color: var(--primary-color);
+      }
+      .asylum-camp-card p {
+        font-size: 0.97rem;
+        color: #555;
+      }
+      .asylum-camp-card a { color: var(--accent-color); text-decoration: underline; }
+      .asylum-sources-list {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        list-style: none;
+        text-align: right;
+      }
+      .asylum-sources-list li {
+        margin-bottom: 10px;
+        font-size: 1.01rem;
+      }
+      .asylum-sources-list a {
+        color: var(--primary-color);
+        text-decoration: underline;
+        font-weight: 600;
+      }
+    </style>
+</head>
+<body>
+    <!-- Header Section (نسخة من الرئيسية) -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-globe-europe"></i> الحياة في اليونان</h1>
+                <div class="tagline">دليلك الشامل للحياة في اليونان</div>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li class="nav-item"><a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a></li>
+                    <li class="dropdown nav-item">
+                        <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="asylum.html">دوائر اللجوء</a>
+                            <a href="government.html">دوائر حكومية</a>
+                            <a href="housing.html">عقارات وسكن</a>
+                            <a href="hospitals.html">مستشفيات</a>
+                            <a href="transportation.html">خطوط النقل</a>
+                            <a href="tourism-services.html">سياحة</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a></li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#humanitarian">منظمات إنسانية</a>
+                            <a href="../index.html#medical-org">منظمات طبية</a>
+                            <a href="../index.html#educational">منظمات تعليمية</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#service-offices">مكاتب خدمية</a>
+                            <a href="../index.html#accounting">مكاتب محاسبة</a>
+                            <a href="../index.html#lawyers">مكاتب محامين</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#hotels">فنادق</a>
+                            <a href="../index.html#pharmacies">صيدليات ومتاجر</a>
+                            <a href="../index.html#restaurants">مطاعم</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <button class="desktop-settings-btn" title="الإعدادات"><i class="fas fa-cog"></i></button>
+            <button class="desktop-search-btn" title="بحث"><i class="fas fa-search"></i></button>
+            <button class="mobile-menu-btn" aria-label="فتح القائمة الرئيسية">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu-overlay"></div>
+    <nav class="mobile-nav">
+        <ul>
+            <li class="nav-item"><a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a></li>
+            <li class="dropdown nav-item">
+                <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="asylum.html">دوائر اللجوء</a></li>
+                    <li><a href="government.html">دوائر حكومية</a></li>
+                    <li><a href="housing.html">عقارات وسكن</a></li>
+                    <li><a href="hospitals.html">مستشفيات</a></li>
+                    <li><a href="transportation.html">خطوط النقل</a></li>
+                    <li><a href="tourism-services.html">سياحة</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a></li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#humanitarian">منظمات إنسانية</a></li>
+                    <li><a href="../index.html#medical-org">منظمات طبية</a></li>
+                    <li><a href="../index.html#educational">منظمات تعليمية</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#service-offices">مكاتب خدمية</a></li>
+                    <li><a href="../index.html#accounting">مكاتب محاسبة</a></li>
+                    <li><a href="../index.html#lawyers">مكاتب محامين</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#hotels">فنادق</a></li>
+                    <li><a href="../index.html#pharmacies">صيدليات ومتاجر</a></li>
+                    <li><a href="../index.html#restaurants">مطاعم</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="animated-title">دليل شامل لطالبي اللجوء في اليونان</h1>
+                <p class="animated-subtitle">كل ما تحتاج معرفته حول إجراءات اللجوء، الحقوق، الكامبات، المنظمات، الاستئناف، والمصادر الرسمية</p>
+                <div class="hero-buttons">
+                    <a href="#asylum-timeline" class="btn btn-primary">خطوات اللجوء <i class="fas fa-passport"></i></a>
+                    <a href="#asylum-offices" class="btn btn-secondary">مكاتب اللجوء <i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>حقوقك القانونية</h3>
+                    <p>اعرف حقوقك أثناء طلب اللجوء</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>الحماية والدعم</h3>
+                    <p>مساعدة منظمات موثوقة</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-info-circle"></i></div>
+                    <h3>إرشادات مفصلة</h3>
+                    <p>خطوات واضحة وسهلة الفهم</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- مقدمة تعريفية -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">ما هو اللجوء؟</span>
+          <div class="section-title-wrapper">
+            <h2>تعريف اللجوء ومن يحق له التقديم</h2>
+          </div>
+          <p>اللجوء هو طلب الحماية من دولة أجنبية بسبب التعرض للاضطهاد أو الخطر في بلدك الأصلي. يحق لأي شخص يتعرض للتهديد بسبب العرق أو الدين أو الجنسية أو الرأي السياسي أو الانتماء لفئة اجتماعية معينة أن يطلب اللجوء في اليونان.<br>
+          <a href="https://migration.gov.gr/en/" target="_blank">المصدر: وزارة الهجرة اليونانية</a></p>
+          <div class="section-divider"><span><i class="fas fa-info-circle"></i></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section: خطوات اللجوء -->
+    <section id="asylum-timeline" class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">مراحل طلب اللجوء</span>
+          <div class="section-title-wrapper">
+            <h2>خطوات اللجوء في اليونان</h2>
+          </div>
+          <p>تعرف على جميع المراحل التي يمر بها طالب اللجوء من التسجيل حتى القرار النهائي.<br>
+          <a href="https://asylumandrefugees.migration.gov.gr/en/" target="_blank">المصدر: منصة اللجوء الرسمية</a></p>
+          <div class="section-divider"><span><i class="fas fa-clipboard-list"></i></span></div>
+        </div>
+        <div class="asylum-timeline">
+          <div class="asylum-timeline-step">
+            <div class="asylum-timeline-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="asylum-timeline-title">1. التسجيل الأولي</div>
+            <div class="asylum-timeline-desc">زيارة مكتب اللجوء أو التسجيل عبر المنصة الإلكترونية وتقديم البيانات الأساسية.</div>
+          </div>
+          <div class="asylum-timeline-step">
+            <div class="asylum-timeline-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="asylum-timeline-title">2. تقديم المستندات</div>
+            <div class="asylum-timeline-desc">تسليم جواز السفر، صور شخصية، وثائق الهوية، وأي إثباتات داعمة.</div>
+          </div>
+          <div class="asylum-timeline-step">
+            <div class="asylum-timeline-icon"><i class="fas fa-comments"></i></div>
+            <div class="asylum-timeline-title">3. المقابلة الشخصية</div>
+            <div class="asylum-timeline-desc">إجراء مقابلة مع موظف مختص لشرح أسباب طلب الحماية. يحق لك وجود مترجم ومحامٍ.</div>
+          </div>
+          <div class="asylum-timeline-step">
+            <div class="asylum-timeline-icon"><i class="fas fa-id-card"></i></div>
+            <div class="asylum-timeline-title">4. استلام بطاقة طالب لجوء</div>
+            <div class="asylum-timeline-desc">الحصول على بطاقة مؤقتة تتيح لك الإقامة القانونية المؤقتة.</div>
+          </div>
+          <div class="asylum-timeline-step">
+            <div class="asylum-timeline-icon"><i class="fas fa-hourglass-half"></i></div>
+            <div class="asylum-timeline-title">5. انتظار القرار</div>
+            <div class="asylum-timeline-desc">انتظار قرار دائرة اللجوء (قد يستغرق عدة أشهر حسب الحالة).</div>
+          </div>
+          <div class="asylum-timeline-step">
+            <div class="asylum-timeline-icon"><i class="fas fa-gavel"></i></div>
+            <div class="asylum-timeline-title">6. القرار والاستئناف</div>
+            <div class="asylum-timeline-desc">في حال الرفض يمكنك الاستئناف بمساعدة محامٍ أو منظمة. <a href="https://www.gcr.gr/en/" target="_blank">المجلس اليوناني للاجئين</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">المستندات المطلوبة</span>
+          <div class="section-title-wrapper">
+            <h2>ما هي الأوراق التي تحتاجها؟</h2>
+          </div>
+          <p>تأكد من تجهيز جميع المستندات التالية لتسهيل إجراءاتك.<br>
+          <a href="https://asylumandrefugees.migration.gov.gr/en/" target="_blank">المصدر الرسمي</a></p>
+          <div class="section-divider"><span><i class="fas fa-folder-open"></i></span></div>
+        </div>
+        <div class="asylum-docs-grid">
+          <div class="asylum-doc-card">
+            <i class="fas fa-passport"></i>
+            <h4>جواز السفر</h4>
+            <p>أو أي وثيقة تثبت هويتك الشخصية.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-image"></i>
+            <h4>صور شخصية</h4>
+            <p>عدد 4 صور حديثة بخلفية بيضاء.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-file-alt"></i>
+            <h4>وثائق داعمة</h4>
+            <p>أي مستندات تثبت أسباب اللجوء (تقارير، شهادات...)</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-child"></i>
+            <h4>شهادات ميلاد</h4>
+            <p>للأطفال المرافقين أو أفراد الأسرة.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-file-signature"></i>
+            <h4>وثائق الإقامة السابقة</h4>
+            <p>إن وجدت، مثل تصاريح الإقامة أو التأشيرات.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- أنواع الحماية -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">أنواع الحماية في اليونان</span>
+          <div class="section-title-wrapper">
+            <h2>ما هي أنواع الحماية التي يمكنك الحصول عليها؟</h2>
+          </div>
+          <p>هناك عدة أنواع من الحماية القانونية لطالبي اللجوء في اليونان. <a href="https://help.unhcr.org/greece/ar/asylum/" target="_blank">المصدر: UNHCR</a></p>
+          <div class="section-divider"><span><i class="fas fa-shield-alt"></i></span></div>
+        </div>
+        <div class="asylum-type-list">
+          <div class="asylum-type-card">
+            <i class="fas fa-certificate"></i>
+            <h4>صفة لاجئ</h4>
+            <p>تمنح لمن يثبت تعرضه للاضطهاد. تمنح إقامة 3 سنوات، حق العمل، لم الشمل، التعليم، والرعاية الصحية.</p>
+          </div>
+          <div class="asylum-type-card">
+            <i class="fas fa-user-shield"></i>
+            <h4>الحماية الفرعية</h4>
+            <p>تمنح لمن يواجه خطرًا حقيقيًا في بلده. تمنح إقامة سنوية قابلة للتجديد وحقوق أساسية.</p>
+          </div>
+          <div class="asylum-type-card">
+            <i class="fas fa-users"></i>
+            <h4>الحماية الإنسانية</h4>
+            <p>في حالات استثنائية (مرض خطير، أطفال غير مصحوبين...). تمنح إقامة مؤقتة وحقوق محدودة.</p>
+          </div>
+          <div class="asylum-type-card">
+            <i class="fas fa-people-arrows"></i>
+            <h4>لم الشمل</h4>
+            <p>يحق للاجئ التقدم للم شمل الزوج/ة والأبناء القصر. <a href="https://help.unhcr.org/greece/ar/family-reunification/" target="_blank">تفاصيل لم الشمل</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- مكاتب اللجوء الرسمية -->
+    <section id="asylum-offices" class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">مكاتب اللجوء الرسمية</span>
+          <div class="section-title-wrapper">
+            <h2>عناوين وأرقام دوائر اللجوء في اليونان</h2>
+          </div>
+          <p>قائمة بأهم مكاتب اللجوء الرسمية في المدن اليونانية، مع أرقام التواصل والمواعيد.<br>
+          <a href="https://asylumandrefugees.migration.gov.gr/en/contact/" target="_blank">المصدر الرسمي</a></p>
+          <div class="section-divider"><span><i class="fas fa-map-marker-alt"></i></span></div>
+        </div>
+        <div class="asylum-map">
+          <img src="https://www.unhcr.org/gr/wp-content/uploads/sites/10/2022/03/Map-of-Asylum-Offices-in-Greece-EN.jpg" alt="خريطة مكاتب اللجوء في اليونان" style="width:100%;height:auto;">
+        </div>
+        <div class="asylum-offices-grid">
+          <div class="asylum-office-card">
+            <h3><i class="fas fa-map-marker-alt"></i> أثينا</h3>
+            <p>العنوان: شارع كاتاخاني 5، أثينا</p>
+            <p>الهاتف: 210 69 88 660</p>
+            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          </div>
+          <div class="asylum-office-card">
+            <h3><i class="fas fa-map-marker-alt"></i> سالونيك</h3>
+            <p>العنوان: شارع إيغناتيا 45، سالونيك</p>
+            <p>الهاتف: 2310 55 44 77</p>
+            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          </div>
+          <div class="asylum-office-card">
+            <h3><i class="fas fa-map-marker-alt"></i> ليسبوس</h3>
+            <p>العنوان: مركز كارا تيبي للاجئين، جزيرة ليسبوس</p>
+            <p>الهاتف: 22510 44 555</p>
+            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          </div>
+          <div class="asylum-office-card">
+            <h3><i class="fas fa-map-marker-alt"></i> كريت</h3>
+            <p>العنوان: شارع إيراكليو 12، هيراكليون، كريت</p>
+            <p>الهاتف: 2810 22 33 44</p>
+            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الكامبات ومراكز الاستقبال -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">الكامبات ومراكز الاستقبال</span>
+          <div class="section-title-wrapper">
+            <h2>أشهر الكامبات والخدمات المتوفرة</h2>
+          </div>
+          <p>توجد عدة كامبات رئيسية في اليونان لاستقبال طالبي اللجوء. الخدمات تختلف من كامب لآخر.<br>
+          <a href="https://help.unhcr.org/greece/ar/accommodation/" target="_blank">المصدر: UNHCR</a></p>
+          <div class="section-divider"><span><i class="fas fa-campground"></i></span></div>
+        </div>
+        <div class="asylum-camp-grid">
+          <div class="asylum-camp-card">
+            <h4>كامب كارا تيبي (ليسبوس)</h4>
+            <p>أكبر مركز استقبال في الجزر. خدمات: سكن، طعام، رعاية صحية، تعليم للأطفال.</p>
+            <a href="https://help.unhcr.org/greece/ar/accommodation/" target="_blank">تفاصيل أكثر</a>
+          </div>
+          <div class="asylum-camp-card">
+            <h4>كامب سكستو (أثينا)</h4>
+            <p>سكن مؤقت، دعم نفسي، برامج تعليمية، رعاية صحية.</p>
+            <a href="https://help.unhcr.org/greece/ar/accommodation/" target="_blank">تفاصيل أكثر</a>
+          </div>
+          <div class="asylum-camp-card">
+            <h4>كامب دياباتا (سالونيك)</h4>
+            <p>سكن، دعم اجتماعي، خدمات للأطفال والنساء.</p>
+            <a href="https://help.unhcr.org/greece/ar/accommodation/" target="_blank">تفاصيل أكثر</a>
+          </div>
+          <div class="asylum-camp-card">
+            <h4>كامب كريت</h4>
+            <p>سكن، رعاية صحية، دعم قانوني، برامج تعليمية.</p>
+            <a href="https://help.unhcr.org/greece/ar/accommodation/" target="_blank">تفاصيل أكثر</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ماذا تفعل في حال الرفض أو التأجيل -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">في حال الرفض أو التأجيل</span>
+          <div class="section-title-wrapper">
+            <h2>خطوات الاستئناف والطعن</h2>
+          </div>
+          <p>إذا تم رفض طلبك أو تأجيله، لديك حقوق وخطوات محددة يجب اتباعها.<br>
+          <a href="https://www.gcr.gr/en/" target="_blank">المجلس اليوناني للاجئين</a></p>
+          <div class="section-divider"><span><i class="fas fa-gavel"></i></span></div>
+        </div>
+        <div class="asylum-docs-grid">
+          <div class="asylum-doc-card">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h4>الاستئناف القانوني</h4>
+            <p>يحق لك الطعن خلال فترة محددة (عادة 15 يومًا). تواصل مع محامٍ أو منظمة مختصة فورًا.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-balance-scale"></i>
+            <h4>الدعم القانوني</h4>
+            <p>المنظمات مثل GCR وSolidarity Now تقدم استشارات مجانية للطعن.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-clock"></i>
+            <h4>الالتزام بالمواعيد</h4>
+            <p>احترم المدد القانونية لتقديم الاستئناف حتى لا تفقد حقك.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-info-circle"></i>
+            <h4>طلب إعادة فتح الملف</h4>
+            <p>في بعض الحالات يمكنك طلب إعادة النظر إذا ظهرت أدلة جديدة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الحقوق والواجبات -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">حقوق وواجبات طالب اللجوء</span>
+          <div class="section-title-wrapper">
+            <h2>ما هي حقوقك وما هي واجباتك؟</h2>
+          </div>
+          <p>تعرف على حقوقك الأساسية وواجباتك القانونية أثناء فترة دراسة طلب اللجوء وبعد الحصول على الحماية.<br>
+          <a href="https://help.unhcr.org/greece/ar/rights-and-duties/" target="_blank">المصدر: UNHCR</a></p>
+          <div class="section-divider"><span><i class="fas fa-balance-scale"></i></span></div>
+        </div>
+        <div class="asylum-docs-grid">
+          <div class="asylum-doc-card">
+            <i class="fas fa-home"></i>
+            <h4>السكن</h4>
+            <p>يحق لك الحصول على سكن مؤقت أو دعم مالي في بعض الحالات.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-stethoscope"></i>
+            <h4>الرعاية الصحية</h4>
+            <p>الحصول على رعاية صحية مجانية أو مدعومة.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-school"></i>
+            <h4>التعليم</h4>
+            <p>يحق لأطفالك الالتحاق بالمدارس الحكومية مجانًا.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-briefcase"></i>
+            <h4>العمل</h4>
+            <p>يحق لك العمل بعد الحصول على بطاقة طالب لجوء مؤقتة.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-euro-sign"></i>
+            <h4>المساعدات المالية</h4>
+            <p>قد تحصل على دعم مالي شهري في بعض الحالات.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-id-card"></i>
+            <h4>تحديث البيانات</h4>
+            <p>واجبك تحديث عنوانك ورقم هاتفك لدى دائرة اللجوء.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-gavel"></i>
+            <h4>الالتزام بالقوانين</h4>
+            <p>يجب احترام القوانين المحلية والمواعيد الرسمية.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">أسئلة شائعة</span>
+          <div class="section-title-wrapper">
+            <h2>الأسئلة الأكثر تكراراً حول اللجوء</h2>
+          </div>
+          <p>إجابات عن أهم الأسئلة التي يطرحها طالبو اللجوء في اليونان.<br>
+          <a href="https://help.unhcr.org/greece/ar/faq/" target="_blank">مصدر الأسئلة: UNHCR</a></p>
+          <div class="section-divider"><span><i class="fas fa-question-circle"></i></span></div>
+        </div>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question">ما هي أنواع الحماية التي يمكن الحصول عليها في اليونان؟</button>
+            <div class="faq-answer">صفة لاجئ، حماية فرعية، حماية إنسانية، لم الشمل. <a href="https://help.unhcr.org/greece/ar/asylum/" target="_blank">تفاصيل أكثر</a></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">هل يمكن لم الشمل مع العائلة بعد الحصول على الحماية؟</button>
+            <div class="faq-answer">نعم، يمكنك التقدم بطلب لم الشمل مع الزوج/ة والأبناء القصر بعد الحصول على صفة لاجئ، وفق شروط محددة وإجراءات رسمية. <a href="https://help.unhcr.org/greece/ar/family-reunification/" target="_blank">تفاصيل لم الشمل</a></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">ماذا أفعل إذا تم رفض طلبي؟</button>
+            <div class="faq-answer">يحق لك الاستئناف خلال فترة محددة. من الأفضل التواصل مع محامٍ أو منظمة مختصة لمساعدتك في الإجراءات. <a href="https://www.gcr.gr/en/" target="_blank">المجلس اليوناني للاجئين</a></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">هل أستطيع العمل أثناء انتظار قرار اللجوء؟</button>
+            <div class="faq-answer">نعم، بعد الحصول على بطاقة طالب لجوء مؤقتة يمكنك العمل بشكل قانوني في اليونان.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">هل يحق لأطفالي الذهاب إلى المدرسة؟</button>
+            <div class="faq-answer">نعم، يحق لجميع الأطفال الالتحاق بالمدارس الحكومية مجانًا أثناء فترة دراسة طلب اللجوء.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">ما هي المنظمات التي يمكن أن تساعدني؟</button>
+            <div class="faq-answer">المجلس اليوناني للاجئين (GCR)، Solidarity Now، PRAKSIS، أطباء بلا حدود (MSF)، المفوضية السامية للأمم المتحدة لشؤون اللاجئين (UNHCR). <a href="#asylum-orgs">انظر قسم المنظمات</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">نصائح ذهبية</span>
+          <div class="section-title-wrapper">
+            <h2>نصائح هامة لطالبي اللجوء</h2>
+          </div>
+          <p>اتبع هذه النصائح لتسهيل إجراءاتك وحماية حقوقك.</p>
+          <div class="section-divider"><span><i class="fas fa-lightbulb"></i></span></div>
+        </div>
+        <div class="asylum-docs-grid">
+          <div class="asylum-doc-card">
+            <i class="fas fa-copy"></i>
+            <h4>احتفظ بنسخ</h4>
+            <p>صور جميع أوراقك الرسمية واحتفظ بها في مكان آمن.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-language"></i>
+            <h4>استخدم مترجم</h4>
+            <p>لا توقع على أي مستند دون فهمه أو دون وجود مترجم.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-calendar-check"></i>
+            <h4>احترم المواعيد</h4>
+            <p>تأكد من حضور جميع المقابلات والمواعيد الرسمية.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>تواصل مع المنظمات</h4>
+            <p>في حال وجود أي مشكلة، تواصل مع منظمة أو محامٍ مختص.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>حدث بياناتك</h4>
+            <p>أبلغ دائرة اللجوء بأي تغيير في عنوانك أو رقم هاتفك.</p>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h4>احذر من الاحتيال</h4>
+            <p>لا تدفع لأي شخص يعدك بتسريع الإجراءات أو الحصول على الحماية.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- مصادر وروابط رسمية -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">مصادر وروابط رسمية</span>
+          <div class="section-title-wrapper">
+            <h2>دليل الروابط والمصادر الموثوقة</h2>
+          </div>
+          <p>للمزيد من المعلومات الرسمية، يمكنك الرجوع إلى الروابط التالية:</p>
+          <div class="section-divider"><span><i class="fas fa-link"></i></span></div>
+        </div>
+        <div class="asylum-docs-grid">
+          <div class="asylum-doc-card">
+            <i class="fas fa-university"></i>
+            <h4>وزارة الهجرة اليونانية</h4>
+            <p>المصدر الرسمي لجميع القوانين والإجراءات الخاصة بالهجرة واللجوء في اليونان.</p>
+            <a href="https://migration.gov.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-passport"></i>
+            <h4>منصة اللجوء الرسمية</h4>
+            <p>كل ما يتعلق بتقديم طلب اللجوء، متابعة الطلبات، وأخبار اللجوء الرسمية.</p>
+            <a href="https://asylumandrefugees.migration.gov.gr/en/" target="_blank" class="org-link">زيارة المنصة <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fab fa-unhcr"></i>
+            <h4>دليل UNHCR للاجئين</h4>
+            <p>معلومات شاملة من المفوضية السامية للأمم المتحدة لشؤون اللاجئين حول الحقوق والإجراءات.</p>
+            <a href="https://help.unhcr.org/greece/ar/" target="_blank" class="org-link">الدليل الرسمي <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-balance-scale"></i>
+            <h4>المجلس اليوناني للاجئين (GCR)</h4>
+            <p>استشارات قانونية مجانية ودعم في جميع مراحل اللجوء.</p>
+            <a href="https://www.gcr.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-hands-helping"></i>
+            <h4>Solidarity Now</h4>
+            <p>منظمة تقدم دعم نفسي واجتماعي واستشارات قانونية ومساعدات مادية.</p>
+            <a href="https://www.solidaritynow.org/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-user-shield"></i>
+            <h4>PRAKSIS</h4>
+            <p>مساعدة في السكن، الرعاية الصحية، والدعم القانوني لطالبي اللجوء.</p>
+            <a href="https://www.praksis.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-stethoscope"></i>
+            <h4>أطباء بلا حدود (MSF)</h4>
+            <p>رعاية صحية مجانية ودعم نفسي للاجئين في اليونان.</p>
+            <a href="https://www.msf.org/greece" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="asylum-doc-card">
+            <i class="fas fa-file-pdf"></i>
+            <h4>دليل اللجوء الرسمي (PDF)</h4>
+            <p>دليل شامل باللغة العربية من المفوضية السامية للأمم المتحدة لشؤون اللاجئين.</p>
+            <a href="https://help.unhcr.org/greece/wp-content/uploads/sites/10/2022/03/Asylum-Guide-AR.pdf" target="_blank" class="org-link">تحميل الدليل <i class="fas fa-download"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer and nav as before ... -->
+    <footer>
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2c3e50" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+        <div class="footer-content-wrapper">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-center-wrapper">
+                        <div class="footer-center-logo">
+                            <div class="logo-icon"><i class="fas fa-globe-europe"></i></div>
+                        </div>
+                        <div class="footer-center-text">
+                            <h2>الحياة في اليونان</h2>
+                            <p>دليلك الشامل للحياة والخدمات في اليونان</p>
+                        </div>
+                        <div class="footer-center-social">
+                            <div class="social-icons">
+                                <a href="#" class="telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+                                <a href="#" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>&copy; 2025 الحياة في اليونان. جميع الحقوق محفوظة.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#">سياسة الخصوصية</a>
+                        <a href="#">الشروط والأحكام</a>
+                        <a href="#">اتصل بنا</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/services.js"></script>
+    <script src="../js/tabs.js"></script>
+
+    <nav class="mobile-bottom-nav">
+        <a href="../index.html" class="mobile-bottom-nav-link" title="الرئيسية">
+            <i class="fas fa-house-chimney-window"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="#menu" class="mobile-bottom-nav-link menu-icon" title="القائمة">
+            <i class="fas fa-grip-lines"></i>
+            <span>القائمة</span>
+        </a>
+        <button class="mobile-bottom-nav-center" title="الصعود للأعلى" aria-label="الصعود للأعلى">
+            <i class="fas fa-circle-chevron-up"></i>
+        </button>
+        <a href="#search" class="mobile-bottom-nav-link" title="البحث">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>البحث</span>
+        </a>
+        <a href="#settings" class="mobile-bottom-nav-link" title="الإعدادات">
+            <i class="fas fa-sliders"></i>
+            <span>الإعدادات</span>
+        </a>
+    </nav>
+
+    <div class="menu-popup-overlay" id="menuPopupOverlay"></div>
+    <div class="menu-popup" id="menuPopup">
+      <div class="menu-popup-content">
+        <ul class="menu-popup-list">
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#services" class="submenu-anchor-popup"><i class="fas fa-hands-helping"></i> الخدمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="asylum.html">دوائر اللجوء</a></li>
+              <li><a href="government.html">دوائر حكومية</a></li>
+              <li><a href="housing.html">عقارات وسكن</a></li>
+              <li><a href="hospitals.html">مستشفيات</a></li>
+              <li><a href="transportation.html">خطوط النقل</a></li>
+              <li><a href="tourism-services.html">سياحة</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#work" class="submenu-anchor-popup"><i class="fas fa-briefcase"></i> العمل</a></li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="../index.html#organizations" class="submenu-anchor-popup"><i class="fas fa-users"></i> المنظمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="../index.html#humanitarian">منظمات إنسانية</a></li>
+              <li><a href="../index.html#medical-org">منظمات طبية</a></li>
+              <li><a href="../index.html#educational">منظمات تعليمية</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="../index.html#offices" class="submenu-anchor-popup"><i class="fas fa-building"></i> المكاتب</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="../index.html#service-offices">مكاتب خدمية</a></li>
+              <li><a href="../index.html#accounting">مكاتب محاسبة</a></li>
+              <li><a href="../index.html#lawyers">مكاتب محامين</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="../index.html#tourism" class="submenu-anchor-popup"><i class="fas fa-plane"></i> السياحة</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="../index.html#hotels">فنادق</a></li>
+              <li><a href="../index.html#pharmacies">صيدليات ومتاجر</a></li>
+              <li><a href="../index.html#restaurants">مطاعم</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+</body>
+</html> 
