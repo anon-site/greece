@@ -3078,3 +3078,52 @@ footer {
     font-size: 0.55rem;
   }
 }
+
+@media (max-width: 480px) {
+  .footer-content-wrapper {
+    padding: 12px 0 4px 0;
+  }
+  .footer-content {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .footer-links-container {
+    gap: 4px;
+  }
+  .footer-links h3, .footer-contact h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  .footer-links ul li a, .footer-bottom-links a {
+    font-size: 0.85rem;
+    padding: 4px 0;
+  }
+  .footer-bottom {
+    gap: 3px;
+    padding-top: 4px;
+  }
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  .footer-logo h2 {
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+  }
+  .footer-logo p {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+  }
+  .social-icons a {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+  .footer-wave {
+    top: -40px;
+    min-height: 18px;
+    height: 18px;
+    line-height: 0;
+  }
+}
