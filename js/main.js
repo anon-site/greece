@@ -253,19 +253,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuBtn = document.querySelector('.mobile-bottom-nav-link.menu-icon');
     const menuPopup = document.getElementById('menuPopup');
     const menuPopupOverlay = document.getElementById('menuPopupOverlay');
-    const closeMenuPopup = document.getElementById('closeMenuPopup');
 
-    if (menuBtn && menuPopup && menuPopupOverlay && closeMenuPopup) {
+    if (menuBtn && menuPopup && menuPopupOverlay) {
         menuBtn.addEventListener('click', function(e) {
             e.preventDefault();
             menuPopup.classList.add('active');
             menuPopupOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
-        });
-        closeMenuPopup.addEventListener('click', function() {
-            menuPopup.classList.remove('active');
-            menuPopupOverlay.classList.remove('active');
-            document.body.style.overflow = '';
         });
         menuPopupOverlay.addEventListener('click', function() {
             menuPopup.classList.remove('active');
