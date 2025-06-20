@@ -301,4 +301,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // --- Footer: IP, Country, and Flag ---
+    // جلب بيانات الـIP والدولة والعلم
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.ip) {
+                document.getElementById('footerIP').textContent = data.ip;
+            }
+            if (data.country_name) {
+                document.getElementById('footerCountryName').textContent = data.country_name;
+            }
+            if (data.country_code) {
+                // علم الدولة باستخدام رمز الدولة
+                const flagUrl = `https://flagcdn.com/32x24/${data.country_code.toLowerCase()}.png`;
+                document.getElementById('footerCountryFlag').innerHTML = `<img src="${flagUrl}" alt="${data.country_name}" style="width:28px;height:20px;border-radius:4px;box-shadow:0 1px 4px #0002;vertical-align:middle;margin-right:4px;">`;
+            }
+        })
+        .catch(() => {
+            document.getElementById('footerCountryFlag').textContent = '';
+        });
 });

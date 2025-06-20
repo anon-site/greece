@@ -1194,53 +1194,518 @@
     <!-- Footer -->
     <footer>
         <div class="footer-wave">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2c3e50" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#222c3a" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320,C480,320,384,320,288,320,C192,320,96,320,48,320,L0,320Z"></path></svg>
         </div>
-        
-        <div class="footer-content-wrapper">
+        <div class="footer-content-wrapper dark-footer-wrapper">
             <div class="container">
-                <!-- Main Footer Content -->
-                <div class="footer-content">
-                    <div class="footer-center-wrapper">
-                        <!-- Logo Section -->
-                        <div class="footer-center-logo">
-                            <div class="logo-icon"><i class="fas fa-globe-europe"></i></div>
+                <div class="footer-content footer-row-cards">
+                    <!-- IP & Country Flag -->
+                    <div class="footer-card footer-ip-card">
+                        <div class="footer-ip-flag-row">
+                            <span id="footerCountryFlag"></span>
+                            <span id="footerIP" class="footer-ip-text">IP</span>
                         </div>
-                        
-                        <!-- Title and Description -->
-                        <div class="footer-center-text">
-                            <h2>الحياة في اليونان</h2>
-                            <p>دليلك الشامل للحياة والخدمات في اليونان</p>
-                        </div>
-                        
-                        <!-- Social Media Icons -->
-                        <div class="footer-center-social">
-                            <div class="social-icons">
-                                <a href="#" class="telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
-                                <a href="#" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                                <a href="#" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
-                                <a href="#" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                            </div>
-                        </div>
+                        <span id="footerCountryName" class="footer-country-name"></span>
                     </div>
+                    <!-- Live Clock -->
+                    <div class="footer-card footer-clock-card">
+                        <div class="footer-clock-row">
+                            <i class="fas fa-clock"></i>
+                            <span id="footerLocalTime">00:00:00</span>
+                        </div>
+                        <span class="footer-clock-label">الوقت المحلي لديك</span>
+                    </div>
+                    <!-- Weather -->
+                    <div class="footer-card footer-weather-card">
+                        <div class="footer-weather-row">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span id="footerWeather">--°C</span>
+                        </div>
+                        <span id="footerWeatherDesc"></span>
+                        <span id="footerWeatherLocation"></span>
+                    </div>
+                    <!-- Social Media -->
+                    <!-- تم حذف خانة أيقونات وسائل التواصل الاجتماعي بالكامل -->
                 </div>
-                
-                <!-- No Language Section -->
-                
-                <!-- Footer Bottom -->
-                <div class="footer-bottom">
-                    <div class="copyright">
-                        <p>&copy; 2025 الحياة في اليونان. جميع الحقوق محفوظة.</p>
-                    </div>
-                    <div class="footer-bottom-links">
-                        <a href="#">سياسة الخصوصية</a>
-                        <a href="#">الشروط والأحكام</a>
-                        <a href="#">اتصل بنا</a>
+                <div class="footer-links-bar always-horizontal-footer-links">
+                    <a href="#" class="footer-link">سياسة الخصوصية</a>
+                    <span class="footer-link-sep">-</span>
+                    <a href="#" class="footer-link">من نحن</a>
+                    <span class="footer-link-sep">-</span>
+                    <a href="#" class="footer-link">اتصل بنا</a>
+                </div>
+                <div class="footer-bottom-bar popup-copyright-bar">
+                    <div class="copyright-text">
+                        <span class="copyright-icon">&copy;</span> 2025 الحياة في اليونان. جميع الحقوق محفوظة.
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <style>
+    .footer-row-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+        align-items: stretch;
+        padding: 36px 0 14px 0;
+        background: none;
+    }
+    .footer-card {
+        background: rgba(34,44,58,0.96);
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(44,62,80,0.13);
+        padding: 16px 14px 12px 14px;
+        min-width: 160px;
+        max-width: 220px;
+        flex: 1 1 160px;
+        margin: 0 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1.5px solid #263246;
+        transition: box-shadow 0.18s, transform 0.18s;
+        position: relative;
+    }
+    .footer-card:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 60%;
+        background: linear-gradient(180deg, #263246 0%, #34425a 100%);
+        opacity: 0.18;
+        border-radius: 2px;
+        z-index: 1;
+        display: none;
+    }
+    .footer-row-cards > .footer-card:not(:first-child) {
+        margin-right: 0;
+    }
+    .footer-card:hover {
+        box-shadow: 0 8px 32px rgba(44,62,80,0.23);
+        transform: translateY(-4px) scale(1.03);
+    }
+    .footer-ip-flag-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+    .footer-ip-text {
+        color: #fff;
+        font-size: 1.13rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    .footer-country-name {
+        font-size: 0.95rem;
+        color: #bfc9d6;
+        margin-top: 2px;
+    }
+    .footer-clock-row, .footer-weather-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.18rem;
+        margin-bottom: 4px;
+        color: #fff;
+    }
+    .footer-clock-label {
+        font-size: 0.92rem;
+        color: #bfc9d6;
+        margin-top: 2px;
+    }
+    .footer-weather-row i {
+        color: #f7b731;
+    }
+    .footer-clock-row i {
+        color: #4fc3f7;
+    }
+    .footer-social-label { display: none; }
+    .footer-social-icons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-social-icon {
+        font-size: 1.45rem;
+        color: #fff;
+        background: linear-gradient(135deg, #263246 60%, #2c3e50 100%);
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s, transform 0.18s, box-shadow 0.18s;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+        border: 1.5px solid #34425a;
+    }
+    .footer-social-icon:hover {
+        background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%);
+        color: #fff;
+        transform: scale(1.15) rotate(-8deg);
+        box-shadow: 0 8px 32px rgba(44,62,80,0.23);
+    }
+    .footer-social-icon[title="Telegram"] { color: #29b6f6; }
+    .footer-social-icon[title="WhatsApp"] { color: #25d366; }
+    .footer-social-icon[title="YouTube"] { color: #ff5252; }
+    .footer-social-icon[title="TikTok"] { color: #fff; }
+    .footer-bottom-bar {
+        width: 100%;
+        background: rgba(20, 26, 36, 0.93);
+        border-radius: 0 0 18px 18px;
+        border-top: 1.5px solid #232b38;
+        margin-top: 24px;
+        padding: 10px 0 6px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 -2px 12px rgba(44,62,80,0.10);
+    }
+    .copyright-text {
+        color: #bfc9d6;
+        font-size: 0.98rem;
+        letter-spacing: 0.2px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 400;
+    }
+    .copyright-icon {
+        font-size: 1.15em;
+        color: #4fc3f7;
+        margin-left: 2px;
+    }
+    @media (max-width: 900px) {
+        .footer-row-cards { flex-direction: column; gap: 12px; padding: 12px 0 4px 0; }
+        .footer-card { min-width: 0; width: 100%; max-width: 100%; }
+        .footer-card:not(:last-child)::after { display: none; }
+        .footer-bottom-bar { border-radius: 0 0 12px 12px; margin-top: 12px; padding: 8px 0 4px 0; }
+        .copyright-text { font-size: 0.93rem; }
+    }
+    .footer-links-bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 2px;
+        margin-top: 10px;
+    }
+    .footer-link {
+        color: #bfc9d6;
+        font-size: 1.04rem;
+        text-decoration: none;
+        transition: color 0.18s;
+        font-weight: 500;
+        padding: 2px 6px;
+        border-radius: 6px;
+    }
+    .footer-link:hover {
+        color: #4fc3f7;
+        background: rgba(79,195,247,0.08);
+    }
+    .footer-link-sep {
+        color: #4fc3f7;
+        font-size: 1.1em;
+        font-weight: bold;
+        opacity: 0.7;
+        user-select: none;
+    }
+    @media (max-width: 900px) {
+        .footer-links-bar { flex-direction: column; gap: 4px; margin-top: 6px; }
+        .footer-link-sep { display: none; }
+    }
+    @media (max-width: 900px) {
+        .footer-row-cards {
+            flex-direction: column;
+            gap: 10px;
+            padding: 8px 0 2px 0;
+        }
+        .footer-card {
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+            border-radius: 18px;
+            margin: 0 auto 6px auto;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.10) inset, 0 1px 6px rgba(44,62,80,0.08);
+            background: linear-gradient(120deg, #232e3c 80%, #1a2230 100%);
+            padding: 18px 8px 14px 8px;
+        }
+        .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer-ip-text, .footer-country-name, .footer-clock-label {
+            font-size: 1.08rem;
+        }
+        .footer-clock-row i, .footer-weather-row i {
+            font-size: 1.25em;
+        }
+        .footer-ip-flag-row img {
+            width: 30px !important;
+            height: 22px !important;
+        }
+        .footer-card {
+            text-align: center;
+        }
+        .footer-weather-row span, .footer-clock-row span, .footer-ip-flag-row span {
+            font-size: 1.13rem;
+        }
+        .footer-country-name {
+            margin-top: 4px;
+            font-size: 1.01rem;
+        }
+    }
+    @media (max-width: 900px) {
+        .footer-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+        .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
+            width: 100%;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        .footer-card > * {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .footer-country-name, .footer-clock-label, #footerWeatherDesc, #footerWeatherLocation {
+            width: 100%;
+            text-align: center !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+    .popup-copyright-bar {
+        background: rgba(255,255,255,0.97);
+        color: #263246;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(44,62,80,0.18), 0 2px 12px rgba(52,152,219,0.10);
+        border: 1.5px solid #e3eaf2;
+        width: max-content;
+        min-width: 220px;
+        max-width: 98vw;
+        margin: 0 auto 18px auto;
+        padding: 12px 28px 10px 28px;
+        position: relative;
+        top: -18px;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: box-shadow 0.18s, transform 0.18s;
+        font-size: 1.01rem;
+        margin-bottom: 0 !important;
+    }
+    .popup-copyright-bar .copyright-text {
+        color: #263246;
+        font-size: 1.01rem;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+    }
+    .popup-copyright-bar .copyright-icon {
+        color: #4fc3f7;
+        font-size: 1.18em;
+        margin-left: 2px;
+    }
+    @media (max-width: 900px) {
+        .popup-copyright-bar {
+            padding: 10px 8vw 8px 8vw;
+            min-width: 0;
+            font-size: 0.97rem;
+            border-radius: 12px;
+            top: -10px;
+        }
+        .popup-copyright-bar .copyright-text {
+            font-size: 0.97rem;
+        }
+    }
+    .vertical-footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        position: relative;
+        top: -8px;
+        z-index: 11;
+    }
+    .vertical-footer-links .footer-link {
+        font-size: 1.09rem;
+        padding: 3px 12px;
+        border-radius: 8px;
+        color: #4fc3f7;
+        background: rgba(255,255,255,0.07);
+        font-weight: 600;
+        transition: background 0.18s, color 0.18s;
+    }
+    .vertical-footer-links .footer-link:hover {
+        background: #4fc3f7;
+        color: #fff;
+    }
+    .footer-links-bar:not(.vertical-footer-links) { display: none; }
+    @media (max-width: 900px) {
+        .vertical-footer-links { gap: 4px; margin-bottom: 7px; top: -4px; }
+        .vertical-footer-links .footer-link { font-size: 1.01rem; padding: 3px 6px; border-radius: 7px; }
+    }
+    .horizontal-footer-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        position: relative;
+        top: -8px;
+        z-index: 11;
+    }
+    .horizontal-footer-links .footer-link {
+        font-size: 1.09rem;
+        padding: 3px 12px;
+        border-radius: 8px;
+        color: #4fc3f7;
+        background: rgba(255,255,255,0.07);
+        font-weight: 600;
+        transition: background 0.18s, color 0.18s;
+        text-decoration: none;
+    }
+    .horizontal-footer-links .footer-link:hover {
+        background: #4fc3f7;
+        color: #fff;
+    }
+    .horizontal-footer-links .footer-link-sep {
+        color: #4fc3f7;
+        font-size: 1.1em;
+        font-weight: bold;
+        opacity: 0.7;
+        user-select: none;
+        margin: 0 2px;
+    }
+    .footer-links-bar:not(.horizontal-footer-links) { display: none; }
+    @media (max-width: 900px) {
+        .horizontal-footer-links {
+            flex-direction: row;
+            gap: 10px;
+            margin-bottom: 7px;
+            top: -4px;
+        }
+        .horizontal-footer-links .footer-link { font-size: 1.01rem; padding: 3px 6px; border-radius: 7px; }
+        .horizontal-footer-links .footer-link-sep { display: inline; }
+    }
+    .always-horizontal-footer-links {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        position: relative;
+        top: -8px;
+        z-index: 11;
+        width: 100%;
+    }
+    .always-horizontal-footer-links .footer-link {
+        font-size: 1.09rem;
+        padding: 3px 12px;
+        border-radius: 8px;
+        color: #4fc3f7;
+        background: rgba(255,255,255,0.07);
+        font-weight: 600;
+        transition: background 0.18s, color 0.18s;
+        text-decoration: none;
+    }
+    .always-horizontal-footer-links .footer-link:hover {
+        background: #4fc3f7;
+        color: #fff;
+    }
+    .always-horizontal-footer-links .footer-link-sep {
+        color: #4fc3f7;
+        font-size: 1.1em;
+        font-weight: bold;
+        opacity: 0.7;
+        user-select: none;
+        margin: 0 2px;
+    }
+    /* ألغِ أي تحويل لعمودي أو إخفاء للروابط في جميع الشاشات */
+    .footer-links-bar:not(.always-horizontal-footer-links) { display: none !important; }
+    @media (max-width: 900px) {
+        .always-horizontal-footer-links {
+            flex-direction: row !important;
+            gap: 10px;
+            margin-bottom: 7px;
+            top: -4px;
+        }
+        .always-horizontal-footer-links .footer-link { font-size: 1.01rem; padding: 3px 6px; border-radius: 7px; }
+        .always-horizontal-footer-links .footer-link-sep { display: inline; }
+    }
+    </style>
+
+    <script>
+    // Live Clock
+    function updateFooterClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('footerLocalTime').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateFooterClock, 1000);
+    updateFooterClock();
+
+    // Get IP, Country, and Weather
+    async function updateFooterIPAndWeather() {
+      try {
+        // Get IP and location
+        const ipRes = await fetch('https://ipapi.co/json/');
+        const ipData = await ipRes.json();
+        document.getElementById('footerIP').textContent = ipData.ip;
+        document.getElementById('footerCountryFlag').textContent = ipData.country_emoji || '';
+        document.getElementById('footerCountryName').textContent = ipData.country_name || '';
+        // Get weather
+        const lat = ipData.latitude, lon = ipData.longitude;
+        if (lat && lon) {
+          // Open-Meteo API (no key needed)
+          const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`);
+          const weatherData = await weatherRes.json();
+          if (weatherData.current_weather) {
+            document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
+            document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
+            document.getElementById('footerWeatherLocation').textContent = ipData.city ? `(${ipData.city})` : '';
+          }
+        }
+      } catch (e) {
+        document.getElementById('footerIP').textContent = 'غير متوفر';
+        document.getElementById('footerWeather').textContent = '--°C';
+      }
+    }
+    function weatherCodeToDesc(code) {
+      // Simplified mapping for demo
+      const map = {
+        0: 'صحو', 1: 'غائم جزئي', 2: 'غائم', 3: 'غائم كلي', 45: 'ضباب', 48: 'ضباب', 51: 'رذاذ', 53: 'رذاذ', 55: 'رذاذ', 61: 'مطر خفيف', 63: 'مطر', 65: 'مطر غزير', 71: 'ثلج خفيف', 73: 'ثلج', 75: 'ثلج كثيف', 80: 'زخات مطر', 81: 'زخات مطر', 82: 'زخات مطر غزيرة', 95: 'عاصفة رعدية'
+      };
+      return map[code] || '';
+    }
+    updateFooterIPAndWeather();
+    </script>
 
     <script src="js/main.js"></script>
     <script src="js/services.js"></script>
