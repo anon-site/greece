@@ -322,4 +322,33 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(() => {
             document.getElementById('footerCountryFlag').textContent = '';
         });
+
+    // --- FAQ Accordion Functionality ---
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const answer = this.nextElementSibling;
+            
+            // إغلاق جميع الأسئلة الأخرى
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    const otherAnswer = item.querySelector('.faq-answer');
+                    if (otherAnswer) {
+                        otherAnswer.style.maxHeight = '0';
+                    }
+                }
+            });
+            
+            // تبديل حالة السؤال الحالي
+            faqItem.classList.toggle('active');
+            
+            if (faqItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = '0';
+            }
+        });
+    });
 });

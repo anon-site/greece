@@ -3127,3 +3127,756 @@ footer {
     line-height: 0;
   }
 }
+
+/* --- Modern Gov Offices Cards --- */
+.modern-gov-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto 30px auto;
+}
+.modern-gov-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.10), 0 1.5px 8px rgba(52,152,219,0.08);
+  border: none;
+  min-width: 260px;
+  max-width: 340px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 28px 0;
+  transition: box-shadow 0.22s, transform 0.22s;
+  position: relative;
+  overflow: visible;
+  text-align: center;
+  /* إضافة لضبط توزيع العناصر وجعل الزر في الأسفل */
+  justify-content: stretch;
+}
+.modern-gov-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 8px;
+  border-radius: 24px 24px 0 0;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 2;
+  background: var(--gov-card-gradient, linear-gradient(90deg, #4fc3f7, #1976d2));
+}
+.gov-card-1 { --gov-card-gradient: linear-gradient(90deg, #4fc3f7, #1976d2); }
+.gov-card-2 { --gov-card-gradient: linear-gradient(90deg, #43e97b, #38f9d7); }
+.gov-card-3 { --gov-card-gradient: linear-gradient(90deg, #f7971e, #ffd200); }
+.gov-card-4 { --gov-card-gradient: linear-gradient(90deg, #f953c6, #b91d73); }
+.gov-card-5 { --gov-card-gradient: linear-gradient(90deg, #43cea2, #185a9d); }
+.gov-card-6 { --gov-card-gradient: linear-gradient(90deg, #667eea, #764ba2); }
+.gov-card-7 { --gov-card-gradient: linear-gradient(90deg, #ff5858, #f09819); }
+
+.gov-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #fff;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+  border: 1.5px solid #e3eaf2;
+  z-index: 3;
+  letter-spacing: 0.5px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.gov-card-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gov-card-gradient, linear-gradient(90deg, #4fc3f7, #1976d2));
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  margin: 0 auto 18px auto;
+  box-shadow: 0 4px 18px rgba(44,62,80,0.13);
+  border: 4px solid #fff;
+  position: relative;
+  top: 32px;
+  z-index: 2;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+.modern-gov-card:hover .gov-card-icon {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  transform: scale(1.08) rotate(-6deg);
+}
+
+.gov-card-content {
+  margin-top: 48px;
+  padding: 0 24px;
+  width: 100%;
+  flex: 1 1 auto; /* تجعل المحتوى يتمدد ويترك الزر في الأسفل */
+  display: flex;
+  flex-direction: column;
+}
+.gov-card-content h3 {
+  font-size: 1.28rem;
+  color: var(--primary-color);
+  font-weight: 800;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+.gov-card-desc {
+  color: #666;
+  font-size: 1.01rem;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.gov-card-list {
+  list-style: none;
+  margin: 0 0 18px 0;
+  padding: 0;
+  text-align: right;
+}
+.gov-card-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #444;
+  font-size: 0.97rem;
+  margin-bottom: 7px;
+  font-weight: 500;
+}
+.gov-card-list li i {
+  color: #27ae60;
+  font-size: 1.1em;
+  margin-left: 6px;
+}
+.gov-card-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gov-card-gradient, linear-gradient(90deg, #4fc3f7, #1976d2));
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 28px;
+  margin-top: auto; /* يجعل الزر يلتصق بأسفل المحتوى دائماً */
+  box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+  text-decoration: none;
+}
+.gov-card-btn i {
+  font-size: 1.1em;
+}
+.gov-card-btn:hover {
+  background: linear-gradient(90deg, #1976d2, #4fc3f7);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(44,62,80,0.13);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.modern-gov-card:hover {
+  box-shadow: 0 20px 60px rgba(44,62,80,0.18);
+  transform: translateY(-10px) scale(1.04);
+}
+
+@media (max-width: 900px) {
+  .modern-gov-grid {
+    gap: 16px;
+  }
+  .modern-gov-card {
+    border-radius: 16px;
+    min-width: 0;
+    max-width: 100%;
+    padding-bottom: 18px;
+  }
+  .gov-card-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.7rem;
+    top: 24px;
+  }
+  .gov-card-content {
+    margin-top: 36px;
+    padding: 0 12px;
+  }
+  .gov-card-content h3 {
+    font-size: 1.08rem;
+  }
+  .gov-card-btn {
+    font-size: 0.97rem;
+    padding: 10px 18px;
+  }
+  .gov-card-badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/* --- نصائح الدوائر الحكومية الاحترافية --- */
+.tips-intro {
+  text-align: center;
+  color: #1976d2;
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.professional-tips-grid {
+  margin-top: 18px;
+}
+.tip-card {
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+  border: 1.5px solid #e3eaf2;
+  border-radius: 18px;
+  background: #fff;
+  transition: box-shadow 0.18s, transform 0.18s;
+  z-index: 1;
+}
+.tip-card .tip-number {
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  background: #fff;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.13);
+  border: 2.5px solid #e3eaf2;
+  z-index: 2;
+  transition: background 0.18s, color 0.18s;
+}
+.tip-card-1 .tip-number { background: #4fc3f7; color: #fff; }
+.tip-card-2 .tip-number { background: #f7b731; color: #fff; }
+.tip-card-3 .tip-number { background: #00b894; color: #fff; }
+.tip-card-4 .tip-number { background: #1976d2; color: #fff; }
+.tip-card-5 .tip-number { background: #ff5252; color: #fff; }
+
+.tip-card-1 { background: linear-gradient(120deg, #eaf6fb 70%, #f8fafc 100%); }
+.tip-card-2 { background: linear-gradient(120deg, #fffbe6 70%, #f8fafc 100%); }
+.tip-card-3 { background: linear-gradient(120deg, #eafbf3 70%, #f8fafc 100%); }
+.tip-card-4 { background: linear-gradient(120deg, #eaf0fb 70%, #f8fafc 100%); }
+.tip-card-5 { background: linear-gradient(120deg, #fdeaea 70%, #f8fafc 100%); }
+
+.tip-card i {
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+  transition: color 0.18s, transform 0.18s;
+}
+.tip-card-1 i { color: #4fc3f7; }
+.tip-card-2 i { color: #f7b731; }
+.tip-card-3 i { color: #00b894; }
+.tip-card-4 i { color: #1976d2; }
+.tip-card-5 i { color: #ff5252; }
+
+.tip-card:hover {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+  transform: translateY(-4px) scale(1.04);
+}
+.tip-card:hover i {
+  transform: scale(1.18) rotate(-8deg);
+}
+.tip-card h4 {
+  font-size: 1.08rem;
+  color: var(--accent-color);
+  margin-bottom: 7px;
+  font-weight: 700;
+}
+.tip-card p {
+  font-size: 0.97rem;
+  color: #555;
+}
+@media (max-width: 900px) {
+  .tip-card .tip-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.98rem;
+    top: -10px;
+    left: -10px;
+  }
+  .tip-card {
+    padding-top: 18px !important;
+  }
+}
+
+/* --- FAQ Section for Government Offices --- */
+.gov-section-faq {
+    background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%);
+}
+
+.gov-faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.gov-faq-accordion .faq-item {
+    border-bottom: 1px solid #e3f2fd;
+    transition: all 0.3s ease;
+}
+
+.gov-faq-accordion .faq-item:last-child {
+    border-bottom: none;
+}
+
+.gov-faq-accordion .faq-item.active {
+    background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 50%);
+}
+
+.gov-faq-accordion .faq-question {
+    width: 100%;
+    padding: 24px 32px;
+    background: none;
+    border: none;
+    text-align: right;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gov-faq-accordion .faq-question:hover {
+    background: rgba(52, 152, 219, 0.05);
+    color: var(--primary-color);
+}
+
+.gov-faq-accordion .faq-question::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: rotate(0deg);
+}
+
+.gov-faq-accordion .faq-item.active .faq-question::after {
+    transform: rotate(180deg);
+    color: var(--primary-color);
+}
+
+.gov-faq-accordion .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 32px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.7;
+    color: #555;
+    font-size: 1rem;
+}
+
+.gov-faq-accordion .faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 32px 24px 32px;
+}
+
+.faq-intro {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .gov-faq-accordion {
+        margin: 0 10px;
+        border-radius: 12px;
+    }
+    
+    .gov-faq-accordion .faq-question {
+        padding: 20px 24px;
+        font-size: 1rem;
+    }
+    
+    .gov-faq-accordion .faq-answer {
+        padding: 0 24px;
+        font-size: 0.95rem;
+    }
+    
+    .gov-faq-accordion .faq-item.active .faq-answer {
+        padding: 0 24px 20px 24px;
+    }
+}
+
+/* --- دليل المستندات المطلوبة --- */
+.docs-intro {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.modern-docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.modern-doc-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e3f2fd;
+}
+
+.modern-doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.modern-doc-card:hover::before {
+    transform: scaleX(1);
+}
+
+.modern-doc-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.doc-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 16px 24px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%);
+}
+
+.doc-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.doc-card-1 .doc-icon { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.doc-card-2 .doc-icon { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.doc-card-3 .doc-icon { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.doc-card-4 .doc-icon { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.doc-card-5 .doc-icon { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+.doc-card-6 .doc-icon { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+.modern-doc-card:hover .doc-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.doc-badge {
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.modern-doc-card h4 {
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    padding: 0 24px;
+}
+
+.doc-content {
+    padding: 0 24px 20px 24px;
+}
+
+.doc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.doc-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.doc-list li i {
+    color: #27ae60;
+    font-size: 0.9rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.doc-footer {
+    padding: 16px 24px 24px 24px;
+    border-top: 1px solid #f0f0f0;
+    background: #fafbfc;
+}
+
+.doc-priority {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.doc-priority.high {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+    color: #fff;
+}
+
+.doc-priority.medium {
+    background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+    color: #fff;
+}
+
+.doc-priority.low {
+    background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .modern-docs-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .modern-doc-card {
+        border-radius: 16px;
+    }
+    
+    .doc-card-header {
+        padding: 20px 20px 12px 20px;
+    }
+    
+    .doc-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .modern-doc-card h4 {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+    
+    .doc-content {
+        padding: 0 20px 16px 20px;
+    }
+    
+    .doc-footer {
+        padding: 12px 20px 20px 20px;
+    }
+}
+
+.gov-section-intro {
+  padding-bottom: 18px;
+  margin-bottom: 0;
+}
+.gov-section-cards {
+  padding-top: 18px;
+  margin-top: 0;
+}
+
+.gov-section .section-header {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+  .gov-section-intro {
+    padding-bottom: 8px;
+  }
+  .gov-section-cards {
+    padding-top: 8px;
+  }
+  .gov-section .section-header {
+    margin-bottom: 10px;
+  }
+}
+
+/* --- قسم الطوارئ --- */
+.gov-section-emergency {
+  background: linear-gradient(120deg, #f8fafc 70%, #eaf4fb 100%);
+  padding-top: 36px;
+  padding-bottom: 48px;
+}
+.emergency-intro {
+  text-align: center;
+  color: #1976d2;
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+  justify-items: center;
+}
+@media (max-width: 900px) {
+  .emergency-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+}
+@media (max-width: 600px) {
+  .emergency-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+.emergency-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(44,62,80,0.10), 0 1.5px 8px rgba(52,152,219,0.08);
+  padding: 32px 18px 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.22s, transform 0.22s;
+  overflow: visible;
+  min-height: 260px;
+}
+.emergency-card:hover {
+  box-shadow: 0 16px 48px rgba(44,62,80,0.18);
+  transform: translateY(-8px) scale(1.035);
+}
+.emergency-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(44,62,80,0.13);
+  border: 3px solid #fff;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+.emergency-police .emergency-icon { background: linear-gradient(135deg, #1976d2 60%, #4fc3f7 100%); }
+.emergency-ambulance .emergency-icon { background: linear-gradient(135deg, #f7971e 60%, #ffd200 100%); }
+.emergency-fire .emergency-icon { background: linear-gradient(135deg, #ff5858 60%, #f09819 100%); }
+.emergency-eu .emergency-icon { background: linear-gradient(135deg, #43e97b 60%, #38f9d7 100%); }
+.emergency-hospital .emergency-icon { background: linear-gradient(135deg, #667eea 60%, #764ba2 100%); }
+.emergency-embassy .emergency-icon { background: linear-gradient(135deg, #00b4d8 60%, #48cae4 100%); }
+.emergency-card:hover .emergency-icon {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  transform: scale(1.09) rotate(-6deg);
+}
+.emergency-title {
+  font-size: 1.13rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+.emergency-number {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #222c3a;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+.emergency-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #1976d2, #4fc3f7);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  margin-top: auto;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.emergency-btn:hover {
+  background: linear-gradient(90deg, #4fc3f7, #1976d2);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(44,62,80,0.13);
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 900px) {
+  .gov-section-emergency {
+    padding-top: 18px;
+    padding-bottom: 24px;
+  }
+  .emergency-grid {
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .emergency-card {
+    border-radius: 14px;
+    padding: 18px 8px 14px 8px;
+    min-height: 180px;
+  }
+  .emergency-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .emergency-title {
+    font-size: 0.98rem;
+  }
+  .emergency-number {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+  }
+  .emergency-btn {
+    font-size: 0.93rem;
+    padding: 8px 16px;
+  }
+}
