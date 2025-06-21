@@ -237,6 +237,334 @@
         text-decoration: underline;
         font-weight: 600;
       }
+      .asylum-sources-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 32px 28px;
+        margin-top: 18px;
+        justify-items: center;
+        align-items: stretch;
+      }
+      .asylum-source-card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(44,62,80,0.10), 0 1.5px 8px rgba(52,152,219,0.08);
+        border: none;
+        padding: 28px 18px 22px 18px;
+        min-width: 220px;
+        max-width: 300px;
+        flex: 1 1 220px;
+        position: relative;
+        transition: box-shadow 0.18s, transform 0.18s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: stretch;
+      }
+      .asylum-source-card:hover {
+        box-shadow: 0 12px 36px rgba(44,62,80,0.16);
+        transform: translateY(-8px) scale(1.03);
+      }
+      .asylum-source-icon {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--source-color, #1976d2) 60%, #fff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        color: #fff;
+        margin: 0 auto 16px auto;
+        box-shadow: 0 2px 12px rgba(44,62,80,0.13);
+        border: 4px solid #fff;
+        transition: box-shadow 0.18s, transform 0.18s;
+      }
+      .asylum-source-card:hover .asylum-source-icon {
+        box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+        transform: scale(1.08) rotate(-6deg);
+      }
+      .asylum-source-card h4 {
+        font-size: 1.18rem;
+        color: var(--source-color, #1976d2);
+        font-weight: 800;
+        margin-bottom: 8px;
+        margin-top: 0;
+      }
+      .asylum-source-card p {
+        color: #666;
+        font-size: 1.01rem;
+        margin-bottom: 18px;
+        font-weight: 500;
+      }
+      .asylum-source-card .gov-card-btn {
+        background: var(--source-color, #1976d2);
+        font-size: 1.01rem;
+        padding: 10px 22px;
+        border-radius: 22px;
+        margin-top: auto;
+        box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      }
+      .asylum-source-card .gov-card-btn:hover {
+        background: linear-gradient(90deg, #fff, var(--source-color, #1976d2));
+        color: var(--source-color, #1976d2);
+        box-shadow: 0 8px 24px rgba(44,62,80,0.13);
+        transform: translateY(-2px) scale(1.04);
+      }
+      @media (max-width: 900px) {
+        .asylum-sources-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px 10px;
+        }
+      }
+      @media (max-width: 600px) {
+        .asylum-sources-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
+      /* تحسين بطاقات مكاتب اللجوء */
+      .asylum-offices-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .asylum-office-card {
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 12px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        border: 1px solid #e9ecef;
+        padding: 20px 16px;
+        position: relative;
+        transition: all 0.25s ease;
+        text-align: center;
+      }
+      .asylum-office-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        border-color: var(--office-color, #e74c3c);
+      }
+      .office-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--office-color, #e74c3c);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 12px;
+        color: #fff;
+        font-size: 1.2rem;
+      }
+      .asylum-office-card h3 {
+        color: var(--office-color, #e74c3c);
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        margin-top: 0;
+      }
+      .office-info p {
+        margin: 6px 0;
+        color: #666;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: right;
+      }
+      .office-info p i {
+        color: var(--office-color, #e74c3c);
+        margin-left: 4px;
+        font-size: 0.8rem;
+      }
+      .office-info strong {
+        color: #333;
+        font-weight: 500;
+      }
+      @media (max-width: 1200px) {
+        .asylum-offices-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+      }
+      @media (max-width: 768px) {
+        .asylum-offices-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .asylum-office-card {
+          padding: 16px 12px;
+        }
+      }
+      .asylum-org-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+        padding: 22px 18px;
+        min-width: 210px;
+        max-width: 270px;
+        flex: 1 1 210px;
+        text-align: center;
+        border: 1.5px solid #e3eaf2;
+        transition: transform 0.18s, box-shadow 0.18s;
+      }
+      .asylum-org-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+      }
+      .asylum-org-card h3 {
+        font-size: 1.13rem;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+      }
+      .asylum-org-card p {
+        color: #555;
+        font-size: 0.97rem;
+        margin-bottom: 6px;
+      }
+      .asylum-org-card a { color: var(--accent-color); text-decoration: underline; }
+      /* تحسين روابط العناوين والهواتف */
+      .office-info a {
+        color: var(--office-color, #e74c3c);
+        text-decoration: none;
+        padding: 2px 6px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .office-info a:hover {
+        background: var(--office-color, #e74c3c);
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(231,76,60,0.3);
+      }
+      .office-info a i.fa-external-link-alt {
+        font-size: 0.7rem;
+        opacity: 0.8;
+      }
+      .office-info a i.fa-phone {
+        font-size: 0.8rem;
+      }
+      .office-info a:hover i {
+        opacity: 1;
+      }
+      .office-info .map-link {
+        border: 1px solid rgba(231,76,60,0.2);
+        background: rgba(231,76,60,0.05);
+      }
+      .office-info .phone-link {
+        border: 1px solid rgba(231,76,60,0.2);
+        background: rgba(231,76,60,0.05);
+      }
+      .office-info .map-link:hover,
+      .office-info .phone-link:hover {
+        border-color: var(--office-color, #e74c3c);
+        background: var(--office-color, #e74c3c);
+      }
+      
+      /* تصميم بطاقات الطوارئ */
+      .emergency-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+      }
+      .emergency-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(44,62,80,0.08);
+        border: none;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .emergency-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--emergency-color, #e74c3c);
+      }
+      .emergency-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(44,62,80,0.15);
+      }
+      .emergency-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--emergency-color, #e74c3c);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        color: #fff;
+        font-size: 1.5rem;
+      }
+      .emergency-title {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--emergency-color, #e74c3c);
+        margin-bottom: 8px;
+      }
+      .emergency-number {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #333;
+        margin-bottom: 12px;
+        font-family: 'Cairo', sans-serif;
+      }
+      .emergency-desc {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+      .emergency-note {
+        color: #777;
+        font-size: 0.85rem;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+      .emergency-btn {
+        display: inline-block;
+        background: var(--emergency-color, #e74c3c);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .emergency-btn:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(231,76,60,0.3);
+      }
+      .emergency-police { --emergency-color: #e74c3c; }
+      .emergency-ambulance { --emergency-color: #3498db; }
+      .emergency-fire { --emergency-color: #f39c12; }
+      .emergency-eu { --emergency-color: #9b59b6; }
+      .emergency-hospital { --emergency-color: #27ae60; }
+      .emergency-embassy { --emergency-color: #34495e; }
+      @media (max-width: 768px) {
+        .emergency-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .emergency-card {
+          padding: 20px;
+        }
+      }
     </style>
 </head>
 <body>
@@ -533,32 +861,45 @@
           <div class="section-title-wrapper">
             <h2>عناوين وأرقام دوائر اللجوء في اليونان</h2>
           </div>
+          <p style="color:#e74c3c;font-weight:600;font-size:1.08rem;margin-bottom:18px;">مكاتب رسمية موثوقة لتقديم طلب اللجوء في مختلف المدن اليونانية، احتفظ بهذه المعلومات للاستخدام عند الحاجة.</p>
           <div class="section-divider"><span><i class="fas fa-map-marker-alt"></i></span></div>
         </div>
         <div class="asylum-offices-grid">
-          <div class="asylum-office-card">
-            <h3><i class="fas fa-map-marker-alt"></i> أثينا</h3>
-            <p>العنوان: شارع كاتاخاني 5، أثينا</p>
-            <p>الهاتف: 210 69 88 660</p>
-            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          <div class="asylum-office-card" style="--office-color:#e74c3c;">
+            <div class="office-icon"><i class="fas fa-building"></i></div>
+            <h3>أثينا</h3>
+            <div class="office-info">
+              <p><i class="fas fa-map-marker-alt"></i> <strong>العنوان:</strong> <a href="https://maps.google.com/?q=Katachani+5,+Athens,+Greece" target="_blank" class="map-link">شارع كاتاخاني 5، أثينا <i class="fas fa-external-link-alt"></i></a></p>
+              <p><i class="fas fa-phone"></i> <strong>الهاتف:</strong> <a href="tel:2106988660" class="phone-link">210 69 88 660 <i class="fas fa-phone"></i></a></p>
+              <p><i class="fas fa-clock"></i> <strong>المواعيد:</strong> من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+            </div>
           </div>
-          <div class="asylum-office-card">
-            <h3><i class="fas fa-map-marker-alt"></i> سالونيك</h3>
-            <p>العنوان: شارع إيغناتيا 45، سالونيك</p>
-            <p>الهاتف: 2310 55 44 77</p>
-            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          <div class="asylum-office-card" style="--office-color:#3498db;">
+            <div class="office-icon"><i class="fas fa-building"></i></div>
+            <h3>سالونيك</h3>
+            <div class="office-info">
+              <p><i class="fas fa-map-marker-alt"></i> <strong>العنوان:</strong> <a href="https://maps.google.com/?q=Egnatia+45,+Thessaloniki,+Greece" target="_blank" class="map-link">شارع إيغناتيا 45، سالونيك <i class="fas fa-external-link-alt"></i></a></p>
+              <p><i class="fas fa-phone"></i> <strong>الهاتف:</strong> <a href="tel:2310554477" class="phone-link">2310 55 44 77 <i class="fas fa-phone"></i></a></p>
+              <p><i class="fas fa-clock"></i> <strong>المواعيد:</strong> من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+            </div>
           </div>
-          <div class="asylum-office-card">
-            <h3><i class="fas fa-map-marker-alt"></i> ليسبوس</h3>
-            <p>العنوان: مركز كارا تيبي للاجئين، جزيرة ليسبوس</p>
-            <p>الهاتف: 22510 44 555</p>
-            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          <div class="asylum-office-card" style="--office-color:#f39c12;">
+            <div class="office-icon"><i class="fas fa-building"></i></div>
+            <h3>ليسبوس</h3>
+            <div class="office-info">
+              <p><i class="fas fa-map-marker-alt"></i> <strong>العنوان:</strong> <a href="https://maps.google.com/?q=Kara+Tepe+Refugee+Camp,+Lesbos,+Greece" target="_blank" class="map-link">مركز كارا تيبي للاجئين، جزيرة ليسبوس <i class="fas fa-external-link-alt"></i></a></p>
+              <p><i class="fas fa-phone"></i> <strong>الهاتف:</strong> <a href="tel:2251044555" class="phone-link">22510 44 555 <i class="fas fa-phone"></i></a></p>
+              <p><i class="fas fa-clock"></i> <strong>المواعيد:</strong> من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+            </div>
           </div>
-          <div class="asylum-office-card">
-            <h3><i class="fas fa-map-marker-alt"></i> كريت</h3>
-            <p>العنوان: شارع إيراكليو 12، هيراكليون، كريت</p>
-            <p>الهاتف: 2810 22 33 44</p>
-            <p>المواعيد: من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+          <div class="asylum-office-card" style="--office-color:#27ae60;">
+            <div class="office-icon"><i class="fas fa-building"></i></div>
+            <h3>كريت</h3>
+            <div class="office-info">
+              <p><i class="fas fa-map-marker-alt"></i> <strong>العنوان:</strong> <a href="https://maps.google.com/?q=Iraklio+12,+Heraklion,+Crete,+Greece" target="_blank" class="map-link">شارع إيراكليو 12، هيراكليون، كريت <i class="fas fa-external-link-alt"></i></a></p>
+              <p><i class="fas fa-phone"></i> <strong>الهاتف:</strong> <a href="tel:2810223344" class="phone-link">2810 22 33 44 <i class="fas fa-phone"></i></a></p>
+              <p><i class="fas fa-clock"></i> <strong>المواعيد:</strong> من الاثنين إلى الجمعة (8:00 ص - 2:00 م)</p>
+            </div>
           </div>
         </div>
       </div>
@@ -617,56 +958,123 @@
           <div class="section-title-wrapper">
             <h2>دليل الروابط والمصادر الموثوقة</h2>
           </div>
+          <p style="color:#1976d2;font-weight:600;font-size:1.08rem;margin-bottom:18px;">مصادر رسمية موثوقة تساعدك في كل ما يخص الهجرة واللجوء، استعن بها دائماً للحصول على المعلومات الصحيحة.</p>
           <div class="section-divider"><span><i class="fas fa-link"></i></span></div>
         </div>
-        <div class="asylum-docs-grid">
-          <div class="asylum-doc-card">
-            <i class="fas fa-university"></i>
+        <div class="asylum-sources-grid">
+          <div class="asylum-source-card" style="--source-color:#1976d2;">
+            <div class="asylum-source-icon"><i class="fas fa-university"></i></div>
             <h4>وزارة الهجرة اليونانية</h4>
             <p>المصدر الرسمي لجميع القوانين والإجراءات الخاصة بالهجرة واللجوء في اليونان.</p>
             <a href="https://migration.gov.gr/en/" target="_blank" class="gov-card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
           </div>
-          <div class="asylum-doc-card">
-            <i class="fas fa-passport"></i>
+          <div class="asylum-source-card" style="--source-color:#4fc3f7;">
+            <div class="asylum-source-icon"><i class="fas fa-passport"></i></div>
             <h4>منصة اللجوء الرسمية</h4>
             <p>كل ما يتعلق بتقديم طلب اللجوء، متابعة الطلبات، وأخبار اللجوء الرسمية.</p>
             <a href="https://asylumandrefugees.migration.gov.gr/en/" target="_blank" class="gov-card-btn">زيارة المنصة <i class="fas fa-external-link-alt"></i></a>
           </div>
-          <div class="asylum-doc-card">
-            <i class="fab fa-unhcr"></i>
+          <div class="asylum-source-card" style="--source-color:#00b894;">
+            <div class="asylum-source-icon" style="background:linear-gradient(135deg, #00b894 60%, #fff 100%);display:flex;align-items:center;justify-content:center;">
+              <img src="https://play-lh.googleusercontent.com/fwknejqOfwbFCqpLCpeyXTi_z04-y3nLs4H-B1TECuj8-cV-lG6dHL7hcnaj6Ye6Iw=w240-h480-rw" alt="UNHCR Logo" style="width:38px;height:38px;object-fit:contain;display:block;margin:0 auto;border-radius:50%;background:#fff;box-shadow:0 1px 4px #0001;" loading="lazy" />
+            </div>
             <h4>دليل UNHCR للاجئين</h4>
             <p>معلومات شاملة من المفوضية السامية للأمم المتحدة لشؤون اللاجئين حول الحقوق والإجراءات.</p>
             <a href="https://help.unhcr.org/greece/ar/" target="_blank" class="gov-card-btn">الدليل الرسمي <i class="fas fa-external-link-alt"></i></a>
           </div>
-          <div class="asylum-doc-card">
-            <i class="fas fa-balance-scale"></i>
+          <div class="asylum-source-card" style="--source-color:#f7971e;">
+            <div class="asylum-source-icon"><i class="fas fa-balance-scale"></i></div>
             <h4>المجلس اليوناني للاجئين (GCR)</h4>
             <p>استشارات قانونية مجانية ودعم في جميع مراحل اللجوء.</p>
             <a href="https://www.gcr.gr/en/" target="_blank" class="gov-card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
           </div>
-          <div class="asylum-doc-card">
-            <i class="fas fa-hands-helping"></i>
+          <div class="asylum-source-card" style="--source-color:#b91d73;">
+            <div class="asylum-source-icon"><i class="fas fa-hands-helping"></i></div>
             <h4>Solidarity Now</h4>
             <p>منظمة تقدم دعم نفسي واجتماعي واستشارات قانونية ومساعدات مادية.</p>
             <a href="https://www.solidaritynow.org/en/" target="_blank" class="gov-card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
           </div>
-          <div class="asylum-doc-card">
-            <i class="fas fa-user-shield"></i>
+          <div class="asylum-source-card" style="--source-color:#185a9d;">
+            <div class="asylum-source-icon"><i class="fas fa-user-shield"></i></div>
             <h4>PRAKSIS</h4>
             <p>مساعدة في السكن، الرعاية الصحية، والدعم القانوني لطالبي اللجوء.</p>
             <a href="https://www.praksis.gr/en/" target="_blank" class="gov-card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
           </div>
-          <div class="asylum-doc-card">
-            <i class="fas fa-stethoscope"></i>
+          <div class="asylum-source-card" style="--source-color:#43cea2;">
+            <div class="asylum-source-icon"><i class="fas fa-stethoscope"></i></div>
             <h4>أطباء بلا حدود (MSF)</h4>
             <p>رعاية صحية مجانية ودعم نفسي للاجئين في اليونان.</p>
             <a href="https://www.msf.org/greece" target="_blank" class="gov-card-btn">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
           </div>
-          <div class="asylum-doc-card">
-            <i class="fas fa-file-pdf"></i>
+          <div class="asylum-source-card" style="--source-color:#ff5858;">
+            <div class="asylum-source-icon"><i class="fas fa-file-pdf"></i></div>
             <h4>دليل اللجوء الرسمي (PDF)</h4>
             <p>دليل شامل باللغة العربية من المفوضية السامية للأمم المتحدة لشؤون اللاجئين.</p>
             <a href="https://help.unhcr.org/greece/wp-content/uploads/sites/10/2022/03/Asylum-Guide-AR.pdf" target="_blank" class="gov-card-btn">تحميل الدليل <i class="fas fa-download"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- خدمات وأرقام الطوارئ في اليونان -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">طوارئ</span>
+          <div class="section-title-wrapper">
+            <h2>خدمات وأرقام الطوارئ في اليونان</h2>
+          </div>
+          <p style="color:#e74c3c;font-weight:600;font-size:1.08rem;margin-bottom:18px;">في حالات الطوارئ، يمكنك التواصل مع الجهات التالية بسرعة. احتفظ بهذه الأرقام في متناول يدك!</p>
+          <div class="section-divider"><span><i class="fas fa-phone-volume"></i></span></div>
+        </div>
+        <div class="emergency-grid">
+          <div class="emergency-card emergency-police">
+            <div class="emergency-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="emergency-title">الشرطة</div>
+            <div class="emergency-number">100</div>
+            <div class="emergency-desc">للتبليغ عن الجرائم أو طلب النجدة في الحالات الطارئة.</div>
+            <div class="emergency-note">متاح 24/7 في جميع أنحاء اليونان.</div>
+            <a href="tel:100" class="emergency-btn">اتصل الآن</a>
+          </div>
+          <div class="emergency-card emergency-ambulance">
+            <div class="emergency-icon"><i class="fas fa-ambulance"></i></div>
+            <div class="emergency-title">الإسعاف</div>
+            <div class="emergency-number">166</div>
+            <div class="emergency-desc">لطلب سيارة إسعاف أو المساعدة الطبية الطارئة.</div>
+            <div class="emergency-note">متاح 24/7. للاتصال من خارج اليونان: +30 166</div>
+            <a href="tel:166" class="emergency-btn">اتصل الآن</a>
+          </div>
+          <div class="emergency-card emergency-fire">
+            <div class="emergency-icon"><i class="fas fa-fire-extinguisher"></i></div>
+            <div class="emergency-title">الإطفاء</div>
+            <div class="emergency-number">199</div>
+            <div class="emergency-desc">للتبليغ عن الحرائق أو طلب المساعدة في حالات الحريق.</div>
+            <div class="emergency-note">متاح 24/7 في جميع المناطق.</div>
+            <a href="tel:199" class="emergency-btn">اتصل الآن</a>
+          </div>
+          <div class="emergency-card emergency-eu">
+            <div class="emergency-icon"><i class="fas fa-phone-square"></i></div>
+            <div class="emergency-title">الطوارئ الأوروبية</div>
+            <div class="emergency-number">112</div>
+            <div class="emergency-desc">رقم الطوارئ الأوروبي الموحّد لجميع الحالات (شرطة، إسعاف، إطفاء).</div>
+            <div class="emergency-note">يعمل من أي هاتف مجانًا داخل الاتحاد الأوروبي.</div>
+            <a href="tel:112" class="emergency-btn">اتصل الآن</a>
+          </div>
+          <div class="emergency-card emergency-hospital">
+            <div class="emergency-icon"><i class="fas fa-hospital-alt"></i></div>
+            <div class="emergency-title">مستشفى إيفانجيليسموس</div>
+            <div class="emergency-number">213 204 1000</div>
+            <div class="emergency-desc">أكبر مستشفى طوارئ في أثينا، يقدم خدمات طبية عاجلة.</div>
+            <div class="emergency-note">العنوان: 45 شارع إيفانجيليسموس، أثينا</div>
+            <a href="tel:2132041000" class="emergency-btn">اتصل الآن</a>
+          </div>
+          <div class="emergency-card emergency-embassy">
+            <div class="emergency-icon"><i class="fas fa-flag"></i></div>
+            <div class="emergency-title">سفارة بلدك</div>
+            <div class="emergency-number">تحقق من قائمة السفارات</div>
+            <div class="emergency-desc">للحالات الطارئة للمواطنين الأجانب (فقدان جواز، دعم قانوني، إلخ).</div>
+            <div class="emergency-note">ابحث عن سفارتك في أثينا أو سالونيكا.</div>
+            <a href="https://www.mfa.gr/en/foreign-missions-in-greece.html" target="_blank" class="emergency-btn">دليل السفارات</a>
           </div>
         </div>
       </div>

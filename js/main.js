@@ -302,26 +302,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Footer: IP, Country, and Flag ---
-    // جلب بيانات الـIP والدولة والعلم
-    fetch('https://ipapi.co/json/')
-        .then(response => response.json())
-        .then(data => {
-            if (data.ip) {
-                document.getElementById('footerIP').textContent = data.ip;
+    // --- Footer: Live Clock, IP, Country, Weather ---
+    function updateFooterClock() {
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2, '0');
+        const m = String(now.getMinutes()).padStart(2, '0');
+        const s = String(now.getSeconds()).padStart(2, '0');
+        const el = document.getElementById('footerLocalTime');
+        if (el) el.textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateFooterClock, 1000);
+    updateFooterClock();
+
+    function weatherCodeToDesc(code) {
+        const map = {
+            0: 'صحو', 1: 'غائم جزئي', 2: 'غائم', 3: 'غائم كلي', 45: 'ضباب', 48: 'ضباب', 51: 'رذاذ', 53: 'رذاذ', 55: 'رذاذ', 61: 'مطر خفيف', 63: 'مطر', 65: 'مطر غزير', 71: 'ثلج خفيف', 73: 'ثلج', 75: 'ثلج كثيف', 80: 'زخات مطر', 81: 'زخات مطر', 82: 'زخات مطر غزيرة', 95: 'عاصفة رعدية'
+        };
+        return map[code] || '';
+    }
+    async function updateFooterIPAndWeather() {
+        try {
+            const ipRes = await fetch('https://ipapi.co/json/');
+            const ipData = await ipRes.json();
+            if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = ipData.ip;
+            if (document.getElementById('footerCountryFlag')) document.getElementById('footerCountryFlag').textContent = ipData.country_emoji || '';
+            if (document.getElementById('footerCountryName')) document.getElementById('footerCountryName').textContent = ipData.country_name || '';
+            // Get weather
+            const lat = ipData.latitude, lon = ipData.longitude;
+            if (lat && lon && document.getElementById('footerWeather')) {
+                const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`);
+                const weatherData = await weatherRes.json();
+                if (weatherData.current_weather) {
+                    document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
+                    if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
+                    if (document.getElementById('footerWeatherLocation')) document.getElementById('footerWeatherLocation').textContent = ipData.city ? `(${ipData.city})` : '';
+                }
             }
-            if (data.country_name) {
-                document.getElementById('footerCountryName').textContent = data.country_name;
-            }
-            if (data.country_code) {
-                // علم الدولة باستخدام رمز الدولة
-                const flagUrl = `https://flagcdn.com/32x24/${data.country_code.toLowerCase()}.png`;
-                document.getElementById('footerCountryFlag').innerHTML = `<img src="${flagUrl}" alt="${data.country_name}" style="width:28px;height:20px;border-radius:4px;box-shadow:0 1px 4px #0002;vertical-align:middle;margin-right:4px;">`;
-            }
-        })
-        .catch(() => {
-            document.getElementById('footerCountryFlag').textContent = '';
-        });
+        } catch (e) {
+            if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = 'غير متوفر';
+            if (document.getElementById('footerWeather')) document.getElementById('footerWeather').textContent = '--°C';
+        }
+    }
+    updateFooterIPAndWeather();
 
     // --- FAQ Accordion Functionality ---
     const faqQuestions = document.querySelectorAll('.faq-question');
