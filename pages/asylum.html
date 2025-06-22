@@ -566,97 +566,352 @@
         }
       }
       
-      /* --- Direct Contact Section --- */
+      /* --- Direct Contact Section (Professional Style) --- */
       .direct-contact-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 24px;
-          margin-top: 32px;
+          gap: 28px;
+          margin-top: 40px;
       }
       .contact-card {
-          background: #fff;
-          border-radius: 18px;
-          box-shadow: 0 4px 24px rgba(44,62,80,0.08);
-          border: 1px solid #e3eaf2;
-          padding: 28px 22px;
+          background: linear-gradient(145deg, #ffffff 0%, #f7f9fc 100%);
+          border-radius: 20px;
+          box-shadow: 0 8px 16px rgba(44, 62, 80, 0.05), 0 2px 6px rgba(44, 62, 80, 0.03);
+          border: 1px solid #e9eef5;
+          padding: 28px 24px;
           display: flex;
           flex-direction: column;
           align-items: center;
           text-align: center;
-          transition: all 0.25s ease;
-          border-top: 5px solid var(--contact-color, #1976d2);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+      }
+      .contact-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 5px;
+          background: var(--contact-color, #1976d2);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+      }
+      .contact-card:hover::before {
+          transform: scaleX(1);
       }
       .contact-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 12px 36px rgba(44,62,80,0.12);
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 16px 40px rgba(44, 62, 80, 0.12), 0 6px 12px rgba(44, 62, 80, 0.08);
       }
       .contact-icon {
-          width: 60px;
-          height: 60px;
+          width: 70px;
+          height: 70px;
           background: var(--contact-color, #1976d2);
           color: #fff;
-          border-radius: 50%;
+          border-radius: 20px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 1.8rem;
-          margin-bottom: 16px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          font-size: 2rem;
+          margin-bottom: 20px;
+          box-shadow: 0 6px 18px rgba(44, 62, 80, 0.15);
+          border: 3px solid #fff;
+          transition: all 0.3s ease;
+          z-index: 1;
+      }
+      .contact-card:hover .contact-icon {
+          transform: scale(1.1) rotate(-8deg);
+          box-shadow: 0 8px 24px rgba(44, 62, 80, 0.25);
       }
       .contact-card h4 {
-          font-size: 1.25rem;
+          font-size: 1.35rem;
           color: var(--contact-color, #1976d2);
-          font-weight: 700;
-          margin-bottom: 10px;
+          font-weight: 800;
+          margin-bottom: 12px;
       }
       .contact-card p {
-          color: #555;
+          color: #556270;
           font-size: 1rem;
           line-height: 1.6;
-          margin-bottom: 18px;
+          margin-bottom: 20px;
           flex-grow: 1;
       }
       .contact-details {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 12px;
           text-align: right;
           width: 100%;
-          margin-bottom: 22px;
-          background: #f8fafc;
-          padding: 12px;
-          border-radius: 8px;
-          border-right: 3px solid var(--contact-color, #1976d2);
+          margin-bottom: 24px;
+          background: linear-gradient(to right, #f8fafc, #fdfdff);
+          padding: 16px;
+          border-radius: 12px;
+          border: 1px solid #e9eef5;
+          border-right: 4px solid var(--contact-color, #1976d2);
       }
       .contact-details span {
-          font-size: 0.95rem;
-          color: #333;
+          font-size: 1rem;
+          font-weight: 500;
+          color: #2c3e50;
+          display: flex;
+          align-items: center;
       }
       .contact-details span i {
-          margin-left: 8px;
+          margin-left: 10px;
           color: var(--contact-color, #1976d2);
           width: 20px;
           text-align: center;
+          font-size: 1.1em;
+          flex-shrink: 0;
+      }
+      .contact-details span strong {
+          color: #34495e;
       }
       .contact-btn {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
+          gap: 10px;
           background: var(--contact-color, #1976d2);
           color: #fff;
-          padding: 12px 24px;
-          border-radius: 24px;
+          padding: 14px 28px;
+          border-radius: 30px;
           text-decoration: none;
-          font-weight: 600;
-          transition: all 0.2s ease;
-          border: 1px solid transparent;
+          font-weight: 700;
+          transition: all 0.25s ease;
+          border: 2px solid transparent;
+          box-shadow: 0 4px 12px hsla(from var(--contact-color) h s l / 0.2);
+      }
+      .contact-btn i {
+          transition: transform 0.25s ease;
       }
       .contact-btn:hover {
           background: #fff;
           color: var(--contact-color, #1976d2);
           border-color: var(--contact-color, #1976d2);
-          transform: scale(1.05);
+          transform: translateY(-2px) scale(1.03);
+          box-shadow: 0 6px 16px rgba(44, 62, 80, 0.15);
+      }
+      .contact-btn:hover i {
+          transform: translateX(-4px);
+      }
+
+      .contact-details .contact-link {
+        color: #2c3e50;
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 2px dotted rgba(44, 62, 80, 0.2);
+        transition: all 0.2s ease;
+        padding-bottom: 1px;
+      }
+      .contact-details .contact-link:hover {
+        color: var(--contact-color);
+        border-bottom-style: solid;
+      }
+      .contact-details .copy-btn {
+        background: none;
+        border: none;
+        color: #95a5a6;
+        cursor: pointer;
+        font-size: 1em;
+        padding: 4px 6px;
+        margin-right: 8px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        vertical-align: middle;
+      }
+      .contact-details .copy-btn:hover {
+        color: var(--contact-color);
+        background: rgba(44, 62, 80, 0.1);
+      }
+      .contact-details span > strong {
+          margin: 0 4px;
+      }
+
+      /* Dark Mode for Direct Contact Section */
+      body.dark-mode .contact-card {
+          background: linear-gradient(145deg, #2c3e50 0%, #243447 100%);
+          border-color: #37475a;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 2px 6px rgba(0,0,0,0.15);
+      }
+      body.dark-mode .contact-card:hover {
+          box-shadow: 0 12px 32px rgba(0,0,0,0.3), 0 6px 16px rgba(0,0,0,0.2);
+      }
+      body.dark-mode .contact-card p {
+          color: #b0c4de;
+      }
+      body.dark-mode .contact-details {
+          background: #1e2a38;
+          border-color: #37475a;
+          border-right-color: var(--contact-color, #1976d2);
+      }
+      body.dark-mode .contact-details span,
+      body.dark-mode .contact-details .contact-link {
+          color: #d3dce6;
+      }
+      body.dark-mode .contact-details span strong {
+          color: #ffffff;
+      }
+      body.dark-mode .contact-details .contact-link {
+          border-bottom-color: rgba(200, 210, 220, 0.4);
+      }
+      body.dark-mode .contact-details .copy-btn {
+          color: #788ca3;
+      }
+      body.dark-mode .contact-details .copy-btn:hover {
+          color: var(--contact-color);
+          background: rgba(255, 255, 255, 0.1);
+      }
+      body.dark-mode .contact-btn {
+        background: transparent;
+        color: #e0e6ec;
+        border-color: var(--contact-color);
+        font-weight: 600;
+        box-shadow: none;
+      }
+      body.dark-mode .contact-btn:hover {
+        background: var(--contact-color);
+        color: #fff;
+        font-weight: 700;
+        border-color: var(--contact-color);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      }
+
+      /* Family Reunification Section */
+      .family-reunification-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
+          margin: 30px 0 40px 0;
+      }
+      .fr-card {
+          background: #f8fafc;
+          border-radius: 16px;
+          box-shadow: 0 2px 12px rgba(52,152,219,0.07);
+          padding: 24px;
+          border: 1.5px solid #e3eaf2;
+          border-top: 4px solid var(--primary-color);
+      }
+      .fr-card-icon {
+          font-size: 2.2rem;
+          color: var(--primary-color);
+          margin-bottom: 12px;
+      }
+      .fr-card-title {
+          font-size: 1.15rem;
+          font-weight: 700;
+          color: var(--accent-color);
+          margin-bottom: 16px;
+      }
+      .fr-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          text-align: right;
+      }
+      .fr-list li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 10px;
+          font-size: 0.98rem;
+          color: #444;
+      }
+      .fr-list li i {
+          color: #27ae60;
+          font-size: 1.1rem;
+      }
+      .fr-timeline {
+          margin: 40px 0;
+          position: relative;
+          border-right: 3px solid #e3eaf2;
+          padding-right: 20px;
+      }
+      .fr-timeline-step {
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          margin-bottom: 24px;
+          position: relative;
+      }
+      .fr-timeline-step::after {
+          content: '';
+          position: absolute;
+          right: -28px;
+          top: 5px;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #fff;
+          border: 3px solid var(--primary-color);
+      }
+      .fr-timeline-num {
+          background: var(--primary-color);
+          color: #fff;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          font-weight: 700;
+          flex-shrink: 0;
+      }
+      .fr-timeline-content h5 {
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin-bottom: 4px;
+          color: var(--primary-color);
+      }
+      .fr-timeline-content p {
+          font-size: 0.98rem;
+          color: #555;
+      }
+      .alert-box.info {
+          background-color: #eaf4fb;
+          border-right: 4px solid #3498db;
+          color: #2c3e50;
+          padding: 16px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 20px;
+      }
+      .alert-box.info i {
+          color: #3498db;
+          font-size: 1.4rem;
+      }
+      /* Dark Mode for Family Reunification */
+      body.dark-mode .fr-card {
+          background: #2c3e50;
+          border-color: #37475a;
+          border-top-color: var(--primary-color);
+      }
+      body.dark-mode .fr-list li {
+          color: #b0c4de;
+      }
+      body.dark-mode .fr-timeline {
+          border-right-color: #37475a;
+      }
+      body.dark-mode .fr-timeline-step::after {
+          background: #2c3e50;
+          border-color: var(--primary-color);
+      }
+      body.dark-mode .fr-timeline-content p {
+          color: #b0c4de;
+      }
+      body.dark-mode .alert-box.info {
+          background-color: #243447;
+          border-right-color: #4fc3f7;
+          color: #d3dce6;
+      }
+      body.dark-mode .alert-box.info i {
+          color: #4fc3f7;
       }
     </style>
 </head>
@@ -946,6 +1201,73 @@
       </div>
     </section>
 
+    <!-- لم شمل الأسرة -->
+    <section class="asylum-section" id="family-reunification">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">خطوة مهمة</span>
+          <div class="section-title-wrapper">
+            <h2>لم شمل الأسرة في اليونان</h2>
+          </div>
+          <p>إذا حصلت على صفة اللاجئ أو الحماية الفرعية، يحق لك طلب لم شمل أفراد عائلتك. تعرف على الشروط والإجراءات.</p>
+          <div class="section-divider"><span><i class="fas fa-users"></i></span></div>
+        </div>
+        
+        <div class="family-reunification-grid">
+          <!-- Card for Who Can Apply -->
+          <div class="fr-card">
+            <div class="fr-card-icon"><i class="fas fa-user-check"></i></div>
+            <h4 class="fr-card-title">من هم أفراد الأسرة المؤهلون؟</h4>
+            <ul class="fr-list">
+              <li><i class="fas fa-check-circle"></i> الزوج أو الزوجة.</li>
+              <li><i class="fas fa-check-circle"></i> الأطفال القصر (تحت 18 عامًا) وغير المتزوجين.</li>
+              <li><i class="fas fa-check-circle"></i> والد ووالدة القاصر غير المصحوب بذويه.</li>
+            </ul>
+          </div>
+
+          <!-- Card for Required Documents -->
+          <div class="fr-card">
+            <div class="fr-card-icon"><i class="fas fa-file-invoice"></i></div>
+            <h4 class="fr-card-title">المستندات الأساسية المطلوبة</h4>
+            <ul class="fr-list">
+              <li><i class="fas fa-check-circle"></i> قرار منحك صفة اللاجئ.</li>
+              <li><i class="fas fa-check-circle"></i> جوازات سفر أو وثائق هوية لأفراد الأسرة.</li>
+              <li><i class="fas fa-check-circle"></i> شهادات زواج وعلاقة أسرية مترجمة ومصدقة.</li>
+              <li><i class="fas fa-check-circle"></i> شهادات ميلاد الأطفال.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="fr-timeline">
+          <div class="fr-timeline-step">
+            <div class="fr-timeline-num">1</div>
+            <div class="fr-timeline-content">
+              <h5>تقديم الطلب</h5>
+              <p>يجب تقديم طلب لم الشمل خلال 3 أشهر من تاريخ حصولك على قرار الحماية.</p>
+            </div>
+          </div>
+          <div class="fr-timeline-step">
+            <div class="fr-timeline-num">2</div>
+            <div class="fr-timeline-content">
+              <h5>فحص الطلب</h5>
+              <p>تقوم دائرة اللجوء بفحص المستندات والتحقق من صحة العلاقة الأسرية.</p>
+            </div>
+          </div>
+          <div class="fr-timeline-step">
+            <div class="fr-timeline-num">3</div>
+            <div class="fr-timeline-content">
+              <h5>إصدار التأشيرة</h5>
+              <p>في حال الموافقة، يتم إبلاغ السفارة اليونانية في بلد تواجد الأسرة لإصدار تأشيرة الدخول.</p>
+            </div>
+          </div>
+        </div>
+        <div class="alert-box info">
+          <i class="fas fa-info-circle"></i>
+          <strong>نصيحة هامة:</strong> إجراءات لم الشمل قد تكون معقدة وتستغرق وقتًا طويلاً. يُنصح بشدة طلب المساعدة من محامٍ أو منظمة متخصصة مثل المجلس اليوناني للاجئين (GCR).
+        </div>
+      </div>
+    </section>
+
     <!-- مكاتب اللجوء الرسمية (بطاقات) -->
     <section class="asylum-section">
       <div class="container">
@@ -1126,14 +1448,14 @@
             <h4>التسجيل عبر سكايب</h4>
             <p>الطريقة الرسمية لحجز موعد تسجيل هي عبر سكايب. لكل لغة حساب سكايب خاص بها، تأكد من استخدام الحساب الصحيح.</p>
             <div class="contact-details">
-              <span><strong>مثال للعربية:</strong> asylum.service.arabic</span>
-              <span><strong>مثال للفارسية:</strong> asylum.service.farsi</span>
-              <span><strong>ملاحظة:</strong> ابحث عن الحساب الخاص بلغتك على الموقع الرسمي.</span>
+              <span><i class="fab fa-skype"></i><strong>مثال للعربية:</strong> <a href="skype:asylum.service.arabic?call" class="contact-link" title="اتصل بسكايب">asylum.service.arabic</a><button class="copy-btn" data-copy="asylum.service.arabic" title="نسخ"><i class="far fa-copy"></i></button></span>
+              <span><i class="fab fa-skype"></i><strong>مثال للفارسية:</strong> <a href="skype:asylum.service.farsi?call" class="contact-link" title="اتصل بسكايب">asylum.service.farsi</a><button class="copy-btn" data-copy="asylum.service.farsi" title="نسخ"><i class="far fa-copy"></i></button></span>
+              <span><i class="fas fa-info-circle"></i> <strong>ملاحظة:</strong> ابحث عن الحساب الخاص بلغتك على الموقع الرسمي.</span>
             </div>
             <a href="https://migration.gov.gr/en/gas/diadikasia-prosvasis-sto-asylo/" target="_blank" class="contact-btn">جدول مواعيد سكايب الرسمي <i class="fas fa-external-link-alt"></i></a>
           </div>
           <div class="contact-card" style="--contact-color: #e74c3c;">
-            <div class="contact-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <div class="contact-icon"><i class="fas fa-building"></i></div>
             <h4>التسجيل الشخصي في المراكز</h4>
             <p>يمكنك التوجه مباشرة إلى أقرب مكتب لجوء أو مركز استقبال لتسجيل طلبك. أشهر المراكز موجودة في المدن الرئيسية.</p>
             <div class="contact-details">
@@ -1148,9 +1470,9 @@
             <h4>خطوط المساعدة والمعلومات</h4>
             <p>للاستفسارات العامة حول الإجراءات والحقوق قبل البدء، يمكنك الاتصال بالمنظمات المساعدة.</p>
             <div class="contact-details">
-              <span><i class="fas fa-phone-alt"></i> <strong>المجلس اليوناني للاجئين (GCR):</strong> 210 3800990</span>
-              <span><i class="fas fa-phone-alt"></i> <strong>خط مساعدة UNHCR:</strong> 213 090 9900</span>
-              <span><i class="fas fa-envelope"></i> <strong>إيميل GCR:</strong> gcr@gcr.gr</span>
+              <span><i class="fas fa-phone-alt"></i><strong>GCR:</strong> <a href="tel:+302103800990" class="contact-link" title="اتصل بالرقم">210 3800990</a><button class="copy-btn" data-copy="2103800990" title="نسخ"><i class="far fa-copy"></i></button></span>
+              <span><i class="fas fa-phone-alt"></i><strong>UNHCR:</strong> <a href="tel:+302130909900" class="contact-link" title="اتصل بالرقم">213 090 9900</a><button class="copy-btn" data-copy="2130909900" title="نسخ"><i class="far fa-copy"></i></button></span>
+              <span><i class="fas fa-envelope"></i><strong>GCR Email:</strong> <a href="mailto:gcr@gcr.gr" class="contact-link" title="أرسل بريد إلكتروني">gcr@gcr.gr</a><button class="copy-btn" data-copy="gcr@gcr.gr" title="نسخ"><i class="far fa-copy"></i></button></span>
             </div>
             <a href="#asylum-sources" class="contact-btn">المزيد من المنظمات <i class="fas fa-arrow-up"></i></a>
           </div>
@@ -1225,7 +1547,7 @@
     <!-- Footer موحد مطابق للرئيسية -->
     <footer>
         <div class="footer-wave">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#222c3a" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320,C480,320,384,320,288,320,C192,320,96,320,48,320,L0,320Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#222c3a" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         </div>
         <div class="footer-content-wrapper dark-footer-wrapper">
             <div class="container">
@@ -1558,6 +1880,26 @@
       return map[code] || '';
     }
     updateFooterIPAndWeather();
+
+    // Copy to clipboard functionality
+    document.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const textToCopy = button.dataset.copy;
+        if (navigator.clipboard && textToCopy) {
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalIcon = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.disabled = true;
+                setTimeout(() => {
+                    button.innerHTML = originalIcon;
+                    button.disabled = false;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+      });
+    });
     </script>
 
     <script src="../js/main.js"></script>
