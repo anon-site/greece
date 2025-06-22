@@ -322,25 +322,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     async function updateFooterIPAndWeather() {
         try {
-            const ipRes = await fetch('https://ipapi.co/json/');
-            const ipData = await ipRes.json();
-            if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = ipData.ip;
-            if (document.getElementById('footerCountryFlag')) document.getElementById('footerCountryFlag').textContent = ipData.country_emoji || '';
-            if (document.getElementById('footerCountryName')) document.getElementById('footerCountryName').textContent = ipData.country_name || '';
+            let ipData = null;
+            try {
+                const ipRes = await fetch('https://ipapi.co/json/');
+                ipData = await ipRes.json();
+            } catch (e) {
+                // فشل جلب الموقع
+                ipData = null;
+            }
+            let lat, lon, city, country_name, country_emoji, ip;
+            if (ipData && ipData.latitude && ipData.longitude) {
+                lat = ipData.latitude;
+                lon = ipData.longitude;
+                city = ipData.city || '';
+                country_name = ipData.country_name || '';
+                country_emoji = ipData.country_emoji || '';
+                ip = ipData.ip || '';
+            } else {
+                // موقع افتراضي: أثينا
+                lat = 37.98;
+                lon = 23.72;
+                city = 'أثينا';
+                country_name = 'اليونان';
+                country_emoji = '🇬🇷';
+                ip = 'غير متوفر';
+            }
+            if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = ip;
+            if (document.getElementById('footerCountryFlag')) document.getElementById('footerCountryFlag').textContent = country_emoji;
+            if (document.getElementById('footerCountryName')) document.getElementById('footerCountryName').textContent = country_name;
             // Get weather
-            const lat = ipData.latitude, lon = ipData.longitude;
             if (lat && lon && document.getElementById('footerWeather')) {
-                const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`);
-                const weatherData = await weatherRes.json();
-                if (weatherData.current_weather) {
-                    document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
-                    if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
-                    if (document.getElementById('footerWeatherLocation')) document.getElementById('footerWeatherLocation').textContent = ipData.city ? `(${ipData.city})` : '';
+                try {
+                    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`);
+                    const weatherData = await weatherRes.json();
+                    if (weatherData.current_weather) {
+                        document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
+                        if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
+                        if (document.getElementById('footerWeatherLocation')) document.getElementById('footerWeatherLocation').textContent = city ? `(${city})` : '';
+                    } else {
+                        document.getElementById('footerWeather').textContent = '--°C';
+                        if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
+                    }
+                } catch (e) {
+                    document.getElementById('footerWeather').textContent = '--°C';
+                    if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
                 }
             }
         } catch (e) {
             if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = 'غير متوفر';
             if (document.getElementById('footerWeather')) document.getElementById('footerWeather').textContent = '--°C';
+            if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
         }
     }
     updateFooterIPAndWeather();

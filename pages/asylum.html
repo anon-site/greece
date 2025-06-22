@@ -565,6 +565,99 @@
           padding: 20px;
         }
       }
+      
+      /* --- Direct Contact Section --- */
+      .direct-contact-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 24px;
+          margin-top: 32px;
+      }
+      .contact-card {
+          background: #fff;
+          border-radius: 18px;
+          box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+          border: 1px solid #e3eaf2;
+          padding: 28px 22px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          transition: all 0.25s ease;
+          border-top: 5px solid var(--contact-color, #1976d2);
+      }
+      .contact-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 36px rgba(44,62,80,0.12);
+      }
+      .contact-icon {
+          width: 60px;
+          height: 60px;
+          background: var(--contact-color, #1976d2);
+          color: #fff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.8rem;
+          margin-bottom: 16px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      .contact-card h4 {
+          font-size: 1.25rem;
+          color: var(--contact-color, #1976d2);
+          font-weight: 700;
+          margin-bottom: 10px;
+      }
+      .contact-card p {
+          color: #555;
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 18px;
+          flex-grow: 1;
+      }
+      .contact-details {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          text-align: right;
+          width: 100%;
+          margin-bottom: 22px;
+          background: #f8fafc;
+          padding: 12px;
+          border-radius: 8px;
+          border-right: 3px solid var(--contact-color, #1976d2);
+      }
+      .contact-details span {
+          font-size: 0.95rem;
+          color: #333;
+      }
+      .contact-details span i {
+          margin-left: 8px;
+          color: var(--contact-color, #1976d2);
+          width: 20px;
+          text-align: center;
+      }
+      .contact-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          background: var(--contact-color, #1976d2);
+          color: #fff;
+          padding: 12px 24px;
+          border-radius: 24px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.2s ease;
+          border: 1px solid transparent;
+      }
+      .contact-btn:hover {
+          background: #fff;
+          color: var(--contact-color, #1976d2);
+          border-color: var(--contact-color, #1976d2);
+          transform: scale(1.05);
+      }
     </style>
 </head>
 <body>
@@ -951,7 +1044,7 @@
     </section>
 
     <!-- روابط ومصادر رسمية -->
-    <section class="asylum-section">
+    <section class="asylum-section" id="asylum-sources">
       <div class="container">
         <div class="section-header">
           <span class="section-subtitle">مصادر وروابط رسمية</span>
@@ -1011,6 +1104,55 @@
             <h4>دليل اللجوء الرسمي (PDF)</h4>
             <p>دليل شامل باللغة العربية من المفوضية السامية للأمم المتحدة لشؤون اللاجئين.</p>
             <a href="https://help.unhcr.org/greece/wp-content/uploads/sites/10/2022/03/Asylum-Guide-AR.pdf" target="_blank" class="gov-card-btn">تحميل الدليل <i class="fas fa-download"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم دليل الاتصال المباشر لطلب اللجوء -->
+    <section class="asylum-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">اتصال مباشر وخطوات أولى</span>
+          <div class="section-title-wrapper">
+            <h2>كيف تبدأ طلب اللجوء؟ دليل عملي</h2>
+          </div>
+          <p style="color:#1976d2;font-weight:600;font-size:1.08rem;margin-bottom:18px;">لبدء عملية طلب اللجوء، يمكنك التواصل مباشرة مع الجهات التالية. هذه هي الخطوة الأولى لتسجيل طلبك.</p>
+          <div class="section-divider"><span><i class="fas fa-phone-alt"></i></span></div>
+        </div>
+        <div class="direct-contact-grid">
+          <div class="contact-card" style="--contact-color: #00aff0;">
+            <div class="contact-icon"><i class="fab fa-skype"></i></div>
+            <h4>التسجيل عبر سكايب</h4>
+            <p>الطريقة الرسمية لحجز موعد تسجيل هي عبر سكايب. لكل لغة حساب سكايب خاص بها، تأكد من استخدام الحساب الصحيح.</p>
+            <div class="contact-details">
+              <span><strong>مثال للعربية:</strong> asylum.service.arabic</span>
+              <span><strong>مثال للفارسية:</strong> asylum.service.farsi</span>
+              <span><strong>ملاحظة:</strong> ابحث عن الحساب الخاص بلغتك على الموقع الرسمي.</span>
+            </div>
+            <a href="https://migration.gov.gr/en/gas/diadikasia-prosvasis-sto-asylo/" target="_blank" class="contact-btn">جدول مواعيد سكايب الرسمي <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="contact-card" style="--contact-color: #e74c3c;">
+            <div class="contact-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h4>التسجيل الشخصي في المراكز</h4>
+            <p>يمكنك التوجه مباشرة إلى أقرب مكتب لجوء أو مركز استقبال لتسجيل طلبك. أشهر المراكز موجودة في المدن الرئيسية.</p>
+            <div class="contact-details">
+              <span><i class="fas fa-building"></i> <strong>أثينا:</strong> شارع كاتاخاني 5</span>
+              <span><i class="fas fa-building"></i> <strong>سالونيك:</strong> شارع إيغناتيا 45</span>
+              <span><i class="fas fa-info-circle"></i> <strong>ملاحظة:</strong> تحقق من قسم "مكاتب اللجوء" في الأعلى للمزيد.</span>
+            </div>
+            <a href="#asylum-offices" class="contact-btn">الانتقال إلى قائمة المكاتب <i class="fas fa-arrow-up"></i></a>
+          </div>
+          <div class="contact-card" style="--contact-color: #27ae60;">
+            <div class="contact-icon"><i class="fas fa-headset"></i></div>
+            <h4>خطوط المساعدة والمعلومات</h4>
+            <p>للاستفسارات العامة حول الإجراءات والحقوق قبل البدء، يمكنك الاتصال بالمنظمات المساعدة.</p>
+            <div class="contact-details">
+              <span><i class="fas fa-phone-alt"></i> <strong>المجلس اليوناني للاجئين (GCR):</strong> 210 3800990</span>
+              <span><i class="fas fa-phone-alt"></i> <strong>خط مساعدة UNHCR:</strong> 213 090 9900</span>
+              <span><i class="fas fa-envelope"></i> <strong>إيميل GCR:</strong> gcr@gcr.gr</span>
+            </div>
+            <a href="#asylum-sources" class="contact-btn">المزيد من المنظمات <i class="fas fa-arrow-up"></i></a>
           </div>
         </div>
       </div>
