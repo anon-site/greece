@@ -3880,3 +3880,1395 @@ footer {
     padding: 8px 16px;
   }
 }
+
+/* إعدادات الموقع - نافذة الإعدادات */
+.settings-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(34,44,58,0.32);
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s;
+}
+.settings-modal.active {
+  display: flex;
+}
+.settings-modal-content {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(44,62,80,0.18);
+  padding: 32px 24px 22px 24px;
+  min-width: 320px;
+  max-width: 98vw;
+  width: 410px;
+  position: relative;
+  animation: fadeInDown 0.4s;
+  direction: rtl;
+}
+.settings-modal-close {
+  position: absolute;
+  left: 18px; top: 18px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: color 0.18s;
+  z-index: 2;
+}
+.settings-modal-close:hover { color: #c0392b; }
+.settings-modal-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.settings-section {
+  margin-bottom: 18px;
+}
+.settings-label {
+  font-weight: 600;
+  color: #263246;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 1.08rem;
+}
+.settings-select {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 7px;
+  border: 1.5px solid #e3eaf2;
+  font-size: 1.05rem;
+  margin-top: 5px;
+  background: #f8fafc;
+  color: #263246;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  margin-right: 8px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #e3eaf2;
+  border-radius: 26px;
+  transition: .3s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; width: 20px;
+  left: 3px; bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #0001;
+  transition: .3s;
+}
+input:checked + .slider {
+  background: #1976d2;
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+.slider.round { border-radius: 26px; }
+.slider.round:before { border-radius: 50%; }
+.settings-themes {
+  display: flex;
+  gap: 10px;
+  margin-top: 7px;
+}
+.theme-btn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2.5px solid #e3eaf2;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.18s, transform 0.18s;
+}
+.theme-btn.selected, .theme-btn:focus {
+  border: 2.5px solid #1976d2;
+  transform: scale(1.13);
+}
+.settings-fontsize {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 7px;
+}
+.font-btn {
+  background: #f8fafc;
+  border: 1.5px solid #e3eaf2;
+  border-radius: 7px;
+  font-size: 1.08rem;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: background 0.18s, border 0.18s;
+}
+.font-btn:hover { background: #e3eaf2; }
+#fontSizeValue { min-width: 48px; display: inline-block; text-align: center; font-weight: 600; }
+.settings-vision {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 7px;
+}
+.settings-vision label {
+  font-size: 1.01rem;
+  color: #263246;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.settings-action-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 18px;
+  font-size: 1.05rem;
+  margin: 6px 7px 0 0;
+  cursor: pointer;
+  transition: background 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.settings-action-btn:hover { background: #125ea7; }
+.settings-reset-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 22px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.settings-reset-btn:hover { background: #c0392b; }
+@media (max-width: 600px) {
+  .settings-modal-content {
+    min-width: 0;
+    width: 98vw;
+    padding: 18px 4vw 12px 4vw;
+  }
+  .settings-modal-title { font-size: 1.08rem; }
+}
+/* نهاية إعدادات الموقع */
+
+/* الوضع الليلي */
+body.dark-mode {
+  background: #181c23 !important;
+  color: #f3f6fa !important;
+}
+body.dark-mode header,
+body.dark-mode .settings-modal-content {
+  background: #232a36 !important;
+  color: #f3f6fa !important;
+}
+body.dark-mode .card,
+body.dark-mode .section-header,
+body.dark-mode .menu-popup,
+body.dark-mode .menu-popup-content {
+  background: #232a36 !important;
+  color: #f3f6fa !important;
+}
+body.dark-mode .btn,
+body.dark-mode button,
+body.dark-mode .font-btn {
+  background: #263246 !important;
+  color: #fff !important;
+}
+body.dark-mode .btn:hover,
+body.dark-mode button:hover,
+body.dark-mode .font-btn:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+
+/* تباين عالٍ */
+body.high-contrast {
+  filter: contrast(1.5) brightness(1.1);
+}
+
+/* إبراز الروابط */
+body.highlight-links a,
+body.highlight-links .menu-popup-list > li > a,
+body.highlight-links .submenu-anchor-popup {
+  outline: 2.5px dashed #e74c3c !important;
+  background: #fffbe6 !important;
+  color: #d32f2f !important;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px #e74c3c22;
+}
+
+/* خط خاص لضعاف البصر (Dyslexic Font) */
+body.dyslexic-font, body.dyslexic-font * {
+  font-family: 'OpenDyslexic', 'Cairo', Arial, sans-serif !important;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/web/OpenDyslexic-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* إخفاء الصور */
+body.hide-images img,
+body.hide-images .feature-icon,
+body.hide-images .card img,
+body.hide-images .hero img,
+body.hide-images .section img {
+  display: none !important;
+}
+
+/* الوضع الليلي للبطاقات داخل الأقسام */
+body.dark-mode .card,
+body.dark-mode .service-card .card-front,
+body.dark-mode .service-card .card-back,
+body.dark-mode .org-card,
+body.dark-mode .modern-gov-card,
+body.dark-mode .modern-doc-card,
+body.dark-mode .asylum-doc-card,
+body.dark-mode .asylum-office-card,
+body.dark-mode .asylum-org-card,
+body.dark-mode .faq-accordion,
+body.dark-mode .gov-faq-accordion,
+body.dark-mode .emergency-card {
+  background: #232a36 !important;
+  color: #f3f6fa !important;
+  border-color: #263246 !important;
+  box-shadow: 0 5px 24px rgba(30,40,60,0.18) !important;
+}
+body.dark-mode .card h3,
+body.dark-mode .card p,
+body.dark-mode .service-card .card-front h3,
+body.dark-mode .service-card .card-front p,
+body.dark-mode .service-card .card-back h3,
+body.dark-mode .service-card .card-back p,
+body.dark-mode .org-card h3,
+body.dark-mode .org-card p,
+body.dark-mode .modern-gov-card h3,
+body.dark-mode .modern-gov-card p,
+body.dark-mode .modern-doc-card h4,
+body.dark-mode .modern-doc-card p,
+body.dark-mode .asylum-doc-card h4,
+body.dark-mode .asylum-doc-card p,
+body.dark-mode .asylum-office-card h3,
+body.dark-mode .asylum-office-card p,
+body.dark-mode .asylum-org-card h3,
+body.dark-mode .asylum-org-card p,
+body.dark-mode .faq-question,
+body.dark-mode .faq-answer {
+  color: #fff !important;
+  text-shadow: 0 1px 6px #0008, 0 0px 1px #1976d2cc;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+}
+body.dark-mode .card-link,
+body.dark-mode .gov-card-btn,
+body.dark-mode .org-link,
+body.dark-mode .doc-card .doc-link {
+  color: #fff !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 6px #0008, 0 0px 1px #1976d2cc;
+}
+
+/* الوضع الليلي لبطاقات المصادر (asylum-source-card) */
+body.dark-mode .asylum-source-card {
+  background: #232a36 !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+  box-shadow: 0 5px 24px rgba(30,40,60,0.18) !important;
+}
+body.dark-mode .asylum-source-card h4 {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 6px #0008, 0 0px 1px #1976d2cc;
+}
+body.dark-mode .asylum-source-card p {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .asylum-source-card .gov-card-btn {
+  background: #1976d2 !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 6px #0008, 0 0px 1px #1976d2cc;
+  border: none !important;
+}
+body.dark-mode .asylum-source-card .gov-card-btn:hover {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+}
+body.dark-mode .asylum-source-icon {
+  background: linear-gradient(135deg, #263246 60%, #232a36 100%) !important;
+  color: #4fc3f7 !important;
+  border-color: #232a36 !important;
+  box-shadow: 0 2px 12px #0004 !important;
+}
+body.dark-mode .asylum-source-icon img {
+  background: #fff !important;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #0002;
+}
+
+/* إبراز النصوص في الوضع الليلي داخل صفحة اللجوء */
+body.dark-mode .asylum-section,
+body.dark-mode .asylum-section p,
+body.dark-mode .asylum-section h1,
+body.dark-mode .asylum-section h2,
+body.dark-mode .asylum-section h3,
+body.dark-mode .asylum-section h4,
+body.dark-mode .asylum-section h5,
+body.dark-mode .asylum-section h6,
+body.dark-mode .asylum-section span,
+body.dark-mode .asylum-section li,
+body.dark-mode .asylum-section label {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a, 0 0px 1px #1976d2cc;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+}
+body.dark-mode .asylum-section a {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 800 !important;
+}
+body.dark-mode .asylum-section .section-subtitle,
+body.dark-mode .asylum-section .section-title-wrapper h2 {
+  color: #4fc3f7 !important;
+}
+
+/* تحسين ألوان نصوص قسم الطوارئ في الوضع الليلي */
+body.dark-mode .emergency-card {
+  background: #232a36 !important;
+  color: #fff !important;
+}
+body.dark-mode .emergency-card .emergency-title {
+  color: #f7b731 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 800 !important;
+}
+body.dark-mode .emergency-card .emergency-number {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 900 !important;
+}
+body.dark-mode .emergency-card .emergency-desc {
+  color: #e3eaf2 !important;
+  font-weight: 700 !important;
+}
+body.dark-mode .emergency-card .emergency-note {
+  color: #bfc9d6 !important;
+  font-style: italic;
+}
+body.dark-mode .emergency-card .emergency-btn {
+  background: #e74c3c !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 8px #0004;
+}
+body.dark-mode .emergency-card .emergency-btn:hover {
+  background: #f7b731 !important;
+  color: #232a36 !important;
+}
+body.dark-mode .emergency-card .emergency-icon {
+  background: #4fc3f7 !important;
+  color: #fff !important;
+}
+
+/* تحسين نصوص تايملاين خطوات اللجوء في الوضع الليلي */
+body.dark-mode .asylum-timeline {
+  border-right: 3px solid #4fc3f7 !important;
+}
+body.dark-mode .asylum-timeline-step {
+  color: #fff !important;
+}
+body.dark-mode .asylum-timeline-icon {
+  background: #1976d2 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px #0008;
+}
+body.dark-mode .asylum-timeline-title {
+  color: #f7b731 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .asylum-timeline-desc {
+  color: #e3eaf2 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+
+/* الوضع الليلي لصفحة government.html - نصوص وأقسام واضحة وبارزة */
+body.dark-mode .gov-section,
+body.dark-mode .gov-section p,
+body.dark-mode .gov-section h1,
+body.dark-mode .gov-section h2,
+body.dark-mode .gov-section h3,
+body.dark-mode .gov-section h4,
+body.dark-mode .gov-section h5,
+body.dark-mode .gov-section h6,
+body.dark-mode .gov-section span,
+body.dark-mode .gov-section li,
+body.dark-mode .gov-section label {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a, 0 0px 1px #1976d2cc;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+}
+body.dark-mode .gov-section a {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 800 !important;
+}
+body.dark-mode .gov-section .section-subtitle,
+body.dark-mode .gov-section .section-title-wrapper h2 {
+  color: #f7b731 !important;
+}
+body.dark-mode .modern-gov-card,
+body.dark-mode .gov-office-card {
+  background: #232a36 !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+  box-shadow: 0 5px 24px rgba(30,40,60,0.18) !important;
+}
+body.dark-mode .modern-gov-card h3,
+body.dark-mode .modern-gov-card p,
+body.dark-mode .gov-card-desc,
+body.dark-mode .gov-card-list li {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .gov-card-badge {
+  background: #1976d2 !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+  box-shadow: 0 2px 8px #0004 !important;
+}
+body.dark-mode .gov-card-icon {
+  background: #4fc3f7 !important;
+  color: #fff !important;
+  border-color: #232a36 !important;
+}
+body.dark-mode .gov-card-btn {
+  background: #f7b731 !important;
+  color: #232a36 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 6px #0008, 0 0px 1px #1976d2cc;
+  border: none !important;
+}
+body.dark-mode .gov-card-btn:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .gov-card-list li i {
+  color: #4fc3f7 !important;
+}
+body.dark-mode .tip-card {
+  background: #232a36 !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+  box-shadow: 0 5px 24px rgba(30,40,60,0.18) !important;
+}
+body.dark-mode .tip-card h4 {
+  color: #f7b731 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .tip-card p {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .tip-number {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+}
+body.dark-mode .tip-card i {
+  color: #f7b731 !important;
+}
+body.dark-mode .faq-accordion.gov-faq-accordion,
+body.dark-mode .faq-item {
+  background: #232a36 !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+}
+body.dark-mode .faq-question,
+body.dark-mode .faq-answer {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 700 !important;
+}
+body.dark-mode .faq-item.active {
+  background: #263246 !important;
+}
+body.dark-mode .modern-doc-card,
+body.dark-mode .doc-card {
+  background: #232a36 !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+  box-shadow: 0 5px 24px rgba(30,40,60,0.18) !important;
+}
+body.dark-mode .modern-doc-card h4,
+body.dark-mode .modern-doc-card p,
+body.dark-mode .doc-list li {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .doc-icon {
+  background: #1976d2 !important;
+  color: #fff !important;
+  border-color: #232a36 !important;
+}
+body.dark-mode .doc-badge {
+  background: #f7b731 !important;
+  color: #232a36 !important;
+}
+body.dark-mode .doc-priority {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-card {
+  background: #232a36 !important;
+  color: #fff !important;
+}
+body.dark-mode .gov-section-emergency .emergency-title {
+  color: #f7b731 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 800 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-number {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 900 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-desc {
+  color: #e3eaf2 !important;
+  font-weight: 700 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-note {
+  color: #bfc9d6 !important;
+  font-style: italic;
+}
+body.dark-mode .gov-section-emergency .emergency-btn {
+  background: #e74c3c !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 8px #0004;
+}
+body.dark-mode .gov-section-emergency .emergency-btn:hover {
+  background: #f7b731 !important;
+  color: #232a36 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-icon {
+  background: #4fc3f7 !important;
+  color: #fff !important;
+}
+
+/* تحسين احترافي للوضع الليلي في صفحة government.html */
+body.dark-mode .gov-section {
+  background: #20232a !important;
+  color: #f3f6fa !important;
+}
+body.dark-mode .gov-section .section-header,
+body.dark-mode .gov-section .section-title-wrapper h2 {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px #000b;
+}
+body.dark-mode .gov-section .section-subtitle {
+  color: #4fc3f7 !important;
+  font-weight: 800;
+}
+body.dark-mode .gov-section p,
+body.dark-mode .gov-section li,
+body.dark-mode .gov-section label {
+  color: #e3eaf2 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .gov-section a {
+  color: #90caf9 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 800 !important;
+}
+body.dark-mode .modern-gov-card,
+body.dark-mode .gov-office-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+  box-shadow: 0 8px 32px #0005 !important;
+}
+body.dark-mode .modern-gov-card h3,
+body.dark-mode .modern-gov-card p,
+body.dark-mode .gov-card-desc,
+body.dark-mode .gov-card-list li {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .gov-card-badge {
+  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px #1976d2cc !important;
+}
+body.dark-mode .gov-card-icon {
+  background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%) !important;
+  color: #fff !important;
+  border: 4px solid #232a36 !important;
+  box-shadow: 0 2px 12px #1976d2cc !important;
+}
+body.dark-mode .gov-card-btn {
+  background: linear-gradient(90deg, #ffe082 60%, #f7b731 100%) !important;
+  color: #232a36 !important;
+  font-weight: 900 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px #0004;
+  text-shadow: 0 1px 6px #fff8, 0 0px 1px #1976d2cc;
+}
+body.dark-mode .gov-card-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+}
+body.dark-mode .gov-card-list li i {
+  color: #ffe082 !important;
+}
+body.dark-mode .tip-card {
+  background: linear-gradient(135deg, #232a36 60%, #263246 100%) !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+  box-shadow: 0 5px 24px #0007 !important;
+}
+body.dark-mode .tip-card h4 {
+  color: #ffe082 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .tip-card p {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .tip-number {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+}
+body.dark-mode .tip-card i {
+  color: #f7b731 !important;
+}
+body.dark-mode .faq-accordion.gov-faq-accordion,
+body.dark-mode .faq-item {
+  background: #232a36 !important;
+  color: #fff !important;
+  border-color: #263246 !important;
+}
+body.dark-mode .faq-question,
+body.dark-mode .faq-answer {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 700 !important;
+}
+body.dark-mode .faq-item.active {
+  background: #263246 !important;
+}
+body.dark-mode .modern-doc-card,
+body.dark-mode .doc-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px #0007 !important;
+}
+body.dark-mode .modern-doc-card h4,
+body.dark-mode .modern-doc-card p,
+body.dark-mode .doc-list li {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .doc-icon {
+  background: linear-gradient(135deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+  border: 4px solid #232a36 !important;
+  box-shadow: 0 2px 12px #1976d2cc !important;
+}
+body.dark-mode .doc-badge {
+  background: #ffe082 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+  box-shadow: 0 2px 8px #ffe08255 !important;
+}
+body.dark-mode .doc-priority {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+  box-shadow: 0 2px 8px #4fc3f755 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+body.dark-mode .gov-section-emergency .emergency-title {
+  color: #ffe082 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 900 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-number {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 900 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-desc {
+  color: #e3eaf2 !important;
+  font-weight: 700 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-note {
+  color: #bfc9d6 !important;
+  font-style: italic;
+}
+body.dark-mode .gov-section-emergency .emergency-btn {
+  background: linear-gradient(90deg, #e74c3c 60%, #f7b731 100%) !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 8px #0004;
+}
+body.dark-mode .gov-section-emergency .emergency-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+}
+body.dark-mode .gov-section-emergency .emergency-icon {
+  background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%) !important;
+  color: #fff !important;
+}
+
+/* تخصيص أزرار البطاقات في قسم مصادر ومواقع حكومية موثوقة في الوضع الليلي */
+body.dark-mode .modern-gov-card .gov-card-btn {
+  background: linear-gradient(90deg, #ffe082 60%, #f7b731 100%) !important;
+  color: #232a36 !important;
+  font-weight: 900 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px #0004;
+  text-shadow: 0 1px 6px #fff8, 0 0px 1px #1976d2cc;
+  letter-spacing: 0.01em;
+  transition: background 0.18s, color 0.18s;
+}
+body.dark-mode .modern-gov-card .gov-card-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+}
+
+/* خلفية داكنة موحدة للصفحة في الوضع الليلي */
+body.dark-mode {
+  background: linear-gradient(135deg, #181c23 0%, #232a36 100%) !important;
+  color: #f3f6fa !important;
+}
+body.dark-mode .gov-section {
+  background: transparent !important;
+  color: #fff !important;
+}
+body.dark-mode .container {
+  background: transparent !important;
+}
+body.dark-mode .section-header,
+body.dark-mode .section-title-wrapper h2 {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px #000b;
+}
+body.dark-mode .section-subtitle {
+  color: #4fc3f7 !important;
+  font-weight: 800;
+}
+body.dark-mode .gov-section p,
+body.dark-mode .gov-section li,
+body.dark-mode .gov-section label {
+  color: #e3eaf2 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .gov-section a {
+  color: #90caf9 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 800 !important;
+}
+body.dark-mode .modern-gov-card,
+body.dark-mode .gov-office-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px #0007 !important;
+}
+body.dark-mode .modern-gov-card h3,
+body.dark-mode .modern-gov-card p,
+body.dark-mode .gov-card-desc,
+body.dark-mode .gov-card-list li {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .gov-card-badge {
+  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px #1976d2cc !important;
+}
+body.dark-mode .gov-card-icon {
+  background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%) !important;
+  color: #fff !important;
+  border: 4px solid #232a36 !important;
+  box-shadow: 0 2px 12px #1976d2cc !important;
+}
+body.dark-mode .gov-card-btn {
+  background: linear-gradient(90deg, #ffe082 60%, #f7b731 100%) !important;
+  color: #232a36 !important;
+  font-weight: 900 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px #0004;
+  text-shadow: 0 1px 6px #fff8, 0 0px 1px #1976d2cc;
+  letter-spacing: 0.01em;
+  transition: background 0.18s, color 0.18s;
+}
+body.dark-mode .gov-card-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .gov-card-list li i {
+  color: #ffe082 !important;
+}
+body.dark-mode .tip-card {
+  background: linear-gradient(135deg, #232a36 60%, #263246 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 5px 24px #0007 !important;
+}
+body.dark-mode .tip-card h4 {
+  color: #ffe082 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .tip-card p {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .tip-number {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+}
+body.dark-mode .tip-card i {
+  color: #f7b731 !important;
+}
+body.dark-mode .faq-accordion.gov-faq-accordion,
+body.dark-mode .faq-item {
+  background: #232a36 !important;
+  color: #fff !important;
+  border: none !important;
+}
+body.dark-mode .faq-question,
+body.dark-mode .faq-answer {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 700 !important;
+}
+body.dark-mode .faq-item.active {
+  background: #263246 !important;
+}
+body.dark-mode .modern-doc-card,
+body.dark-mode .doc-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px #0007 !important;
+}
+body.dark-mode .modern-doc-card h4,
+body.dark-mode .modern-doc-card p,
+body.dark-mode .doc-list li {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .doc-icon {
+  background: linear-gradient(135deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+  border: 4px solid #232a36 !important;
+  box-shadow: 0 2px 12px #1976d2cc !important;
+}
+body.dark-mode .doc-badge {
+  background: #ffe082 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+  box-shadow: 0 2px 8px #ffe08255 !important;
+}
+body.dark-mode .doc-priority {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+  box-shadow: 0 2px 8px #4fc3f755 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+body.dark-mode .gov-section-emergency .emergency-title {
+  color: #ffe082 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 900 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-number {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 900 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-desc {
+  color: #e3eaf2 !important;
+  font-weight: 700 !important;
+}
+body.dark-mode .gov-section-emergency .emergency-note {
+  color: #bfc9d6 !important;
+  font-style: italic;
+}
+body.dark-mode .gov-section-emergency .emergency-btn {
+  background: linear-gradient(90deg, #e74c3c 60%, #f7b731 100%) !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 8px #0004;
+}
+body.dark-mode .gov-section-emergency .emergency-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
+  color: #fff !important;
+}
+body.dark-mode .gov-section-emergency .emergency-icon {
+  background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%) !important;
+  color: #fff !important;
+}
+
+body.dark-mode .gov-faq-accordion {
+  background: transparent !important;
+}
+body.dark-mode .gov-faq-accordion .faq-item {
+  background: linear-gradient(135deg, #232a36 80%, #263246 100%) !important;
+  border-radius: 16px !important;
+  margin-bottom: 14px !important;
+  border: 1.5px solid #263246 !important;
+  box-shadow: 0 2px 12px #0006 !important;
+  transition: box-shadow 0.18s, border 0.18s, background 0.18s;
+}
+body.dark-mode .gov-faq-accordion .faq-item.active {
+  background: linear-gradient(135deg, #263246 80%, #232a36 100%) !important;
+  border: 1.5px solid #4fc3f7 !important;
+  box-shadow: 0 6px 24px #1976d255 !important;
+}
+body.dark-mode .gov-faq-accordion .faq-question {
+  color: #ffe082 !important;
+  font-weight: 900 !important;
+  font-size: 1.13em !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 18px 18px 12px 18px !important;
+  border-radius: 16px 16px 0 0 !important;
+  transition: color 0.18s;
+  text-shadow: 0 2px 12px #000b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+body.dark-mode .gov-faq-accordion .faq-item.active .faq-question {
+  color: #4fc3f7 !important;
+  text-shadow: 0 2px 12px #000b;
+}
+body.dark-mode .gov-faq-accordion .faq-question i {
+  color: #4fc3f7 !important;
+  font-size: 1.2em;
+  margin-left: 6px;
+}
+body.dark-mode .gov-faq-accordion .faq-answer {
+  color: #fff !important;
+  background: none !important;
+  font-weight: 700 !important;
+  border-radius: 0 0 16px 16px !important;
+  padding: 0 18px 18px 18px !important;
+  box-shadow: none !important;
+  text-shadow: 0 1px 8px #000a;
+  border-top: 1px solid #263246 !important;
+}
+body.dark-mode .gov-faq-accordion .faq-answer ul {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .gov-faq-accordion .faq-answer li {
+  color: #e3eaf2 !important;
+  margin-bottom: 2px;
+}
+body.dark-mode .gov-faq-accordion .faq-answer b {
+  color: #ffe082 !important;
+  font-weight: 900;
+}
+
+/* إخفاء الإجابات افتراضيًا مع حركة انسيابية */
+.faq-accordion .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.38s cubic-bezier(.4,1.4,.6,1), opacity 0.28s;
+  padding-bottom: 0 !important;
+}
+.faq-accordion .faq-item.active .faq-answer {
+  max-height: 600px;
+  opacity: 1;
+  transition: max-height 0.48s cubic-bezier(.4,1.4,.6,1), opacity 0.32s;
+  padding-bottom: 18px !important;
+}
+/* تحسين مظهر الإجابة في الوضع الليلي */
+body.dark-mode .faq-accordion .faq-answer {
+  background: none !important;
+  color: #e3eaf2 !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .modern-doc-card .doc-card-header,
+body.dark-mode .doc-card .doc-card-header {
+  background: linear-gradient(135deg, #232a36 60%, #1976d2 100%) !important;
+  border-radius: 16px 16px 0 0 !important;
+  border-bottom: 1.5px solid #263246 !important;
+  box-shadow: 0 2px 12px #1976d255 !important;
+}
+
+body.dark-mode .asylum-office-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px #0007 !important;
+}
+body.dark-mode .asylum-office-card h3 {
+  color: var(--office-color, #4fc3f7) !important;
+  text-shadow: 0 2px 12px #000b;
+  font-weight: 900;
+}
+body.dark-mode .asylum-office-card .office-icon {
+  background: linear-gradient(135deg, var(--office-color, #4fc3f7) 60%, #232a36 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 12px var(--office-color, #4fc3f7)55 !important;
+}
+body.dark-mode .asylum-office-card .office-info p,
+body.dark-mode .asylum-office-card .office-info strong {
+  color: #e3eaf2 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .asylum-office-card .office-info p i {
+  color: var(--office-color, #4fc3f7) !important;
+}
+body.dark-mode .asylum-office-card .office-info a {
+  color: var(--office-color, #4fc3f7) !important;
+  background: rgba(79,195,247,0.08) !important;
+  font-weight: 800;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+body.dark-mode .asylum-office-card .office-info a:hover {
+  background: var(--office-color, #4fc3f7) !important;
+  color: #232a36 !important;
+  box-shadow: 0 2px 8px var(--office-color, #4fc3f7)33 !important;
+}
+
+body.dark-mode .hero,
+body.dark-mode .services,
+body.dark-mode .work,
+body.dark-mode .organizations,
+body.dark-mode .offices,
+body.dark-mode .tourism {
+  background: transparent !important;
+  color: #fff !important;
+}
+body.dark-mode .section-header,
+body.dark-mode .section-title-wrapper h2 {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px #000b;
+}
+body.dark-mode .section-subtitle {
+  color: #4fc3f7 !important;
+  font-weight: 800;
+}
+body.dark-mode .section-header p,
+body.dark-mode .section-header span,
+body.dark-mode .section-header label {
+  color: #e3eaf2 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .service-card,
+body.dark-mode .org-card,
+body.dark-mode .job-card,
+body.dark-mode .card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px #0007 !important;
+}
+body.dark-mode .service-card h3,
+body.dark-mode .org-card h3,
+body.dark-mode .job-card h3,
+body.dark-mode .card h3 {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px #000b;
+  font-weight: 900;
+}
+body.dark-mode .service-card p,
+body.dark-mode .org-card p,
+body.dark-mode .job-card p,
+body.dark-mode .card p,
+body.dark-mode .card-info,
+body.dark-mode .card-brief {
+  color: #e3eaf2 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .service-card .card-icon,
+body.dark-mode .org-card .org-logo,
+body.dark-mode .job-card .card-icon,
+body.dark-mode .card .card-icon {
+  background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 12px #1976d2cc !important;
+}
+body.dark-mode .service-card .card-link,
+body.dark-mode .org-card .org-link,
+body.dark-mode .job-card .card-link,
+body.dark-mode .card .card-link {
+  color: #4fc3f7 !important;
+  background: rgba(79,195,247,0.08) !important;
+  font-weight: 800;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+body.dark-mode .service-card .card-link:hover,
+body.dark-mode .org-card .org-link:hover,
+body.dark-mode .job-card .card-link:hover,
+body.dark-mode .card .card-link:hover {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  box-shadow: 0 2px 8px #4fc3f733 !important;
+}
+body.dark-mode .service-card .card-front ul,
+body.dark-mode .service-card .card-back ul,
+body.dark-mode .org-card ul,
+body.dark-mode .job-card ul,
+body.dark-mode .card ul {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .service-card .card-front li,
+body.dark-mode .service-card .card-back li,
+body.dark-mode .org-card li,
+body.dark-mode .job-card li,
+body.dark-mode .card li {
+  color: #e3eaf2 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .service-card .card-front li i,
+body.dark-mode .service-card .card-back li i,
+body.dark-mode .org-card li i,
+body.dark-mode .job-card li i,
+body.dark-mode .card li i {
+  color: #ffe082 !important;
+}
+body.dark-mode .job-tag {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+  border-radius: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+body.dark-mode .org-contact span,
+body.dark-mode .job-details span {
+  color: #bfc9d6 !important;
+}
+body.dark-mode .section-more-btn {
+  color: #4fc3f7 !important;
+  background: rgba(79,195,247,0.08) !important;
+  font-weight: 800;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+body.dark-mode .section-more-btn:hover {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+}
+
+body.dark-mode .job-card {
+  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px #0007 !important;
+}
+body.dark-mode .job-card h3 {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px #000b;
+  font-weight: 900;
+}
+body.dark-mode .job-card .card-icon {
+  background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 12px #1976d2cc !important;
+}
+body.dark-mode .job-card p {
+  color: #e3eaf2 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .job-card .job-details {
+  margin: 10px 0 8px 0;
+}
+body.dark-mode .job-card .job-tag {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+  border-radius: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+  box-shadow: 0 1px 6px #4fc3f744 !important;
+  padding: 4px 10px;
+  font-size: 0.97em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+body.dark-mode .job-card .job-tag i {
+  color: #1976d2 !important;
+}
+body.dark-mode .job-card .card-link {
+  color: #4fc3f7 !important;
+  background: rgba(79,195,247,0.08) !important;
+  font-weight: 800;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+  margin-top: 10px;
+  display: inline-block;
+}
+body.dark-mode .job-card .card-link:hover {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  box-shadow: 0 2px 8px #4fc3f733 !important;
+}
+
+body.dark-mode .org-intro-text p {
+  color: #fff !important;
+  text-shadow: 0 1px 8px #000a;
+}
+
+body.dark-mode .modern-doc-card .doc-footer,
+body.dark-mode .doc-card .doc-footer {
+  background: linear-gradient(90deg, #232a36 80%, #263246 100%) !important;
+  border-radius: 0 0 16px 16px !important;
+  border-top: 1.5px solid #263246 !important;
+  box-shadow: 0 -2px 8px #1976d233 !important;
+}
+
+body.dark-mode .settings-modal-content {
+  background: linear-gradient(135deg, #232a36 80%, #181c23 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 40px #000b !important;
+}
+body.dark-mode .settings-modal-title {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px #000b;
+}
+body.dark-mode .settings-label {
+  color: #4fc3f7 !important;
+  font-weight: 800;
+}
+body.dark-mode .settings-section,
+body.dark-mode .settings-modal-content label,
+body.dark-mode .settings-modal-content span,
+body.dark-mode .settings-modal-content p {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .settings-select,
+body.dark-mode .font-btn {
+  background: #232a36 !important;
+  color: #fff !important;
+  border: 1.5px solid #34425a !important;
+}
+body.dark-mode .font-btn:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .settings-modal-close {
+  color: #ffe082 !important;
+}
+body.dark-mode .settings-modal-close:hover {
+  color: #e74c3c !important;
+}
+body.dark-mode .settings-action-btn {
+  background: #4fc3f7 !important;
+  color: #232a36 !important;
+  font-weight: 900;
+}
+body.dark-mode .settings-action-btn:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .settings-reset-btn {
+  background: #e74c3c !important;
+  color: #fff !important;
+}
+body.dark-mode .settings-reset-btn:hover {
+  background: #c0392b !important;
+}
+body.dark-mode .theme-btn {
+  border: 2.5px solid #34425a !important;
+}
+body.dark-mode .theme-btn.selected, body.dark-mode .theme-btn:focus {
+  border: 2.5px solid #ffe082 !important;
+}
+body.dark-mode .switch .slider {
+  background: #263246 !important;
+}
+body.dark-mode input:checked + .slider {
+  background: #4fc3f7 !important;
+}
+body.dark-mode .slider:before {
+  background: #fff !important;
+}
+
+/* زيادة المسافة بين بطاقات النصائح في قسم كيف تتعامل مع الدوائر الحكومية بنجاح؟ */
+.professional-tips-grid {
+  gap: 28px !important;
+}
+.professional-tips-grid .tip-card {
+  margin-bottom: 10px !important;
+}
+@media (max-width: 700px) {
+  .professional-tips-grid {
+    gap: 18px !important;
+  }
+  .professional-tips-grid .tip-card {
+    margin-bottom: 7px !important;
+  }
+}
+
+/* سمات الألوان الديناميكية عبر data-theme على html */
+html[data-theme="red"] {
+  --primary-color: #e74c3c;
+  --secondary-color: #c0392b;
+  --accent-color: #ff7675;
+}
+html[data-theme="green"] {
+  --primary-color: #27ae60;
+  --secondary-color: #219150;
+  --accent-color: #55efc4;
+}
+html[data-theme="orange"] {
+  --primary-color: #f39c12;
+  --secondary-color: #e67e22;
+  --accent-color: #ffb347;
+}
+html[data-theme="purple"] {
+  --primary-color: #8e44ad;
+  --secondary-color: #6c3483;
+  --accent-color: #b39ddb;
+}
+html[data-theme="pink"] {
+  --primary-color: #e84393;
+  --secondary-color: #ad1457;
+  --accent-color: #ffb6c1;
+}

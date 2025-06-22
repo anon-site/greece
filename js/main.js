@@ -373,4 +373,171 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // إعدادات الموقع: فتح وإغلاق نافذة الإعدادات
+    function openSettingsModal() {
+        document.getElementById('siteSettingsModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeSettingsModal() {
+        document.getElementById('siteSettingsModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    // زر الإعدادات في الهيدر
+    const desktopSettingsBtn = document.querySelector('.desktop-settings-btn');
+    if (desktopSettingsBtn) desktopSettingsBtn.addEventListener('click', openSettingsModal);
+    // زر الإعدادات في شريط الجوال السفلي
+    const mobileSettingsBtn = document.querySelector('.mobile-bottom-nav-link[title="الإعدادات"]');
+    if (mobileSettingsBtn) mobileSettingsBtn.addEventListener('click', function(e){ e.preventDefault(); openSettingsModal(); });
+    // زر الإغلاق
+    const settingsModalClose = document.querySelector('.settings-modal-close');
+    if (settingsModalClose) settingsModalClose.addEventListener('click', closeSettingsModal);
+    // إغلاق عند الضغط خارج النافذة
+    const settingsModal = document.getElementById('siteSettingsModal');
+    if (settingsModal) {
+        settingsModal.addEventListener('click', function(e) {
+            if (e.target === settingsModal) closeSettingsModal();
+        });
+    }
+
+    // --- تفعيلات الإعدادات ---
+    // عناصر الإعدادات
+    const settingsDarkMode = document.getElementById('settingsDarkMode');
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    const fontSizeMinus = document.getElementById('fontSizeMinus');
+    const fontSizePlus = document.getElementById('fontSizePlus');
+    const fontSizeValue = document.getElementById('fontSizeValue');
+    const settingsLanguage = document.getElementById('settingsLanguage');
+    const highContrast = document.getElementById('highContrast');
+    const highlightLinks = document.getElementById('highlightLinks');
+    const dyslexicFont = document.getElementById('dyslexicFont');
+    const hideImages = document.getElementById('hideImages');
+    const resetSettingsBtn = document.getElementById('resetSettingsBtn');
+
+    // --- حفظ واسترجاع الإعدادات ---
+    function saveSettings(settings) {
+        localStorage.setItem('siteSettings', JSON.stringify(settings));
+    }
+    function loadSettings() {
+        return JSON.parse(localStorage.getItem('siteSettings') || '{}');
+    }
+
+    // --- تطبيق الإعدادات ---
+    function applySettings(settings) {
+        // الوضع الليلي
+        if (settings.darkMode) {
+            document.body.classList.add('dark-mode');
+            if(settingsDarkMode) settingsDarkMode.checked = true;
+        } else {
+            document.body.classList.remove('dark-mode');
+            if(settingsDarkMode) settingsDarkMode.checked = false;
+        }
+        // السمة
+        if (settings.theme) {
+            document.documentElement.setAttribute('data-theme', settings.theme);
+            themeBtns.forEach(btn => btn.classList.toggle('selected', btn.dataset.theme === settings.theme));
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeBtns.forEach(btn => btn.classList.remove('selected'));
+        }
+        // حجم الخط
+        if (settings.fontSize) {
+            document.documentElement.style.fontSize = settings.fontSize + '%';
+            if(fontSizeValue) fontSizeValue.textContent = settings.fontSize + '%';
+        } else {
+            document.documentElement.style.fontSize = '100%';
+            if(fontSizeValue) fontSizeValue.textContent = '100%';
+        }
+        // اللغة
+        if (settings.language && settingsLanguage) {
+            settingsLanguage.value = settings.language;
+            document.documentElement.lang = settings.language;
+            document.documentElement.dir = (settings.language === 'ar' || settings.language === 'fa') ? 'rtl' : 'ltr';
+        }
+        // تباين عالٍ
+        if (settings.highContrast) {
+            document.body.classList.add('high-contrast');
+            if(highContrast) highContrast.checked = true;
+        } else {
+            document.body.classList.remove('high-contrast');
+            if(highContrast) highContrast.checked = false;
+        }
+        // إبراز الروابط
+        if (settings.highlightLinks) {
+            document.body.classList.add('highlight-links');
+            if(highlightLinks) highlightLinks.checked = true;
+        } else {
+            document.body.classList.remove('highlight-links');
+            if(highlightLinks) highlightLinks.checked = false;
+        }
+        // خط خاص لضعاف البصر
+        if (settings.dyslexicFont) {
+            document.body.classList.add('dyslexic-font');
+            if(dyslexicFont) dyslexicFont.checked = true;
+        } else {
+            document.body.classList.remove('dyslexic-font');
+            if(dyslexicFont) dyslexicFont.checked = false;
+        }
+        // إخفاء الصور
+        if (settings.hideImages) {
+            document.body.classList.add('hide-images');
+            if(hideImages) hideImages.checked = true;
+        } else {
+            document.body.classList.remove('hide-images');
+            if(hideImages) hideImages.checked = false;
+        }
+    }
+
+    // --- تحميل وتطبيق الإعدادات عند بدء التشغيل ---
+    let siteSettings = loadSettings();
+    applySettings(siteSettings);
+
+    // --- أحداث التغيير ---
+    if(settingsDarkMode) settingsDarkMode.addEventListener('change', function() {
+        siteSettings.darkMode = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            siteSettings.theme = this.dataset.theme;
+            applySettings(siteSettings); saveSettings(siteSettings);
+        });
+    });
+    if(fontSizeMinus) fontSizeMinus.addEventListener('click', function() {
+        let size = siteSettings.fontSize || 100;
+        size = Math.max(70, size - 10);
+        siteSettings.fontSize = size;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(fontSizePlus) fontSizePlus.addEventListener('click', function() {
+        let size = siteSettings.fontSize || 100;
+        size = Math.min(200, size + 10);
+        siteSettings.fontSize = size;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(settingsLanguage) settingsLanguage.addEventListener('change', function() {
+        siteSettings.language = this.value;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(highContrast) highContrast.addEventListener('change', function() {
+        siteSettings.highContrast = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(highlightLinks) highlightLinks.addEventListener('change', function() {
+        siteSettings.highlightLinks = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(dyslexicFont) dyslexicFont.addEventListener('change', function() {
+        siteSettings.dyslexicFont = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(hideImages) hideImages.addEventListener('change', function() {
+        siteSettings.hideImages = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(resetSettingsBtn) resetSettingsBtn.addEventListener('click', function() {
+        localStorage.removeItem('siteSettings');
+        siteSettings = {};
+        applySettings(siteSettings);
+    });
 });
