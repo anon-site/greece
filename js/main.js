@@ -413,6 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dyslexicFont = document.getElementById('dyslexicFont');
     const hideImages = document.getElementById('hideImages');
     const resetSettingsBtn = document.getElementById('resetSettingsBtn');
+    const colorBlindMode = document.getElementById('colorBlindMode');
 
     // --- حفظ واسترجاع الإعدادات ---
     function saveSettings(settings) {
@@ -486,6 +487,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('hide-images');
             if(hideImages) hideImages.checked = false;
         }
+        // ألوان مناسبة لعمى الألوان
+        if (settings.colorBlindMode) {
+            document.body.classList.add('color-blind-mode');
+            if(colorBlindMode) colorBlindMode.checked = true;
+        } else {
+            document.body.classList.remove('color-blind-mode');
+            if(colorBlindMode) colorBlindMode.checked = false;
+        }
     }
 
     // --- تحميل وتطبيق الإعدادات عند بدء التشغيل ---
@@ -535,9 +544,83 @@ document.addEventListener('DOMContentLoaded', function() {
         siteSettings.hideImages = this.checked;
         applySettings(siteSettings); saveSettings(siteSettings);
     });
+    if(colorBlindMode) colorBlindMode.addEventListener('change', function() {
+        siteSettings.colorBlindMode = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
     if(resetSettingsBtn) resetSettingsBtn.addEventListener('click', function() {
         localStorage.removeItem('siteSettings');
         siteSettings = {};
         applySettings(siteSettings);
     });
+
+    // --- قراءة النصوص بالصوت (Text-to-Speech) احترافي ---
+    (function() {
+        const ttsBtn = document.getElementById('ttsToggleBtn');
+        const ttsStatus = document.getElementById('ttsStatus');
+        const ttsRate = document.getElementById('ttsRate');
+        let isReading = false;
+        let utterance = null;
+
+        function getPageText() {
+            // اجمع نصوص الصفحة الأساسية فقط (بدون قوائم وفوتر)
+            let main = document.querySelector('main') || document.body;
+            // استثنِ نصوص نافذة الإعدادات
+            let modal = document.getElementById('siteSettingsModal');
+            if (modal) modal.setAttribute('aria-hidden', 'true');
+            let text = main.innerText || main.textContent || '';
+            if (modal) modal.setAttribute('aria-hidden', 'false');
+            return text.replace(/\s+/g, ' ').trim();
+        }
+
+        function getLang() {
+            return document.documentElement.lang || 'ar';
+        }
+
+        function startTTS() {
+            if (isReading) return;
+            const text = getPageText();
+            if (!text) return;
+            utterance = new window.SpeechSynthesisUtterance(text);
+            utterance.lang = getLang();
+            utterance.rate = parseFloat(ttsRate?.value || '1');
+            utterance.onstart = () => {
+                isReading = true;
+                if(ttsBtn) { ttsBtn.innerHTML = '<i class="fas fa-stop"></i> إيقاف القراءة'; }
+                if(ttsStatus) ttsStatus.textContent = 'جاري القراءة...';
+            };
+            utterance.onend = utterance.onerror = () => {
+                isReading = false;
+                if(ttsBtn) { ttsBtn.innerHTML = '<i class="fas fa-play"></i> استمع للنص'; }
+                if(ttsStatus) ttsStatus.textContent = '';
+            };
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function stopTTS() {
+            if (!isReading) return;
+            window.speechSynthesis.cancel();
+            isReading = false;
+            if(ttsBtn) { ttsBtn.innerHTML = '<i class="fas fa-play"></i> استمع للنص'; }
+            if(ttsStatus) ttsStatus.textContent = '';
+        }
+
+        if(ttsBtn) {
+            ttsBtn.addEventListener('click', function() {
+                if(isReading) {
+                    stopTTS();
+                } else {
+                    startTTS();
+                }
+            });
+        }
+        if(ttsRate) {
+            ttsRate.addEventListener('input', function() {
+                if(isReading) {
+                    stopTTS();
+                    setTimeout(startTTS, 200);
+                }
+            });
+        }
+    })();
 });

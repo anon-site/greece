@@ -1553,8 +1553,13 @@
         </div>
         <div class="settings-section">
           <label class="settings-label"><i class="fas fa-volume-up"></i> قراءة النصوص بالصوت</label>
-          <button id="readPageBtn" class="settings-action-btn"><i class="fas fa-play"></i> قراءة الصفحة</button>
-          <button id="stopReadBtn" class="settings-action-btn"><i class="fas fa-stop"></i> إيقاف القراءة</button>
+          <div class="tts-controls">
+            <button id="ttsToggleBtn" class="settings-action-btn" aria-label="تشغيل أو إيقاف قراءة النص"><i class="fas fa-play"></i> استمع للنص</button>
+            <label style="font-size:0.98em;margin:0 8px;">السرعة:
+              <input type="range" id="ttsRate" min="0.5" max="2" step="0.1" value="1" style="vertical-align:middle;width:90px;">
+            </label>
+            <span id="ttsStatus" style="font-size:0.97em;color:#4fc3f7;margin-right:8px;"></span>
+          </div>
         </div>
         <div class="settings-section">
           <button id="resetSettingsBtn" class="settings-reset-btn"><i class="fas fa-undo"></i> إعادة الإعدادات الافتراضية</button>

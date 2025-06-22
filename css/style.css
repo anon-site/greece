@@ -628,7 +628,7 @@ header .container {
 .hero-features {
     display: flex;
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
     animation: fadeInUp 1.5s ease;
     width: 100%;
     max-width: 1000px;
@@ -2116,7 +2116,7 @@ footer {
     .hero-features {
         flex-direction: column;
         gap: 10px;
-        margin-top: 12px;
+        margin-top: 8px;
         max-width: 100%;
     }
     .feature-item {
@@ -3054,7 +3054,7 @@ footer {
   .hero-features {
     flex-direction: column;
     gap: 6px;
-    margin-top: 6px;
+    margin-top: 4px;
     max-width: 100%;
   }
   .feature-item {
@@ -5271,4 +5271,253 @@ html[data-theme="pink"] {
   --primary-color: #e84393;
   --secondary-color: #ad1457;
   --accent-color: #ffb6c1;
+}
+
+body.color-blind-mode {
+  --primary-color: #0057b8 !important;
+  --secondary-color: #ffd800 !important;
+  --accent-color: #ff6600 !important;
+  background: #fff !important;
+  color: #222 !important;
+  filter: none !important;
+}
+body.color-blind-mode .btn,
+body.color-blind-mode button,
+body.color-blind-mode .font-btn {
+  background: #ffd800 !important;
+  color: #0057b8 !important;
+  border: 2px solid #0057b8 !important;
+}
+body.color-blind-mode .btn:hover,
+body.color-blind-mode button:hover,
+body.color-blind-mode .font-btn:hover {
+  background: #ff6600 !important;
+  color: #fff !important;
+}
+body.color-blind-mode a {
+  color: #0057b8 !important;
+  text-decoration: underline !important;
+}
+body.color-blind-mode .settings-modal-content {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+body.dark-mode .mobile-bottom-nav {
+  background: rgba(34,44,58,0.97) !important;
+  border: 2.5px solid #263246 !important;
+  box-shadow: 0 8px 32px rgba(30,40,60,0.22), 0 2px 16px rgba(44,62,80,0.18) !important;
+}
+body.dark-mode .mobile-bottom-nav-link {
+  color: #f3f6fa !important;
+  background: none !important;
+}
+body.dark-mode .mobile-bottom-nav-link.active,
+body.dark-mode .mobile-bottom-nav-link:active,
+body.dark-mode .mobile-bottom-nav-link:hover {
+  color: #4fc3f7 !important;
+  background: rgba(41,128,185,0.10) !important;
+}
+body.dark-mode .mobile-bottom-nav-link i {
+  color: #f3f6fa !important;
+}
+body.dark-mode .mobile-bottom-nav-link.active i,
+body.dark-mode .mobile-bottom-nav-link:active i,
+body.dark-mode .mobile-bottom-nav-link:hover i {
+  color: #4fc3f7 !important;
+}
+body.dark-mode .mobile-bottom-nav-center {
+  background: linear-gradient(135deg, #263246, #1976d2) !important;
+  color: #fff !important;
+  border: 2.5px solid #34425a !important;
+}
+body.dark-mode .menu-popup {
+  background: #232a36 !important;
+  color: #f3f6fa !important;
+  border-color: #263246 !important;
+  box-shadow: 0 8px 32px rgba(30,40,60,0.22), 0 2px 16px rgba(44,62,80,0.18) !important;
+}
+body.dark-mode .menu-popup-list > li > a,
+body.dark-mode .menu-popup-list > li > .submenu-toggle {
+  background: #263246 !important;
+  color: #f3f6fa !important;
+  border: 1px solid #34425a !important;
+}
+body.dark-mode .menu-popup-list > li > a:hover,
+body.dark-mode .menu-popup-list > li > .submenu-toggle:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .menu-popup-list > li > a i,
+body.dark-mode .menu-popup-list > li > .submenu-toggle i {
+  background: #34425a !important;
+  color: #4fc3f7 !important;
+}
+body.dark-mode .menu-popup-list > li > a:hover i,
+body.dark-mode .menu-popup-list > li > .submenu-toggle:hover i {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+
+body.dark-mode button,
+body.dark-mode .btn,
+body.dark-mode .font-btn {
+  background: #263246 !important;
+  color: #f3f6fa !important;
+  border: 1.5px solid #34425a !important;
+  box-shadow: 0 2px 8px rgba(30,40,60,0.13);
+}
+body.dark-mode button:hover,
+body.dark-mode .btn:hover,
+body.dark-mode .font-btn:hover,
+body.dark-mode button:active,
+body.dark-mode .btn:active,
+body.dark-mode .font-btn:active {
+  background: #1976d2 !important;
+  color: #fff !important;
+  border-color: #4fc3f7 !important;
+}
+body.dark-mode .menu-popup-list .submenu {
+  background: #232a36 !important;
+  border: 1.5px solid #263246 !important;
+}
+body.dark-mode .menu-popup-list .submenu li a {
+  color: #f3f6fa !important;
+  background: none !important;
+}
+body.dark-mode .menu-popup-list .submenu li a:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .menu-popup-list > li > a {
+  background: #263246 !important;
+  color: #f3f6fa !important;
+  border: 1px solid #34425a !important;
+}
+body.dark-mode .menu-popup-list > li > a:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .menu-popup-list > li > a i {
+  background: #34425a !important;
+  color: #4fc3f7 !important;
+}
+body.dark-mode .menu-popup-list > li > a:hover i {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .menu-popup-list .submenu-anchor-popup {
+  background: #263246 !important;
+  color: #f3f6fa !important;
+  border: 1px solid #34425a !important;
+  box-shadow: 0 1px 6px rgba(30,40,60,0.10) !important;
+}
+body.dark-mode .menu-popup-list .submenu-anchor-popup:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .menu-popup-list .submenu-anchor-popup i {
+  background: #34425a !important;
+  color: #4fc3f7 !important;
+}
+body.dark-mode .menu-popup-list .submenu-anchor-popup:hover i {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .desktop-nav {
+  background: #232a36 !important;
+  box-shadow: 0 3px 10px rgba(30,40,60,0.13) !important;
+}
+body.dark-mode .desktop-nav ul li.nav-item > a {
+  background: none !important;
+  color: #f3f6fa !important;
+}
+body.dark-mode .desktop-nav ul li.nav-item > a .nav-icon {
+  color: #4fc3f7 !important;
+}
+body.dark-mode .desktop-nav ul li.nav-item > a:hover,
+body.dark-mode .desktop-nav ul li.nav-item.active > a,
+body.dark-mode .desktop-nav ul li.nav-item > a.active {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .desktop-nav ul li.nav-item > a:hover .nav-icon,
+body.dark-mode .desktop-nav ul li.nav-item.active > a .nav-icon,
+body.dark-mode .desktop-nav ul li.nav-item > a.active .nav-icon {
+  color: #fff !important;
+}
+body.dark-mode .dropdown-content {
+  background: #263246 !important;
+  color: #f3f6fa !important;
+  border-top: 3px solid #4fc3f7 !important;
+}
+body.dark-mode .dropdown-content a {
+  color: #f3f6fa !important;
+  background: none !important;
+}
+body.dark-mode .dropdown-content a:hover {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .dropdown-content a i {
+  color: #4fc3f7 !important;
+}
+body.dark-mode .dropdown-content a:hover i {
+  color: #fff !important;
+}
+
+body.dark-mode .hero {
+  background: linear-gradient(0deg, #181c23 70%, #1976d2 100%) !important;
+  background-image: none !important;
+  color: #fff !important;
+}
+body.dark-mode .hero .overlay {
+  background: none !important;
+}
+body.dark-mode .hero .animated-title {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px #000b;
+}
+body.dark-mode .hero .animated-title::after {
+  background: #4fc3f7 !important;
+}
+body.dark-mode .hero .animated-subtitle {
+  color: #4fc3f7 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.dark-mode .hero .hero-buttons .btn,
+body.dark-mode .hero .hero-buttons .btn-primary,
+body.dark-mode .hero .hero-buttons .btn-secondary {
+  background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%) !important;
+  color: #181c23 !important;
+  border: 1.5px solid #4fc3f7 !important;
+  font-weight: bold;
+}
+body.dark-mode .hero .hero-buttons .btn:hover {
+  background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%) !important;
+  color: #fff !important;
+}
+body.dark-mode .hero .feature-item {
+  background: rgba(25, 118, 210, 0.08) !important;
+  border: 1.5px solid #4fc3f7 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 12px #0002;
+}
+body.dark-mode .hero .feature-item h3 {
+  color: #ffe082 !important;
+}
+body.dark-mode .hero .feature-item p {
+  color: #e3eaf2 !important;
+}
+body.dark-mode .hero .feature-icon {
+  background: linear-gradient(135deg, #4fc3f7 0%, #1976d2 100%) !important;
+  border: 2px solid #4fc3f7 !important;
+}
+
+body.dark-mode .hero-wave svg path {
+  fill: #181c23 !important;
+  fill-opacity: 1 !important;
 }
