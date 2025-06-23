@@ -623,4 +623,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     })();
+
+    // --- دليل الطوارئ السريع ---
+    (function() {
+        const emergencyBtn = document.getElementById('emergencyBtn');
+        const emergencyModal = document.getElementById('emergencyModal');
+        const emergencyModalClose = document.getElementById('emergencyModalClose');
+        if (emergencyBtn && emergencyModal) {
+            emergencyBtn.addEventListener('click', function() {
+                emergencyModal.style.display = 'flex';
+            });
+        }
+        if (emergencyModalClose && emergencyModal) {
+            emergencyModalClose.addEventListener('click', function() {
+                emergencyModal.style.display = 'none';
+            });
+        }
+        if (emergencyModal) {
+            emergencyModal.addEventListener('click', function(e) {
+                if (e.target === emergencyModal) emergencyModal.style.display = 'none';
+            });
+        }
+    })();
 });

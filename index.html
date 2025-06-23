@@ -1850,5 +1850,26 @@
       </div>
     </div>
 
+    <!-- زر دليل الطوارئ السريع -->
+    <button id="emergencyBtn" title="دليل الطوارئ" style="position:fixed;bottom:32px;left:32px;z-index:1200;background:#e74c3c;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 18px #e74c3c33;display:flex;align-items:center;justify-content:center;font-size:2rem;cursor:pointer;transition:background 0.18s;">
+      <i class="fas fa-phone-alt"></i>
+    </button>
+    <!-- نافذة الطوارئ -->
+    <div id="emergencyModal" style="display:none;position:fixed;z-index:1300;left:0;top:0;width:100vw;height:100vh;background:rgba(34,44,58,0.32);align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:18px;box-shadow:0 8px 40px #e74c3c33;padding:32px 24px 22px 24px;min-width:320px;max-width:98vw;width:410px;position:relative;direction:rtl;">
+        <button id="emergencyModalClose" style="position:absolute;left:18px;top:18px;background:none;border:none;font-size:2rem;color:#e74c3c;cursor:pointer;z-index:2;">&times;</button>
+        <h2 style="font-size:1.35rem;font-weight:700;color:#e74c3c;margin-bottom:18px;display:flex;align-items:center;gap:8px;"><i class="fas fa-exclamation-triangle"></i> دليل الطوارئ السريع</h2>
+        <ul style="list-style:none;padding:0;margin:0 0 12px 0;font-size:1.13rem;">
+          <li style="margin-bottom:12px;"><b>الشرطة:</b> <a href="tel:100" style="color:#1976d2;font-weight:700;">100</a></li>
+          <li style="margin-bottom:12px;"><b>الإسعاف:</b> <a href="tel:166" style="color:#1976d2;font-weight:700;">166</a></li>
+          <li style="margin-bottom:12px;"><b>الإطفاء:</b> <a href="tel:199" style="color:#1976d2;font-weight:700;">199</a></li>
+          <li style="margin-bottom:12px;"><b>النجدة الأوروبية:</b> <a href="tel:112" style="color:#1976d2;font-weight:700;">112</a></li>
+          <li style="margin-bottom:12px;"><b>سفارة بلدك:</b> <a href="https://embassy.goabroad.com/embassies-in/greece" target="_blank" style="color:#e74c3c;font-weight:700;">دليل السفارات</a></li>
+        </ul>
+        <div style="font-size:0.98em;color:#666;">اضغط على الرقم للاتصال مباشرة (على الجوال).</div>
+      </div>
+    </div>
+    <!-- نهاية دليل الطوارئ السريع -->
+
 </body>
 </html>
