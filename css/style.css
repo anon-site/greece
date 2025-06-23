@@ -5768,3 +5768,40 @@ body.modal-open {
     border-radius: 9px;
   }
 }
+
+#highContrast {
+  accent-color: #f7b731;
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  margin-left: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+}
+.settings-section.high-contrast-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+.settings-section.high-contrast-section .settings-label {
+  margin-bottom: 0;
+  flex: 1;
+  font-size: 1.04rem;
+}
+@media (max-width: 600px) {
+  .settings-section.high-contrast-section {
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .settings-section.high-contrast-section .settings-label {
+    font-size: 0.97rem;
+  }
+  #highContrast {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+  }
+}
