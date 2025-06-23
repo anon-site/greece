@@ -5523,3 +5523,46 @@ body.dark-mode .hero-wave svg path {
   fill: #181c23 !important;
   fill-opacity: 1 !important;
 }
+
+body.economy-mode img,
+body.economy-mode .feature-icon,
+body.economy-mode .card img,
+body.economy-mode .hero img,
+body.economy-mode .section img {
+  display: none !important;
+}
+body.economy-mode .hero,
+body.economy-mode .hero .overlay,
+body.economy-mode .feature-item,
+body.economy-mode .card,
+body.economy-mode .section-header,
+body.economy-mode .btn,
+body.economy-mode .footer-wave,
+body.economy-mode .hero-wave {
+  transition: none !important;
+  animation: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body.economy-mode * {
+  transition: none !important;
+  animation: none !important;
+}
+
+body.dark-mode #emergencyModal > div {
+  background: #232a36 !important;
+  color: #fff !important;
+  box-shadow: 0 8px 40px #1976d255 !important;
+}
+body.dark-mode #emergencyModal h2 {
+  color: #f7b731 !important;
+}
+body.dark-mode #emergencyModal a {
+  color: #4fc3f7 !important;
+}
+body.dark-mode #emergencyModal button {
+  color: #e74c3c !important;
+}
+body.dark-mode #emergencyModal div[style*='font-size'] {
+  color: #bfc9d6 !important;
+}

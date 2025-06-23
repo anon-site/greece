@@ -450,6 +450,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const highContrast = document.getElementById('highContrast');
     const hideImages = document.getElementById('hideImages');
     const resetSettingsBtn = document.getElementById('resetSettingsBtn');
+    const settingsEconomyMode = document.getElementById('settingsEconomyMode');
 
     // --- حفظ واسترجاع الإعدادات ---
     function saveSettings(settings) {
@@ -507,6 +508,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('hide-images');
             if(hideImages) hideImages.checked = false;
         }
+        // الوضع الاقتصادي/البطء
+        if (settings.economyMode) {
+            document.body.classList.add('economy-mode');
+            if(settingsEconomyMode) settingsEconomyMode.checked = true;
+        } else {
+            document.body.classList.remove('economy-mode');
+            if(settingsEconomyMode) settingsEconomyMode.checked = false;
+        }
     }
 
     // --- تحميل وتطبيق الإعدادات عند بدء التشغيل ---
@@ -546,6 +555,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     if(hideImages) hideImages.addEventListener('change', function() {
         siteSettings.hideImages = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(settingsEconomyMode) settingsEconomyMode.addEventListener('change', function() {
+        siteSettings.economyMode = this.checked;
         applySettings(siteSettings); saveSettings(siteSettings);
     });
     if(resetSettingsBtn) resetSettingsBtn.addEventListener('click', function() {
@@ -645,4 +658,23 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     })();
+
+    // --- إشعار/تنبيه فوري ---
+    function showSiteAlert(msg, duration = 0) {
+        const alertBox = document.getElementById('siteAlert');
+        const alertMsg = document.getElementById('siteAlertMsg');
+        const alertClose = document.getElementById('siteAlertClose');
+        if (!alertBox || !alertMsg || !alertClose) return;
+        alertMsg.textContent = msg;
+        alertBox.style.display = 'flex';
+        alertBox.style.top = '0';
+        alertClose.onclick = function() {
+            alertBox.style.display = 'none';
+        };
+        if (duration > 0) {
+            setTimeout(() => { alertBox.style.display = 'none'; }, duration);
+        }
+    }
+    // مثال: عرض إشعار تلقائي عند الدخول (يمكنك حذف هذا السطر لاحقاً)
+    // showSiteAlert('تنبيه: تم تحديث أرقام الطوارئ في الموقع!', 7000);
 });

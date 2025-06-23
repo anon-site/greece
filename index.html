@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- إشعار فوري (تنبيه) -->
+    <div id="siteAlert" style="display:none;position:fixed;top:0;left:0;width:100vw;z-index:2000;background:#1976d2;color:#fff;padding:18px 32px 18px 48px;font-size:1.13rem;font-weight:700;box-shadow:0 4px 18px #1976d233;direction:rtl;transition:top 0.3s;align-items:center;justify-content:center;gap:16px;">
+      <span id="siteAlertMsg">تنبيه هام!</span>
+      <button id="siteAlertClose" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">&times;</button>
+    </div>
+    <!-- نهاية الإشعار الفوري -->
     <!-- Header Section -->
     <header>
         <div class="container">
@@ -1846,6 +1852,14 @@
         </div>
         <div class="settings-section">
           <button id="resetSettingsBtn" class="settings-reset-btn"><i class="fas fa-undo"></i> إعادة الإعدادات الافتراضية</button>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-bolt"></i> الوضع الاقتصادي/البطء</label>
+          <label class="switch">
+            <input type="checkbox" id="settingsEconomyMode">
+            <span class="slider round"></span>
+          </label>
+          <span style="font-size:0.97em;color:#888;margin-right:8px;">تقليل استهلاك البيانات: إخفاء الصور، تعطيل الحركات والمؤثرات.</span>
         </div>
       </div>
     </div>
