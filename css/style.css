@@ -431,18 +431,10 @@ header .container {
     z-index: 2;
 }
 
-/* Mobile Menu Toggle */
-/* تم الحذف */
-
-/* Mobile Navigation */
-/* تم الحذف */
-
-/* Mobile Menu Popup */
-/* تم الحذف */
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.06)), url('https://assets.hiphotels.com/attachments/64b9206b9c0e1504cf000464/hd.jpg?1689854054');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -464,7 +456,7 @@ header .container {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(26, 82, 118, 0.8) 0%, rgba(52, 152, 219, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(26, 82, 118, 0.55) 0%, rgba(52, 152, 219, 0.45) 100%);
     z-index: 1;
 }
 
@@ -491,7 +483,7 @@ header .container {
     font-size: 3.5rem;
     margin-bottom: 20px;
     font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 18px rgba(0,0,0,0.55), 0 1.5px 8px rgba(52,152,219,0.13);
     animation: fadeInDown 1s ease;
     position: relative;
     display: inline-block;
@@ -529,7 +521,7 @@ header .container {
     animation: fadeInUp 1s ease;
     max-width: 800px;
     line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 18px rgba(0,0,0,0.55), 0 1.5px 8px rgba(52,152,219,0.13);
 }
 
 .hero-buttons {
@@ -5479,8 +5471,9 @@ body.dark-mode .dropdown-content a:hover i {
 }
 
 body.dark-mode .hero {
-  background: linear-gradient(0deg, #181c23 70%, #1976d2 100%) !important;
-  background-image: none !important;
+  background: linear-gradient(0deg, rgba(24,28,35,0.82) 70%, rgba(25,118,210,0.55) 100%), url('https://assets.hiphotels.com/attachments/64b9206b9c0e1504cf000464/hd.jpg?1689854054') !important;
+  background-size: cover !important;
+  background-position: center !important;
   color: #fff !important;
 }
 body.dark-mode .hero .overlay {
