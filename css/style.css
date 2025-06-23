@@ -5750,3 +5750,21 @@ body.modal-open {
     margin-right: 4px;
   }
 }
+
+@media (max-width: 600px) {
+  .settings-modal-content {
+    min-width: 0;
+    width: 94vw;
+    max-width: 96vw;
+    padding: 12px 2vw 8px 2vw;
+    border-radius: 12px;
+  }
+}
+@media (max-width: 400px) {
+  .settings-modal-content {
+    width: 98vw;
+    max-width: 99vw;
+    padding: 8px 1vw 6px 1vw;
+    border-radius: 9px;
+  }
+}

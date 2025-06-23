@@ -582,6 +582,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         // وضع عمى الألوان
         if (settings.colorBlindMode) {
+            if (this.checked && siteSettings.darkMode) {
+                // منع التفعيل مع الوضع الليلي
+                this.checked = false;
+                // رسالة تنبيه
+                showSettingsAlert('يرجى إلغاء الوضع الليلي أولاً لتفعيل وضع عمى الألوان.');
+                return;
+            }
             document.body.classList.add('color-blind-mode');
             if(settingsColorBlindMode) settingsColorBlindMode.checked = true;
         } else {
@@ -680,6 +687,13 @@ document.addEventListener('DOMContentLoaded', function() {
         applySettings(siteSettings); saveSettings(siteSettings);
     });
     if(settingsColorBlindMode) settingsColorBlindMode.addEventListener('change', function() {
+        if (this.checked && siteSettings.darkMode) {
+            // منع التفعيل مع الوضع الليلي
+            this.checked = false;
+            // رسالة تنبيه
+            showSettingsAlert('يرجى إلغاء الوضع الليلي أولاً لتفعيل وضع عمى الألوان.');
+            return;
+        }
         siteSettings.colorBlindMode = this.checked;
         applySettings(siteSettings); saveSettings(siteSettings);
     });
@@ -799,4 +813,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // مثال: عرض إشعار تلقائي عند الدخول (يمكنك حذف هذا السطر لاحقاً)
     // showSiteAlert('تنبيه: تم تحديث أرقام الطوارئ في الموقع!', 7000);
+
+    // دالة لعرض رسالة تنبيه في نافذة الإعدادات
+    function showSettingsAlert(msg) {
+        let alertDiv = document.getElementById('settingsAlertMsg');
+        if (!alertDiv) {
+            alertDiv = document.createElement('div');
+            alertDiv.id = 'settingsAlertMsg';
+            alertDiv.style.cssText = 'background:#e74c3c;color:#fff;padding:10px 18px;border-radius:8px;margin:10px 0 0 0;font-size:1.07rem;text-align:center;box-shadow:0 2px 8px #e74c3c33;z-index:10000;';
+            const modalContent = document.querySelector('.settings-modal-content');
+            if (modalContent) modalContent.insertBefore(alertDiv, modalContent.firstChild);
+        }
+        alertDiv.textContent = msg;
+        alertDiv.style.display = 'block';
+        setTimeout(() => { if(alertDiv) alertDiv.style.display = 'none'; }, 3500);
+    }
 });
