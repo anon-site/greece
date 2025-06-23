@@ -3912,6 +3912,8 @@ footer {
   position: relative;
   animation: fadeInDown 0.4s;
   direction: rtl;
+  scrollbar-width: thin;
+  scrollbar-color: #1976d2 #e3eaf2;
 }
 .settings-modal-close {
   position: absolute;
@@ -5804,4 +5806,140 @@ body.modal-open {
     height: 18px;
     margin-right: 4px;
   }
+}
+
+body.high-contrast {
+  background: #000 !important;
+  color: #fff200 !important;
+  --primary-color: #fff200 !important;
+  --secondary-color: #000 !important;
+  --accent-color: #fff200 !important;
+  filter: none !important;
+}
+body.high-contrast header,
+body.high-contrast .settings-modal-content,
+body.high-contrast .card,
+body.high-contrast .section-header,
+body.high-contrast .menu-popup,
+body.high-contrast .menu-popup-content,
+body.high-contrast .modern-doc-card,
+body.high-contrast .org-card,
+body.high-contrast .faq-accordion,
+body.high-contrast .faq-item,
+body.high-contrast .service-card,
+body.high-contrast .job-card {
+  background: #000 !important;
+  color: #fff200 !important;
+  border-color: #fff200 !important;
+  box-shadow: 0 0 0 2px #fff20055 !important;
+}
+body.high-contrast h1, body.high-contrast h2, body.high-contrast h3, body.high-contrast h4, body.high-contrast h5, body.high-contrast h6 {
+  color: #fff200 !important;
+  text-shadow: 0 1px 8px #000a;
+}
+body.high-contrast p, body.high-contrast span, body.high-contrast label, body.high-contrast li, body.high-contrast .settings-label {
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+body.high-contrast a {
+  color: #fff200 !important;
+  background: #000 !important;
+  text-decoration: underline !important;
+  font-weight: 900;
+  outline: 2.5px dashed #fff200 !important;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px #fff20022;
+}
+body.high-contrast a:hover, body.high-contrast a:focus {
+  background: #fff200 !important;
+  color: #000 !important;
+  outline: 2.5px solid #fff200 !important;
+}
+body.high-contrast .btn,
+body.high-contrast button,
+body.high-contrast .font-btn {
+  background: #fff200 !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+  font-weight: 900;
+  box-shadow: 0 2px 8px #fff20055 !important;
+}
+body.high-contrast .btn:hover,
+body.high-contrast button:hover,
+body.high-contrast .font-btn:hover {
+  background: #000 !important;
+  color: #fff200 !important;
+  border: 2px solid #fff200 !important;
+}
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
+  background: #000 !important;
+  color: #fff200 !important;
+  border: 2px solid #fff200 !important;
+}
+body.high-contrast .settings-modal-close {
+  color: #fff200 !important;
+}
+body.high-contrast .settings-modal-close:hover {
+  color: #e74c3c !important;
+}
+body.high-contrast .settings-action-btn {
+  background: #fff200 !important;
+  color: #000 !important;
+  font-weight: 900;
+}
+body.high-contrast .settings-action-btn:hover {
+  background: #000 !important;
+  color: #fff200 !important;
+}
+body.high-contrast .settings-reset-btn {
+  background: #e74c3c !important;
+  color: #fff !important;
+}
+body.high-contrast .settings-reset-btn:hover {
+  background: #c0392b !important;
+  color: #fff200 !important;
+}
+body.high-contrast .theme-btn {
+  border: 2.5px solid #fff200 !important;
+}
+body.high-contrast .theme-btn.selected, body.high-contrast .theme-btn:focus {
+  border: 2.5px solid #e74c3c !important;
+}
+body.high-contrast .slider {
+  background: #fff200 !important;
+}
+body.high-contrast input:checked + .slider {
+  background: #e74c3c !important;
+}
+body.high-contrast .slider:before {
+  background: #000 !important;
+}
+body.high-contrast .settings-section,
+body.high-contrast .settings-modal-content label,
+body.high-contrast .settings-modal-content span,
+body.high-contrast .settings-modal-content p {
+  color: #fff !important;
+}
+body.high-contrast .settings-section.high-contrast-section .settings-label {
+  color: #fff200 !important;
+}
+body.high-contrast .settings-section.color-blind-section .settings-label {
+  color: #fff200 !important;
+}
+
+body.high-contrast .settings-modal-content {
+  scrollbar-color: #fff200 #000;
+}
+body.high-contrast .settings-modal-content::-webkit-scrollbar {
+  background: #000;
+}
+body.high-contrast .settings-modal-content::-webkit-scrollbar-thumb {
+  background: #fff200;
+  border: 2px solid #000;
+}
+body.high-contrast .settings-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #e74c3c;
 }
