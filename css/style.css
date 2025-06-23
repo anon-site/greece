@@ -6224,3 +6224,11 @@ body.color-blind-mode .service-card .card-back .card-link:hover {
   background: #ffd800 !important;
   color: #0057b8 !important;
 }
+
+.settings-section.color-blind-section {
+  margin-top: 18px !important;
+  margin-bottom: 10px !important;
+}
+.settings-section.high-contrast-section {
+  margin-top: 12px !important;
+}
