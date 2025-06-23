@@ -305,11 +305,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Footer: Live Clock, IP, Country, Weather ---
     function updateFooterClock() {
         const now = new Date();
-        const h = String(now.getHours()).padStart(2, '0');
+        let h = now.getHours();
         const m = String(now.getMinutes()).padStart(2, '0');
         const s = String(now.getSeconds()).padStart(2, '0');
+        let periodLabel, periodIcon;
+        if (h < 12) {
+            periodLabel = 'صباحاً';
+            periodIcon = '☀️';
+        } else {
+            periodLabel = 'مساءً';
+            periodIcon = '🌙';
+        }
+        let h12 = h % 12;
+        h12 = h12 ? h12 : 12; // 0 => 12
         const el = document.getElementById('footerLocalTime');
-        if (el) el.textContent = `${h}:${m}:${s}`;
+        if (el) el.innerHTML = `${h12}:${m}:${s} <span style='font-size:0.95em;color:#f7b731;margin-right:4px;'>${periodIcon}</span> <span style='font-size:0.92em;color:#4fc3f7;'>${periodLabel}</span>`;
     }
     setInterval(updateFooterClock, 1000);
     updateFooterClock();
