@@ -495,6 +495,20 @@ header .container {
     animation: fadeInDown 1s ease;
     position: relative;
     display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid #1976d2;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .05em;
+    animation: typing 2.5s steps(30, end), blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #1976d2; }
 }
 
 .animated-title::after {
@@ -4100,11 +4114,6 @@ body.dark-mode button:hover,
 body.dark-mode .font-btn:hover {
   background: #1976d2 !important;
   color: #fff !important;
-}
-
-/* تباين عالٍ */
-body.high-contrast {
-  filter: contrast(1.5) brightness(1.1);
 }
 
 /* إبراز الروابط */

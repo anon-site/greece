@@ -440,11 +440,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const fontSizeValue = document.getElementById('fontSizeValue');
     const settingsLanguage = document.getElementById('settingsLanguage');
     const highContrast = document.getElementById('highContrast');
-    const highlightLinks = document.getElementById('highlightLinks');
-    const dyslexicFont = document.getElementById('dyslexicFont');
     const hideImages = document.getElementById('hideImages');
     const resetSettingsBtn = document.getElementById('resetSettingsBtn');
-    const colorBlindMode = document.getElementById('colorBlindMode');
 
     // --- حفظ واسترجاع الإعدادات ---
     function saveSettings(settings) {
@@ -494,22 +491,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('high-contrast');
             if(highContrast) highContrast.checked = false;
         }
-        // إبراز الروابط
-        if (settings.highlightLinks) {
-            document.body.classList.add('highlight-links');
-            if(highlightLinks) highlightLinks.checked = true;
-        } else {
-            document.body.classList.remove('highlight-links');
-            if(highlightLinks) highlightLinks.checked = false;
-        }
-        // خط خاص لضعاف البصر
-        if (settings.dyslexicFont) {
-            document.body.classList.add('dyslexic-font');
-            if(dyslexicFont) dyslexicFont.checked = true;
-        } else {
-            document.body.classList.remove('dyslexic-font');
-            if(dyslexicFont) dyslexicFont.checked = false;
-        }
         // إخفاء الصور
         if (settings.hideImages) {
             document.body.classList.add('hide-images');
@@ -517,14 +498,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             document.body.classList.remove('hide-images');
             if(hideImages) hideImages.checked = false;
-        }
-        // ألوان مناسبة لعمى الألوان
-        if (settings.colorBlindMode) {
-            document.body.classList.add('color-blind-mode');
-            if(colorBlindMode) colorBlindMode.checked = true;
-        } else {
-            document.body.classList.remove('color-blind-mode');
-            if(colorBlindMode) colorBlindMode.checked = false;
         }
     }
 
@@ -563,20 +536,8 @@ document.addEventListener('DOMContentLoaded', function() {
         siteSettings.highContrast = this.checked;
         applySettings(siteSettings); saveSettings(siteSettings);
     });
-    if(highlightLinks) highlightLinks.addEventListener('change', function() {
-        siteSettings.highlightLinks = this.checked;
-        applySettings(siteSettings); saveSettings(siteSettings);
-    });
-    if(dyslexicFont) dyslexicFont.addEventListener('change', function() {
-        siteSettings.dyslexicFont = this.checked;
-        applySettings(siteSettings); saveSettings(siteSettings);
-    });
     if(hideImages) hideImages.addEventListener('change', function() {
         siteSettings.hideImages = this.checked;
-        applySettings(siteSettings); saveSettings(siteSettings);
-    });
-    if(colorBlindMode) colorBlindMode.addEventListener('change', function() {
-        siteSettings.colorBlindMode = this.checked;
         applySettings(siteSettings); saveSettings(siteSettings);
     });
     if(resetSettingsBtn) resetSettingsBtn.addEventListener('click', function() {
