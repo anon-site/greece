@@ -5566,3 +5566,13 @@ body.dark-mode #emergencyModal button {
 body.dark-mode #emergencyModal div[style*='font-size'] {
   color: #bfc9d6 !important;
 }
+
+body.economy-mode .work,
+body.economy-mode .work * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  box-shadow: inherit !important;
+  filter: none !important;
+}
