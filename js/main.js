@@ -304,10 +304,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Footer: Live Clock, IP, Country, Weather ---
     function updateFooterClock() {
+        // استخدم توقيت أثينا الرسمي
         const now = new Date();
-        let h = now.getHours();
-        const m = String(now.getMinutes()).padStart(2, '0');
-        const s = String(now.getSeconds()).padStart(2, '0');
+        const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+        let h = athensTime.getHours();
+        const m = String(athensTime.getMinutes()).padStart(2, '0');
+        const s = String(athensTime.getSeconds()).padStart(2, '0');
         let periodLabel, periodIcon;
         if (h < 12) {
             periodLabel = 'صباحاً';
@@ -320,15 +322,44 @@ document.addEventListener('DOMContentLoaded', function() {
         h12 = h12 ? h12 : 12; // 0 => 12
         const el = document.getElementById('footerLocalTime');
         if (el) el.innerHTML = `${h12}:${m}:${s} <span style='font-size:0.95em;color:#f7b731;margin-right:4px;'>${periodIcon}</span> <span style='font-size:0.92em;color:#4fc3f7;'>${periodLabel}</span>`;
+        // تحديث التاريخ أسفل الساعة
+        const dateEl = document.getElementById('footerLocalDate');
+        if (dateEl) {
+            const days = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+            const months = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+            const dayName = days[athensTime.getDay()];
+            const day = athensTime.getDate();
+            const month = months[athensTime.getMonth()];
+            const year = athensTime.getFullYear();
+            dateEl.textContent = `${dayName}، ${day} ${month} ${year}`;
+        }
     }
     setInterval(updateFooterClock, 1000);
     updateFooterClock();
 
     function weatherCodeToDesc(code) {
         const map = {
-            0: 'صحو', 1: 'غائم جزئي', 2: 'غائم', 3: 'غائم كلي', 45: 'ضباب', 48: 'ضباب', 51: 'رذاذ', 53: 'رذاذ', 55: 'رذاذ', 61: 'مطر خفيف', 63: 'مطر', 65: 'مطر غزير', 71: 'ثلج خفيف', 73: 'ثلج', 75: 'ثلج كثيف', 80: 'زخات مطر', 81: 'زخات مطر', 82: 'زخات مطر غزيرة', 95: 'عاصفة رعدية'
+            0: {desc: 'صحو', icon: '☀️'},
+            1: {desc: 'غائم جزئي', icon: '⛅'},
+            2: {desc: 'غائم', icon: '☁️'},
+            3: {desc: 'غائم كلي', icon: '☁️'},
+            45: {desc: 'ضباب', icon: '🌫️'},
+            48: {desc: 'ضباب', icon: '🌫️'},
+            51: {desc: 'رذاذ', icon: '🌦️'},
+            53: {desc: 'رذاذ', icon: '🌦️'},
+            55: {desc: 'رذاذ', icon: '🌦️'},
+            61: {desc: 'مطر خفيف', icon: '🌦️'},
+            63: {desc: 'مطر', icon: '🌧️'},
+            65: {desc: 'مطر غزير', icon: '🌧️'},
+            71: {desc: 'ثلج خفيف', icon: '🌨️'},
+            73: {desc: 'ثلج', icon: '❄️'},
+            75: {desc: 'ثلج كثيف', icon: '❄️'},
+            80: {desc: 'زخات مطر', icon: '🌦️'},
+            81: {desc: 'زخات مطر', icon: '🌦️'},
+            82: {desc: 'زخات مطر غزيرة', icon: '🌧️'},
+            95: {desc: 'عاصفة رعدية', icon: '⛈️'}
         };
-        return map[code] || '';
+        return map[code] || {desc: '', icon: '❔'};
     }
     async function updateFooterIPAndWeather() {
         try {
@@ -370,6 +401,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 country_code = 'gr';
             }
             if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = ip;
+            // نوع البروتوكول
+            if (document.getElementById('footerIPType')) {
+                let ipType = '';
+                if (ipData && ipData.version) ipType = ipData.version === '6' ? 'IPv6' : 'IPv4';
+                document.getElementById('footerIPType').textContent = ipType;
+            }
+            // الموقع المختصر بجانب الـIP
+            if (document.getElementById('footerIPLocation')) {
+                let loc = '';
+                if (ipData && ipData.city && ipData.country_name) {
+                    // إذا كان اسم المدينة يحتوي بالفعل على اسم الدولة، لا تكررها
+                    if (ipData.city.includes(ipData.country_name)) {
+                        loc = ipData.city;
+                    } else {
+                        loc = `${ipData.city}, ${ipData.country_name}`;
+                    }
+                } else if (ipData && ipData.country_name) {
+                    loc = ipData.country_name;
+                }
+                document.getElementById('footerIPLocation').textContent = loc;
+            }
+            // مزود الخدمة
+            if (document.getElementById('footerISP')) {
+                let isp = '';
+                if (ipData && ipData.org) isp = ipData.org;
+                document.getElementById('footerISP').innerHTML = isp ? `<i class='fas fa-network-wired' style='margin-left:4px;'></i> ${isp}` : '';
+            }
             if (document.getElementById('footerCountryFlag')) {
                 let flagHTML = '';
                 if (country_code) {
@@ -381,19 +439,50 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get weather
             if (lat && lon && document.getElementById('footerWeather')) {
                 try {
-                    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`);
+                    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=relative_humidity_2m,windspeed_10m&timezone=auto`);
                     const weatherData = await weatherRes.json();
                     if (weatherData.current_weather) {
-                        document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
-                        if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
+                        // أيقونة ووصف الطقس
+                        const weatherInfo = weatherCodeToDesc(weatherData.current_weather.weathercode);
+                        document.getElementById('footerWeather').innerHTML = weatherData.current_weather.temperature + '°C ' + weatherInfo.icon;
+                        if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = weatherInfo.desc;
                         if (document.getElementById('footerWeatherLocation')) document.getElementById('footerWeatherLocation').textContent = city ? `(${city})` : '';
+                        // رطوبة
+                        if (document.getElementById('footerWeatherHumidity')) {
+                            let humidity = '--';
+                            if (weatherData.hourly && weatherData.hourly.relative_humidity_2m && weatherData.hourly.time) {
+                                // جلب الرطوبة لأقرب ساعة حالية
+                                const now = new Date();
+                                const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+                                const hourStr = athensTime.toISOString().slice(0, 13); // YYYY-MM-DDTHH
+                                const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
+                                if (idx !== -1) humidity = weatherData.hourly.relative_humidity_2m[idx];
+                            }
+                            document.getElementById('footerWeatherHumidity').textContent = `الرطوبة: ${humidity}%`;
+                        }
+                        // رياح
+                        if (document.getElementById('footerWeatherWind')) {
+                            let wind = '--';
+                            if (weatherData.hourly && weatherData.hourly.windspeed_10m && weatherData.hourly.time) {
+                                const now = new Date();
+                                const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+                                const hourStr = athensTime.toISOString().slice(0, 13);
+                                const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
+                                if (idx !== -1) wind = weatherData.hourly.windspeed_10m[idx];
+                            }
+                            document.getElementById('footerWeatherWind').textContent = `الرياح: ${wind} كم/س`;
+                        }
                     } else {
                         document.getElementById('footerWeather').textContent = '--°C';
                         if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
+                        if (document.getElementById('footerWeatherHumidity')) document.getElementById('footerWeatherHumidity').textContent = '';
+                        if (document.getElementById('footerWeatherWind')) document.getElementById('footerWeatherWind').textContent = '';
                     }
                 } catch (e) {
                     document.getElementById('footerWeather').textContent = '--°C';
                     if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
+                    if (document.getElementById('footerWeatherHumidity')) document.getElementById('footerWeatherHumidity').textContent = '';
+                    if (document.getElementById('footerWeatherWind')) document.getElementById('footerWeatherWind').textContent = '';
                 }
             }
         } catch (e) {
