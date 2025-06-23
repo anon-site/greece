@@ -560,6 +560,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hideImages = document.getElementById('hideImages');
     const resetSettingsBtn = document.getElementById('resetSettingsBtn');
     const settingsEconomyMode = document.getElementById('settingsEconomyMode');
+    const settingsColorBlindMode = document.getElementById('settingsColorBlindMode');
 
     // --- حفظ واسترجاع الإعدادات ---
     function saveSettings(settings) {
@@ -578,6 +579,14 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             document.body.classList.remove('dark-mode');
             if(settingsDarkMode) settingsDarkMode.checked = false;
+        }
+        // وضع عمى الألوان
+        if (settings.colorBlindMode) {
+            document.body.classList.add('color-blind-mode');
+            if(settingsColorBlindMode) settingsColorBlindMode.checked = true;
+        } else {
+            document.body.classList.remove('color-blind-mode');
+            if(settingsColorBlindMode) settingsColorBlindMode.checked = false;
         }
         // السمة
         if (settings.theme) {
@@ -668,6 +677,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     if(settingsEconomyMode) settingsEconomyMode.addEventListener('change', function() {
         siteSettings.economyMode = this.checked;
+        applySettings(siteSettings); saveSettings(siteSettings);
+    });
+    if(settingsColorBlindMode) settingsColorBlindMode.addEventListener('change', function() {
+        siteSettings.colorBlindMode = this.checked;
         applySettings(siteSettings); saveSettings(siteSettings);
     });
     if(resetSettingsBtn) resetSettingsBtn.addEventListener('click', function() {
