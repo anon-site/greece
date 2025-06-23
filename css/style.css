@@ -5660,3 +5660,55 @@ body.dark-mode .copyright-icon {
     color: #1976d2;
     font-size: 1.1em;
 }
+
+/* تحسين تجاوب نافذة الإعدادات للشاشات الصغيرة جداً */
+@media (max-width: 400px) {
+  .settings-modal-content {
+    padding: 10px 1vw 8px 1vw;
+    font-size: 0.97rem;
+    border-radius: 10px;
+    min-width: 0;
+    width: 99vw;
+    max-width: 99vw;
+  }
+  .settings-modal-title {
+    font-size: 0.98rem;
+    gap: 4px;
+  }
+  .settings-modal-close {
+    font-size: 1.4rem;
+    left: 8px;
+    top: 8px;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  .settings-section {
+    margin-bottom: 12px;
+  }
+  .settings-label {
+    font-size: 0.98rem;
+    gap: 4px;
+  }
+  .settings-action-btn, .settings-reset-btn, .font-btn {
+    font-size: 0.97rem;
+    padding: 5px 10px;
+  }
+}
+
+/* ضمان التمرير داخل نافذة الإعدادات إذا زاد المحتوى */
+.settings-modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* تحسين قابلية اللمس للأزرار داخل النافذة */
+.settings-action-btn, .settings-reset-btn, .font-btn, .theme-btn {
+  min-width: 40px;
+  min-height: 36px;
+}
+
+/* عند فتح النافذة، منع تمرير الخلفية */
+body.modal-open {
+  overflow: hidden !important;
+}
