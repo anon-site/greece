@@ -333,13 +333,27 @@ document.addEventListener('DOMContentLoaded', function() {
     async function updateFooterIPAndWeather() {
         try {
             let ipData = null;
+            // جرب ipapi أولاً
             try {
                 const ipRes = await fetch('https://ipapi.co/json/');
                 ipData = await ipRes.json();
             } catch (e) {
                 ipData = null;
             }
-            let lat, lon, city, country_name, country_emoji, country_code, ip;
+            // إذا لم نحصل على IP، جرب ipify
+            let ip = '';
+            if (!ipData || !ipData.ip) {
+                try {
+                    const ipifyRes = await fetch('https://api.ipify.org?format=json');
+                    const ipifyData = await ipifyRes.json();
+                    ip = ipifyData.ip || 'غير متوفر';
+                } catch (e) {
+                    ip = 'غير متوفر';
+                }
+            } else {
+                ip = ipData.ip;
+            }
+            let lat, lon, city, country_name, country_emoji, country_code;
             if (ipData && ipData.latitude && ipData.longitude) {
                 lat = ipData.latitude;
                 lon = ipData.longitude;
@@ -347,7 +361,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 country_name = ipData.country_name || '';
                 country_emoji = ipData.country_emoji || '';
                 country_code = ipData.country_code ? ipData.country_code.toLowerCase() : '';
-                ip = ipData.ip || '';
             } else {
                 // موقع افتراضي: أثينا
                 lat = 37.98;
@@ -355,7 +368,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 city = 'أثينا';
                 country_name = 'اليونان';
                 country_code = 'gr';
-                ip = 'غير متوفر';
             }
             if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = ip;
             if (document.getElementById('footerCountryFlag')) {
