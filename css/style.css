@@ -3994,20 +3994,45 @@ input:checked + .slider:before {
 .slider.round:before { border-radius: 50%; }
 .settings-themes {
   display: flex;
-  gap: 10px;
-  margin-top: 7px;
+  gap: 14px;
+  margin-top: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 .theme-btn {
-  width: 32px; height: 32px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 2.5px solid #e3eaf2;
   cursor: pointer;
   outline: none;
-  transition: border 0.18s, transform 0.18s;
+  box-shadow: 0 2px 8px #1976d21a;
+  transition: border 0.18s, transform 0.18s, box-shadow 0.18s;
+  position: relative;
 }
 .theme-btn.selected, .theme-btn:focus {
-  border: 2.5px solid #1976d2;
-  transform: scale(1.13);
+  border: 3px solid #1976d2;
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px #1976d233;
+  z-index: 2;
+}
+.theme-btn:hover {
+  box-shadow: 0 4px 16px #1976d233;
+  transform: scale(1.09);
+}
+.theme-btn::after { display: none !important; }
+.theme-btn:hover::after, .theme-btn:focus::after {
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .settings-themes {
+    gap: 8px;
+    margin-top: 7px;
+  }
+  .theme-btn {
+    width: 32px;
+    height: 32px;
+  }
 }
 .settings-fontsize {
   display: flex;
@@ -4765,7 +4790,7 @@ body.dark-mode .faq-accordion.gov-faq-accordion,
 body.dark-mode .faq-item {
   background: #232a36 !important;
   color: #fff !important;
-  border: none !important;
+  border-color: #263246 !important;
 }
 body.dark-mode .faq-question,
 body.dark-mode .faq-answer {
@@ -5212,6 +5237,7 @@ body.dark-mode .settings-reset-btn {
 }
 body.dark-mode .settings-reset-btn:hover {
   background: #c0392b !important;
+  color: #fff200 !important;
 }
 body.dark-mode .theme-btn {
   border: 2.5px solid #34425a !important;
@@ -5280,6 +5306,9 @@ body.color-blind-mode {
   color: #222 !important;
   filter: none !important;
 }
+body.color-blind-mode header,
+body.color-blind-mode .settings-modal-content,
+body.color-blind-mode .card,
 body.color-blind-mode .btn,
 body.color-blind-mode button,
 body.color-blind-mode .font-btn {
@@ -6001,4 +6030,197 @@ body.high-contrast .settings-modal-content::-webkit-scrollbar-thumb:hover {
   margin-right: 0;
   margin-left: 0;
   vertical-align: middle;
+}
+
+body.color-blind-mode .service-card,
+body.color-blind-mode .service-card .card-front,
+body.color-blind-mode .service-card .card-back {
+  background: #fff !important;
+  color: #0057b8 !important;
+  border: 2.5px solid #0057b8 !important;
+  box-shadow: 0 4px 18px #ffd80033 !important;
+}
+body.color-blind-mode .service-card h3,
+body.color-blind-mode .service-card .card-front h3,
+body.color-blind-mode .service-card .card-back h3 {
+  color: #ff6600 !important;
+  font-weight: 900;
+  text-shadow: 0 1px 8px #ffd80055;
+}
+body.color-blind-mode .service-card p,
+body.color-blind-mode .service-card .card-info,
+body.color-blind-mode .service-card .card-brief {
+  color: #0057b8 !important;
+  font-weight: 700;
+}
+body.color-blind-mode .service-card .card-icon {
+  background: #ffd800 !important;
+  color: #0057b8 !important;
+  border: 2.5px solid #0057b8 !important;
+  box-shadow: 0 2px 8px #ffd80055 !important;
+}
+body.color-blind-mode .service-card .card-link {
+  color: #fff !important;
+  background: #0057b8 !important;
+  border-radius: 7px;
+  font-weight: 900;
+  transition: background 0.18s, color 0.18s;
+}
+body.color-blind-mode .service-card .card-link:hover {
+  background: #ff6600 !important;
+  color: #fff !important;
+}
+body.color-blind-mode .service-card .card-back {
+  background: #fff !important;
+  color: #0057b8 !important;
+  border: 2.5px solid #0057b8 !important;
+  box-shadow: 0 4px 18px #ffd80033 !important;
+}
+body.color-blind-mode .service-card .card-back h3 {
+  color: #ff6600 !important;
+  font-weight: 900;
+  text-shadow: 0 1px 8px #ffd80055;
+}
+body.color-blind-mode .service-card .card-back p,
+body.color-blind-mode .service-card .card-back li {
+  color: #0057b8 !important;
+  font-weight: 700;
+}
+body.color-blind-mode .service-card .card-back .card-link {
+  color: #fff !important;
+  background: #0057b8 !important;
+  border-radius: 7px;
+  font-weight: 900;
+  transition: background 0.18s, color 0.18s;
+}
+body.color-blind-mode .service-card .card-back .card-link:hover {
+  background: #ff6600 !important;
+  color: #fff !important;
+}
+body.color-blind-mode .service-card .card-back i,
+body.color-blind-mode .service-card .card-back .icon {
+  color: #ff6600 !important;
+}
+
+body.high-contrast .service-card,
+body.high-contrast .service-card .card-front,
+body.high-contrast .service-card .card-back {
+  background: #000 !important;
+  color: #fff200 !important;
+  border: 2.5px solid #fff200 !important;
+  box-shadow: 0 4px 18px #fff20033 !important;
+}
+body.high-contrast .service-card h3,
+body.high-contrast .service-card .card-front h3,
+body.high-contrast .service-card .card-back h3 {
+  color: #fff200 !important;
+  font-weight: 900;
+  text-shadow: 0 1px 8px #000a;
+}
+body.high-contrast .service-card p,
+body.high-contrast .service-card .card-info,
+body.high-contrast .service-card .card-brief {
+  color: #fff !important;
+  font-weight: 700;
+}
+body.high-contrast .service-card .card-icon {
+  background: #fff200 !important;
+  color: #000 !important;
+  border: 2.5px solid #fff !important;
+  box-shadow: 0 2px 8px #fff20055 !important;
+}
+body.high-contrast .service-card .card-link {
+  color: #000 !important;
+  background: #fff200 !important;
+  border-radius: 7px;
+  font-weight: 900;
+  transition: background 0.18s, color 0.18s;
+}
+body.high-contrast .service-card .card-link:hover {
+  background: #e74c3c !important;
+  color: #fff !important;
+}
+
+body.high-contrast .hero,
+body.high-contrast .hero .overlay {
+  background: #000 !important;
+  color: #fff200 !important;
+}
+body.high-contrast .hero-content,
+body.high-contrast .hero-text {
+  color: #fff !important;
+}
+body.high-contrast .animated-title,
+body.high-contrast .hero h1,
+body.high-contrast .hero h2 {
+  color: #fff200 !important;
+  text-shadow: 0 1px 8px #000a;
+  font-weight: 900;
+}
+body.high-contrast .animated-subtitle,
+body.high-contrast .hero p {
+  color: #fff !important;
+  font-weight: 700;
+}
+body.high-contrast .hero-buttons .btn,
+body.high-contrast .hero-buttons .btn-primary,
+body.high-contrast .hero-buttons .btn-secondary {
+  background: #fff200 !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+  font-weight: 900;
+  box-shadow: 0 2px 8px #fff20055 !important;
+}
+body.high-contrast .hero-buttons .btn:hover {
+  background: #e74c3c !important;
+  color: #fff !important;
+}
+body.high-contrast .feature-icon {
+  background: #fff200 !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+  box-shadow: 0 2px 8px #fff20055 !important;
+}
+body.high-contrast .feature-item h3 {
+  color: #fff200 !important;
+  font-weight: 900;
+}
+body.high-contrast .feature-item p {
+  color: #fff !important;
+  font-weight: 700;
+}
+body.high-contrast .hero-wave svg path {
+  fill: #fff200 !important;
+  fill-opacity: 1 !important;
+}
+
+body.color-blind-mode .btn:hover,
+body.color-blind-mode button:hover,
+body.color-blind-mode .font-btn:hover {
+  background: #0057b8 !important;
+  color: #fff !important;
+  border: 2px solid #ffd800 !important;
+}
+body.color-blind-mode .settings-modal-close:hover {
+  color: #ffd800 !important;
+}
+body.color-blind-mode .settings-action-btn:hover {
+  background: #0057b8 !important;
+  color: #fff !important;
+}
+body.color-blind-mode .settings-reset-btn {
+  background: #0057b8 !important;
+  color: #fff !important;
+}
+body.color-blind-mode .settings-reset-btn:hover {
+  background: #ffd800 !important;
+  color: #0057b8 !important;
+}
+body.color-blind-mode .theme-btn.selected, body.color-blind-mode .theme-btn:focus {
+  border: 2.5px solid #ffd800 !important;
+}
+body.color-blind-mode .service-card .card-link:hover,
+body.color-blind-mode .service-card .card-back .card-link:hover {
+  background: #ffd800 !important;
+  color: #0057b8 !important;
 }
