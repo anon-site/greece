@@ -327,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const ipRes = await fetch('https://ipapi.co/json/');
                 ipData = await ipRes.json();
             } catch (e) {
-                // فشل جلب الموقع
                 ipData = null;
             }
             let lat, lon, city, country_name, country_emoji, country_code, ip;
@@ -345,7 +344,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 lon = 23.72;
                 city = 'أثينا';
                 country_name = 'اليونان';
-                country_emoji = '🇬🇷';
                 country_code = 'gr';
                 ip = 'غير متوفر';
             }
