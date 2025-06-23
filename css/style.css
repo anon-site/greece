@@ -5299,9 +5299,9 @@ html[data-theme="pink"] {
 }
 
 body.color-blind-mode {
-  --primary-color: #0057b8 !important;
-  --secondary-color: #ffd800 !important;
-  --accent-color: #ff6600 !important;
+  --primary-color: #0057b8 !important; /* أزرق داكن واضح */
+  --secondary-color: #ffd800 !important; /* أصفر ذهبي عالي التباين */
+  --accent-color: #222 !important; /* أسود للنصوص */
   background: #fff !important;
   color: #222 !important;
   filter: none !important;
@@ -5608,7 +5608,7 @@ body.economy-mode .work * {
   position: fixed;
   bottom: 32px;
   left: 32px;
-  z-index: 1200;
+  z-index: 99999;
   background: #e74c3c;
   color: #fff;
   border: none;
@@ -5631,7 +5631,19 @@ body.economy-mode .work * {
     bottom: 110px !important;
     left: 18px !important;
     right: auto !important;
-    z-index: 3000 !important;
+    z-index: 99999 !important;
+    display: flex !important;
+  }
+}
+@media (min-width: 601px) and (max-width: 991px) {
+  #emergencyBtn {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1.6rem !important;
+    bottom: 130px !important;
+    left: 24px !important;
+    right: auto !important;
+    z-index: 99999 !important;
     display: flex !important;
   }
 }
