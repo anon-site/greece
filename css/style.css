@@ -5712,3 +5712,41 @@ body.dark-mode .copyright-icon {
 body.modal-open {
   overflow: hidden !important;
 }
+
+/* جعل زر وضع عمى الألوان يظهر بمحاذاة احترافية في نافذة الإعدادات */
+#settingsColorBlindMode {
+  accent-color: #1976d2;
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  margin-left: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+}
+.settings-section.color-blind-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+.settings-section.color-blind-section .settings-label {
+  margin-bottom: 0;
+  flex: 1;
+  font-size: 1.04rem;
+}
+@media (max-width: 600px) {
+  .settings-section.color-blind-section {
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .settings-section.color-blind-section .settings-label {
+    font-size: 0.97rem;
+  }
+  #settingsColorBlindMode {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+  }
+}
