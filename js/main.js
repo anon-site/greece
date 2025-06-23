@@ -330,13 +330,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 // فشل جلب الموقع
                 ipData = null;
             }
-            let lat, lon, city, country_name, country_emoji, ip;
+            let lat, lon, city, country_name, country_emoji, country_code, ip;
             if (ipData && ipData.latitude && ipData.longitude) {
                 lat = ipData.latitude;
                 lon = ipData.longitude;
                 city = ipData.city || '';
                 country_name = ipData.country_name || '';
                 country_emoji = ipData.country_emoji || '';
+                country_code = ipData.country_code ? ipData.country_code.toLowerCase() : '';
                 ip = ipData.ip || '';
             } else {
                 // موقع افتراضي: أثينا
@@ -345,10 +346,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 city = 'أثينا';
                 country_name = 'اليونان';
                 country_emoji = '🇬🇷';
+                country_code = 'gr';
                 ip = 'غير متوفر';
             }
             if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = ip;
-            if (document.getElementById('footerCountryFlag')) document.getElementById('footerCountryFlag').textContent = country_emoji;
+            if (document.getElementById('footerCountryFlag')) {
+                let flagHTML = '';
+                if (country_code) {
+                    flagHTML = `<img src="https://flagcdn.com/32x24/${country_code}.png" alt="علم الدولة" style="width:32px;height:24px;vertical-align:middle;border-radius:4px;margin-left:4px;">`;
+                }
+                document.getElementById('footerCountryFlag').innerHTML = flagHTML + (country_emoji ? `<span style='font-size:1.3em;vertical-align:middle;'>${country_emoji}</span>` : '');
+            }
             if (document.getElementById('footerCountryName')) document.getElementById('footerCountryName').textContent = country_name;
             // Get weather
             if (lat && lon && document.getElementById('footerWeather')) {
