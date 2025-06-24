@@ -6244,3 +6244,41 @@ body.color-blind-mode .service-card .card-back .card-link:hover {
 .settings-section.high-contrast-section {
   margin-top: 12px !important;
 }
+
+.clock-digit {
+  display: inline-block;
+  min-width: 22px;
+  font-size: 1.25em;
+  font-family: 'Tajawal', 'Cairo', Arial, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  perspective: 60px;
+  transition: color 0.2s;
+  vertical-align: middle;
+}
+.clock-digit.flip {
+  animation: flip 0.45s cubic-bezier(.4,2,.6,1) both;
+}
+@keyframes flip {
+  0% { transform: rotateX(0deg); }
+  60% { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+.clock-colon {
+  display: inline-block;
+  min-width: 10px;
+  font-size: 1.2em;
+  color: #4fc3f7;
+  vertical-align: middle;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.25; }
+}
+#clock-period {
+  font-size: 0.95em;
+  color: #f7b731;
+  margin-right: 4px;
+  vertical-align: middle;
+}

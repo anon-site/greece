@@ -308,8 +308,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
         let h = athensTime.getHours();
-        const m = String(athensTime.getMinutes()).padStart(2, '0');
-        const s = String(athensTime.getSeconds()).padStart(2, '0');
+        const m = athensTime.getMinutes();
+        const s = athensTime.getSeconds();
         let periodLabel, periodIcon;
         if (h < 12) {
             periodLabel = 'صباحاً';
@@ -320,8 +320,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         let h12 = h % 12;
         h12 = h12 ? h12 : 12; // 0 => 12
-        const el = document.getElementById('footerLocalTime');
-        if (el) el.innerHTML = `${h12}:${m}:${s} <span style='font-size:0.95em;color:#f7b731;margin-right:4px;'>${periodIcon}</span> <span style='font-size:0.92em;color:#4fc3f7;'>${periodLabel}</span>`;
+        // استخراج الأرقام منفصلة
+        const digits = {
+            h1: Math.floor(h12 / 10),
+            h2: h12 % 10,
+            m1: Math.floor(m / 10),
+            m2: m % 10,
+            s1: Math.floor(s / 10),
+            s2: s % 10
+        };
+        // تحديث كل رقم مع تأثير flip عند التغيير
+        for (const [id, val] of Object.entries(digits)) {
+            const el = document.getElementById('clock-' + id);
+            if (el) {
+                if (el.textContent != val) {
+                    el.classList.remove('flip');
+                    // إعادة تشغيل الأنيميشن
+                    void el.offsetWidth;
+                    el.textContent = val;
+                    el.classList.add('flip');
+                }
+            }
+        }
+        // تحديث رمز الفترة
+        const periodEl = document.getElementById('clock-period');
+        if (periodEl) {
+            periodEl.innerHTML = `<span style='font-size:0.95em;color:#f7b731;margin-right:4px;'>${periodIcon}</span> <span style='font-size:0.92em;color:#4fc3f7;'>${periodLabel}</span>`;
+        }
         // تحديث التاريخ أسفل الساعة
         const dateEl = document.getElementById('footerLocalDate');
         if (dateEl) {
