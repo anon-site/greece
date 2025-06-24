@@ -6370,3 +6370,33 @@ body.color-blind-mode .service-card .card-back .card-link:hover {
   text-shadow: 0 2px 8px #f7b73122;
   vertical-align: middle;
 }
+
+.footer-card {
+  /* ...existing styles... */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.footer-clock-row, .footer-weather-row, .footer-ip-flag-row {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+.footer-card > * {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.footer-country-name, .footer-clock-label, #footerWeatherDesc, #footerWeatherLocation {
+  width: 100%;
+  text-align: center !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
