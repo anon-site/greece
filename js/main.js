@@ -310,6 +310,23 @@ document.addEventListener('DOMContentLoaded', function() {
         let h = athensTime.getHours();
         const m = athensTime.getMinutes();
         const s = athensTime.getSeconds();
+        // تحديد الفترة والأيقونة
+        let dayState = { label: '', icon: '' };
+        if (h >= 5 && h < 12) {
+            dayState = { label: 'صباحاً', icon: '☀️' };
+        } else if (h >= 12 && h < 17) {
+            dayState = { label: 'ظهراً', icon: '🌤️' };
+        } else if (h >= 17 && h < 20) {
+            dayState = { label: 'مساءً', icon: '🌇' };
+        } else {
+            dayState = { label: 'ليلاً', icon: '🌙' };
+        }
+        // تحديث حالة اليوم
+        const dayStateIconEl = document.getElementById('clock-daystate-icon');
+        const dayStateLabelEl = document.getElementById('clock-daystate-label');
+        if (dayStateIconEl) dayStateIconEl.textContent = dayState.icon;
+        if (dayStateLabelEl) dayStateLabelEl.textContent = dayState.label;
+        // الفترة 12 ساعة
         let periodLabel, periodIcon;
         if (h < 12) {
             periodLabel = 'صباحاً';
@@ -335,17 +352,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (el) {
                 if (el.textContent != val) {
                     el.classList.remove('flip');
-                    // إعادة تشغيل الأنيميشن
                     void el.offsetWidth;
                     el.textContent = val;
                     el.classList.add('flip');
                 }
             }
         }
-        // تحديث رمز الفترة
+        // تحديث رمز الفترة بشكل جمالي
         const periodEl = document.getElementById('clock-period');
         if (periodEl) {
-            periodEl.innerHTML = `<span style='font-size:0.95em;color:#f7b731;margin-right:4px;'>${periodIcon}</span> <span style='font-size:0.92em;color:#4fc3f7;'>${periodLabel}</span>`;
+            periodEl.innerHTML = `<span style='font-size:1.25em;vertical-align:middle;'>${periodIcon}</span> <span style='font-size:1em;color:#4fc3f7;'>${periodLabel}</span>`;
         }
         // تحديث التاريخ أسفل الساعة
         const dateEl = document.getElementById('footerLocalDate');
@@ -424,6 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 city = 'أثينا';
                 country_name = 'اليونان';
                 country_code = 'gr';
+                country_emoji = '';
             }
             if (document.getElementById('footerIP')) document.getElementById('footerIP').textContent = ip;
             // نوع البروتوكول
@@ -436,7 +453,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (document.getElementById('footerIPLocation')) {
                 let loc = '';
                 if (ipData && ipData.city && ipData.country_name) {
-                    // إذا كان اسم المدينة يحتوي بالفعل على اسم الدولة، لا تكررها
                     if (ipData.city.includes(ipData.country_name)) {
                         loc = ipData.city;
                     } else {
@@ -461,25 +477,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('footerCountryFlag').innerHTML = flagHTML + (country_emoji ? `<span style='font-size:1.3em;vertical-align:middle;'>${country_emoji}</span>` : '');
             }
             if (document.getElementById('footerCountryName')) document.getElementById('footerCountryName').textContent = country_name;
-            // Get weather
-            if (lat && lon && document.getElementById('footerWeather')) {
+            // Get weather (دائماً أثينا)
+            const weatherLat = 37.98;
+            const weatherLon = 23.72;
+            if (document.getElementById('footerWeather')) {
                 try {
-                    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=relative_humidity_2m,windspeed_10m&timezone=auto`);
+                    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherLat}&longitude=${weatherLon}&current_weather=true&hourly=relative_humidity_2m,windspeed_10m&timezone=auto`);
                     const weatherData = await weatherRes.json();
                     if (weatherData.current_weather) {
                         // أيقونة ووصف الطقس
                         const weatherInfo = weatherCodeToDesc(weatherData.current_weather.weathercode);
                         document.getElementById('footerWeather').innerHTML = weatherData.current_weather.temperature + '°C ' + weatherInfo.icon;
                         if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = weatherInfo.desc;
-                        if (document.getElementById('footerWeatherLocation')) document.getElementById('footerWeatherLocation').textContent = city ? `(${city})` : '';
+                        if (document.getElementById('footerWeatherLocation')) document.getElementById('footerWeatherLocation').textContent = '(أثينا)';
                         // رطوبة
                         if (document.getElementById('footerWeatherHumidity')) {
                             let humidity = '--';
                             if (weatherData.hourly && weatherData.hourly.relative_humidity_2m && weatherData.hourly.time) {
-                                // جلب الرطوبة لأقرب ساعة حالية
                                 const now = new Date();
                                 const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
-                                const hourStr = athensTime.toISOString().slice(0, 13); // YYYY-MM-DDTHH
+                                const hourStr = athensTime.toISOString().slice(0, 13);
                                 const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
                                 if (idx !== -1) humidity = weatherData.hourly.relative_humidity_2m[idx];
                             }
@@ -497,7 +514,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                             document.getElementById('footerWeatherWind').textContent = `الرياح: ${wind} كم/س`;
                         }
-                    } else {
+                    }
+                    else {
                         document.getElementById('footerWeather').textContent = '--°C';
                         if (document.getElementById('footerWeatherDesc')) document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
                         if (document.getElementById('footerWeatherHumidity')) document.getElementById('footerWeatherHumidity').textContent = '';

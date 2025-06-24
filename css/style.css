@@ -6282,3 +6282,91 @@ body.color-blind-mode .service-card .card-back .card-link:hover {
   margin-right: 4px;
   vertical-align: middle;
 }
+
+.modern-clock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.32em;
+  background: linear-gradient(120deg, #232e3c 80%, #1a2230 100%);
+  border-radius: 12px;
+  padding: 6px 18px 6px 18px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.13);
+}
+.clock-group {
+  display: flex;
+  gap: 2px;
+}
+.clock-digit {
+  background: rgba(34,44,58,0.92);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #222c3a33;
+  font-size: 1.25em;
+  min-width: 28px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1px;
+  font-family: 'Tajawal', 'Cairo', Arial, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  perspective: 60px;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  vertical-align: middle;
+  border: 1.5px solid #263246;
+}
+.clock-digit.flip {
+  animation: flip 0.45s cubic-bezier(.4,2,.6,1) both;
+}
+.clock-sep {
+  color: #4fc3f7;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0 4px;
+  text-shadow: 0 2px 8px #4fc3f755;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.25; }
+}
+.clock-period-modern {
+  font-size: 1.08em;
+  color: #f7b731;
+  margin-right: 8px;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border-radius: 8px;
+  background: rgba(247,183,49,0.08);
+  box-shadow: 0 1px 4px #f7b73122;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.clock-daystate-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #263246 60%, #34425a 100%);
+  border-radius: 10px;
+  padding: 7px 18px 7px 18px;
+  box-shadow: 0 2px 8px #26324622;
+}
+.clock-daystate-icon {
+  font-size: 2.1em;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 6px #f7b73144);
+}
+.clock-daystate-label {
+  font-size: 1.18em;
+  color: #f7b731;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px #f7b73122;
+  vertical-align: middle;
+}

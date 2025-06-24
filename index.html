@@ -1218,15 +1218,18 @@
                     </div>
                     <!-- Live Clock -->
                     <div class="footer-card footer-clock-card">
+                        <div class="clock-daystate-row">
+                            <span id="clock-daystate-icon" class="clock-daystate-icon">☀️</span>
+                            <span id="clock-daystate-label" class="clock-daystate-label">صباحاً</span>
+                        </div>
                         <div class="footer-clock-row">
-                            <i class="fas fa-clock"></i>
-                            <span id="footerLocalTime">
-                                <span class="clock-digit" id="clock-h1">0</span><span class="clock-digit" id="clock-h2">0</span>
-                                <span class="clock-colon" id="clock-colon1">:</span>
-                                <span class="clock-digit" id="clock-m1">0</span><span class="clock-digit" id="clock-m2">0</span>
-                                <span class="clock-colon" id="clock-colon2">:</span>
-                                <span class="clock-digit" id="clock-s1">0</span><span class="clock-digit" id="clock-s2">0</span>
-                                <span id="clock-period"></span>
+                            <span id="footerLocalTime" class="modern-clock">
+                                <span class="clock-group"><span class="clock-digit" id="clock-h1">0</span><span class="clock-digit" id="clock-h2">0</span></span>
+                                <span class="clock-sep">:</span>
+                                <span class="clock-group"><span class="clock-digit" id="clock-m1">0</span><span class="clock-digit" id="clock-m2">0</span></span>
+                                <span class="clock-sep">:</span>
+                                <span class="clock-group"><span class="clock-digit" id="clock-s1">0</span><span class="clock-digit" id="clock-s2">0</span></span>
+                                <span id="clock-period" class="clock-period-modern"></span>
                             </span>
                         </div>
                         <span class="footer-clock-label">الوقت المحلي لمدينة أثينا</span>
@@ -1699,21 +1702,42 @@
         document.getElementById('footerIP').textContent = ipData.ip;
         document.getElementById('footerCountryFlag').textContent = ipData.country_emoji || '';
         document.getElementById('footerCountryName').textContent = ipData.country_name || '';
-        // Get weather
-        const lat = ipData.latitude, lon = ipData.longitude;
-        if (lat && lon) {
-          // Open-Meteo API (no key needed)
-          const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`);
-          const weatherData = await weatherRes.json();
-          if (weatherData.current_weather) {
-            document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
-            document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
-            document.getElementById('footerWeatherLocation').textContent = ipData.city ? `(${ipData.city})` : '';
+        // Get weather (ثابت لأثينا)
+        const lat = 37.98, lon = 23.72;
+        // Open-Meteo API (no key needed)
+        const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=relative_humidity_2m,windspeed_10m&timezone=auto`);
+        const weatherData = await weatherRes.json();
+        if (weatherData.current_weather) {
+          document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
+          document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
+          document.getElementById('footerWeatherLocation').textContent = '(أثينا)';
+          // رطوبة
+          let humidity = '--';
+          if (weatherData.hourly && weatherData.hourly.relative_humidity_2m && weatherData.hourly.time) {
+            const now = new Date();
+            const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+            const hourStr = athensTime.toISOString().slice(0, 13);
+            const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
+            if (idx !== -1) humidity = weatherData.hourly.relative_humidity_2m[idx];
           }
+          document.getElementById('footerWeatherHumidity').textContent = `الرطوبة: ${humidity}%`;
+          // رياح
+          let wind = '--';
+          if (weatherData.hourly && weatherData.hourly.windspeed_10m && weatherData.hourly.time) {
+            const now = new Date();
+            const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+            const hourStr = athensTime.toISOString().slice(0, 13);
+            const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
+            if (idx !== -1) wind = weatherData.hourly.windspeed_10m[idx];
+          }
+          document.getElementById('footerWeatherWind').textContent = `الرياح: ${wind} كم/س`;
         }
       } catch (e) {
         document.getElementById('footerIP').textContent = 'غير متوفر';
         document.getElementById('footerWeather').textContent = '--°C';
+        document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
+        document.getElementById('footerWeatherHumidity').textContent = '';
+        document.getElementById('footerWeatherWind').textContent = '';
       }
     }
     function weatherCodeToDesc(code) {
