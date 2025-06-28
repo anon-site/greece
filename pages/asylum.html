@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوائر اللجوء - الحياة في اليونان</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tabs.css">
+    <link rel="stylesheet" href="../css/toast.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* أنماط خاصة بصفحة دوائر اللجوء */
+        .asylum-process-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .asylum-process-timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            right: 50px;
+            margin-right: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 50px 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: 50px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            margin-right: -16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .timeline-content h3 i {
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+        
+        .timeline-content p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content .timeline-date {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .document-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-right: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .document-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .document-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .document-card h4 i {
+            color: var(--accent-color);
+        }
+        
+        .document-card ul {
+            padding-right: 20px;
+            margin-top: 10px;
+        }
+        
+        .document-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .document-card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--success-color);
+        }
+        
+        .asylum-office {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .asylum-office:hover {
+            transform: translateY(-5px);
+        }
+        
+        .asylum-office h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+        }
+        
+        .asylum-office-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .asylum-office-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .asylum-office-map {
+            flex: 1;
+            min-width: 300px;
+            height: 250px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .asylum-office-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .info-item i {
+            color: var(--accent-color);
+            font-size: 1.2em;
+            margin-top: 3px;
+        }
+        
+        .faq-section {
+            margin-top: 50px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            background-color: var(--light-color);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #e3e8ec;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            background-color: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 20px;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 20px;
+        }
+        
+        .important-note {
+            background-color: #fff8e1;
+            border-right: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .important-note h4 {
+            color: var(--warning-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .important-note h4 i {
+            font-size: 1.2em;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .contact-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .contact-card .btn {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .asylum-process-timeline::after {
+                right: 31px;
+            }
+            
+            .timeline-item {
+                padding-right: 70px;
+                padding-left: 25px;
+            }
+            
+            .timeline-item::after {
+                right: 31px;
+                margin-right: -16px;
+            }
+        }
+
+        .asylum-office h3 a:hover {
+            color: var(--accent-color);
+        }
+        .asylum-office-info a {
+            transition: color 0.2s;
+        }
+        .asylum-office-info a:hover {
+            color: #0d47a1 !important;
+        }
+        .asylum-office {
+            border-right: 5px solid var(--primary-color);
+            border-left: 5px solid #f1f1f1;
+        }
+        .asylum-office-details {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .info-item strong {
+            min-width: 80px;
+            display: inline-block;
+        }
+        .asylum-offices-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .asylum-office {
+            max-width: 420px;
+            min-width: 290px;
+            width: 100%;
+            margin: 0 0 24px 0;
+            box-sizing: border-box;
+            flex: 1 1 320px;
+        }
+        @media (max-width: 900px) {
+            .asylum-offices-container {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            .asylum-office {
+                max-width: 98vw;
+                min-width: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- إشعار فوري (تنبيه) -->
+    <div id="siteAlert" style="display:none;position:fixed;top:0;left:0;width:100vw;z-index:2000;background:#1976d2;color:#fff;padding:18px 32px 18px 48px;font-size:1.13rem;font-weight:700;box-shadow:0 4px 18px #1976d233;direction:rtl;transition:top 0.3s;align-items:center;justify-content:center;gap:16px;">
+      <span id="siteAlertMsg">تنبيه هام!</span>
+      <button id="siteAlertClose" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">&times;</button>
+    </div>
+    <!-- نهاية الإشعار الفوري -->
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-globe-europe"></i> الحياة في اليونان</h1>
+                <div class="tagline">دليلك الشامل للحياة في اليونان</div>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="asylum.html" class="active">دوائر اللجوء</a>
+                            <a href="government.html">دوائر حكومية</a>
+                            <a href="housing.html">عقارات وسكن</a>
+                            <a href="hospitals.html">مستشفيات</a>
+                            <a href="transportation.html">خطوط النقل</a>
+                            <a href="tourism-services.html">سياحة</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#humanitarian">منظمات إنسانية</a>
+                            <a href="../index.html#medical-org">منظمات طبية</a>
+                            <a href="../index.html#educational">منظمات تعليمية</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#service-offices">مكاتب خدمية</a>
+                            <a href="../index.html#accounting">مكاتب محاسبة</a>
+                            <a href="../index.html#lawyers">مكاتب محامين</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#hotels">فنادق</a>
+                            <a href="../index.html#pharmacies">صيدليات ومتاجر</a>
+                            <a href="../index.html#restaurants">مطاعم</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <button class="desktop-settings-btn" title="الإعدادات">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="desktop-search-btn" title="بحث">
+                <i class="fas fa-search"></i>
+            </button>
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="فتح القائمة الرئيسية">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav">
+        <ul>
+            <li class="nav-item">
+                <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="asylum.html" class="active">دوائر اللجوء</a></li>
+                    <li><a href="government.html">دوائر حكومية</a></li>
+                    <li><a href="housing.html">عقارات وسكن</a></li>
+                    <li><a href="hospitals.html">مستشفيات</a></li>
+                    <li><a href="transportation.html">خطوط النقل</a></li>
+                    <li><a href="tourism-services.html">سياحة</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#humanitarian">منظمات إنسانية</a></li>
+                    <li><a href="../index.html#medical-org">منظمات طبية</a></li>
+                    <li><a href="../index.html#educational">منظمات تعليمية</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#service-offices">مكاتب خدمية</a></li>
+                    <li><a href="../index.html#accounting">مكاتب محاسبة</a></li>
+                    <li><a href="../index.html#lawyers">مكاتب محامين</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#hotels">فنادق</a></li>
+                    <li><a href="../index.html#pharmacies">صيدليات ومتاجر</a></li>
+                    <li><a href="../index.html#restaurants">مطاعم</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="animated-title">دوائر اللجوء في اليونان</h1>
+                <p class="animated-subtitle">دليل شامل لإجراءات اللجوء، المستندات المطلوبة، مكاتب اللجوء، والمساعدة القانونية لطالبي اللجوء في اليونان.</p>
+                <div class="hero-buttons">
+                    <a href="#asylum-process" class="btn btn-primary">إجراءات اللجوء <i class="fas fa-arrow-left"></i></a>
+                    <a href="#asylum-offices" class="btn btn-secondary">مكاتب اللجوء <i class="fas fa-building"></i></a>
+                </div>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>إجراءات واضحة</h3>
+                    <p>خطوات مفصلة لعملية اللجوء</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>مواقع المكاتب</h3>
+                    <p>عناوين وخرائط لمكاتب اللجوء</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>مساعدة قانونية</h3>
+                    <p>معلومات عن المساعدة المتاحة</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section id="asylum-intro" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">نظرة عامة</span>
+                <div class="section-title-wrapper">
+                    <h2>نظام اللجوء في اليونان</h2>
+                </div>
+                <p>تعرف على نظام اللجوء في اليونان وحقوقك كطالب لجوء</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <p>تعتبر اليونان إحدى الدول الأعضاء في الاتحاد الأوروبي التي تستقبل طلبات اللجوء وفقاً لاتفاقية جنيف لعام 1951 والبروتوكول الخاص بوضع اللاجئين لعام 1967. يخضع نظام اللجوء في اليونان للقانون الأوروبي المشترك للجوء (CEAS) وللتشريعات الوطنية اليونانية.</p>
+                
+                <div class="important-note">
+                    <h4><i class="fas fa-exclamation-circle"></i> ملاحظة هامة</h4>
+                    <p>المعلومات الواردة في هذه الصفحة هي للإرشاد العام فقط وقد تتغير الإجراءات والقوانين من وقت لآخر. يُنصح دائماً بالتواصل مع السلطات المختصة أو المنظمات القانونية للحصول على أحدث المعلومات.</p>
+                </div>
+
+                <h3>من هو اللاجئ؟</h3>
+                <p>وفقاً لاتفاقية جنيف، اللاجئ هو شخص يوجد خارج بلد جنسيته بسبب خوف له ما يبرره من التعرض للاضطهاد بسبب عرقه أو دينه أو جنسيته أو انتمائه إلى فئة اجتماعية معينة أو آرائه السياسية، ولا يستطيع أو لا يرغب بسبب ذلك الخوف أن يستظل بحماية ذلك البلد.</p>
+
+                <h3>الحماية الدولية في اليونان</h3>
+                <p>تقدم اليونان نوعين من الحماية الدولية:</p>
+                <ul>
+                    <li><strong>وضع اللاجئ:</strong> يُمنح للأشخاص الذين يستوفون تعريف اللاجئ وفقاً لاتفاقية جنيف.</li>
+                    <li><strong>الحماية الثانوية:</strong> تُمنح للأشخاص الذين لا يستوفون شروط وضع اللاجئ ولكنهم معرضون لخطر حقيقي من التعرض لأذى جسيم في حال عودتهم إلى بلدهم الأصلي.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asylum Process Section -->
+    <section id="asylum-process" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الخطوات التفصيلية</span>
+                <div class="section-title-wrapper">
+                    <h2>إجراءات طلب اللجوء</h2>
+                </div>
+                <p>دليل خطوة بخطوة لعملية تقديم طلب اللجوء في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="asylum-process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">الخطوة الأولى</span>
+                        <h3><i class="fas fa-file-signature"></i> التسجيل الأولي</h3>
+                        <p>يجب عليك تسجيل رغبتك في تقديم طلب للحماية الدولية لدى سلطات الاستقبال المختصة (الشرطة، خفر السواحل، أو دائرة اللجوء). يمكن أن يتم ذلك:</p>
+                        <ul>
+                            <li>عند وصولك إلى نقطة دخول (ميناء أو مطار)</li>
+                            <li>في مراكز الاستقبال والتعريف (RICs) في الجزر</li>
+                            <li>في مكاتب اللجوء الإقليمية في المدن الرئيسية</li>
+                        </ul>
+                        <p>ستحصل على موعد لتقديم طلبك الرسمي. في بعض الحالات، قد تحتاج إلى استخدام نظام المواعيد عبر الإنترنت (Skype) للحصول على موعد مع دائرة اللجوء.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">الخطوة الثانية</span>
+                        <h3><i class="fas fa-fingerprint"></i> تسجيل طلب اللجوء</h3>
+                        <p>في الموعد المحدد، ستقوم دائرة اللجوء بتسجيل طلبك رسمياً. خلال هذه العملية:</p>
+                        <ul>
+                            <li>سيتم أخذ بصماتك وصورتك</li>
+                            <li>سيتم التحقق من هويتك وجنسيتك</li>
+                            <li>ستقدم معلومات أساسية عن أسباب طلبك للجوء</li>
+                            <li>ستخضع لفحص طبي أولي</li>
+                            <li>ستحصل على بطاقة طالب اللجوء (ADET) التي تعتبر وثيقة إقامة مؤقتة وتسمح لك بالبقاء في اليونان قانونياً حتى الانتهاء من إجراءات طلبك</li>
+                        </ul>
+                        <p>ستحصل أيضاً على موعد للمقابلة الشخصية.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">الخطوة الثالثة</span>
+                        <h3><i class="fas fa-comments"></i> المقابلة الشخصية</h3>
+                        <p>المقابلة الشخصية هي الجزء الأكثر أهمية في عملية اللجوء. خلال المقابلة:</p>
+                        <ul>
+                            <li>ستتاح لك الفرصة لشرح أسباب مغادرتك لبلدك والمخاطر التي قد تواجهها في حال عودتك</li>
+                            <li>سيكون هناك مترجم متاح إذا كنت لا تتحدث اليونانية أو الإنجليزية</li>
+                            <li>يمكنك طلب حضور محامٍ أو ممثل قانوني معك</li>
+                            <li>ستُسجل المقابلة وستحصل على نسخة من محضر المقابلة</li>
+                        </ul>
+                        <p>من المهم أن تكون صادقاً وتقدم معلومات دقيقة ومفصلة خلال المقابلة، وأن تجيب على جميع الأسئلة بوضوح.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">الخطوة الرابعة</span>
+                        <h3><i class="fas fa-gavel"></i> القرار</h3>
+                        <p>بعد المقابلة، ستقوم دائرة اللجوء بدراسة طلبك واتخاذ قرار. يمكن أن يكون القرار:</p>
+                        <ul>
+                            <li><strong>إيجابي:</strong> منحك وضع اللاجئ أو الحماية الثانوية</li>
+                            <li><strong>سلبي:</strong> رفض طلبك</li>
+                        </ul>
+                        <p>سيتم إبلاغك بالقرار كتابياً، وسيتضمن الإشعار أسباب القرار وخياراتك في حال الرفض.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">الخطوة الخامسة</span>
+                        <h3><i class="fas fa-balance-scale"></i> الاستئناف (في حالة الرفض)</h3>
+                        <p>إذا تم رفض طلبك، لديك الحق في تقديم استئناف خلال فترة محددة (عادة 30 يوماً من تاريخ استلام القرار). خلال عملية الاستئناف:</p>
+                        <ul>
+                            <li>يجب تقديم طلب الاستئناف كتابياً إلى لجنة الاستئناف</li>
+                            <li>يمكنك طلب المساعدة القانونية المجانية</li>
+                            <li>قد تتم دعوتك لحضور جلسة استماع أمام لجنة الاستئناف</li>
+                        </ul>
+                        <p>إذا تم رفض الاستئناف، يمكنك تقديم طعن أمام المحكمة الإدارية خلال 60 يوماً.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">الخطوة السادسة</span>
+                        <h3><i class="fas fa-id-card"></i> بعد الحصول على الحماية الدولية</h3>
+                        <p>إذا تم قبول طلبك ومنحك وضع اللاجئ أو الحماية الثانوية:</p>
+                        <ul>
+                            <li>ستحصل على تصريح إقامة (لمدة 3 سنوات لوضع اللاجئ، ولمدة سنة واحدة قابلة للتجديد للحماية الثانوية)</li>
+                            <li>ستحصل على وثيقة سفر (جواز سفر للاجئين) إذا كنت لاجئاً معترفاً به</li>
+                            <li>ستتمتع بحقوق مماثلة للمواطنين اليونانيين في مجالات مثل العمل والتعليم والرعاية الصحية</li>
+                            <li>يمكنك التقدم بطلب لم شمل الأسرة إذا كنت لاجئاً معترفاً به</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Required Documents Section -->
+    <section id="required-documents" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الوثائق المطلوبة</span>
+                <div class="section-title-wrapper">
+                    <h2>المستندات اللازمة لطلب اللجوء</h2>
+                </div>
+                <p>قائمة بالوثائق والمستندات المطلوبة خلال عملية اللجوء</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="documents-container">
+                <div class="document-card">
+                    <h4><i class="fas fa-passport"></i> وثائق الهوية</h4>
+                    <p>المستندات التي تثبت هويتك وجنسيتك:</p>
+                    <ul>
+                        <li>جواز السفر (إن وجد)</li>
+                        <li>بطاقة الهوية الوطنية</li>
+                        <li>شهادة الميلاد</li>
+                        <li>أي وثائق رسمية أخرى تثبت هويتك</li>
+                    </ul>
+                    <p><strong>ملاحظة:</strong> عدم وجود وثائق هوية لا يمنعك من تقديم طلب اللجوء، لكن وجودها يسهل عملية التحقق من هويتك.</p>
+                </div>
+
+                <div class="document-card">
+                    <h4><i class="fas fa-file-alt"></i> وثائق داعمة لطلب اللجوء</h4>
+                    <p>أي مستندات تدعم أسباب طلبك للجوء:</p>
+                    <ul>
+                        <li>تقارير طبية (في حالة التعرض للتعذيب أو العنف)</li>
+                        <li>تقارير الشرطة أو المحاكم من بلدك الأصلي</li>
+                        <li>مقالات صحفية أو تقارير تثبت الاضطهاد في بلدك</li>
+                        <li>بطاقات عضوية في أحزاب سياسية أو منظمات</li>
+                        <li>صور أو فيديوهات تثبت تعرضك للخطر</li>
+                        <li>رسائل تهديد</li>
+                    </ul>
+                </div>
+
+                <div class="document-card">
+                    <h4><i class="fas fa-users"></i> وثائق العائلة</h4>
+                    <p>إذا كنت مع أفراد عائلتك:</p>
+                    <ul>
+                        <li>شهادة الزواج</li>
+                        <li>شهادات ميلاد الأطفال</li>
+                        <li>وثائق تثبت صلة القرابة</li>
+                    </ul>
+                </div>
+
+                <div class="document-card">
+                    <h4><i class="fas fa-graduation-cap"></i> الشهادات التعليمية والمهنية</h4>
+                    <p>وثائق تثبت مؤهلاتك التعليمية وخبراتك المهنية:</p>
+                    <ul>
+                        <li>الشهادات الدراسية</li>
+                        <li>شهادات الخبرة المهنية</li>
+                        <li>شهادات الدورات التدريبية</li>
+                    </ul>
+                    <p><strong>ملاحظة:</strong> هذه الوثائق ليست إلزامية لطلب اللجوء، لكنها قد تكون مفيدة لاحقاً للاندماج في سوق العمل.</p>
+                </div>
+
+                <div class="important-note">
+                    <h4><i class="fas fa-exclamation-circle"></i> ملاحظات هامة حول الوثائق</h4>
+                    <ul>
+                        <li>احتفظ دائماً بنسخ من جميع وثائقك الأصلية</li>
+                        <li>قم بترجمة الوثائق المهمة إلى اليونانية أو الإنجليزية إن أمكن</li>
+                        <li>إذا لم تتمكن من إحضار وثائق معك، اشرح السبب خلال المقابلة</li>
+                        <li>لا تقدم وثائق مزورة أو معلومات كاذبة، فقد يؤدي ذلك إلى رفض طلبك</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asylum Offices Section -->
+    <section id="asylum-offices" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">مكاتب اللجوء</span>
+                <div class="section-title-wrapper">
+                    <h2>مكاتب خدمة اللجوء في اليونان</h2>
+                </div>
+                <p>عناوين ومعلومات الاتصال بمكاتب اللجوء الرئيسية في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="asylum-offices-container">
+                <div class="asylum-office">
+                    <h3>
+                        <a href="https://maps.google.com/?q=P.+Kanellopoulou+2,+Athens+101+77,+Greece" target="_blank" style="color: var(--primary-color); text-decoration: none; transition: color 0.2s;">
+                            مكتب اللجوء المركزي - أثينا <i class="fas fa-location-arrow"></i>
+                        </a>
+                    </h3>
+                    <div class="asylum-office-details">
+                        <div class="asylum-office-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>العنوان:</strong>
+                                    <a href="https://maps.google.com/?q=P.+Kanellopoulou+2,+Athens+101+77,+Greece" target="_blank" style="color: #1976d2; text-decoration: underline;">P. Kanellopoulou 2, Athens 101 77</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <strong>الهاتف:</strong>
+                                    <a href="tel:+302106988500" style="color: #388e3c; font-weight: bold; direction: ltr;">+30 210 6988500</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>البريد الإلكتروني:</strong>
+                                    <a href="mailto:asylo@asylo.gov.gr" style="color: #d84315; font-weight: bold; direction: ltr;">asylo@asylo.gov.gr</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>ساعات العمل:</strong>
+                                    <span style="color: #555;">الاثنين إلى الجمعة: 7:00 صباحاً - 3:00 مساءً</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-info-circle"></i>
+                                <div>
+                                    <strong>ملاحظات:</strong>
+                                    <span style="color: #888;">المكتب المركزي لخدمة اللجوء، يقدم جميع الخدمات المتعلقة بطلبات اللجوء.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="asylum-office">
+                    <h3>
+                        <a href="https://maps.google.com/?q=Pontou+5,+Thessaloniki+546+28,+Greece" target="_blank" style="color: var(--primary-color); text-decoration: none; transition: color 0.2s;">
+                            مكتب اللجوء الإقليمي - سالونيك <i class="fas fa-location-arrow"></i>
+                        </a>
+                    </h3>
+                    <div class="asylum-office-details">
+                        <div class="asylum-office-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>العنوان:</strong>
+                                    <a href="https://maps.google.com/?q=Pontou+5,+Thessaloniki+546+28,+Greece" target="_blank" style="color: #1976d2; text-decoration: underline;">Pontou 5, Thessaloniki 546 28</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <strong>الهاتف:</strong>
+                                    <a href="tel:+302313314200" style="color: #388e3c; font-weight: bold; direction: ltr;">+30 2313 314200</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>البريد الإلكتروني:</strong>
+                                    <a href="mailto:pga.thessalonikis@asylo.gov.gr" style="color: #d84315; font-weight: bold; direction: ltr;">pga.thessalonikis@asylo.gov.gr</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>ساعات العمل:</strong>
+                                    <span style="color: #555;">الاثنين إلى الجمعة: 7:00 صباحاً - 3:00 مساءً</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="asylum-office">
+                    <h3>
+                        <a href="https://maps.google.com/?q=Leoforos+Makris+Gialos,+Moria,+Lesvos+81100,+Greece" target="_blank" style="color: var(--primary-color); text-decoration: none; transition: color 0.2s;">
+                            وحدة اللجوء - ليسبوس (ميتيليني) <i class="fas fa-location-arrow"></i>
+                        </a>
+                    </h3>
+                    <div class="asylum-office-details">
+                        <div class="asylum-office-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>العنوان:</strong>
+                                    <a href="https://maps.google.com/?q=Leoforos+Makris+Gialos,+Moria,+Lesvos+81100,+Greece" target="_blank" style="color: #1976d2; text-decoration: underline;">Leoforos Makris Gialos, Moria, Lesvos 81100</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <strong>الهاتف:</strong>
+                                    <a href="tel:+302251032323" style="color: #388e3c; font-weight: bold; direction: ltr;">+30 22510 32323</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>البريد الإلكتروني:</strong>
+                                    <a href="mailto:pga.lesvou@asylo.gov.gr" style="color: #d84315; font-weight: bold; direction: ltr;">pga.lesvou@asylo.gov.gr</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-info-circle"></i>
+                                <div>
+                                    <strong>ملاحظات:</strong>
+                                    <span style="color: #888;">يقع داخل مركز الاستقبال والتعريف (RIC) في ليسبوس.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important-note" style="margin-top: 40px;">
+                <h4><i class="fas fa-exclamation-circle"></i> معلومات هامة عن المواعيد</h4>
+                <p>للحصول على موعد في مكاتب اللجوء، يمكنك استخدام نظام المواعيد عبر Skype. يتم تخصيص أيام وساعات محددة لكل لغة. للمزيد من المعلومات حول جدول مواعيد Skype، يرجى زيارة <a href="https://migration.gov.gr/en/" target="_blank">الموقع الرسمي لوزارة الهجرة واللجوء</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Aid Section -->
+    <section id="legal-aid" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">المساعدة القانونية</span>
+                <div class="section-title-wrapper">
+                    <h2>المساعدة القانونية لطالبي اللجوء</h2>
+                </div>
+                <p>معلومات عن خدمات المساعدة القانونية المتاحة لطالبي اللجوء في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <p>يحق لطالبي اللجوء في اليونان الحصول على مساعدة قانونية مجانية، خاصة في مرحلة الاستئناف. تتوفر المساعدة القانونية من خلال:</p>
+
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>المساعدة القانونية الحكومية</h3>
+                        <p>توفر الدولة اليونانية محامين مجاناً لطالبي اللجوء في مرحلة الاستئناف من خلال نقابة المحامين.</p>
+                        <a href="https://migration.gov.gr/en/gas/diadikasia-asyloy/" class="btn btn-secondary" target="_blank">المزيد من المعلومات</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>المنظمات غير الحكومية</h3>
+                        <p>تقدم العديد من المنظمات غير الحكومية مساعدة قانونية مجانية لطالبي اللجوء في جميع مراحل العملية.</p>
+                        <a href="#ngos" class="btn btn-secondary">قائمة المنظمات</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <i class="fas fa-university"></i>
+                        <h3>عيادات قانونية جامعية</h3>
+                        <p>توفر بعض الجامعات اليونانية عيادات قانونية حيث يقدم طلاب القانون المساعدة تحت إشراف أساتذتهم.</p>
+                        <a href="https://www.gcr.gr/en/" class="btn btn-secondary" target="_blank">المجلس اليوناني للاجئين</a>
+                    </div>
+                </div>
+
+                <div id="ngos" style="margin-top: 50px;">
+                    <div class="section-header" style="margin-bottom: 40px;">
+                        <h3 style="color: var(--primary-color); font-size: 1.8rem; text-align: center; margin-bottom: 15px;">
+                            <i class="fas fa-hands-helping" style="color: var(--accent-color); margin-left: 10px;"></i>
+                            منظمات تقدم مساعدة قانونية لطالبي اللجوء
+                        </h3>
+                        <p style="text-align: center; color: #666; font-size: 1.1rem;">منظمات معتمدة وموثوقة تقدم خدمات قانونية مجانية لطالبي اللجوء</p>
+                            </div>
+
+                    <div class="ngos-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 30px;">
+                        
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #1976d2, #42a5f5); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);">
+                                    <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
+                        </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">المجلس اليوناني للاجئين</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Greek Council for Refugees (GCR)</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=25+Solomou+Street,+Athens+10682,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">25 Solomou Street, Athens 10682</a>
+                            </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302103800990" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 3800990</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://www.gcr.gr/en/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">www.gcr.gr/en</a>
+                        </div>
+                    </div>
+
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة غير حكومية رائدة تقدم مساعدة قانونية شاملة لطالبي اللجوء واللاجئين في اليونان منذ عام 1989.</p>
+                            </div>
+                            
+                            <a href="https://www.gcr.gr/en/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #ff9800, #ffb74d); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);">
+                                    <i class="fas fa-balance-scale" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">منظمة العفو الدولية</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Amnesty International - Greece</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Sina+30,+Athens+10672,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">Sina 30, Athens 10672</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302103600628" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 3600628</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://www.amnesty.gr/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">www.amnesty.gr</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة عالمية لحقوق الإنسان تقدم الدعم القانوني والدفاع عن حقوق طالبي اللجوء واللاجئين.</p>
+                            </div>
+                            
+                            <a href="https://www.amnesty.gr/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #ff9800, #ffb74d); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #4caf50, #81c784); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
+                                    <i class="fas fa-gavel" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">AITIMA</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Action for Immigration Rights</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Tripou+4-6,+Athens+11741,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">Tripou 4-6, Athens 11741</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302109241677" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 9241677</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="http://www.aitima.gr/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">www.aitima.gr</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة متخصصة في حقوق المهاجرين وطالبي اللجوء، تقدم خدمات قانونية واجتماعية شاملة.</p>
+                            </div>
+                            
+                            <a href="http://www.aitima.gr/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fce4ec;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #e91e63, #f48fb1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);">
+                                    <i class="fas fa-heart" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">مفوضية اللاجئين</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">UNHCR Greece</span>
+                            </div>
+                            </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Vassilissis+Sophias+96,+Athens+11528,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">Vassilissis Sophias 96, Athens 11528</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302106725000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 6725000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://www.unhcr.org/gr/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">www.unhcr.org/gr</a>
+                        </div>
+                    </div>
+
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">المنظمة الدولية الرئيسية لحماية اللاجئين، تقدم الدعم القانوني والاجتماعي والإنساني.</p>
+                            </div>
+                            
+                            <a href="https://www.unhcr.org/gr/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #e91e63, #f48fb1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e1f5fe;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #00bcd4, #4dd0e1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);">
+                                    <i class="fas fa-graduation-cap" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">METAdrasi</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Action for Migration and Development</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Solomou+25,+Athens+10682,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">Solomou 25, Athens 10682</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302103300000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 3300000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://metadrasi.org/en/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">metadrasi.org</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة متخصصة في الترجمة الفورية والخدمات التعليمية والاجتماعية للمهاجرين.</p>
+                            </div>
+                            
+                            <a href="https://metadrasi.org/en/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #00bcd4, #4dd0e1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f3e5f5;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #9c27b0, #ba68c8); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);">
+                                    <i class="fas fa-hand-holding-heart" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Praksis</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Programs of Development, Social Support and Medical Cooperation</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Panepistimiou+39,+Athens+10564,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">Panepistimiou 39, Athens 10564</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302103310000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 3310000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://www.praksis.gr/en/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">www.praksis.gr</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة تقدم خدمات صحية واجتماعية وإسكانية للمهاجرين وطالبي اللجوء.</p>
+                            </div>
+                            
+                            <a href="https://www.praksis.gr/en/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff8e1;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #ffc107, #ffd54f); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);">
+                                    <i class="fas fa-hand-holding-heart" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Network for Children's Rights</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Δίκτυο για τα Δικαιώματα του Παιδιού</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Kallirrois+8,+Athens+11743,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">Kallirrois 8, Athens 11743</a>
+                    </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302109220000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 9220000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://ddp.gr/en/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">ddp.gr</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة متخصصة في حماية حقوق الأطفال، خاصة الأطفال المهاجرين وطالبي اللجوء.</p>
+                            </div>
+                            
+                            <a href="https://ddp.gr/en/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #ffc107, #ffd54f); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #2e7d32, #66bb6a); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);">
+                                    <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">ARSIS</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Association for the Social Support of Youth</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Kallirrois+8,+Athens+11743,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">Kallirrois 8, Athens 11743</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302109220000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 9220000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://arsis.gr/en/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">arsis.gr</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة متخصصة في دعم الشباب والمراهقين المهاجرين وطالبي اللجوء، تقدم خدمات قانونية واجتماعية.</p>
+                            </div>
+                            
+                            <a href="https://arsis.gr/en/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #2e7d32, #66bb6a); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fce4ec;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #c2185b, #ec407a); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(194, 24, 91, 0.3);">
+                                    <i class="fas fa-female" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Women's Refugee Commission</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">WRC Greece</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Athens,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">مكاتب في أثينا والجزر</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302109220000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 9220000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://www.womensrefugeecommission.org/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">womensrefugeecommission.org</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة متخصصة في دعم النساء والفتيات طالبات اللجوء، تقدم خدمات قانونية واجتماعية خاصة.</p>
+                            </div>
+                            
+                            <a href="https://www.womensrefugeecommission.org/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #c2185b, #ec407a); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #1565c0, #42a5f5); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);">
+                                    <i class="fas fa-balance-scale" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Refugee Legal Support</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">RLS Greece</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Athens,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">مكاتب في أثينا والجزر</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302109220000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 9220000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://refugeelegalsupport.org/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">refugeelegalsupport.org</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة متخصصة في تقديم الدعم القانوني المجاني لطالبي اللجوء في اليونان، مع التركيز على الاستئنافات.</p>
+                            </div>
+                            
+                            <a href="https://refugeelegalsupport.org/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #1565c0, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #ef6c00, #ff9800); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(239, 108, 0, 0.3);">
+                                    <i class="fas fa-gavel" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Legal Centre Lesvos</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">LCL</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Lesvos,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">جزيرة ليسبوس</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302251032323" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 22510 32323</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://legalcentrelesvos.org/" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">legalcentrelesvos.org</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">مركز قانوني متخصص في جزيرة ليسبوس يقدم خدمات قانونية مجانية لطالبي اللجوء في الجزر.</p>
+                            </div>
+                            
+                            <a href="https://legalcentrelesvos.org/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #ef6c00, #ff9800); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+
+                        <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f1f8e9;">
+                                <div class="ngo-icon" style="background: linear-gradient(135deg, #388e3c, #81c784); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(56, 142, 60, 0.3);">
+                                    <i class="fas fa-hands-helping" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            <div>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">HIAS Greece</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Hebrew Immigrant Aid Society</span>
+                            </div>
+                        </div>
+                            
+                            <div class="ngo-info" style="margin-bottom: 20px;">
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://maps.google.com/?q=Athens,+Greece" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: 500; transition: color 0.2s;">مكاتب في أثينا والجزر</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-phone-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                                    <a href="tel:+302109220000" style="color: #27ae60; text-decoration: none; font-weight: 600; direction: ltr;">+30 210 9220000</a>
+                                </div>
+                                <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                                    <i class="fas fa-globe" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                                    <a href="https://www.hias.org/greece" target="_blank" style="color: #f39c12; text-decoration: none; font-weight: 500;">hias.org/greece</a>
+                                </div>
+                            </div>
+                            
+                            <div class="ngo-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">منظمة دولية تقدم خدمات قانونية واجتماعية شاملة لطالبي اللجوء واللاجئين في اليونان.</p>
+                            </div>
+                            
+                            <a href="https://www.hias.org/greece" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #388e3c, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                                <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                        </div>
+                    </div>
+
+                    <style>
+                    .ngo-card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+                    }
+                    .ngo-card .info-row a:hover {
+                        color: var(--accent-color) !important;
+                    }
+                    .ngo-card .btn:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    }
+                    @media (max-width: 768px) {
+                        .ngos-container {
+                            grid-template-columns: 1fr;
+                            gap: 20px;
+                        }
+                        .ngo-card {
+                            padding: 20px;
+                        }
+                    }
+                    </style>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الأسئلة الشائعة</span>
+                <div class="section-title-wrapper">
+                    <h2>أسئلة متكررة حول اللجوء</h2>
+                </div>
+                <p>إجابات على الأسئلة الشائعة حول عملية اللجوء في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني العمل أثناء انتظار قرار اللجوء؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>نعم، يمكن لطالبي اللجوء في اليونان العمل بشكل قانوني بعد استكمال إجراءات تسجيل طلب اللجوء والحصول على بطاقة طالب اللجوء (ADET). يمكنك البدء في العمل بعد مرور 6 أشهر من تاريخ تقديم طلب اللجوء. ستحتاج إلى الحصول على رقم ضريبي (AFM) ورقم ضمان اجتماعي (AMKA) للعمل بشكل قانوني.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ما هي المدة التي تستغرقها عملية اللجوء؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>تختلف المدة حسب تعقيد كل حالة وعدد الطلبات التي تتلقاها دائرة اللجوء. وفقاً للقانون، يجب إصدار قرار في غضون 6 أشهر من تاريخ تقديم الطلب، ويمكن تمديد هذه المدة إلى 21 شهراً في حالات استثنائية. ومع ذلك، قد تستغرق العملية في الواقع وقتاً أطول بسبب العدد الكبير من الطلبات.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني السفر خارج اليونان أثناء انتظار قرار اللجوء؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>لا، لا يمكنك السفر خارج اليونان أثناء انتظار قرار اللجوء. بطاقة طالب اللجوء (ADET) تسمح لك بالإقامة في اليونان فقط ولا تعتبر وثيقة سفر. إذا غادرت اليونان، قد يتم اعتبار طلبك متخلى عنه وقد تفقد حقك في اللجوء.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ماذا يحدث إذا تم رفض طلب اللجوء الخاص بي؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>إذا تم رفض طلبك، لديك الحق في تقديم استئناف خلال فترة محددة (عادة 30 يوماً). يجب تقديم الاستئناف كتابياً إلى لجنة الاستئناف. إذا تم رفض الاستئناف، يمكنك تقديم طعن أمام المحكمة الإدارية خلال 60 يوماً. إذا تم رفض جميع الطعون، قد تخضع لإجراءات العودة إلى بلدك الأصلي.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني الحصول على مساعدة مالية كطالب لجوء؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>نعم، يمكن لطالبي اللجوء المسجلين الحصول على مساعدة مالية من خلال برنامج ESTIA الذي تديره المفوضية السامية للأمم المتحدة لشؤون اللاجئين بالتعاون مع الحكومة اليونانية. كما يمكنك الحصول على مساعدات عينية مثل الطعام والملابس من المنظمات غير الحكومية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني الحصول على رعاية صحية كطالب لجوء؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>نعم، يحق لطالبي اللجوء الحصول على الرعاية الصحية المجانية في المستشفيات العامة والمراكز الصحية. للاستفادة من هذه الخدمات، ستحتاج إلى الحصول على رقم الضمان الاجتماعي المؤقت (PAAYPA) الذي يتم إصداره تلقائياً مع بطاقة طالب اللجوء.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Modal -->
+    <div id="siteSettingsModal" class="settings-modal" tabindex="-1" aria-hidden="true">
+      <div class="settings-modal-content">
+        <button class="settings-modal-close" title="إغلاق" aria-label="إغلاق الإعدادات">&times;</button>
+        <h2 class="settings-modal-title"><i class="fas fa-sliders-h"></i> إعدادات الموقع</h2>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-language"></i> اللغة</label>
+          <select id="settingsLanguage" class="settings-select">
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+            <option value="el">Ελληνικά</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="tr">Türkçe</option>
+            <option value="fa">فارسی</option>
+          </select>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-moon"></i> الوضع الليلي</label>
+          <label class="switch">
+            <input type="checkbox" id="settingsDarkMode">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-palette"></i> السمة (الألوان)</label>
+          <div class="settings-themes">
+            <button class="theme-btn" data-theme="red" style="background:#e74c3c;"></button>
+            <button class="theme-btn" data-theme="green" style="background:#27ae60;"></button>
+            <button class="theme-btn" data-theme="orange" style="background:#f39c12;"></button>
+            <button class="theme-btn" data-theme="purple" style="background:#8e44ad;"></button>
+            <button class="theme-btn" data-theme="pink" style="background:#e84393;"></button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-text-height"></i> حجم النص</label>
+          <div class="settings-fontsize">
+            <button id="fontSizeMinus" class="font-btn">A-</button>
+            <span id="fontSizeValue">100%</span>
+            <button id="fontSizePlus" class="font-btn">A+</button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-volume-up"></i> قراءة النصوص بالصوت</label>
+          <div class="tts-controls">
+            <button id="ttsToggleBtn" class="settings-action-btn" aria-label="تشغيل أو إيقاف قراءة النص"><i class="fas fa-play"></i> استمع للنص</button>
+            <label style="font-size:0.98em;margin:0 8px;">السرعة:
+              <input type="range" id="ttsRate" min="0.5" max="2" step="0.1" value="1" style="vertical-align:middle;width:90px;">
+            </label>
+            <span id="ttsStatus" style="font-size:0.97em;color:#4fc3f7;margin-right:8px;"></span>
+          </div>
+        </div>
+        <div class="settings-section">
+          <button id="resetSettingsBtn" class="settings-reset-btn"><i class="fas fa-undo"></i> إعادة الإعدادات الافتراضية</button>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-bolt"></i> الوضع الاقتصادي/البطء</label>
+          <label class="switch">
+            <input type="checkbox" id="settingsEconomyMode">
+            <span class="slider round"></span>
+          </label>
+          <span style="font-size:0.97em;color:#888;margin-right:8px;">تقليل استهلاك البيانات: إخفاء الصور، تعطيل الحركات والمؤثرات.</span>
+        </div>
+        <div class="settings-section high-contrast-section">
+            <label class="settings-label"><i class="fas fa-adjust"></i> تباين عالي</label>
+            <label class="switch high-contrast-switch">
+                <input type="checkbox" id="highContrast">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="settings-section color-blind-section">
+            <label class="settings-label"><i class="fas fa-eye"></i> وضع عمى الألوان</label>
+            <label class="switch color-blind-switch">
+                <input type="checkbox" id="settingsColorBlindMode">
+                <span class="slider round"></span>
+            </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- زر دليل الطوارئ السريع -->
+    <button id="emergencyBtn" title="دليل الطوارئ" style="position:fixed;bottom:32px;left:32px;z-index:1200;background:#e74c3c;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 18px #e74c3c33;display:flex;align-items:center;justify-content:center;font-size:2rem;cursor:pointer;transition:background 0.18s;">
+      <i class="fas fa-phone-alt"></i>
+    </button>
+    <!-- نافذة الطوارئ -->
+    <div id="emergencyModal" style="display:none;position:fixed;z-index:1300;left:0;top:0;width:100vw;height:100vh;background:rgba(34,44,58,0.32);align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:18px;box-shadow:0 8px 40px #e74c3c33;padding:32px 24px 22px 24px;min-width:320px;max-width:98vw;width:410px;position:relative;direction:rtl;">
+        <button id="emergencyModalClose" style="position:absolute;left:18px;top:18px;background:none;border:none;font-size:2rem;color:#e74c3c;cursor:pointer;z-index:2;">&times;</button>
+        <h2 style="font-size:1.35rem;font-weight:700;color:#e74c3c;margin-bottom:18px;display:flex;align-items:center;gap:8px;"><i class="fas fa-exclamation-triangle"></i> دليل الطوارئ السريع</h2>
+        <ul style="list-style:none;padding:0;margin:0 0 12px 0;font-size:1.13rem;">
+          <li style="margin-bottom:12px;"><b>الشرطة:</b> <a href="tel:100" style="color:#1976d2;font-weight:700;">100</a></li>
+          <li style="margin-bottom:12px;"><b>الإسعاف:</b> <a href="tel:166" style="color:#1976d2;font-weight:700;">166</a></li>
+          <li style="margin-bottom:12px;"><b>الإطفاء:</b> <a href="tel:199" style="color:#1976d2;font-weight:700;">199</a></li>
+          <li style="margin-bottom:12px;"><b>النجدة الأوروبية:</b> <a href="tel:112" style="color:#1976d2;font-weight:700;">112</a></li>
+          <li style="margin-bottom:12px;"><b>سفارة بلدك:</b> <a href="https://embassy.goabroad.com/embassies-in/greece" target="_blank" style="color:#e74c3c;font-weight:700;">دليل السفارات</a></li>
+        </ul>
+        <div style="font-size:0.98em;color:#666;">اضغط على الرقم للاتصال مباشرة (على الجوال).</div>
+      </div>
+    </div>
+    <!-- نهاية دليل الطوارئ السريع -->
+
+    <!-- JavaScript Files -->
+    <script src="../js/main.js"></script>
+    <script>
+        // JavaScript for FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Toggle active class on the clicked item
+                    item.classList.toggle('active');
+                    
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
