@@ -6,7 +6,6 @@
     <title>دوائر اللجوء - الحياة في اليونان</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/tabs.css">
-    <link rel="stylesheet" href="../css/toast.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -382,6 +381,219 @@
                 max-width: 98vw;
                 min-width: 0;
             }
+        }
+
+        body.dark-mode .asylum-process-timeline {
+            background: none;
+        }
+        body.dark-mode .timeline-item {
+            background: none;
+        }
+        body.dark-mode .timeline-content {
+            background-color: #232e3c;
+            color: #e3eaf2;
+            box-shadow: 0 4px 16px rgba(20,30,40,0.28);
+        }
+        body.dark-mode .timeline-content h3 {
+            color: #4fc3f7;
+        }
+        body.dark-mode .timeline-content .timeline-date {
+            background-color: #263246;
+            color: #fff;
+        }
+        body.dark-mode .timeline-item::after {
+            background-color: #232e3c;
+            border-color: #4fc3f7;
+        }
+        body.dark-mode .timeline-content p,
+        body.dark-mode .timeline-content ul,
+        body.dark-mode .timeline-content li {
+            color: #cfd8dc;
+        }
+        body.dark-mode .document-card {
+            background-color: #232e3c;
+            color: #e3eaf2;
+            box-shadow: 0 6px 20px rgba(20,30,40,0.28);
+        }
+        body.dark-mode .document-card h4 {
+            color: #4fc3f7;
+        }
+        body.dark-mode .document-card p {
+            color: #cfd8dc;
+        }
+        body.dark-mode .document-card ul li {
+            color: #cfd8dc;
+        }
+        body.dark-mode .document-card ul li::before {
+            color: #4fc3f7;
+        }
+        
+        /* أنماط الوضع الليلي لبطاقات ملاحظة هامة */
+        body.dark-mode .important-note {
+            background-color: #2c3e50;
+            border-right-color: #f39c12;
+            color: #ecf0f1;
+        }
+        
+        body.dark-mode .important-note h4 {
+            color: #f39c12;
+        }
+        
+        body.dark-mode .important-note p,
+        body.dark-mode .important-note ul,
+        body.dark-mode .important-note li {
+            color: #bdc3c7;
+        }
+        
+        body.dark-mode .important-note a {
+            color: #3498db;
+        }
+        
+        body.dark-mode .important-note a:hover {
+            color: #5dade2;
+        }
+        
+        /* أنماط الوضع الليلي لمكاتب اللجوء */
+        body.dark-mode .asylum-office {
+            background-color: #232e3c;
+            color: #e3eaf2;
+            box-shadow: 0 4px 16px rgba(20,30,40,0.28);
+            border-right-color: #4fc3f7;
+            border-left-color: #34495e;
+        }
+        
+        body.dark-mode .asylum-office h3 {
+            color: #81d4fa;
+        }
+        
+        body.dark-mode .asylum-office h3 a {
+            color: #81d4fa;
+        }
+        
+        body.dark-mode .asylum-office h3 a:hover {
+            color: #b3e5fc;
+        }
+        
+        body.dark-mode .asylum-office-details {
+            border-top-color: #34495e;
+        }
+        
+        body.dark-mode .info-item {
+            color: #bdc3c7;
+        }
+        
+        body.dark-mode .info-item strong {
+            color: #ecf0f1;
+        }
+        
+        body.dark-mode .info-item a {
+            color: #3498db;
+        }
+        
+        body.dark-mode .info-item a:hover {
+            color: #5dade2;
+        }
+        
+        body.dark-mode .info-item span {
+            color: #95a5a6;
+        }
+        
+        body.dark-mode .asylum-office-map {
+            background-color: #34495e;
+        }
+        
+        body.dark-mode .contact-card {
+            background-color: #232e3c;
+            color: #e3eaf2;
+            box-shadow: 0 4px 16px rgba(20,30,40,0.28);
+        }
+        body.dark-mode .contact-card h3 {
+            color: #fff;
+        }
+        body.dark-mode .contact-card i {
+            color: #4fc3f7;
+        }
+        body.dark-mode .contact-card p {
+            color: #bdc3c7;
+        }
+        body.dark-mode .contact-card a.btn {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: #fff !important;
+        }
+        body.dark-mode .contact-card a.btn:hover {
+            background: linear-gradient(135deg, #1565c0, #1976d2);
+            color: #fff !important;
+        }
+        body.dark-mode .contact-card a {
+            color: #4fc3f7;
+        }
+        body.dark-mode .contact-card a:hover {
+            color: #81d4fa;
+        }
+        body.dark-mode .ngo-card {
+            background: #232e3c !important;
+            color: #e3eaf2;
+            box-shadow: 0 8px 25px rgba(20,30,40,0.18);
+            border: 1px solid #263246;
+        }
+        body.dark-mode .ngo-card h4 {
+            color: #fff;
+        }
+        body.dark-mode .ngo-card .ngo-icon {
+            background: #263246 !important;
+        }
+        body.dark-mode .ngo-card .ngo-icon i {
+            color: #4fc3f7 !important;
+        }
+        body.dark-mode .ngo-card .ngo-info a {
+            color: #4fc3f7;
+        }
+        body.dark-mode .ngo-card .ngo-info a:hover {
+            color: #81d4fa;
+        }
+        body.dark-mode .ngo-card .ngo-description {
+            background: #263246;
+            color: #bdc3c7;
+        }
+        body.dark-mode .ngo-card .btn {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: #fff !important;
+        }
+        body.dark-mode .ngo-card .btn:hover {
+            background: linear-gradient(135deg, #1565c0, #1976d2);
+            color: #fff !important;
+        }
+        body.dark-mode .ngo-card .info-row {
+            color: #bdc3c7;
+        }
+        body.dark-mode .ngo-card .info-row i {
+            color: #4fc3f7 !important;
+        }
+        body.dark-mode .faq-item {
+            background: #232e3c;
+            box-shadow: 0 2px 10px rgba(33,150,243,0.08);
+            border: 1px solid #263246;
+        }
+        body.dark-mode .faq-question {
+            background: #263246;
+            color: #e3eaf2;
+        }
+        body.dark-mode .faq-question i {
+            color: #4fc3f7;
+        }
+        body.dark-mode .faq-item.active .faq-question {
+            background: #1976d2;
+            color: #fff;
+        }
+        body.dark-mode .faq-item.active .faq-question i {
+            color: #fff;
+        }
+        body.dark-mode .faq-answer {
+            background: #232e3c;
+            color: #cfd8dc;
+        }
+        body.dark-mode .faq-answer-content {
+            color: #cfd8dc;
         }
     </style>
 </head>
@@ -1608,29 +1820,88 @@
     </div>
     <!-- نهاية دليل الطوارئ السريع -->
 
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+        <a href="../index.html" class="mobile-bottom-nav-link" title="الرئيسية">
+            <i class="fas fa-house-chimney-window"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="#menu" class="mobile-bottom-nav-link menu-icon" title="القائمة">
+            <i class="fas fa-grip-lines"></i>
+            <span>القائمة</span>
+        </a>
+        <button class="mobile-bottom-nav-center" title="الصعود للأعلى" aria-label="الصعود للأعلى">
+            <i class="fas fa-circle-chevron-up"></i>
+        </button>
+        <a href="#search" class="mobile-bottom-nav-link" title="البحث">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>البحث</span>
+        </a>
+        <a href="#settings" class="mobile-bottom-nav-link" title="الإعدادات">
+            <i class="fas fa-sliders"></i>
+            <span>الإعدادات</span>
+        </a>
+    </nav>
+
+    <!-- Popup Menu Overlay and Window -->
+    <div class="menu-popup-overlay" id="menuPopupOverlay"></div>
+    <div class="menu-popup" id="menuPopup">
+      <div class="menu-popup-content">
+        <ul class="menu-popup-list">
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#services" class="submenu-anchor-popup"><i class="fas fa-hands-helping"></i> الخدمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+        </div>
+            <ul class="submenu">
+              <li><a href="asylum.html">دوائر اللجوء</a></li>
+              <li><a href="government.html">دوائر حكومية</a></li>
+              <li><a href="housing.html">عقارات وسكن</a></li>
+              <li><a href="hospitals.html">مستشفيات</a></li>
+              <li><a href="transportation.html">خطوط النقل</a></li>
+              <li><a href="tourism-services.html">سياحة</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#work" class="submenu-anchor-popup"><i class="fas fa-briefcase"></i> العمل</a></li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="../index.html#organizations" class="submenu-anchor-popup"><i class="fas fa-users"></i> المنظمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+            <ul class="submenu">
+              <li><a href="../index.html#humanitarian">منظمات إنسانية</a></li>
+              <li><a href="../index.html#medical-org">منظمات طبية</a></li>
+              <li><a href="../index.html#educational">منظمات تعليمية</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="../index.html#offices" class="submenu-anchor-popup"><i class="fas fa-building"></i> المكاتب</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+            <ul class="submenu">
+              <li><a href="../index.html#service-offices">مكاتب خدمية</a></li>
+              <li><a href="../index.html#accounting">مكاتب محاسبة</a></li>
+              <li><a href="../index.html#lawyers">مكاتب محامين</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="../index.html#tourism" class="submenu-anchor-popup"><i class="fas fa-plane"></i> السياحة</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+            <ul class="submenu">
+              <li><a href="../index.html#hotels">فنادق</a></li>
+              <li><a href="../index.html#pharmacies">صيدليات ومتاجر</a></li>
+              <li><a href="../index.html#restaurants">مطاعم</a></li>
+            </ul>
+          </li>
+        </ul>
+                        </div>
+                    </div>
+
     <!-- JavaScript Files -->
     <script src="../js/main.js"></script>
-    <script>
-        // JavaScript for FAQ Accordion
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                
-                question.addEventListener('click', () => {
-                    // Toggle active class on the clicked item
-                    item.classList.toggle('active');
-                    
-                    // Close other items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item && otherItem.classList.contains('active')) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <!-- لا تكرر أي كود JS خاص بالشريط السفلي أو القائمة المنبثقة هنا -->
 </body>
 </html>
