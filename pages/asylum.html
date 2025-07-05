@@ -397,6 +397,102 @@
         body.dark-mode .timeline-content h3 {
             color: #4fc3f7;
         }
+        /* Quick Navigation Styles */
+        .quick-nav-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 0;
+            margin: 20px 0;
+        }
+        
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .quick-nav-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-decoration: none;
+            color: var(--dark-color);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quick-nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 1);
+            color: var(--primary-color);
+        }
+        
+        .quick-nav-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .quick-nav-item:hover i {
+            color: var(--accent-color);
+        }
+        
+        .quick-nav-item span {
+            font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        
+        @media (max-width: 768px) {
+            .quick-nav-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .quick-nav-item {
+                padding: 15px 10px;
+            }
+            
+            .quick-nav-item i {
+                font-size: 1.5rem;
+            }
+            
+            .quick-nav-item span {
+                font-size: 0.8rem;
+            }
+        }
+        
+        body.dark-mode .quick-nav-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+        
+        body.dark-mode .quick-nav-item {
+            background: rgba(44, 62, 80, 0.95);
+            color: #ecf0f1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .quick-nav-item:hover {
+            background: rgba(52, 73, 94, 1);
+            color: #3498db;
+        }
+        
+        body.dark-mode .quick-nav-item i {
+            color: #3498db;
+        }
+        
+        body.dark-mode .quick-nav-item:hover i {
+            color: #5dade2;
+        }
+        
         body.dark-mode .timeline-content .timeline-date {
             background-color: #263246;
             color: #fff;
@@ -531,43 +627,141 @@
             color: #81d4fa;
         }
         body.dark-mode .ngo-card {
-            background: #232e3c !important;
-            color: #e3eaf2;
-            box-shadow: 0 8px 25px rgba(20,30,40,0.18);
-            border: 1px solid #263246;
+            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%) !important;
+            color: #ecf0f1;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 1px solid #34495e;
+            position: relative;
+        }
+        body.dark-mode .ngo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 15px 15px 0 0;
         }
         body.dark-mode .ngo-card h4 {
-            color: #fff;
+            color: #3498db;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         body.dark-mode .ngo-card .ngo-icon {
-            background: #263246 !important;
+            background: linear-gradient(135deg, #3498db, #2980b9) !important;
+            /* إزالة الظل والإطار */
+            box-shadow: none !important;
+            border: none !important;
         }
         body.dark-mode .ngo-card .ngo-icon i {
-            color: #4fc3f7 !important;
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         body.dark-mode .ngo-card .ngo-info a {
-            color: #4fc3f7;
+            color: #3498db;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
         }
         body.dark-mode .ngo-card .ngo-info a:hover {
-            color: #81d4fa;
+            color: #5dade2;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         body.dark-mode .ngo-card .ngo-description {
-            background: #263246;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: #bdc3c7;
+            border: 1px solid #34495e;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
         body.dark-mode .ngo-card .btn {
-            background: linear-gradient(135deg, #1976d2, #42a5f5);
-            color: #fff !important;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #ffffff !important;
+            border: none;
         }
         body.dark-mode .ngo-card .btn:hover {
-            background: linear-gradient(135deg, #1565c0, #1976d2);
-            color: #fff !important;
+            background: linear-gradient(135deg, #2980b9, #1f618d);
+            color: #ffffff !important;
+            transform: translateY(-2px);
         }
         body.dark-mode .ngo-card .info-row {
-            color: #bdc3c7;
+            color: #ecf0f1;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
         }
         body.dark-mode .ngo-card .info-row i {
-            color: #4fc3f7 !important;
+            color: #3498db !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        body.dark-mode .ngo-card .info-row i.fa-map-marker-alt {
+            color: #e74c3c !important;
+        }
+        body.dark-mode .ngo-card .info-row i.fa-phone-alt {
+            color: #27ae60 !important;
+        }
+        body.dark-mode .ngo-card .info-row i.fa-globe {
+            color: #f39c12 !important;
+        }
+        body.dark-mode .ngo-card .ngo-card-header {
+            border-bottom-color: #34495e;
+        }
+        body.dark-mode .ngo-card .ngo-card-header span {
+            color: #95a5a6;
+            font-weight: 400;
+        }
+        body.dark-mode .ngo-card .ngo-description p {
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+        /* تخصيص لون عنوان AITIMA في الوضع الليلي */
+        body.dark-mode .ngo-card .aitima-title {
+            color: #ffffff !important;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        body.dark-mode .ngo-card .aitima-subtitle {
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            opacity: 0.9;
+        }
+        
+        /* أنماط العناوين والنصوص الفرعية لجميع المنظمات في الوضع الليلي */
+        body.dark-mode .ngo-card .gcr-title,
+        body.dark-mode .ngo-card .amnesty-title,
+        body.dark-mode .ngo-card .unhcr-title,
+        body.dark-mode .ngo-card .metadrasi-title,
+        body.dark-mode .ngo-card .praksis-title,
+        body.dark-mode .ngo-card .children-rights-title,
+        body.dark-mode .ngo-card .arsis-title,
+        body.dark-mode .ngo-card .wrc-title,
+        body.dark-mode .ngo-card .rls-title,
+        body.dark-mode .ngo-card .lcl-title,
+        body.dark-mode .ngo-card .hias-title {
+            color: #ffffff !important;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        body.dark-mode .ngo-card .gcr-subtitle,
+        body.dark-mode .ngo-card .amnesty-subtitle,
+        body.dark-mode .ngo-card .unhcr-subtitle,
+        body.dark-mode .ngo-card .metadrasi-subtitle,
+        body.dark-mode .ngo-card .praksis-subtitle,
+        body.dark-mode .ngo-card .children-rights-subtitle,
+        body.dark-mode .ngo-card .arsis-subtitle,
+        body.dark-mode .ngo-card .wrc-subtitle,
+        body.dark-mode .ngo-card .rls-subtitle,
+        body.dark-mode .ngo-card .lcl-subtitle,
+        body.dark-mode .ngo-card .hias-subtitle {
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            opacity: 0.9;
+        }
+        body.dark-mode .ngo-card span {
+            color: #95a5a6;
+        }
+        body.dark-mode .ngos-description {
+            color: #bdc3c7 !important;
+        }
+        body.dark-mode .section-header h3 {
+            color: #3498db !important;
+        }
+        body.dark-mode .section-header h3 i {
+            color: #5dade2 !important;
         }
         body.dark-mode .faq-item {
             background: #232e3c;
@@ -620,6 +814,17 @@
                         <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                         <div class="dropdown-content">
                             <a href="asylum.html" class="active">دوائر اللجوء</a>
+                            <a href="#statistics">الإحصائيات والتقارير</a>
+                            <a href="#educational-resources">الموارد التعليمية</a>
+                            <a href="#psychological-support">الدعم النفسي والاجتماعي</a>
+                            <a href="#housing">الإسكان والسكن</a>
+                            <a href="#work-employment">العمل والتوظيف</a>
+                            <a href="#healthcare">الرعاية الصحية</a>
+                            <a href="#transportation">النقل والمواصلات</a>
+                            <a href="#technology">التكنولوجيا والاتصال</a>
+                            <a href="#events">الأحداث والفعاليات</a>
+                            <a href="#news">الأخبار والتحديثات</a>
+                            <a href="#emergency">المساعدة الطارئة</a>
                             <a href="government.html">دوائر حكومية</a>
                             <a href="housing.html">عقارات وسكن</a>
                             <a href="hospitals.html">مستشفيات</a>
@@ -682,6 +887,17 @@
                 <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
                 <ul class="dropdown-content">
                     <li><a href="asylum.html" class="active">دوائر اللجوء</a></li>
+                    <li><a href="#statistics">الإحصائيات والتقارير</a></li>
+                    <li><a href="#educational-resources">الموارد التعليمية</a></li>
+                    <li><a href="#psychological-support">الدعم النفسي والاجتماعي</a></li>
+                    <li><a href="#housing">الإسكان والسكن</a></li>
+                    <li><a href="#work-employment">العمل والتوظيف</a></li>
+                    <li><a href="#healthcare">الرعاية الصحية</a></li>
+                    <li><a href="#transportation">النقل والمواصلات</a></li>
+                    <li><a href="#technology">التكنولوجيا والاتصال</a></li>
+                    <li><a href="#events">الأحداث والفعاليات</a></li>
+                    <li><a href="#news">الأخبار والتحديثات</a></li>
+                    <li><a href="#emergency">المساعدة الطارئة</a></li>
                     <li><a href="government.html">دوائر حكومية</a></li>
                     <li><a href="housing.html">عقارات وسكن</a></li>
                     <li><a href="hospitals.html">مستشفيات</a></li>
@@ -785,6 +1001,58 @@
                     <li><strong>وضع اللاجئ:</strong> يُمنح للأشخاص الذين يستوفون تعريف اللاجئ وفقاً لاتفاقية جنيف.</li>
                     <li><strong>الحماية الثانوية:</strong> تُمنح للأشخاص الذين لا يستوفون شروط وضع اللاجئ ولكنهم معرضون لخطر حقيقي من التعرض لأذى جسيم في حال عودتهم إلى بلدهم الأصلي.</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation Section -->
+    <section class="quick-nav-section">
+        <div class="container">
+            <div class="quick-nav-grid">
+                <a href="#statistics" class="quick-nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>الإحصائيات والتقارير</span>
+                </a>
+                <a href="#educational-resources" class="quick-nav-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>الموارد التعليمية</span>
+                </a>
+                <a href="#psychological-support" class="quick-nav-item">
+                    <i class="fas fa-heart"></i>
+                    <span>الدعم النفسي والاجتماعي</span>
+                </a>
+                <a href="#housing" class="quick-nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>الإسكان والسكن</span>
+                </a>
+                <a href="#work-employment" class="quick-nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>العمل والتوظيف</span>
+                </a>
+                <a href="#healthcare" class="quick-nav-item">
+                    <i class="fas fa-user-md"></i>
+                    <span>الرعاية الصحية</span>
+                </a>
+                <a href="#transportation" class="quick-nav-item">
+                    <i class="fas fa-bus"></i>
+                    <span>النقل والمواصلات</span>
+                </a>
+                <a href="#technology" class="quick-nav-item">
+                    <i class="fas fa-laptop"></i>
+                    <span>التكنولوجيا والاتصال</span>
+                </a>
+                <a href="#events" class="quick-nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>الأحداث والفعاليات</span>
+                </a>
+                <a href="#news" class="quick-nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span>الأخبار والتحديثات</span>
+                </a>
+                <a href="#emergency" class="quick-nav-item">
+                    <i class="fas fa-ambulance"></i>
+                    <span>المساعدة الطارئة</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1163,19 +1431,16 @@
                             <i class="fas fa-hands-helping" style="color: var(--accent-color); margin-left: 10px;"></i>
                             منظمات تقدم مساعدة قانونية لطالبي اللجوء
                         </h3>
-                        <p style="text-align: center; color: #666; font-size: 1.1rem;">منظمات معتمدة وموثوقة تقدم خدمات قانونية مجانية لطالبي اللجوء</p>
+                        <p style="text-align: center; color: #666; font-size: 1.1rem;" class="ngos-description">منظمات معتمدة وموثوقة تقدم خدمات قانونية مجانية لطالبي اللجوء</p>
                             </div>
 
                     <div class="ngos-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 30px;">
                         
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #1976d2, #42a5f5); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);">
-                                    <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
-                        </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">المجلس اليوناني للاجئين</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Greek Council for Refugees (GCR)</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="gcr-title">المجلس اليوناني للاجئين</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="gcr-subtitle">Greek Council for Refugees (GCR)</span>
                             </div>
                         </div>
                             
@@ -1206,12 +1471,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #ff9800, #ffb74d); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);">
-                                    <i class="fas fa-balance-scale" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">منظمة العفو الدولية</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Amnesty International - Greece</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="amnesty-title">منظمة العفو الدولية</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="amnesty-subtitle">Amnesty International - Greece</span>
                             </div>
                         </div>
                             
@@ -1242,12 +1504,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #4caf50, #81c784); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
-                                    <i class="fas fa-gavel" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">AITIMA</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Action for Immigration Rights</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="aitima-title">AITIMA</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="aitima-subtitle">Action for Immigration Rights</span>
                             </div>
                         </div>
                             
@@ -1278,12 +1537,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fce4ec;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #e91e63, #f48fb1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);">
-                                    <i class="fas fa-heart" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">مفوضية اللاجئين</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">UNHCR Greece</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="unhcr-title">مفوضية اللاجئين</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="unhcr-subtitle">UNHCR Greece</span>
                             </div>
                             </div>
                             
@@ -1314,12 +1570,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e1f5fe;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #00bcd4, #4dd0e1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);">
-                                    <i class="fas fa-graduation-cap" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">METAdrasi</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Action for Migration and Development</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="metadrasi-title">METAdrasi</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="metadrasi-subtitle">Action for Migration and Development</span>
                             </div>
                         </div>
                             
@@ -1350,12 +1603,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f3e5f5;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #9c27b0, #ba68c8); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);">
-                                    <i class="fas fa-hand-holding-heart" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Praksis</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Programs of Development, Social Support and Medical Cooperation</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="praksis-title">Praksis</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="praksis-subtitle">Programs of Development, Social Support and Medical Cooperation</span>
                             </div>
                         </div>
                             
@@ -1386,12 +1636,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff8e1;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #ffc107, #ffd54f); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);">
-                                    <i class="fas fa-hand-holding-heart" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Network for Children's Rights</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Δίκτυο για τα Δικαιώματα του Παιδιού</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="children-rights-title">Network for Children's Rights</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="children-rights-subtitle">Δίκτυο για τα Δικαιώματα του Παιδιού</span>
                             </div>
                         </div>
                             
@@ -1422,12 +1669,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #2e7d32, #66bb6a); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);">
-                                    <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">ARSIS</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Association for the Social Support of Youth</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="arsis-title">ARSIS</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="arsis-subtitle">Association for the Social Support of Youth</span>
                             </div>
                         </div>
                             
@@ -1458,12 +1702,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fce4ec;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #c2185b, #ec407a); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(194, 24, 91, 0.3);">
-                                    <i class="fas fa-female" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Women's Refugee Commission</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">WRC Greece</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="wrc-title">Women's Refugee Commission</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="wrc-subtitle">WRC Greece</span>
                             </div>
                         </div>
                             
@@ -1494,12 +1735,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #1565c0, #42a5f5); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);">
-                                    <i class="fas fa-balance-scale" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Refugee Legal Support</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">RLS Greece</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="rls-title">Refugee Legal Support</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="rls-subtitle">RLS Greece</span>
                             </div>
                         </div>
                             
@@ -1530,12 +1768,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #ef6c00, #ff9800); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(239, 108, 0, 0.3);">
-                                    <i class="fas fa-gavel" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">Legal Centre Lesvos</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">LCL</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="lcl-title">Legal Centre Lesvos</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="lcl-subtitle">LCL</span>
                             </div>
                         </div>
                             
@@ -1566,12 +1801,9 @@
 
                         <div class="ngo-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative; overflow: hidden;">
                             <div class="ngo-card-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f1f8e9;">
-                                <div class="ngo-icon" style="background: linear-gradient(135deg, #388e3c, #81c784); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; box-shadow: 0 4px 15px rgba(56, 142, 60, 0.3);">
-                                    <i class="fas fa-hands-helping" style="color: white; font-size: 1.5rem;"></i>
-                                </div>
                             <div>
-                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">HIAS Greece</h4>
-                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Hebrew Immigrant Aid Society</span>
+                                    <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;" class="hias-title">HIAS Greece</h4>
+                                    <span style="color: #666; font-size: 0.9rem; font-weight: 500;" class="hias-subtitle">Hebrew Immigrant Aid Society</span>
                             </div>
                         </div>
                             
@@ -1613,6 +1845,24 @@
                         transform: translateY(-2px);
                         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
                     }
+                    
+                    /* تحسينات الوضع الليلي */
+                    body.dark-mode .ngo-card:hover {
+                        transform: translateY(-8px);
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                        border-color: #3498db;
+                    }
+                    body.dark-mode .ngo-card:hover::before {
+                        background: linear-gradient(90deg, #5dade2, #3498db);
+                    }
+                    body.dark-mode .ngo-card:hover .ngo-icon {
+                        background: linear-gradient(135deg, #5dade2, #3498db) !important;
+                        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+                    }
+                    body.dark-mode .ngo-card:hover h4 {
+                        color: #5dade2;
+                    }
+                    
                     @media (max-width: 768px) {
                         .ngos-container {
                             grid-template-columns: 1fr;
@@ -1620,6 +1870,9 @@
                         }
                         .ngo-card {
                             padding: 20px;
+                        }
+                        body.dark-mode .ngo-card {
+                            margin-bottom: 15px;
                         }
                     }
                     </style>
@@ -1712,6 +1965,1499 @@
                         <div class="faq-answer-content">
                             <p>نعم، يحق لطالبي اللجوء الحصول على الرعاية الصحية المجانية في المستشفيات العامة والمراكز الصحية. للاستفادة من هذه الخدمات، ستحتاج إلى الحصول على رقم الضمان الاجتماعي المؤقت (PAAYPA) الذي يتم إصداره تلقائياً مع بطاقة طالب اللجوء.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics and Reports Section -->
+    <section id="statistics" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الإحصائيات والتقارير</span>
+                <div class="section-title-wrapper">
+                    <h2>إحصائيات اللجوء في اليونان</h2>
+                </div>
+                <p>أحدث البيانات والإحصائيات حول طالبي اللجوء في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="statistics-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);">
+                    <div class="stat-icon" style="font-size: 3rem; margin-bottom: 20px;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">إجمالي طالبي اللجوء</h3>
+                    <div class="stat-number" style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">+50,000</div>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">طالب لجوء مسجل في اليونان</p>
+                    <a href="https://www.unhcr.org/gr/en/figures-at-a-glance" target="_blank" style="color: white; text-decoration: underline; font-size: 0.9rem; margin-top: 15px; display: inline-block;">المصدر: UNHCR</a>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);">
+                    <div class="stat-icon" style="font-size: 3rem; margin-bottom: 20px;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">معدل القبول</h3>
+                    <div class="stat-number" style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">42%</div>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">نسبة القبول في طلبات اللجوء</p>
+                    <a href="https://migration.gov.gr/en/statistics/" target="_blank" style="color: white; text-decoration: underline; font-size: 0.9rem; margin-top: 15px; display: inline-block;">المصدر: وزارة الهجرة</a>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);">
+                    <div class="stat-icon" style="font-size: 3rem; margin-bottom: 20px;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">متوسط وقت المعالجة</h3>
+                    <div class="stat-number" style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">8-12</div>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">شهر متوسط وقت المعالجة</p>
+                    <a href="https://www.asylumineurope.org/reports/country/greece/" target="_blank" style="color: white; text-decoration: underline; font-size: 0.9rem; margin-top: 15px; display: inline-block;">المصدر: AIDA</a>
+                </div>
+
+                <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(67, 233, 123, 0.3);">
+                    <div class="stat-icon" style="font-size: 3rem; margin-bottom: 20px;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">مراكز الاستقبال</h3>
+                    <div class="stat-number" style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">25+</div>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">مركز استقبال في اليونان</p>
+                    <a href="https://migration.gov.gr/en/reception-centers/" target="_blank" style="color: white; text-decoration: underline; font-size: 0.9rem; margin-top: 15px; display: inline-block;">المصدر: وزارة الهجرة</a>
+                </div>
+            </div>
+
+            <div class="reports-section" style="margin-top: 50px;">
+                <h3 style="color: var(--primary-color); font-size: 1.8rem; text-align: center; margin-bottom: 30px;">
+                    <i class="fas fa-chart-line" style="color: var(--accent-color); margin-left: 10px;"></i>
+                    التقارير الرسمية والموارد
+                </h3>
+                
+                <div class="reports-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
+                    
+                    <div class="report-card" style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-right: 4px solid var(--primary-color);">
+                        <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-file-alt" style="color: var(--accent-color);"></i>
+                            تقرير UNHCR السنوي
+                        </h4>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">التقرير السنوي لمفوضية الأمم المتحدة لشؤون اللاجئين حول وضع اللاجئين في اليونان</p>
+                        <a href="https://www.unhcr.org/gr/en/publications" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                            <i class="fas fa-download" style="margin-left: 8px;"></i>
+                            تحميل التقرير
+                        </a>
+                    </div>
+
+                    <div class="report-card" style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-right: 4px solid var(--primary-color);">
+                        <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-chart-bar" style="color: var(--accent-color);"></i>
+                            إحصائيات وزارة الهجرة
+                        </h4>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">الإحصائيات الرسمية لوزارة الهجرة واللجوء اليونانية</p>
+                        <a href="https://migration.gov.gr/en/statistics/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #ff9800, #ffb74d); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                            <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                            عرض الإحصائيات
+                        </a>
+                    </div>
+
+                    <div class="report-card" style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-right: 4px solid var(--primary-color);">
+                        <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-globe" style="color: var(--accent-color);"></i>
+                            تقرير AIDA
+                        </h4>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">تقرير شبكة المعلومات حول اللجوء في أوروبا حول اليونان</p>
+                        <a href="https://www.asylumineurope.org/reports/country/greece/" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                            <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                            قراءة التقرير
+                        </a>
+                    </div>
+
+                    <div class="report-card" style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-right: 4px solid var(--primary-color);">
+                        <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-map" style="color: var(--accent-color);"></i>
+                            خريطة تفاعلية
+                        </h4>
+                        <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">خريطة تفاعلية تظهر توزيع طالبي اللجوء ومراكز الاستقبال</p>
+                        <a href="https://data.unhcr.org/en/situations/mediterranean/location/5179" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; padding: 12px; border-radius: 8px; background: linear-gradient(135deg, #e91e63, #f48fb1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: block;">
+                            <i class="fas fa-map-marked-alt" style="margin-left: 8px;"></i>
+                            عرض الخريطة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Resources Section -->
+    <section id="educational-resources" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الموارد التعليمية</span>
+                <div class="section-title-wrapper">
+                    <h2>الموارد التعليمية والتدريبية</h2>
+                </div>
+                <p>دورات لغة يونانية مجانية وبرامج تدريبية لطالبي اللجوء</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="educational-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="education-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="education-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">دورات اللغة اليونانية المجانية</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Free Greek Language Courses</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-map-marker-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">مراكز متعددة في أثينا والجزر</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-clock" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">دورات صباحية ومسائية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-users" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">مستويات مختلفة للمبتدئين والمتقدمين</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">دورات مجانية لتعلم اللغة اليونانية مقدمة من منظمات مختلفة. تشمل دورات للمبتدئين والمتوسطين والمتقدمين.</p>
+                    </div>
+                    
+                    <div class="education-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.gcr.gr/en/education/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-graduation-cap" style="margin-left: 8px;"></i>
+                            المجلس اليوناني للاجئين
+                        </a>
+                        <a href="https://www.hias.org/greece/education" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-book" style="margin-left: 8px;"></i>
+                            HIAS Greece
+                        </a>
+                        <a href="https://www.aitima.gr/en/education/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #ff9800, #ffb74d); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-language" style="margin-left: 8px;"></i>
+                            AITIMA
+                        </a>
+                    </div>
+                </div>
+
+                <div class="education-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="education-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">برامج التدريب المهني</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Vocational Training Programs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-tools" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">مهن متنوعة: بناء، كهرباء، طبخ</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-certificate" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">شهادات معتمدة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-briefcase" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">مساعدة في التوظيف</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">برامج تدريب مهني مجانية تهدف إلى تأهيل طالبي اللجوء للعمل في سوق العمل اليوناني.</p>
+                    </div>
+                    
+                    <div class="education-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.praksis.gr/en/vocational-training/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-wrench" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                        <a href="https://www.aitima.gr/en/vocational-training/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #00bcd4, #4dd0e1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-hammer" style="margin-left: 8px;"></i>
+                            AITIMA
+                        </a>
+                    </div>
+                </div>
+
+                <div class="education-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="education-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">التعليم للأطفال</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Education for Children</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-child" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">من سن 6 إلى 18 سنة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-school" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">مدارس حكومية مجانية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-bus" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">نقل مدرسي مجاني</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">حق التعليم المجاني لجميع الأطفال طالبي اللجوء في المدارس الحكومية اليونانية.</p>
+                    </div>
+                    
+                    <div class="education-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.minedu.gov.gr/public-schools/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-info-circle" style="margin-left: 8px;"></i>
+                            وزارة التربية والتعليم
+                        </a>
+                        <a href="https://www.unhcr.org/gr/en/education" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-graduation-cap" style="margin-left: 8px;"></i>
+                            UNHCR Education
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychological and Social Support Section -->
+    <section id="psychological-support" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الدعم النفسي والاجتماعي</span>
+                <div class="section-title-wrapper">
+                    <h2>خدمات الدعم النفسي والاجتماعي</h2>
+                </div>
+                <p>مراكز الدعم النفسي ومجموعات الدعم والاستشارة العائلية</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="support-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="support-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="support-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">مراكز الدعم النفسي</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Psychological Support Centers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="support-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-brain" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">استشارات نفسية مجانية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-language" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">مترجمين متاحين</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-clock" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">مواعيد مرنة</span>
+                        </div>
+                    </div>
+                    
+                    <div class="support-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">خدمات استشارة نفسية متخصصة لطالبي اللجوء واللاجئين الذين يعانون من صدمات نفسية.</p>
+                    </div>
+                    
+                    <div class="support-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.msf.org/greece" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #e74c3c, #f39c12); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-heart" style="margin-left: 8px;"></i>
+                            أطباء بلا حدود
+                        </a>
+                        <a href="https://www.praksis.gr/en/mental-health/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-brain" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                        <a href="https://www.aitima.gr/en/psychological-support/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #00bcd4, #4dd0e1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-user-friends" style="margin-left: 8px;"></i>
+                            AITIMA
+                        </a>
+                    </div>
+                </div>
+
+                <div class="support-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="support-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">مجموعات الدعم</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Support Groups</span>
+                        </div>
+                    </div>
+                    
+                    <div class="support-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-users" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">مجموعات أسبوعية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-comments" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">تبادل الخبرات</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-hands-helping" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">دعم متبادل</span>
+                        </div>
+                    </div>
+                    
+                    <div class="support-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">مجموعات دعم لطالبي اللجوء واللاجئين لتبادل الخبرات والدعم النفسي المتبادل.</p>
+                    </div>
+                    
+                    <div class="support-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.gcr.gr/en/support-groups/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-users" style="margin-left: 8px;"></i>
+                            المجلس اليوناني للاجئين
+                        </a>
+                        <a href="https://www.hias.org/greece/support-groups" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-hands-helping" style="margin-left: 8px;"></i>
+                            HIAS Greece
+                        </a>
+                    </div>
+                </div>
+
+                <div class="support-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="support-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">الاستشارة العائلية</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Family Counseling</span>
+                        </div>
+                    </div>
+                    
+                    <div class="support-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-home" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">استشارات عائلية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-baby" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">دعم الأمهات والأطفال</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-balance-scale" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">حل النزاعات العائلية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="support-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">خدمات استشارة عائلية متخصصة لمساعدة العائلات على التكيف مع الحياة الجديدة.</p>
+                    </div>
+                    
+                    <div class="support-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.praksis.gr/en/family-support/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-home" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                        <a href="https://www.aitima.gr/en/family-counseling/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #00bcd4, #4dd0e1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-heart" style="margin-left: 8px;"></i>
+                            AITIMA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Housing and Accommodation Section -->
+    <section id="housing" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الإسكان والسكن</span>
+                <div class="section-title-wrapper">
+                    <h2>خيارات الإسكان والسكن</h2>
+                </div>
+                <p>معلومات عن مراكز الاستقبال وخيارات السكن البديلة</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="housing-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="housing-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="housing-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">مراكز الاستقبال والتعريف</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Reception and Identification Centers (RICs)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="housing-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-bed" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">سكن مجاني مؤقت</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-utensils" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">وجبات مجانية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-shield-alt" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">حماية وأمان</span>
+                        </div>
+                    </div>
+                    
+                    <div class="housing-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">مراكز استقبال مؤقتة في الجزر والبر الرئيسي لطالبي اللجوء الجدد.</p>
+                    </div>
+                    
+                    <div class="housing-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://migration.gov.gr/en/reception-centers/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-info-circle" style="margin-left: 8px;"></i>
+                            معلومات رسمية
+                        </a>
+                        <a href="https://www.unhcr.org/gr/en/reception-centers" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i>
+                            UNHCR Guide
+                        </a>
+                    </div>
+                </div>
+
+                <div class="housing-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="housing-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">برنامج ESTIA</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Emergency Support to Integration and Accommodation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="housing-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-home" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">شقق سكنية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-euro-sign" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">مساعدة مالية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-users" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">دعم اجتماعي</span>
+                        </div>
+                    </div>
+                    
+                    <div class="housing-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">برنامج إسكان مدعوم للاجئين المعترف بهم وطالبي اللجوء الضعفاء.</p>
+                    </div>
+                    
+                    <div class="housing-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.unhcr.org/gr/en/estia-programme" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-home" style="margin-left: 8px;"></i>
+                            UNHCR ESTIA
+                        </a>
+                        <a href="https://migration.gov.gr/en/estia-programme/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #ff9800, #ffb74d); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-info-circle" style="margin-left: 8px;"></i>
+                            وزارة الهجرة
+                        </a>
+                    </div>
+                </div>
+
+                <div class="housing-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="housing-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">خيارات السكن البديلة</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Alternative Housing Options</span>
+                        </div>
+                    </div>
+                    
+                    <div class="housing-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-building" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">شقق مستأجرة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-handshake" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">استضافة عائلية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-hotel" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">فنادق اقتصادية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="housing-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">خيارات سكن بديلة مدعومة من المنظمات غير الحكومية والجمعيات الخيرية.</p>
+                    </div>
+                    
+                    <div class="housing-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.gcr.gr/en/housing-support/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-building" style="margin-left: 8px;"></i>
+                            المجلس اليوناني للاجئين
+                        </a>
+                        <a href="https://www.aitima.gr/en/housing/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-home" style="margin-left: 8px;"></i>
+                            AITIMA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work and Employment Section -->
+    <section id="work-employment" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">العمل والتوظيف</span>
+                <div class="section-title-wrapper">
+                    <h2>فرص العمل والتوظيف</h2>
+                </div>
+                <p>دليل للعثور على عمل وبرامج التدريب المهني</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="work-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="work-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="work-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">البحث عن عمل</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Job Search Resources</span>
+                        </div>
+                    </div>
+                    
+                    <div class="work-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-search" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">مواقع التوظيف</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-file-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">مساعدة في السيرة الذاتية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-handshake" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">تدريب على المقابلات</span>
+                        </div>
+                    </div>
+                    
+                    <div class="work-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">موارد وخدمات لمساعدة طالبي اللجوء في العثور على عمل مناسب.</p>
+                    </div>
+                    
+                    <div class="work-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.oaed.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-briefcase" style="margin-left: 8px;"></i>
+                            OAED - مكتب التوظيف
+                        </a>
+                        <a href="https://www.praksis.gr/en/employment/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-search" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                        <a href="https://www.aitima.gr/en/employment/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #00bcd4, #4dd0e1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-user-tie" style="margin-left: 8px;"></i>
+                            AITIMA
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="work-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">برامج التدريب المهني</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Vocational Training Programs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="work-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-tools" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">مهن متنوعة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-certificate" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">شهادات معتمدة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-euro-sign" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">تدريب مجاني</span>
+                        </div>
+                    </div>
+                    
+                    <div class="work-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">برامج تدريب مهني مجانية لتأهيل طالبي اللجوء للعمل في سوق العمل اليوناني.</p>
+                    </div>
+                    
+                    <div class="work-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.oaed.gr/en/vocational-training/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-graduation-cap" style="margin-left: 8px;"></i>
+                            OAED Training
+                        </a>
+                        <a href="https://www.praksis.gr/en/vocational-training/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-wrench" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="work-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">إنشاء الأعمال التجارية</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Business Start-up Support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="work-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-lightbulb" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">تطوير الأفكار</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-chart-line" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">خطط عمل</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-euro-sign" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">تمويل أولي</span>
+                        </div>
+                    </div>
+                    
+                    <div class="work-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">دعم لطالبي اللجوء الذين يرغبون في إنشاء أعمالهم التجارية الخاصة.</p>
+                    </div>
+                    
+                    <div class="work-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.enterprisegreece.gov.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-building" style="margin-left: 8px;"></i>
+                            Enterprise Greece
+                        </a>
+                        <a href="https://www.praksis.gr/en/business-support/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-rocket" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthcare Section -->
+    <section id="healthcare" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الرعاية الصحية</span>
+                <div class="section-title-wrapper">
+                    <h2>خدمات الرعاية الصحية</h2>
+                </div>
+                <p>دليل المستشفيات والمراكز الصحية والتأمين الصحي</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="healthcare-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="healthcare-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="healthcare-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">المستشفيات العامة</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Public Hospitals</span>
+                        </div>
+                    </div>
+                    
+                    <div class="healthcare-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-hospital" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">رعاية مجانية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-user-md" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">أطباء متخصصون</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-ambulance" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">خدمات طوارئ</span>
+                        </div>
+                    </div>
+                    
+                    <div class="healthcare-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">المستشفيات العامة في اليونان تقدم رعاية صحية مجانية لطالبي اللجوء.</p>
+                    </div>
+                    
+                    <div class="healthcare-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.moh.gov.gr/en/hospitals" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-hospital" style="margin-left: 8px;"></i>
+                            وزارة الصحة
+                        </a>
+                        <a href="https://www.iatrikos.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-search" style="margin-left: 8px;"></i>
+                            دليل المستشفيات
+                        </a>
+                    </div>
+                </div>
+
+                <div class="healthcare-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="healthcare-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">التأمين الصحي</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Health Insurance</span>
+                        </div>
+                    </div>
+                    
+                    <div class="healthcare-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-id-card" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">PAAYPA</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-shield-alt" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">تأمين مجاني</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-pills" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">أدوية مجانية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="healthcare-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">طالبي اللجوء يحصلون على تأمين صحي مجاني (PAAYPA) يغطي الرعاية الصحية الأساسية.</p>
+                    </div>
+                    
+                    <div class="healthcare-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.efka.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-shield-alt" style="margin-left: 8px;"></i>
+                            EFKA - التأمين الاجتماعي
+                        </a>
+                        <a href="https://www.praksis.gr/en/healthcare/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-heartbeat" style="margin-left: 8px;"></i>
+                            Praksis Healthcare
+                        </a>
+                    </div>
+                </div>
+
+                <div class="healthcare-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="healthcare-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">الصحة النفسية</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Mental Health Services</span>
+                        </div>
+                    </div>
+                    
+                    <div class="healthcare-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-brain" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">استشارات نفسية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-pills" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">علاج دوائي</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-language" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">مترجمين متاحين</span>
+                        </div>
+                    </div>
+                    
+                    <div class="healthcare-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">خدمات الصحة النفسية المتخصصة لطالبي اللجوء واللاجئين.</p>
+                    </div>
+                    
+                    <div class="healthcare-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.msf.org/greece" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #e74c3c, #f39c12); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-heart" style="margin-left: 8px;"></i>
+                            أطباء بلا حدود
+                        </a>
+                        <a href="https://www.praksis.gr/en/mental-health/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-brain" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transportation Section -->
+    <section id="transportation" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">النقل والمواصلات</span>
+                <div class="section-title-wrapper">
+                    <h2>وسائل النقل والمواصلات</h2>
+                </div>
+                <p>معلومات عن وسائل النقل العام وخصومات طالبي اللجوء</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="transportation-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="transportation-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="transportation-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">النقل العام في أثينا</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Public Transportation in Athens</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transportation-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-bus" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">الحافلات</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-train" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">المترو</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-tram" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">الترام</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transportation-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">شبكة نقل عام شاملة في أثينا تشمل الحافلات والمترو والترام.</p>
+                    </div>
+                    
+                    <div class="transportation-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.oasa.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-bus" style="margin-left: 8px;"></i>
+                            OASA - شركة النقل
+                        </a>
+                        <a href="https://www.stasy.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-train" style="margin-left: 8px;"></i>
+                            STASY - المترو
+                        </a>
+                    </div>
+                </div>
+
+                <div class="transportation-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="transportation-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">خصومات طالبي اللجوء</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Asylum Seeker Discounts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transportation-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-percentage" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">خصم 50%</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-id-card" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">بطاقة ADET</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-calendar" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">صلاحية شهرية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transportation-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">طالبي اللجوء يحصلون على خصم 50% على تذاكر النقل العام.</p>
+                    </div>
+                    
+                    <div class="transportation-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.oasa.gr/en/tickets/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-ticket-alt" style="margin-left: 8px;"></i>
+                            شراء التذاكر
+                        </a>
+                        <a href="https://www.praksis.gr/en/transportation/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-info-circle" style="margin-left: 8px;"></i>
+                            Praksis Guide
+                        </a>
+                    </div>
+                </div>
+
+                <div class="transportation-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="transportation-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">النقل بين المدن</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Intercity Transportation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transportation-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-bus-alt" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">حافلات بين المدن</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-train" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">قطارات</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-ship" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">عبارات للجزر</span>
+                        </div>
+                    </div>
+                    
+                    <div class="transportation-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">وسائل النقل للتنقل بين المدن اليونانية والجزر.</p>
+                    </div>
+                    
+                    <div class="transportation-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.ktel.org/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-bus-alt" style="margin-left: 8px;"></i>
+                            KTEL - الحافلات
+                        </a>
+                        <a href="https://www.trainose.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-train" style="margin-left: 8px;"></i>
+                            TrainOSE - القطارات
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology and Communication Section -->
+    <section id="technology" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">التكنولوجيا والاتصال</span>
+                <div class="section-title-wrapper">
+                    <h2>التكنولوجيا والاتصال</h2>
+                </div>
+                <p>تطبيقات مفيدة وخدمات الإنترنت والترجمة</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="technology-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="technology-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="technology-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">تطبيقات مفيدة للاجئين</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Useful Apps for Refugees</span>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-language" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">تطبيقات الترجمة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-map" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">خرائط وملاحة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-phone" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">اتصال مجاني</span>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">تطبيقات مجانية تساعد طالبي اللجوء في التواصل والتنقل والتعلم.</p>
+                    </div>
+                    
+                    <div class="technology-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.translate" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-language" style="margin-left: 8px;"></i>
+                            Google Translate
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-map-marked-alt" style="margin-left: 8px;"></i>
+                            Google Maps
+                        </a>
+                        <a href="https://www.whatsapp.com/download" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #25d366, #128c7e); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-comments" style="margin-left: 8px;"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="technology-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="technology-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">خدمات الإنترنت المجانية</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Free Internet Services</span>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-wifi" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">واي فاي مجاني</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-laptop" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">أجهزة كمبيوتر</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-print" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">طباعة مجانية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">مراكز توفر خدمات الإنترنت المجانية لطالبي اللجوء.</p>
+                    </div>
+                    
+                    <div class="technology-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.gcr.gr/en/digital-services/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-wifi" style="margin-left: 8px;"></i>
+                            المجلس اليوناني للاجئين
+                        </a>
+                        <a href="https://www.praksis.gr/en/digital-inclusion/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-laptop" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="technology-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="technology-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">خدمات الترجمة</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Translation Services</span>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-user-tie" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">مترجمين محترفين</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-phone" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">ترجمة فورية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-file-alt" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">ترجمة وثائق</span>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">خدمات ترجمة مجانية لطالبي اللجوء في المواعيد الرسمية.</p>
+                    </div>
+                    
+                    <div class="technology-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://metadrasi.org/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-language" style="margin-left: 8px;"></i>
+                            METAdrasi
+                        </a>
+                        <a href="https://www.praksis.gr/en/translation/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-user-tie" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events and Activities Section -->
+    <section id="events" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الأحداث والفعاليات</span>
+                <div class="section-title-wrapper">
+                    <h2>الأحداث والفعاليات المجتمعية</h2>
+                </div>
+                <p>تقويم الفعاليات الثقافية والأنشطة المجتمعية وفرص التطوع</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="events-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="events-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="events-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">الفعاليات الثقافية</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Cultural Events</span>
+                        </div>
+                    </div>
+                    
+                    <div class="events-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-music" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">حفلات موسيقية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-palette" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">معارض فنية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-theater-masks" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">عروض مسرحية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="events-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">فعاليات ثقافية متنوعة لتعزيز التبادل الثقافي والاندماج المجتمعي.</p>
+                    </div>
+                    
+                    <div class="events-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.gcr.gr/en/events/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-calendar-alt" style="margin-left: 8px;"></i>
+                            المجلس اليوناني للاجئين
+                        </a>
+                        <a href="https://www.praksis.gr/en/events/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-calendar" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="events-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="events-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">الأنشطة المجتمعية</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Community Activities</span>
+                        </div>
+                    </div>
+                    
+                    <div class="events-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-users" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">لقاءات مجتمعية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-gamepad" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">أنشطة رياضية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-child" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">أنشطة للأطفال</span>
+                        </div>
+                    </div>
+                    
+                    <div class="events-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">أنشطة مجتمعية متنوعة لتعزيز التواصل والاندماج الاجتماعي.</p>
+                    </div>
+                    
+                    <div class="events-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.hias.org/greece/community-activities" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-users" style="margin-left: 8px;"></i>
+                            HIAS Greece
+                        </a>
+                        <a href="https://www.aitima.gr/en/community/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #00bcd4, #4dd0e1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-heart" style="margin-left: 8px;"></i>
+                            AITIMA
+                        </a>
+                    </div>
+                </div>
+
+                <div class="events-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="events-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">فرص التطوع</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Volunteering Opportunities</span>
+                        </div>
+                    </div>
+                    
+                    <div class="events-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-hands-helping" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">مساعدة مجتمعية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-chalkboard-teacher" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">تدريس اللغات</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-medical-kit" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">دعم طبي</span>
+                        </div>
+                    </div>
+                    
+                    <div class="events-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">فرص تطوع متنوعة للمساهمة في دعم طالبي اللجوء واللاجئين.</p>
+                    </div>
+                    
+                    <div class="events-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.gcr.gr/en/volunteer/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-hands-helping" style="margin-left: 8px;"></i>
+                            المجلس اليوناني للاجئين
+                        </a>
+                        <a href="https://www.praksis.gr/en/volunteer/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-heart" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News and Updates Section -->
+    <section id="news" class="content-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الأخبار والتحديثات</span>
+                <div class="section-title-wrapper">
+                    <h2>آخر الأخبار والتحديثات</h2>
+                </div>
+                <p>آخر التحديثات في قوانين اللجوء والأخبار المهمة للاجئين</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="news-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="news-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="news-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">تحديثات قوانين اللجوء</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Asylum Law Updates</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-gavel" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">تغييرات قانونية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-calendar" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">تحديثات دورية</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-info-circle" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">معلومات رسمية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">آخر التحديثات والتغييرات في قوانين وإجراءات اللجوء في اليونان.</p>
+                    </div>
+                    
+                    <div class="news-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://migration.gov.gr/en/news/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-newspaper" style="margin-left: 8px;"></i>
+                            وزارة الهجرة
+                        </a>
+                        <a href="https://www.unhcr.org/gr/en/news/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-globe" style="margin-left: 8px;"></i>
+                            UNHCR
+                        </a>
+                    </div>
+                </div>
+
+                <div class="news-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="news-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">أخبار مهمة للاجئين</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Important News for Refugees</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-exclamation-triangle" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">تنبيهات مهمة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-calendar-check" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">مواعيد مهمة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-bullhorn" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">إعلانات رسمية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">أخبار وتنبيهات مهمة لطالبي اللجوء واللاجئين في اليونان.</p>
+                    </div>
+                    
+                    <div class="news-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.gcr.gr/en/news/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-newspaper" style="margin-left: 8px;"></i>
+                            المجلس اليوناني للاجئين
+                        </a>
+                        <a href="https://www.praksis.gr/en/news/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-bullhorn" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="news-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="news-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">تغييرات في الإجراءات</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Procedure Changes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-cogs" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">إجراءات جديدة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-clock" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">مواعيد محدثة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-map-marker-alt" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">مواقع جديدة</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">تحديثات في إجراءات اللجوء ومواعيد المكاتب والمواقع الجديدة.</p>
+                    </div>
+                    
+                    <div class="news-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://migration.gov.gr/en/procedures/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-cogs" style="margin-left: 8px;"></i>
+                            إجراءات رسمية
+                        </a>
+                        <a href="https://www.aitima.gr/en/procedures/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #00bcd4, #4dd0e1); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-info-circle" style="margin-left: 8px;"></i>
+                            AITIMA Guide
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Assistance Section -->
+    <section id="emergency" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">المساعدة الطارئة</span>
+                <div class="section-title-wrapper">
+                    <h2>المساعدة الطارئة والخدمات العاجلة</h2>
+                </div>
+                <p>أرقام الطوارئ وخطوط المساعدة الساخنة وخدمات الطوارئ المتاحة</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <div class="emergency-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                
+                <div class="emergency-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="emergency-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e3f2fd;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">أرقام الطوارئ</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Emergency Numbers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-phone" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <a href="tel:100" style="color: #1976d2; font-weight: 500; text-decoration: none;">100 - الشرطة</a>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-ambulance" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <a href="tel:166" style="color: #27ae60; font-weight: 500; text-decoration: none;">166 - الإسعاف</a>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-fire-extinguisher" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <a href="tel:199" style="color: #f39c12; font-weight: 500; text-decoration: none;">199 - الإطفاء</a>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-globe" style="color: #9c27b0; width: 20px; margin-left: 10px;"></i>
+                            <a href="tel:112" style="color: #9c27b0; font-weight: 500; text-decoration: none;">112 - النجدة الأوروبية</a>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">أرقام الطوارئ الأساسية في اليونان للاستخدام في الحالات العاجلة.</p>
+                    </div>
+                    
+                    <div class="emergency-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.112.gr/en/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #e74c3c, #f39c12); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-exclamation-triangle" style="margin-left: 8px;"></i>
+                            موقع النجدة الأوروبية
+                        </a>
+                    </div>
+                </div>
+
+                <div class="emergency-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="emergency-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fff3e0;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">خطوط المساعدة الساخنة</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Hotlines</span>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-heart" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <a href="tel:+302109010000" style="color: #1976d2; font-weight: 500; text-decoration: none;">+30 210 9010000 - أطباء بلا حدود</a>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-brain" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <a href="tel:+302103310000" style="color: #27ae60; font-weight: 500; text-decoration: none;">+30 210 3310000 - Praksis</a>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-hands-helping" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <a href="tel:+302103800990" style="color: #f39c12; font-weight: 500; text-decoration: none;">+30 210 3800990 - GCR</a>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">خطوط مساعدة ساخنة متخصصة لطالبي اللجوء واللاجئين.</p>
+                    </div>
+                    
+                    <div class="emergency-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.msf.org/greece" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #e74c3c, #f39c12); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-heart" style="margin-left: 8px;"></i>
+                            أطباء بلا حدود
+                        </a>
+                        <a href="https://www.praksis.gr/en/emergency/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #9c27b0, #ba68c8); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-brain" style="margin-left: 8px;"></i>
+                            Praksis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="emergency-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e9ecef; transition: all 0.3s ease;">
+                    <div class="emergency-header" style="display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e8f5e8;">
+                        <div>
+                            <h4 style="color: var(--primary-color); margin: 0; font-size: 1.3rem; font-weight: 600;">خدمات الطوارئ المتاحة</h4>
+                            <span style="color: #666; font-size: 0.9rem; font-weight: 500;">Available Emergency Services</span>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-info" style="margin-bottom: 20px;">
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-hospital" style="color: #e74c3c; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #1976d2; font-weight: 500;">رعاية طبية طارئة</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-home" style="color: #27ae60; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #27ae60; font-weight: 500;">مأوى طارئ</span>
+                        </div>
+                        <div class="info-row" style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-balance-scale" style="color: #f39c12; width: 20px; margin-left: 10px;"></i>
+                            <span style="color: #f39c12; font-weight: 500;">مساعدة قانونية عاجلة</span>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-description" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">خدمات طوارئ متخصصة لطالبي اللجوء في الحالات العاجلة.</p>
+                    </div>
+                    
+                    <div class="emergency-links" style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://www.unhcr.org/gr/en/emergency/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1976d2, #42a5f5); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-globe" style="margin-left: 8px;"></i>
+                            UNHCR Emergency
+                        </a>
+                        <a href="https://www.gcr.gr/en/emergency/" target="_blank" class="btn btn-secondary" style="text-align: center; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #4caf50, #81c784); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                            <i class="fas fa-hands-helping" style="margin-left: 8px;"></i>
+                            GCR Emergency
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1855,6 +3601,17 @@
         </div>
             <ul class="submenu">
               <li><a href="asylum.html">دوائر اللجوء</a></li>
+              <li><a href="#statistics">الإحصائيات والتقارير</a></li>
+              <li><a href="#educational-resources">الموارد التعليمية</a></li>
+              <li><a href="#psychological-support">الدعم النفسي والاجتماعي</a></li>
+              <li><a href="#housing">الإسكان والسكن</a></li>
+              <li><a href="#work-employment">العمل والتوظيف</a></li>
+              <li><a href="#healthcare">الرعاية الصحية</a></li>
+              <li><a href="#transportation">النقل والمواصلات</a></li>
+              <li><a href="#technology">التكنولوجيا والاتصال</a></li>
+              <li><a href="#events">الأحداث والفعاليات</a></li>
+              <li><a href="#news">الأخبار والتحديثات</a></li>
+              <li><a href="#emergency">المساعدة الطارئة</a></li>
               <li><a href="government.html">دوائر حكومية</a></li>
               <li><a href="housing.html">عقارات وسكن</a></li>
               <li><a href="hospitals.html">مستشفيات</a></li>
