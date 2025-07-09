@@ -6,7 +6,6 @@
     <title>الحياة في اليونان</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tabs.css">
-    <link rel="stylesheet" href="css/toast.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -233,6 +232,9 @@
                             <div class="card-icon">
                                 <i class="fas fa-passport"></i>
                             </div>
+                            <button class="favorite-btn" onclick="toggleFavorite('asylum', 'دوائر اللجوء', 'خدمة رسمية')" title="إضافة للمفضلة">
+                                <i class="fas fa-heart"></i>
+                            </button>
                             <h3>دوائر اللجوء</h3>
                             <p class="card-info">مساعدة في إجراءات اللجوء، مواقع المكاتب، الأوراق المطلوبة.</p>
                             <p class="card-brief">إجراءات وخدمات اللجوء الرسمية</p>
@@ -256,6 +258,9 @@
                             <div class="card-icon">
                                 <i class="fas fa-landmark"></i>
                             </div>
+                            <button class="favorite-btn" onclick="toggleFavorite('government', 'دوائر حكومية', 'خدمة رسمية')" title="إضافة للمفضلة">
+                                <i class="fas fa-heart"></i>
+                            </button>
                             <h3>دوائر حكومية</h3>
                             <p class="card-info">مساعدة في الدوائر الرسمية والحكومية، دليل المكاتب، التأمين الاجتماعي.</p>
                             <p class="card-brief">خدمات الدوائر الرسمية والحكومية</p>
@@ -279,6 +284,9 @@
                             <div class="card-icon">
                                 <i class="fas fa-home"></i>
                             </div>
+                            <button class="favorite-btn" onclick="toggleFavorite('housing', 'عقارات وسكن', 'خدمة يومية')" title="إضافة للمفضلة">
+                                <i class="fas fa-heart"></i>
+                            </button>
                             <h3>عقارات وسكن</h3>
                             <p class="card-info">خدمات السكن والإيجار والشراء، مواقع البحث، متوسط الإيجار.</p>
                             <p class="card-brief">خدمات السكن والإيجار وشراء العقارات</p>
@@ -302,6 +310,9 @@
                             <div class="card-icon">
                                 <i class="fas fa-hospital"></i>
                             </div>
+                            <button class="favorite-btn" onclick="toggleFavorite('hospitals', 'مستشفيات', 'خدمة صحية')" title="إضافة للمفضلة">
+                                <i class="fas fa-heart"></i>
+                            </button>
                             <h3>مستشفيات</h3>
                             <p class="card-info">خدمات صحية وطبية متكاملة، مستشفيات الطوارئ، التأمين الصحي.</p>
                             <p class="card-brief">خدمات صحية وطبية متكاملة</p>
@@ -325,6 +336,9 @@
                             <div class="card-icon">
                                 <i class="fas fa-bus"></i>
                             </div>
+                            <button class="favorite-btn" onclick="toggleFavorite('transportation', 'خطوط النقل', 'خدمة يومية')" title="إضافة للمفضلة">
+                                <i class="fas fa-heart"></i>
+                            </button>
                             <h3>خطوط النقل</h3>
                             <p class="card-info">وسائل النقل العام والمواصلات، مترو أثينا، بطاقة النقل.</p>
                             <p class="card-brief">وسائل النقل العام والخاص</p>
@@ -348,6 +362,9 @@
                             <div class="card-icon">
                                 <i class="fas fa-umbrella-beach"></i>
                             </div>
+                            <button class="favorite-btn" onclick="toggleFavorite('tourism-services', 'سياحة', 'خدمة سياحية')" title="إضافة للمفضلة">
+                                <i class="fas fa-heart"></i>
+                            </button>
                             <h3>سياحة</h3>
                             <p class="card-info">معالم سياحية وأنشطة ترفيهية، أهم المعالم السياحية والأنشطة الترفيهية.</p>
                             <p class="card-brief">معالم سياحية وأنشطة ترفيهية</p>
@@ -1799,6 +1816,12 @@
         <a href="#home" class="mobile-bottom-nav-link" title="الرئيسية">
             <i class="fas fa-house-chimney-window"></i>
             <span>الرئيسية</span>
+            <span class="nav-badge" id="homeBadge" style="display:none;">0</span>
+        </a>
+        <a href="#favorites" class="mobile-bottom-nav-link" title="المفضلة">
+            <i class="fas fa-heart"></i>
+            <span>المفضلة</span>
+            <span class="nav-badge" id="favoritesBadge" style="display:none;">0</span>
         </a>
         <a href="#menu" class="mobile-bottom-nav-link menu-icon" title="القائمة">
             <i class="fas fa-grip-lines"></i>
@@ -1814,6 +1837,10 @@
         <a href="#settings" class="mobile-bottom-nav-link" title="الإعدادات">
             <i class="fas fa-sliders"></i>
             <span>الإعدادات</span>
+        </a>
+        <a href="#emergency" class="mobile-bottom-nav-link emergency-nav" title="الطوارئ" id="emergencyNavBtn">
+            <i class="fas fa-phone-alt"></i>
+            <span>الطوارئ</span>
         </a>
     </nav>
 
@@ -1938,20 +1965,7 @@
           </label>
           <span style="font-size:0.97em;color:#888;margin-right:8px;">تقليل استهلاك البيانات: إخفاء الصور، تعطيل الحركات والمؤثرات.</span>
         </div>
-        <div class="settings-section high-contrast-section">
-            <label class="settings-label"><i class="fas fa-adjust"></i> تباين عالي</label>
-            <label class="switch high-contrast-switch">
-                <input type="checkbox" id="highContrast">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="settings-section color-blind-section">
-            <label class="settings-label"><i class="fas fa-eye"></i> وضع عمى الألوان</label>
-            <label class="switch color-blind-switch">
-                <input type="checkbox" id="settingsColorBlindMode">
-                <span class="slider round"></span>
-            </label>
-        </div>
+        <!-- تم حذف وضع عمى الألوان بناءً على طلب المستخدم -->
       </div>
     </div>
 
@@ -1975,6 +1989,22 @@
       </div>
     </div>
     <!-- نهاية دليل الطوارئ السريع -->
+
+    <!-- نافذة المفضلة -->
+    <div id="favoritesModal" class="settings-modal" tabindex="-1" aria-hidden="true">
+      <div class="settings-modal-content">
+        <button class="settings-modal-close" title="إغلاق" aria-label="إغلاق المفضلة" onclick="closeFavoritesModal()">&times;</button>
+        <h2 class="settings-modal-title"><i class="fas fa-heart"></i> المفضلة</h2>
+        <div id="favoritesList" style="max-height: 400px; overflow-y: auto;">
+          <!-- سيتم ملء هذا القسم ديناميكياً -->
+        </div>
+        <div id="emptyFavorites" style="text-align: center; padding: 40px 20px; color: #666; display: none;">
+          <i class="fas fa-heart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+          <p>لا توجد عناصر في المفضلة</p>
+          <p style="font-size: 0.9rem; margin-top: 10px;">اضغط على أيقونة القلب في أي خدمة لإضافتها للمفضلة</p>
+        </div>
+      </div>
+    </div>
 
 </body>
 </html>

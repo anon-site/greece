@@ -218,6 +218,173 @@ document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+    
+    // تفعيل زر الطوارئ في شريط التنقل
+    const emergencyNavBtn = document.getElementById('emergencyNavBtn');
+    const emergencyBtn = document.getElementById('emergencyBtn');
+    const emergencyModal = document.getElementById('emergencyModal');
+    const emergencyModalClose = document.getElementById('emergencyModalClose');
+    
+    if (emergencyNavBtn) {
+        emergencyNavBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (emergencyModal) {
+                emergencyModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+    
+    if (emergencyModalClose) {
+        emergencyModalClose.addEventListener('click', function() {
+            emergencyModal.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+    }
+    
+    if (emergencyModal) {
+        emergencyModal.addEventListener('click', function(e) {
+            if (e.target === emergencyModal) {
+                emergencyModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // إدارة المفضلة
+    const favoritesBtn = document.querySelector('.mobile-bottom-nav-link[href="#favorites"]');
+    const favoritesBadge = document.getElementById('favoritesBadge');
+    
+    // تحميل المفضلة من localStorage
+    function loadFavorites() {
+        const favorites = JSON.parse(localStorage.getItem('greeceFavorites') || '[]');
+        if (favoritesBadge && favorites.length > 0) {
+            favoritesBadge.textContent = favorites.length;
+            favoritesBadge.style.display = 'block';
+        }
+        return favorites;
+    }
+    
+    // إضافة/إزالة من المفضلة
+    function toggleFavorite(itemId, itemTitle, itemType) {
+        let favorites = loadFavorites();
+        const existingIndex = favorites.findIndex(item => item.id === itemId);
+        
+        if (existingIndex > -1) {
+            favorites.splice(existingIndex, 1);
+            showSiteAlert('تم إزالة العنصر من المفضلة', 2000);
+            // إزالة الحالة النشطة من الزر
+            const btn = document.querySelector(`[onclick*="${itemId}"]`);
+            if (btn) {
+                btn.classList.remove('active');
+            }
+        } else {
+            favorites.push({
+                id: itemId,
+                title: itemTitle,
+                type: itemType,
+                date: new Date().toISOString()
+            });
+            showSiteAlert('تم إضافة العنصر إلى المفضلة', 2000);
+            // إضافة الحالة النشطة للزر
+            const btn = document.querySelector(`[onclick*="${itemId}"]`);
+            if (btn) {
+                btn.classList.add('active');
+            }
+        }
+        
+        localStorage.setItem('greeceFavorites', JSON.stringify(favorites));
+        
+        // تحديث الشارة
+        if (favoritesBadge) {
+            if (favorites.length > 0) {
+                favoritesBadge.textContent = favorites.length;
+                favoritesBadge.style.display = 'block';
+            } else {
+                favoritesBadge.style.display = 'none';
+            }
+        }
+    }
+    
+    // تحديث حالة أزرار المفضلة عند تحميل الصفحة
+    function updateFavoriteButtons() {
+        const favorites = loadFavorites();
+        favorites.forEach(fav => {
+            const btn = document.querySelector(`[onclick*="${fav.id}"]`);
+            if (btn) {
+                btn.classList.add('active');
+            }
+        });
+    }
+    
+    // تفعيل زر المفضلة
+    if (favoritesBtn) {
+        favoritesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showFavoritesModal();
+        });
+    }
+    
+    // عرض نافذة المفضلة
+    function showFavoritesModal() {
+        const favoritesModal = document.getElementById('favoritesModal');
+        const favoritesList = document.getElementById('favoritesList');
+        const emptyFavorites = document.getElementById('emptyFavorites');
+        const favorites = loadFavorites();
+        
+        if (favorites.length === 0) {
+            favoritesList.style.display = 'none';
+            emptyFavorites.style.display = 'block';
+        } else {
+            favoritesList.style.display = 'block';
+            emptyFavorites.style.display = 'none';
+            
+            // عرض العناصر المفضلة
+            favoritesList.innerHTML = favorites.map(item => `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #eee; background: #f8f9fa; margin-bottom: 8px; border-radius: 8px;">
+                    <div>
+                        <h4 style="margin: 0 0 4px 0; color: var(--primary-color);">${item.title}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${item.type}</p>
+                        <small style="color: #999;">${new Date(item.date).toLocaleDateString('ar-EG')}</small>
+                    </div>
+                    <button onclick="removeFavorite('${item.id}')" style="background: #e74c3c; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
+                        <i class="fas fa-trash"></i> حذف
+                    </button>
+                </div>
+            `).join('');
+        }
+        
+        favoritesModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // إغلاق نافذة المفضلة
+    window.closeFavoritesModal = function() {
+        const favoritesModal = document.getElementById('favoritesModal');
+        favoritesModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+    
+    // إغلاق نافذة المفضلة عند النقر خارجها
+    const favoritesModal = document.getElementById('favoritesModal');
+    if (favoritesModal) {
+        favoritesModal.addEventListener('click', function(e) {
+            if (e.target === favoritesModal) {
+                closeFavoritesModal();
+            }
+        });
+    }
+    
+    // حذف عنصر من المفضلة
+    window.removeFavorite = function(itemId) {
+        toggleFavorite(itemId);
+        showFavoritesModal(); // تحديث النافذة
+    };
+    
+    // تحميل المفضلة عند بدء التطبيق
+    loadFavorites();
+    updateFavoriteButtons(); // تحديث حالة أزرار المفضلة عند تحميل الصفحة
+    
     // Highlight active nav link on scroll
     window.addEventListener('scroll', function() {
         let scrollPos = window.scrollY || window.pageYOffset;
@@ -248,6 +415,88 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
+    
+    // تفعيل البحث السريع
+    const searchBtn = document.querySelector('.mobile-bottom-nav-link[href="#search"]');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showQuickSearch();
+        });
+    }
+    
+    // تفعيل الإعدادات السريعة
+    const settingsBtn = document.querySelector('.mobile-bottom-nav-link[href="#settings"]');
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showQuickSettings();
+        });
+    }
+    // تفعيل زر الإعدادات في الكومبيوتر
+    const desktopSettingsBtn = document.querySelector('.desktop-settings-btn');
+    if (desktopSettingsBtn) {
+        desktopSettingsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showQuickSettings();
+        });
+    }
+    
+    // عرض الإعدادات السريعة
+    function showQuickSettings() {
+        const settingsModal = document.getElementById('siteSettingsModal');
+        if (settingsModal) {
+            settingsModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    // عرض البحث السريع
+    function showQuickSearch() {
+        const searchQuery = prompt('ابحث في الخدمات والمعلومات:');
+        if (searchQuery && searchQuery.trim()) {
+            performQuickSearch(searchQuery.trim());
+        }
+    }
+    
+    // تنفيذ البحث السريع
+    function performQuickSearch(query) {
+        const searchResults = [];
+        const searchableElements = document.querySelectorAll('.service-card, .job-card, .org-card');
+        
+        searchableElements.forEach(element => {
+            const title = element.querySelector('h3')?.textContent || '';
+            const description = element.querySelector('p')?.textContent || '';
+            const content = (title + ' ' + description).toLowerCase();
+            
+            if (content.includes(query.toLowerCase())) {
+                searchResults.push({
+                    element: element,
+                    title: title,
+                    relevance: content.split(query.toLowerCase()).length - 1
+                });
+            }
+        });
+        
+        if (searchResults.length > 0) {
+            // ترتيب النتائج حسب الأهمية
+            searchResults.sort((a, b) => b.relevance - a.relevance);
+            
+            // التمرير إلى أول نتيجة
+            const firstResult = searchResults[0].element;
+            firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // إضافة تأثير بصري
+            firstResult.style.animation = 'search-highlight 2s ease-in-out';
+            setTimeout(() => {
+                firstResult.style.animation = '';
+            }, 2000);
+            
+            showSiteAlert(`تم العثور على ${searchResults.length} نتيجة للبحث عن "${query}"`, 3000);
+        } else {
+            showSiteAlert(`لم يتم العثور على نتائج للبحث عن "${query}"`, 3000);
+        }
+    }
 
     // --- Popup Menu Functionality ---
     const menuBtn = document.querySelector('.mobile-bottom-nav-link.menu-icon');
@@ -535,6 +784,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     updateFooterIPAndWeather();
+
+    // --- إغلاق الإعدادات ---
+    const settingsModal = document.getElementById('siteSettingsModal');
+    const settingsModalClose = document.querySelector('.settings-modal-close');
+    
+    if (settingsModalClose) {
+        settingsModalClose.addEventListener('click', function() {
+            settingsModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    if (settingsModal) {
+        settingsModal.addEventListener('click', function(e) {
+            if (e.target === settingsModal) {
+                settingsModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 
     // --- FAQ Accordion Functionality ---
     const faqQuestions = document.querySelectorAll('.faq-question');
