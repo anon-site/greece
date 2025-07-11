@@ -6817,22 +6817,19 @@ body.dark-mode .favorite-btn.active {
     }
 }
 
-@media (max-width: 600px) {
-  .footer-bottom {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
-    padding-top: 12px;
-  }
-  .footer-bottom-links {
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .copyright p {
-    font-size: 0.92rem;
-    margin-bottom: 0;
-  }
+/* ======= حقوق النشر (footer copyright) | بداية تنسيق وضع الهاتف ======= */
+@media (max-width: 900px) {
+    .popup-copyright-bar {
+        padding: 8px 0 6px 0;
+        width: 100%;
+        min-width: unset;
+        font-size: 0.97rem;
+        border-radius: 0;
+        top: 0;
+        box-sizing: border-box;
+    }
+    .popup-copyright-bar .copyright-text {
+        font-size: 0.97rem;
+    }
 }
+/* ======= حقوق النشر (footer copyright) | نهاية تنسيق وضع الهاتف ======= */
