@@ -4606,10 +4606,10 @@ body.dark-mode .faq-item.active {
 }
 body.dark-mode .modern-doc-card,
 body.dark-mode .doc-card {
-  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  background: #232a36 !important;
   color: #fff !important;
-  border: none !important;
-  box-shadow: 0 8px 32px #0007 !important;
+  border-color: #263246 !important;
+  box-shadow: 0 5px 24px rgba(30,40,60,0.18) !important;
 }
 body.dark-mode .modern-doc-card h4,
 body.dark-mode .modern-doc-card p,
@@ -4617,32 +4617,26 @@ body.dark-mode .doc-list li {
   color: #e3eaf2 !important;
 }
 body.dark-mode .doc-icon {
-  background: linear-gradient(135deg, #1976d2 60%, #4fc3f7 100%) !important;
+  background: #1976d2 !important;
   color: #fff !important;
-  border: 4px solid #232a36 !important;
-  box-shadow: 0 2px 12px #1976d2cc !important;
+  border-color: #232a36 !important;
 }
 body.dark-mode .doc-badge {
-  background: #ffe082 !important;
+  background: #f7b731 !important;
   color: #232a36 !important;
-  font-weight: 900;
-  box-shadow: 0 2px 8px #ffe08255 !important;
 }
 body.dark-mode .doc-priority {
   background: #4fc3f7 !important;
   color: #232a36 !important;
-  font-weight: 900;
-  box-shadow: 0 2px 8px #4fc3f755 !important;
 }
 body.dark-mode .gov-section-emergency .emergency-card {
-  background: linear-gradient(135deg, #232a36 60%, #222c3a 100%) !important;
+  background: #232a36 !important;
   color: #fff !important;
-  border: none !important;
 }
 body.dark-mode .gov-section-emergency .emergency-title {
-  color: #ffe082 !important;
+  color: #f7b731 !important;
   text-shadow: 0 1px 8px #000a;
-  font-weight: 900 !important;
+  font-weight: 800 !important;
 }
 body.dark-mode .gov-section-emergency .emergency-number {
   color: #4fc3f7 !important;
@@ -4658,17 +4652,17 @@ body.dark-mode .gov-section-emergency .emergency-note {
   font-style: italic;
 }
 body.dark-mode .gov-section-emergency .emergency-btn {
-  background: linear-gradient(90deg, #e74c3c 60%, #f7b731 100%) !important;
+  background: #e74c3c !important;
   color: #fff !important;
-  font-weight: 900 !important;
+  font-weight: 800 !important;
   box-shadow: 0 2px 8px #0004;
 }
 body.dark-mode .gov-section-emergency .emergency-btn:hover {
-  background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%) !important;
-  color: #fff !important;
+  background: #f7b731 !important;
+  color: #232a36 !important;
 }
 body.dark-mode .gov-section-emergency .emergency-icon {
-  background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%) !important;
+  background: #4fc3f7 !important;
   color: #fff !important;
 }
 
@@ -6836,40 +6830,66 @@ body.dark-mode .favorite-btn.active {
 
 /* ======= حقوق النشر (footer copyright) | بداية تنسيق جميع الشاشات ======= */
 .popup-copyright-bar {
-    width: 100vw;
-    max-width: 100vw;
-    min-width: 0;
-    margin: 0 auto;
-    padding: 8px 0 6px 0;
+    width: 100%;
+    max-width: 96%;
+    margin: 0 auto 8px auto;
+    padding: 8px 0 7px 0;
     background: #fff;
     color: #222;
-    border-radius: 0;
-    box-shadow: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.07);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    min-height: 32px;
+    transition: all 0.18s;
 }
 .popup-copyright-bar .copyright-text {
     font-size: 0.97rem;
     text-align: center;
     width: 100%;
     margin: 0;
-    padding: 0 8px;
+    padding: 0 6px;
     word-break: break-word;
+    line-height: 1.5;
+}
+.popup-copyright-bar .copyright-icon {
+    font-size: 1em;
+    margin-left: 2px;
 }
 @media (max-width: 600px) {
     .popup-copyright-bar {
-        font-size: 0.93rem;
-        padding: 7px 0 5px 0;
+        max-width: 98%;
+        padding: 6px 0 5px 0;
+        border-radius: 10px;
+        font-size: 0.91rem;
+        min-height: 26px;
     }
     .popup-copyright-bar .copyright-text {
-        font-size: 0.93rem;
-        padding: 0 4px;
+        font-size: 0.91rem;
+        padding: 0 2px;
+    }
+    .popup-copyright-bar .copyright-icon {
+        font-size: 0.93em;
+    }
+}
+@media (max-width: 400px) {
+    .popup-copyright-bar {
+        max-width: 99%;
+        padding: 4px 0 4px 0;
+        border-radius: 8px;
+        font-size: 0.86rem;
+        min-height: 20px;
+    }
+    .popup-copyright-bar .copyright-text {
+        font-size: 0.86rem;
+        padding: 0 1px;
+    }
+    .popup-copyright-bar .copyright-icon {
+        font-size: 0.85em;
     }
 }
 /* ======= حقوق النشر (footer copyright) | نهاية تنسيق جميع الشاشات ======= */
