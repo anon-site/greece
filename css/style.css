@@ -6816,3 +6816,23 @@ body.dark-mode .favorite-btn.active {
         display: none !important;
     }
 }
+
+@media (max-width: 600px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    padding-top: 12px;
+  }
+  .footer-bottom-links {
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .copyright p {
+    font-size: 0.92rem;
+    margin-bottom: 0;
+  }
+}
