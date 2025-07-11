@@ -484,35 +484,36 @@ header .container {
     margin-bottom: 20px;
     font-weight: 800;
     text-shadow: 0 4px 18px rgba(0,0,0,0.55), 0 1.5px 8px rgba(52,152,219,0.13);
-    animation: fadeInDown 1s ease;
     position: relative;
     display: inline-block;
     overflow: hidden;
-    border-right: .15em solid #1976d2;
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .05em;
-    animation: typing 2.5s steps(30, end), blink-caret .75s step-end infinite;
 }
-@keyframes typing {
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typingEffect 2.2s steps(28, end) 0.2s 1 normal both;
+    vertical-align: top;
+}
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.1em;
+    background: #1976d2;
+    margin-left: 2px;
+    vertical-align: top;
+    animation: blinkCursor 0.8s steps(1) infinite;
+}
+@keyframes typingEffect {
   from { width: 0 }
   to { width: 100% }
 }
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #1976d2; }
-}
-
-.animated-title::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 4px;
-    background-color: var(--accent-color);
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .animated-subtitle {
@@ -2120,10 +2121,7 @@ footer {
         font-size: 0.95rem;
     }
     .hero-features {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 8px;
-        max-width: 100%;
+        margin-top: 0 !important;
     }
     .feature-item {
         max-width: 100%;
