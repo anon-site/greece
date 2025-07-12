@@ -5283,6 +5283,7 @@ body.dark-mode .mobile-bottom-nav-link[href="#search"]:hover i {
     transition: all 0.3s ease;
     flex: 1;
     min-width: 280px;
+    gap: 8px;
 }
 
 .location-input:focus-within {
@@ -5312,18 +5313,29 @@ body.dark-mode .mobile-bottom-nav-link[href="#search"]:hover i {
 
 .search-location-btn {
     background: var(--accent-color);
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.2s, box-shadow 0.2s;
     margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.10);
+    font-size: 1.2rem;
+    padding: 0;
 }
-
-.search-location-btn:hover {
+.search-location-btn i {
+    color: #fff;
+    font-size: 1.2em;
+    margin: 0;
+}
+.search-location-btn:hover, .search-location-btn:focus {
     background: var(--primary-color);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(52, 152, 219, 0.18);
 }
 
 .current-date {
