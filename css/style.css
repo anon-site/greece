@@ -5405,3 +5405,405 @@ body.dark-mode .favorite-btn.active {
         display: none !important;
     }
 }
+
+/* Prayer Times Section Styles */
+.prayer-times {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+    position: relative;
+}
+
+.prayer-times::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="prayer-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23e3f2fd" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23prayer-pattern)"/></svg>');
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.prayer-times-container {
+    position: relative;
+    z-index: 1;
+}
+
+.prayer-location-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.location-input {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 280px;
+}
+
+.location-input:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.15);
+}
+
+.location-input i {
+    color: var(--accent-color);
+    margin-left: 12px;
+    font-size: 1.1rem;
+}
+
+.location-input input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--text-color);
+    flex: 1;
+    font-family: 'Cairo', sans-serif;
+}
+
+.location-input input::placeholder {
+    color: #6c757d;
+}
+
+.search-location-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+}
+
+.search-location-btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.current-date {
+    display: flex;
+    align-items: center;
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--primary-color);
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    gap: 8px;
+}
+
+.current-date i {
+    color: var(--accent-color);
+}
+
+/* Next Prayer Counter Styles - Simple Design */
+.next-prayer-counter {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e9ecef;
+}
+
+.counter-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.next-prayer-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-color);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.next-prayer-badge i {
+    font-size: 1.1rem;
+}
+
+.countdown-simple {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--dark-color);
+}
+
+.countdown-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.countdown-time {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Cairo', sans-serif;
+    background: #f8f9fa;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+/* Responsive design for simple countdown */
+@media (max-width: 768px) {
+    .counter-simple {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .next-prayer-badge {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .next-prayer-counter {
+        padding: 16px;
+    }
+    
+    .next-prayer-badge {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .countdown-time {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+}
+
+.prayer-times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.prayer-time-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.prayer-time-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.prayer-time-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: rgba(52, 152, 219, 0.2);
+}
+
+.prayer-time-card:hover::before {
+    opacity: 1;
+}
+
+.prayer-time-card.current {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.15);
+}
+
+.prayer-time-card.current::before {
+    opacity: 1;
+    background: var(--accent-color);
+}
+
+.prayer-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.prayer-time-card:hover .prayer-icon {
+    transform: scale(1.1);
+}
+
+.prayer-time-card.current .prayer-icon {
+    background: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.prayer-info h3 {
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.prayer-time {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.prayer-status {
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.prayer-time-card.current .prayer-status {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.prayer-info-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.prayer-source, .prayer-calculation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.prayer-source i, .prayer-calculation i {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+/* Prayer time card specific colors */
+.prayer-time-card.fajr .prayer-icon {
+    background: linear-gradient(135deg, #4fc3f7, #1976d2);
+}
+
+.prayer-time-card.dhuhr .prayer-icon {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.prayer-time-card.asr .prayer-icon {
+    background: linear-gradient(135deg, #ff5722, #d84315);
+}
+
+.prayer-time-card.maghrib .prayer-icon {
+    background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+}
+
+.prayer-time-card.isha .prayer-icon {
+    background: linear-gradient(135deg, #3f51b5, #303f9f);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .prayer-location-selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .location-input {
+        min-width: auto;
+    }
+    
+    .current-date {
+        justify-content: center;
+    }
+    
+    .prayer-times-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+    }
+    
+    .prayer-time-card {
+        padding: 20px 16px;
+    }
+    
+    .prayer-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .prayer-time {
+        font-size: 1.5rem;
+    }
+    
+    .prayer-info-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prayer-times-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .prayer-time-card {
+        padding: 18px 14px;
+    }
+    
+    .prayer-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .prayer-time {
+        font-size: 1.4rem;
+    }
+    
+    .prayer-info h3 {
+        font-size: 1rem;
+    }
+}

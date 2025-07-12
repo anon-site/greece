@@ -874,4 +874,346 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // مثال: عرض إشعار تلقائي عند الدخول (يمكنك حذف هذا السطر لاحقاً)
     // showSiteAlert('تنبيه: تم تحديث أرقام الطوارئ في الموقع!', 7000);
+
+    // Prayer Times Functionality
+    class PrayerTimes {
+        constructor() {
+            this.currentLocation = 'Athens';
+            this.prayerTimes = {};
+            this.currentPrayer = '';
+            this.countdownInterval = null;
+            this.init();
+        }
+
+        async init() {
+            this.updateCurrentDate();
+            await this.loadPrayerTimes();
+            this.setupEventListeners();
+            this.startPrayerTimeUpdates();
+            this.startCountdown();
+        }
+
+        updateCurrentDate() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const dateStr = now.toLocaleDateString('ar-SA', options);
+            const dateElement = document.getElementById('currentDate');
+            if (dateElement) {
+                dateElement.textContent = dateStr;
+            }
+        }
+
+        async loadPrayerTimes() {
+            try {
+                const today = new Date();
+                const dateStr = today.toISOString().split('T')[0];
+                
+                // Use Aladhan API for prayer times
+                const response = await fetch(`https://api.aladhan.com/v1/timingsByCity/${dateStr}?city=${this.currentLocation}&country=Greece&method=4`);
+                const data = await response.json();
+                
+                if (data.status === 'OK' && data.data) {
+                    this.prayerTimes = data.data.timings;
+                    this.updatePrayerTimesDisplay();
+                    this.updateCurrentPrayer();
+                    this.startCountdown();
+                } else {
+                    // Fallback to static times for Athens
+                    this.setFallbackTimes();
+                }
+            } catch (error) {
+                console.log('Error loading prayer times:', error);
+                this.setFallbackTimes();
+            }
+        }
+
+        setFallbackTimes() {
+            // Fallback prayer times for Athens (approximate)
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            
+            // Simple calculation based on season
+            let fajrHour = 5, dhuhrHour = 12, asrHour = 15, maghribHour = 19, ishaHour = 20;
+            
+            if (month >= 3 && month <= 9) {
+                // Summer months
+                fajrHour = 4;
+                maghribHour = 20;
+                ishaHour = 21;
+            } else {
+                // Winter months
+                fajrHour = 6;
+                maghribHour = 18;
+                ishaHour = 19;
+            }
+            
+            this.prayerTimes = {
+                Fajr: `${fajrHour.toString().padStart(2, '0')}:30`,
+                Dhuhr: `${dhuhrHour.toString().padStart(2, '0')}:00`,
+                Asr: `${asrHour.toString().padStart(2, '0')}:30`,
+                Maghrib: `${maghribHour.toString().padStart(2, '0')}:00`,
+                Isha: `${ishaHour.toString().padStart(2, '0')}:30`
+            };
+            
+            this.updatePrayerTimesDisplay();
+            this.updateCurrentPrayer();
+            this.startCountdown();
+        }
+
+        updatePrayerTimesDisplay() {
+            const prayerElements = {
+                'Fajr': 'fajr-time',
+                'Dhuhr': 'dhuhr-time',
+                'Asr': 'asr-time',
+                'Maghrib': 'maghrib-time',
+                'Isha': 'isha-time'
+            };
+
+            Object.entries(prayerElements).forEach(([prayer, elementId]) => {
+                const element = document.getElementById(elementId);
+                if (element && this.prayerTimes[prayer]) {
+                    element.textContent = this.prayerTimes[prayer];
+                }
+            });
+        }
+
+        updateCurrentPrayer() {
+            const now = new Date();
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            const prayerTimes = {
+                'Fajr': this.timeToMinutes(this.prayerTimes.Fajr),
+                'Dhuhr': this.timeToMinutes(this.prayerTimes.Dhuhr),
+                'Asr': this.timeToMinutes(this.prayerTimes.Asr),
+                'Maghrib': this.timeToMinutes(this.prayerTimes.Maghrib),
+                'Isha': this.timeToMinutes(this.prayerTimes.Isha)
+            };
+
+            let nextPrayer = '';
+            let minDiff = Infinity;
+
+            Object.entries(prayerTimes).forEach(([prayer, time]) => {
+                if (time > currentTime && time - currentTime < minDiff) {
+                    minDiff = time - currentTime;
+                    nextPrayer = prayer;
+                }
+            });
+
+            // If no next prayer today, next is Fajr tomorrow
+            if (!nextPrayer) {
+                nextPrayer = 'Fajr';
+            }
+
+            this.currentPrayer = nextPrayer;
+            this.updatePrayerStatus();
+            this.updateCountdown();
+        }
+
+        timeToMinutes(timeStr) {
+            if (!timeStr) return 0;
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        }
+
+        updatePrayerStatus() {
+            const prayerCards = document.querySelectorAll('.prayer-time-card');
+            prayerCards.forEach(card => {
+                card.classList.remove('current');
+                const prayerName = this.getPrayerNameFromCard(card);
+                const statusElement = card.querySelector('.prayer-status');
+                
+                if (prayerName === this.currentPrayer) {
+                    card.classList.add('current');
+                    if (statusElement) {
+                        statusElement.textContent = 'الآن';
+                    }
+                } else {
+                    if (statusElement) {
+                        const prayerTime = this.prayerTimes[prayerName];
+                        if (prayerTime) {
+                            const timeDiff = this.getTimeDifference(prayerTime);
+                            statusElement.textContent = timeDiff;
+                        } else {
+                            statusElement.textContent = 'قادم';
+                        }
+                    }
+                }
+            });
+        }
+
+        getPrayerNameFromCard(card) {
+            const classList = card.classList;
+            if (classList.contains('fajr')) return 'Fajr';
+            if (classList.contains('dhuhr')) return 'Dhuhr';
+            if (classList.contains('asr')) return 'Asr';
+            if (classList.contains('maghrib')) return 'Maghrib';
+            if (classList.contains('isha')) return 'Isha';
+            return '';
+        }
+
+        getTimeDifference(prayerTime) {
+            const now = new Date();
+            const prayerDate = new Date();
+            const [hours, minutes] = prayerTime.split(':').map(Number);
+            prayerDate.setHours(hours, minutes, 0, 0);
+            
+            if (prayerDate < now) {
+                prayerDate.setDate(prayerDate.getDate() + 1);
+            }
+            
+            const diffMs = prayerDate - now;
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (diffHours > 0) {
+                return `بعد ${diffHours} ساعة و ${diffMinutes} دقيقة`;
+            } else {
+                return `بعد ${diffMinutes} دقيقة`;
+            }
+        }
+
+        setupEventListeners() {
+            const searchBtn = document.getElementById('searchLocation');
+            const locationInput = document.getElementById('prayerLocation');
+            const refreshBtn = document.getElementById('refreshPrayerTimes');
+
+            if (searchBtn) {
+                searchBtn.addEventListener('click', () => {
+                    this.searchLocation();
+                });
+            }
+
+            if (locationInput) {
+                locationInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.searchLocation();
+                    }
+                });
+            }
+
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', () => {
+                    this.loadPrayerTimes();
+                    showSiteAlert('تم تحديث مواقيت الصلاة', 3000);
+                });
+            }
+        }
+
+        async searchLocation() {
+            const locationInput = document.getElementById('prayerLocation');
+            if (locationInput) {
+                const newLocation = locationInput.value.trim();
+                if (newLocation) {
+                    this.currentLocation = newLocation;
+                    await this.loadPrayerTimes();
+                    showSiteAlert(`تم تحديث الموقع إلى ${newLocation}`, 3000);
+                }
+            }
+        }
+
+        startPrayerTimeUpdates() {
+            // Update every minute
+            setInterval(() => {
+                this.updateCurrentPrayer();
+            }, 60000);
+
+            // Update date every day at midnight
+            setInterval(() => {
+                this.updateCurrentDate();
+                this.loadPrayerTimes();
+            }, 24 * 60 * 60 * 1000);
+        }
+
+        startCountdown() {
+            // Clear existing interval
+            if (this.countdownInterval) {
+                clearInterval(this.countdownInterval);
+            }
+            
+            // Start countdown with 1 second interval
+            this.countdownInterval = setInterval(() => {
+                this.updateCountdown();
+            }, 1000);
+        }
+
+        updateCountdown() {
+            const now = new Date();
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            const prayerTimes = {
+                'Fajr': this.timeToMinutes(this.prayerTimes.Fajr),
+                'Dhuhr': this.timeToMinutes(this.prayerTimes.Dhuhr),
+                'Asr': this.timeToMinutes(this.prayerTimes.Asr),
+                'Maghrib': this.timeToMinutes(this.prayerTimes.Maghrib),
+                'Isha': this.timeToMinutes(this.prayerTimes.Isha)
+            };
+
+            let nextPrayer = '';
+            let nextPrayerTime = '';
+            let minDiff = Infinity;
+
+            Object.entries(prayerTimes).forEach(([prayer, time]) => {
+                if (time > currentTime && time - currentTime < minDiff) {
+                    minDiff = time - currentTime;
+                    nextPrayer = prayer;
+                    nextPrayerTime = this.prayerTimes[prayer];
+                }
+            });
+
+            // If no next prayer today, next is Fajr tomorrow
+            if (!nextPrayer) {
+                nextPrayer = 'Fajr';
+                nextPrayerTime = this.prayerTimes.Fajr;
+            }
+
+            // Update next prayer display
+            const nextPrayerNameEl = document.getElementById('nextPrayerName');
+            
+            if (nextPrayerNameEl) {
+                nextPrayerNameEl.textContent = this.getPrayerNameInArabic(nextPrayer);
+            }
+
+            // Calculate countdown
+            const prayerDate = new Date();
+            const [hours, minutes] = nextPrayerTime.split(':').map(Number);
+            prayerDate.setHours(hours, minutes, 0, 0);
+            
+            // If prayer time has passed today, set to tomorrow
+            if (prayerDate < now) {
+                prayerDate.setDate(prayerDate.getDate() + 1);
+            }
+            
+            const diffMs = prayerDate - now;
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            const diffSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+            // Update countdown display (simple format)
+            const countdownSimpleEl = document.getElementById('countdownSimple');
+            if (countdownSimpleEl) {
+                const timeString = `${diffHours.toString().padStart(2, '0')}:${diffMinutes.toString().padStart(2, '0')}:${diffSeconds.toString().padStart(2, '0')}`;
+                countdownSimpleEl.textContent = timeString;
+            }
+        }
+
+        getPrayerNameInArabic(prayerName) {
+            const prayerNames = {
+                'Fajr': 'الفجر',
+                'Dhuhr': 'الظهر',
+                'Asr': 'العصر',
+                'Maghrib': 'المغرب',
+                'Isha': 'العشاء'
+            };
+            return prayerNames[prayerName] || prayerName;
+        }
+    }
+
+    // Initialize Prayer Times
+    const prayerTimes = new PrayerTimes();
 });

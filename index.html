@@ -1229,6 +1229,121 @@
             </div>
         </div>
     </section>
+
+    <!-- Prayer Times Section -->
+    <section id="prayer-times" class="prayer-times">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">مواقيت الصلاة</span>
+                <div class="section-title-wrapper">
+                    <h2>مواقيت الصلاة في اليونان</h2>
+                    <a href="#" class="section-more-btn" id="refreshPrayerTimes">تحديث <i class="fas fa-sync-alt"></i></a>
+                </div>
+                <p>مواقيت الصلاة الدقيقة لمدن اليونان المختلفة</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-mosque"></i></span>
+                </div>
+            </div>
+            
+            <div class="prayer-times-container">
+                <div class="prayer-location-selector">
+                    <div class="location-input">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="prayerLocation" placeholder="اختر المدينة (مثال: أثينا، سالونيكا)" value="أثينا">
+                        <button id="searchLocation" class="search-location-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="current-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+                
+                <div class="next-prayer-counter">
+                    <div class="counter-simple">
+                        <div class="next-prayer-badge">
+                            <i class="fas fa-mosque"></i>
+                            <span id="nextPrayerName">--</span>
+                        </div>
+                        <div class="countdown-simple">
+                            <span class="countdown-text">متبقي:</span>
+                            <span class="countdown-time" id="countdownSimple">--:--:--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prayer-times-grid">
+                    <div class="prayer-time-card fajr">
+                        <div class="prayer-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>الفجر</h3>
+                            <div class="prayer-time" id="fajr-time">--:--</div>
+                            <div class="prayer-status" id="fajr-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card dhuhr">
+                        <div class="prayer-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>الظهر</h3>
+                            <div class="prayer-time" id="dhuhr-time">--:--</div>
+                            <div class="prayer-status" id="dhuhr-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card asr">
+                        <div class="prayer-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>العصر</h3>
+                            <div class="prayer-time" id="asr-time">--:--</div>
+                            <div class="prayer-status" id="asr-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card maghrib">
+                        <div class="prayer-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>المغرب</h3>
+                            <div class="prayer-time" id="maghrib-time">--:--</div>
+                            <div class="prayer-status" id="maghrib-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card isha">
+                        <div class="prayer-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>العشاء</h3>
+                            <div class="prayer-time" id="isha-time">--:--</div>
+                            <div class="prayer-status" id="isha-status">قادم</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prayer-info-footer">
+                    <div class="prayer-source">
+                        <i class="fas fa-info-circle"></i>
+                        <span>المصدر: Aladhan API - مواقيت دقيقة ومحدثة</span>
+                    </div>
+                    <div class="prayer-calculation">
+                        <i class="fas fa-calculator"></i>
+                        <span>طريقة الحساب: جامعة أم القرى، مكة المكرمة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Toast Container -->
     <div class="toast-container"></div>
 
