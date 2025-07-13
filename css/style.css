@@ -5409,8 +5409,8 @@ body.dark-mode .mobile-bottom-nav-link[href="#search"]:hover i {
     padding: 6px 12px;
     border-radius: 6px;
     border: 1px solid #e9ecef;
-}
-
+    }
+    
 /* Responsive design for simple countdown */
 @media (max-width: 768px) {
     .counter-simple {
