@@ -1396,25 +1396,20 @@
                     <a href="#" class="footer-link">اتصل بنا</a>
                 </div>
                 <div class="footer-bottom-bar popup-copyright-bar">
-                    <div class="copyright-text">
-                        <div class="copyright-content">
-                            <div class="copyright-main">
-                                <span class="copyright-icon">&copy;</span>
-                                <span class="copyright-year">2025</span>
-                                <span class="copyright-title">الحياة في اليونان</span>
-                            </div>
-                            <div class="copyright-subtitle">جميع الحقوق محفوظة</div>
+                    <div class="copyright-content">
+                        <div class="copyright-icon-wrapper">
+                            <i class="fas fa-shield-alt copyright-shield"></i>
+                            <span class="copyright-symbol">&copy;</span>
+                        </div>
+                        <div class="copyright-text-wrapper">
+                            <div class="copyright-main-text">2025 الحياة في اليونان</div>
+                            <div class="copyright-sub-text">جميع الحقوق محفوظة</div>
                         </div>
                         <div class="copyright-decoration">
-                            <div class="copyright-line"></div>
-                            <i class="fas fa-heart copyright-heart" title="صنع بحب ❤️"></i>
-                            <div class="copyright-line"></div>
+                            <div class="decoration-line"></div>
+                            <i class="fas fa-heart decoration-heart"></i>
+                            <div class="decoration-line"></div>
                         </div>
-                    </div>
-                    <div class="copyright-particles">
-                        <div class="particle"></div>
-                        <div class="particle"></div>
-                        <div class="particle"></div>
                     </div>
                 </div>
             </div>
@@ -1674,256 +1669,302 @@
         background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%);
         color: #263246;
         border-radius: 24px;
-        box-shadow: 0 12px 40px rgba(44,62,80,0.15), 0 4px 20px rgba(52,152,219,0.08);
-        border: 2px solid rgba(79,195,247,0.15);
+        box-shadow: 
+            0 12px 40px rgba(44,62,80,0.15), 
+            0 4px 20px rgba(52,152,219,0.12),
+            0 0 0 1px rgba(255,255,255,0.8) inset;
+        border: 2px solid rgba(79,195,247,0.2);
         width: max-content;
         min-width: 280px;
         max-width: 98vw;
-        margin: 0 auto 18px auto;
+        margin: 0 auto 20px auto;
         padding: 16px 32px 14px 32px;
         position: relative;
-        top: -18px;
+        top: -20px;
         z-index: 10;
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         font-size: 1.01rem;
         margin-bottom: 0 !important;
         backdrop-filter: blur(10px);
+        overflow: hidden;
     }
+    
+    .popup-copyright-bar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(79,195,247,0.1), transparent);
+        transition: left 0.8s ease;
+        z-index: -1;
+    }
+    
+    .popup-copyright-bar:hover::before {
+        left: 100%;
+    }
+    
     .popup-copyright-bar:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 16px 50px rgba(44,62,80,0.20), 0 6px 25px rgba(52,152,219,0.12);
-        border-color: rgba(79,195,247,0.25);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 
+            0 20px 60px rgba(44,62,80,0.25), 
+            0 8px 30px rgba(52,152,219,0.18),
+            0 0 0 1px rgba(255,255,255,0.9) inset;
+        border-color: rgba(79,195,247,0.4);
     }
-    .popup-copyright-bar .copyright-text {
-        color: #263246;
-        font-size: 1.01rem;
-        font-weight: 500;
-        letter-spacing: 0.2px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
+    
     .copyright-content {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 4px;
+        gap: 16px;
+        position: relative;
     }
-    .copyright-main {
+    
+    .copyright-icon-wrapper {
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 6px;
-        font-weight: 600;
-    }
-    .copyright-icon {
-        color: #4fc3f7;
-        font-size: 1.2em;
-        margin-left: 2px;
-    }
-    .copyright-year {
-        color: #e74c3c;
-        font-weight: 700;
-        font-size: 1.1em;
-    }
-    .copyright-title {
-        color: #2c3e50;
-        font-weight: 700;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
         background: linear-gradient(135deg, #4fc3f7 0%, #1976d2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        border-radius: 50%;
+        box-shadow: 
+            0 4px 16px rgba(79,195,247,0.3),
+            0 0 0 2px rgba(255,255,255,0.8) inset;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+    
+    .copyright-icon-wrapper::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+        transform: rotate(45deg);
+        transition: all 0.6s ease;
+        opacity: 0;
+    }
+    
+    .copyright-icon-wrapper:hover {
+        transform: rotate(360deg) scale(1.1);
+        box-shadow: 
+            0 8px 24px rgba(79,195,247,0.4),
+            0 0 0 3px rgba(255,255,255,0.9) inset;
+    }
+    
+    .copyright-icon-wrapper:hover::before {
+        opacity: 1;
+        transform: rotate(45deg) translateX(100%);
+    }
+    
+    .copyright-shield {
+        color: white;
+        font-size: 1.2rem;
+        position: absolute;
+        z-index: 2;
+    }
+    
+    .copyright-symbol {
+        color: white;
+        font-size: 0.9rem;
+        font-weight: bold;
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        z-index: 3;
+    }
+    
+    .copyright-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    .copyright-main-text {
+        color: #263246;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        line-height: 1.2;
         transition: all 0.3s ease;
         position: relative;
     }
     
-    .copyright-title::after {
+    .copyright-main-text::after {
         content: '';
         position: absolute;
         bottom: -2px;
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(90deg, #4fc3f7, #e74c3c);
+        background: linear-gradient(90deg, #4fc3f7, #1976d2);
         transition: width 0.3s ease;
         border-radius: 1px;
     }
     
-    .copyright-main:hover .copyright-title::after {
+    .popup-copyright-bar:hover .copyright-main-text::after {
         width: 100%;
     }
-    .copyright-subtitle {
-        color: #7f8c8d;
-        font-size: 0.9em;
+    
+    .copyright-sub-text {
+        color: #64748b;
+        font-size: 0.9rem;
         font-weight: 400;
+        letter-spacing: 0.2px;
+        transition: color 0.3s ease;
     }
+    
+    .popup-copyright-bar:hover .copyright-sub-text {
+        color: #4fc3f7;
+    }
+    
     .copyright-decoration {
         display: flex;
         align-items: center;
         gap: 8px;
-        margin-top: 4px;
+        margin-right: 8px;
     }
-    .copyright-line {
+    
+    .decoration-line {
         width: 20px;
         height: 2px;
         background: linear-gradient(90deg, transparent 0%, #4fc3f7 50%, transparent 100%);
         border-radius: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
     }
-    .copyright-heart {
-        color: #e74c3c;
-        font-size: 0.9em;
+    
+    .decoration-line::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        transition: left 0.6s ease;
+    }
+    
+    .popup-copyright-bar:hover .decoration-line::before {
+        left: 100%;
+    }
+    
+    .popup-copyright-bar:hover .decoration-line {
+        width: 24px;
+        background: linear-gradient(90deg, transparent 0%, #1976d2 50%, transparent 100%);
+    }
+    
+    .decoration-heart {
+        color: #ef4444;
+        font-size: 0.9rem;
         animation: heartbeat 2s ease-in-out infinite;
-        cursor: pointer;
         transition: all 0.3s ease;
     }
+    
+    .popup-copyright-bar:hover .decoration-heart {
+        color: #dc2626;
+        transform: scale(1.2);
+    }
+    
     @keyframes heartbeat {
         0%, 100% { transform: scale(1); }
         50% { transform: scale(1.2); }
     }
     
-    /* تحسينات إضافية لحقوق النشر */
-    .copyright-main:hover .copyright-title {
-        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        transition: all 0.3s ease;
-    }
-    
-    .copyright-main:hover .copyright-year {
-        color: #4fc3f7;
-        transform: scale(1.1);
-        transition: all 0.3s ease;
-    }
-    
-    .copyright-heart:hover {
-        animation: heartPulse 0.6s ease-in-out;
-        transform: scale(1.2);
-    }
-    
-    .copyright-heart:active {
-        animation: heartClick 0.3s ease-in-out;
-    }
-    
-    @keyframes heartClick {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.5); }
-        100% { transform: scale(1); }
-    }
-    
-    @keyframes heartPulse {
-        0% { transform: scale(1); }
-        25% { transform: scale(1.4); }
-        50% { transform: scale(1.2); }
-        75% { transform: scale(1.4); }
-        100% { transform: scale(1); }
-    }
-    
-    .copyright-line {
-        transition: all 0.3s ease;
-    }
-    
-    .popup-copyright-bar:hover .copyright-line {
-        width: 30px;
-        background: linear-gradient(90deg, transparent 0%, #e74c3c 50%, transparent 100%);
-    }
-    
-    /* جزيئات متحركة لحقوق النشر */
-    .copyright-particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-        border-radius: 24px;
-    }
-    
-    .particle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: linear-gradient(45deg, #4fc3f7, #e74c3c);
-        border-radius: 50%;
-        opacity: 0;
-        animation: particleFloat 3s ease-in-out infinite;
-    }
-    
-    .particle:nth-child(1) {
-        top: 20%;
-        left: 10%;
-        animation-delay: 0s;
-    }
-    
-    .particle:nth-child(2) {
-        top: 60%;
-        right: 15%;
-        animation-delay: 1s;
-    }
-    
-    .particle:nth-child(3) {
-        bottom: 30%;
-        left: 50%;
-        animation-delay: 2s;
-    }
-    
-    @keyframes particleFloat {
-        0%, 100% {
+    @keyframes copyrightFadeIn {
+        0% {
             opacity: 0;
-            transform: translateY(0) scale(0);
+            transform: translateY(20px) scale(0.9);
         }
-        50% {
-            opacity: 0.6;
-            transform: translateY(-20px) scale(1);
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
+    }
+    
+    .popup-copyright-bar {
+        animation: copyrightFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
     @media (max-width: 900px) {
         .popup-copyright-bar {
-            padding: 12px 6vw 10px 6vw;
+            padding: 12px 20px 10px 20px;
             min-width: 0;
-            font-size: 0.95rem;
-            border-radius: 16px;
-            top: -10px;
-            border-width: 1.5px;
+            border-radius: 18px;
+            top: -12px;
+            margin: 0 auto 16px auto;
         }
-        .popup-copyright-bar .copyright-text {
-            font-size: 0.95rem;
-            gap: 6px;
+        
+        .copyright-content {
+            gap: 12px;
+            flex-direction: column;
+            text-align: center;
         }
-        .copyright-main {
-            gap: 4px;
-            font-size: 0.9em;
+        
+        .copyright-icon-wrapper {
+            width: 40px;
+            height: 40px;
         }
-        .copyright-subtitle {
-            font-size: 0.85em;
+        
+        .copyright-shield {
+            font-size: 1rem;
         }
+        
+        .copyright-symbol {
+            font-size: 0.8rem;
+        }
+        
+        .copyright-main-text {
+            font-size: 1rem;
+        }
+        
+        .copyright-sub-text {
+            font-size: 0.85rem;
+        }
+        
         .copyright-decoration {
-            gap: 6px;
-            margin-top: 2px;
-        }
-        .copyright-line {
-            width: 15px;
-        }
-        .copyright-heart {
-            font-size: 0.8em;
+            margin-right: 0;
+            margin-top: 4px;
         }
         
-        .copyright-title::after {
-            height: 1.5px;
-            bottom: -1px;
+        .decoration-line {
+            width: 16px;
         }
         
-        .popup-copyright-bar:hover .copyright-line {
-            width: 20px;
+        .decoration-heart {
+            font-size: 0.8rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .popup-copyright-bar {
+            padding: 10px 16px 8px 16px;
+            border-radius: 16px;
         }
         
-        .particle {
-            width: 3px;
-            height: 3px;
+        .copyright-content {
+            gap: 8px;
+        }
+        
+        .copyright-icon-wrapper {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .copyright-main-text {
+            font-size: 0.95rem;
+        }
+        
+        .copyright-sub-text {
+            font-size: 0.8rem;
         }
     }
     .vertical-footer-links {
