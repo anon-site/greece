@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل السفارات - الحياة في اليونان</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tabs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- إشعار فوري (تنبيه) -->
+    <div id="siteAlert" style="display:none;position:fixed;top:0;left:0;width:100vw;z-index:2000;background:#1976d2;color:#fff;padding:18px 32px 18px 48px;font-size:1.13rem;font-weight:700;box-shadow:0 4px 18px #1976d233;direction:rtl;transition:top 0.3s;align-items:center;justify-content:center;gap:16px;">
+      <span id="siteAlertMsg">تنبيه هام!</span>
+      <button id="siteAlertClose" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">&times;</button>
+    </div>
+    <!-- نهاية الإشعار الفوري -->
+    
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-landmark"></i> الحياة في اليونان</h1>
+                <div class="tagline">دليلك الشامل للحياة في اليونان</div>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="asylum.html">
+                                <i class="fas fa-passport"></i>
+                                دوائر اللجوء
+                            </a>
+                            <a href="government.html">
+                                <i class="fas fa-landmark"></i>
+                                دوائر حكومية
+                            </a>
+                            <a href="housing.html">
+                                <i class="fas fa-home"></i>
+                                عقارات وسكن
+                            </a>
+                            <a href="hospitals.html">
+                                <i class="fas fa-hospital"></i>
+                                مستشفيات
+                            </a>
+                            <a href="transportation.html">
+                                <i class="fas fa-bus"></i>
+                                خطوط النقل
+                            </a>
+                            <a href="tourism-services.html">
+                                <i class="fas fa-umbrella-beach"></i>
+                                سياحة
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#humanitarian">منظمات إنسانية</a>
+                            <a href="../index.html#medical-org">منظمات طبية</a>
+                            <a href="../index.html#educational">منظمات تعليمية</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#service-offices">مكاتب خدمية</a>
+                            <a href="../index.html#accounting">مكاتب محاسبة</a>
+                            <a href="../index.html#lawyers">مكاتب محامين</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#hotels">فنادق</a>
+                            <a href="../index.html#pharmacies">صيدليات ومتاجر</a>
+                            <a href="../index.html#restaurants">مطاعم</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <button class="desktop-settings-btn" title="الإعدادات">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="desktop-search-btn" title="بحث">
+                <i class="fas fa-search"></i>
+            </button>
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="فتح القائمة الرئيسية">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav">
+        <ul>
+            <li class="nav-item">
+                <a href="../index.html"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="asylum.html">دوائر اللجوء</a></li>
+                    <li><a href="government.html">دوائر حكومية</a></li>
+                    <li><a href="housing.html">عقارات وسكن</a></li>
+                    <li><a href="hospitals.html">مستشفيات</a></li>
+                    <li><a href="transportation.html">خطوط النقل</a></li>
+                    <li><a href="tourism-services.html">سياحة</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="../index.html#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#humanitarian">منظمات إنسانية</a></li>
+                    <li><a href="../index.html#medical-org">منظمات طبية</a></li>
+                    <li><a href="../index.html#educational">منظمات تعليمية</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#service-offices">مكاتب خدمية</a></li>
+                    <li><a href="../index.html#accounting">مكاتب محاسبة</a></li>
+                    <li><a href="../index.html#lawyers">مكاتب محامين</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="../index.html#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="../index.html#hotels">فنادق</a></li>
+                    <li><a href="../index.html#pharmacies">صيدليات ومتاجر</a></li>
+                    <li><a href="../index.html#restaurants">مطاعم</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="animated-title"><span class="typing-text">دليل السفارات</span><span class="typing-cursor"></span></h1>
+                <p class="animated-subtitle">دليل شامل لجميع السفارات والقنصليات في اليونان، معلومات الاتصال والعناوين والخدمات المتاحة للمواطنين العرب والمقيمين.</p>
+                <div class="hero-buttons">
+                    <a href="#embassies-list" class="btn btn-primary">استكشف السفارات <i class="fas fa-arrow-left"></i></a>
+                    <a href="#consulates" class="btn btn-secondary">القنصليات <i class="fas fa-flag"></i></a>
+                </div>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-flag"></i></div>
+                    <h3>سفارات شاملة</h3>
+                    <p>جميع السفارات والقنصليات</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>عناوين محدثة</h3>
+                    <p>مواقع دقيقة وخرائط تفاعلية</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-phone"></i></div>
+                    <h3>معلومات الاتصال</h3>
+                    <p>أرقام الهواتف والبريد الإلكتروني</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <!-- Content will be added here -->
+            <div class="content-placeholder">
+                <div class="placeholder-icon">
+                    <i class="fas fa-flag"></i>
+                </div>
+                <h2>دليل السفارات</h2>
+                <p>سيتم إضافة محتوى دليل السفارات هنا قريباً</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#222c3a" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320,C480,320,384,320,288,320,C192,320,96,320,48,320,L0,320Z"></path></svg>
+        </div>
+        <div class="footer-content-wrapper dark-footer-wrapper">
+            <div class="container">
+                <div class="footer-content footer-row-cards">
+                    <!-- IP & Country Flag -->
+                    <div class="footer-card footer-ip-card">
+                        <div class="footer-ip-flag-row">
+                            <span id="footerCountryFlag"></span>
+                            <span id="footerIP" class="footer-ip-text">IP</span>
+                            <span id="footerIPType" class="footer-ip-type" style="display:none;font-size:0.93em;color:#bfc9d6;margin-right:6px;"></span>
+                        </div>
+                        <span id="footerCountryName" class="footer-country-name" style="display:none;"></span>
+                        <span id="footerIPLocation" class="footer-ip-location" style="font-size:0.97em;color:#bfc9d6;"></span>
+                        <span id="footerISP" class="footer-isp-name" style="font-size:0.97em;color:#bfc9d6;"></span>
+                    </div>
+                    <!-- Live Clock -->
+                    <div class="footer-card footer-clock-card">
+                        <div class="clock-daystate-row">
+                            <span id="clock-daystate-icon" class="clock-daystate-icon">☀️</span>
+                            <span id="clock-daystate-label" class="clock-daystate-label">صباحاً</span>
+                        </div>
+                        <div class="footer-clock-row">
+                            <span id="footerLocalTime" class="modern-clock">
+                                <span class="clock-group"><span class="clock-digit" id="clock-h1">0</span><span class="clock-digit" id="clock-h2">0</span></span>
+                                <span class="clock-sep">:</span>
+                                <span class="clock-group"><span class="clock-digit" id="clock-m1">0</span><span class="clock-digit" id="clock-m2">0</span></span>
+                                <span class="clock-sep">:</span>
+                                <span class="clock-group"><span class="clock-digit" id="clock-s1">0</span><span class="clock-digit" id="clock-s2">0</span></span>
+                                <span id="clock-period" class="clock-period-modern"></span>
+                            </span>
+                        </div>
+                        <span class="footer-clock-label">الوقت المحلي لمدينة أثينا</span>
+                        <span id="footerLocalDate" class="footer-clock-date"></span>
+                    </div>
+                    <!-- Weather -->
+                    <div class="footer-card footer-weather-card">
+                        <div class="footer-weather-row">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span id="footerWeather">--°C</span>
+                        </div>
+                        <span id="footerWeatherDesc"></span>
+                        <span id="footerWeatherLocation"></span>
+                        <span id="footerWeatherHumidity" style="display:block;font-size:0.97em;color:#bfc9d6;"></span>
+                        <span id="footerWeatherWind" style="display:block;font-size:0.97em;color:#bfc9d6;"></span>
+                    </div>
+                </div>
+                <div class="footer-links-bar always-horizontal-footer-links">
+                    <a href="#" class="footer-link">سياسة الخصوصية</a>
+                    <span class="footer-link-sep">-</span>
+                    <a href="#" class="footer-link">من نحن</a>
+                    <span class="footer-link-sep">-</span>
+                    <a href="#" class="footer-link">اتصل بنا</a>
+                </div>
+                <div class="footer-bottom-bar popup-copyright-bar" style="margin-top: 40px; margin-bottom: 20px;">
+                    <div class="copyright-content">
+                        <div class="copyright-icon-wrapper">
+                            <i class="fas fa-shield-alt copyright-shield"></i>
+                            <span class="copyright-symbol">&copy;</span>
+                        </div>
+                        <div class="copyright-text-wrapper">
+                            <div class="copyright-main-text">2025 الحياة في اليونان</div>
+                            <div class="copyright-sub-text">جميع الحقوق محفوظة</div>
+                        </div>
+                        <div class="copyright-decoration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Styles for this page -->
+    <style>
+        .main-content {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .content-placeholder {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        
+        .placeholder-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px auto;
+        }
+        
+        .placeholder-icon i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .content-placeholder h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+        }
+        
+        .content-placeholder p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .content-placeholder {
+                padding: 60px 20px;
+            }
+            
+            .placeholder-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .placeholder-icon i {
+                font-size: 2rem;
+            }
+            
+            .content-placeholder h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Footer Styles - Same as main page */
+        .footer-row-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            align-items: stretch;
+            padding: 36px 0 14px 0;
+            background: none;
+        }
+        .footer-card {
+            background: rgba(34,44,58,0.96);
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.13);
+            padding: 16px 14px 12px 14px;
+            min-width: 160px;
+            max-width: 220px;
+            flex: 1 1 160px;
+            margin: 0 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1.5px solid #263246;
+            transition: box-shadow 0.18s, transform 0.18s;
+            position: relative;
+        }
+        .footer-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 60%;
+            background: linear-gradient(180deg, #263246 0%, #34425a 100%);
+            opacity: 0.18;
+            border-radius: 2px;
+            z-index: 1;
+            display: none;
+        }
+        .footer-row-cards > .footer-card:not(:first-child) {
+            margin-right: 0;
+        }
+        .footer-card:hover {
+            box-shadow: 0 8px 32px rgba(44,62,80,0.23);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .footer-ip-flag-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .footer-ip-text {
+            color: #fff;
+            font-size: 1.13rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .footer-country-name {
+            font-size: 0.95rem;
+            color: #bfc9d6;
+            margin-top: 2px;
+        }
+        .footer-clock-row, .footer-weather-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.18rem;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+        .footer-clock-label {
+            font-size: 0.92rem;
+            color: #bfc9d6;
+            margin-top: 2px;
+        }
+        .footer-weather-row i {
+            color: #f7b731;
+        }
+        .footer-clock-row i {
+            color: #4fc3f7;
+        }
+        .footer-social-label { display: none; }
+        .footer-social-icons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer-social-icon {
+            font-size: 1.45rem;
+            color: #fff;
+            background: linear-gradient(135deg, #263246 60%, #2c3e50 100%);
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s, transform 0.18s, box-shadow 0.18s;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+            border: 1.5px solid #34425a;
+        }
+        .footer-social-icon:hover {
+            background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%);
+            color: #fff;
+            transform: scale(1.15) rotate(-8deg);
+            box-shadow: 0 8px 32px rgba(44,62,80,0.23);
+        }
+        .footer-social-icon[title="Telegram"] { color: #29b6f6; }
+        .footer-social-icon[title="WhatsApp"] { color: #25d366; }
+        .footer-social-icon[title="YouTube"] { color: #ff5252; }
+        .footer-social-icon[title="TikTok"] { color: #fff; }
+        .footer-bottom-bar {
+            width: 100%;
+            background: rgba(20, 26, 36, 0.93);
+            border-radius: 0 0 18px 18px;
+            border-top: 1.5px solid #232b38;
+            margin-top: 24px;
+            padding: 10px 0 6px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 -2px 12px rgba(44,62,80,0.10);
+        }
+        .copyright-text {
+            color: #bfc9d6;
+            font-size: 0.98rem;
+            letter-spacing: 0.2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 400;
+        }
+        .copyright-icon {
+            font-size: 1.15em;
+            color: #4fc3f7;
+            margin-left: 2px;
+        }
+        @media (max-width: 900px) {
+            .footer-row-cards { flex-direction: column; gap: 12px; padding: 12px 0 4px 0; }
+            .footer-card { min-width: 0; width: 100%; max-width: 100%; }
+            .footer-card:not(:last-child)::after { display: none; }
+            .footer-bottom-bar { border-radius: 0 0 12px 12px; margin-top: 12px; padding: 8px 0 4px 0; }
+            .copyright-text { font-size: 0.93rem; }
+        }
+        .footer-links-bar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 2px;
+            margin-top: 10px;
+        }
+        .footer-link {
+            color: #bfc9d6;
+            font-size: 1.04rem;
+            text-decoration: none;
+            transition: color 0.18s;
+            font-weight: 500;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+        .footer-link:hover {
+            color: #4fc3f7;
+            background: rgba(79,195,247,0.08);
+        }
+        .footer-link-sep {
+            color: #4fc3f7;
+            font-size: 1.1em;
+            font-weight: bold;
+            opacity: 0.7;
+            user-select: none;
+        }
+        @media (max-width: 900px) {
+            .footer-links-bar { flex-direction: column; gap: 4px; margin-top: 6px; }
+            .footer-link-sep { display: none; }
+        }
+        @media (max-width: 900px) {
+            .footer-row-cards {
+                flex-direction: column;
+                gap: 10px;
+                padding: 8px 0 2px 0;
+            }
+            .footer-card {
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
+                border-radius: 18px;
+                margin: 0 auto 6px auto;
+                box-shadow: 0 2px 12px rgba(44,62,80,0.10) inset, 0 1px 6px rgba(44,62,80,0.08);
+                background: linear-gradient(120deg, #232e3c 80%, #1a2230 100%);
+                padding: 18px 8px 14px 8px;
+            }
+            .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
+                justify-content: center;
+                gap: 10px;
+            }
+            .footer-ip-text, .footer-country-name, .footer-clock-label {
+                font-size: 1.08rem;
+            }
+            .footer-clock-row i, .footer-weather-row i {
+                font-size: 1.25em;
+            }
+            .footer-ip-flag-row img {
+                width: 30px !important;
+                height: 22px !important;
+            }
+            .footer-card {
+                text-align: center;
+            }
+            .footer-weather-row span, .footer-clock-row span, .footer-ip-flag-row span {
+                font-size: 1.13rem;
+            }
+            .footer-country-name {
+                margin-top: 4px;
+                font-size: 1.01rem;
+            }
+        }
+        @media (max-width: 900px) {
+            .footer-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+            .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
+                width: 100%;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+            .footer-card > * {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            .footer-country-name, .footer-clock-label, #footerWeatherDesc, #footerWeatherLocation {
+                width: 100%;
+                text-align: center !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+        .popup-copyright-bar {
+            background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%);
+            color: #263246;
+            border-radius: 24px;
+            box-shadow: 
+                0 12px 40px rgba(44,62,80,0.15), 
+                0 4px 20px rgba(52,152,219,0.12),
+                0 0 0 1px rgba(255,255,255,0.8) inset;
+            border: 2px solid rgba(79,195,247,0.2);
+            width: max-content;
+            min-width: 280px;
+            max-width: 98vw;
+            margin: 0 auto 20px auto;
+            padding: 16px 32px 14px 32px;
+            position: relative;
+            top: -20px;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.01rem;
+            margin-bottom: 0 !important;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        
+        .popup-copyright-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79,195,247,0.1), transparent);
+            transition: left 0.8s ease;
+            z-index: -1;
+        }
+        
+        .popup-copyright-bar:hover::before {
+            left: 100%;
+        }
+        
+        .popup-copyright-bar:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(44,62,80,0.25), 
+                0 8px 30px rgba(52,152,219,0.18),
+                0 0 0 1px rgba(255,255,255,0.9) inset;
+            border-color: rgba(79,195,247,0.4);
+        }
+        
+        .copyright-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+        }
+        
+        .copyright-icon-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #4fc3f7 0%, #1976d2 100%);
+            border-radius: 50%;
+            box-shadow: 
+                0 4px 16px rgba(79,195,247,0.3),
+                0 0 0 2px rgba(255,255,255,0.8) inset;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        
+        .copyright-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        
+        .copyright-icon-wrapper:hover {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 
+                0 8px 24px rgba(79,195,247,0.4),
+                0 0 0 3px rgba(255,255,255,0.9) inset;
+        }
+        
+        .copyright-icon-wrapper:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translateX(100%);
+        }
+        
+        .copyright-shield {
+            color: white;
+            font-size: 1.2rem;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .copyright-symbol {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            z-index: 3;
+        }
+        
+        .copyright-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .copyright-main-text {
+            color: #263246;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .copyright-main-text::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4fc3f7, #1976d2);
+            transition: width 0.3s ease;
+        }
+        
+        .popup-copyright-bar:hover .copyright-main-text::after {
+            width: 100%;
+        }
+        
+                 .copyright-sub-text {
+             color: #7f8c8d;
+             font-size: 0.9rem;
+             font-weight: 400;
+             letter-spacing: 0.2px;
+         }
+         
+         /* Clock Styles - Same as main page */
+         .modern-clock {
+             display: flex;
+             align-items: center;
+             gap: 6px;
+             font-size: 1.32em;
+             background: linear-gradient(120deg, #232e3c 80%, #1a2230 100%);
+             border-radius: 12px;
+             padding: 6px 18px 6px 18px;
+             box-shadow: 0 2px 12px rgba(44,62,80,0.13);
+         }
+         .clock-group {
+             display: flex;
+             gap: 2px;
+         }
+         .clock-digit {
+             background: rgba(34,44,58,0.92);
+             border-radius: 6px;
+             box-shadow: 0 2px 8px #222c3a33;
+             font-size: 1.25em;
+             min-width: 28px;
+             min-height: 38px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin: 0 1px;
+             font-family: 'Tajawal', 'Cairo', Arial, sans-serif;
+             font-weight: bold;
+             color: #fff;
+             perspective: 60px;
+             transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+             vertical-align: middle;
+             border: 1.5px solid #263246;
+         }
+         .clock-digit.flip {
+             animation: flip 0.45s cubic-bezier(.4,2,.6,1) both;
+         }
+         .clock-sep {
+             color: #4fc3f7;
+             font-size: 1.5em;
+             font-weight: bold;
+             margin: 0 4px;
+             text-shadow: 0 2px 8px #4fc3f755;
+             animation: blink 1s steps(1) infinite;
+         }
+         @keyframes blink {
+             0%, 49% { opacity: 1; }
+             50%, 100% { opacity: 0.25; }
+         }
+         .clock-period-modern {
+             font-size: 1.08em;
+             color: #f7b731;
+             margin-right: 8px;
+             margin-left: 8px;
+             padding: 2px 10px;
+             border-radius: 8px;
+             background: rgba(247,183,49,0.08);
+             box-shadow: 0 1px 4px #f7b73122;
+             font-weight: 600;
+             display: inline-flex;
+             align-items: center;
+             gap: 4px;
+         }
+         
+         .clock-daystate-row {
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             gap: 10px;
+             margin-bottom: 8px;
+             background: linear-gradient(90deg, #263246 60%, #34425a 100%);
+             border-radius: 10px;
+             padding: 7px 18px 7px 18px;
+             box-shadow: 0 2px 8px #26324622;
+         }
+         .clock-daystate-icon {
+             font-size: 2.1em;
+             vertical-align: middle;
+             filter: drop-shadow(0 2px 6px #f7b73144);
+         }
+         .clock-daystate-label {
+             font-size: 1.18em;
+             color: #f7b731;
+             font-weight: 700;
+             letter-spacing: 0.5px;
+             text-shadow: 0 2px 8px #f7b73122;
+             vertical-align: middle;
+         }
+    </style>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/services.js"></script>
+    <script src="../js/tabs.js"></script>
+</body>
+</html>
