@@ -1,0 +1,1769 @@
+/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* تحسين أداء الصور */
+img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h3 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-right: 3px solid transparent;
+}
+
+.sidebar-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-right-color: #fff;
+    transform: translateX(-5px);
+}
+
+.sidebar-menu i {
+    margin-left: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+/* زر فتح القائمة */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+    margin-right: 0;
+    transition: margin-right 0.3s ease;
+}
+
+/* قسم الهيرو */
+.hero {
+    height: 100vh;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    background-color: #f0f0f0;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 35px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-badge i {
+    color: #ffd700;
+    font-size: 1.2rem;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease 0.4s both;
+    line-height: 1.1;
+    max-width: 600px;
+}
+
+.title-line {
+    display: block;
+    font-size: 0.8em;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 1.2s ease 0.5s forwards;
+}
+
+.title-highlight {
+    display: block;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.2em;
+    text-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    animation: slideInUpScale 1.5s ease 1.2s forwards;
+    position: relative;
+}
+
+.title-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    border-radius: 2px;
+    animation: underlineExpand 1s ease 2.5s forwards;
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+}
+
+@keyframes slideInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUpScale {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes underlineExpand {
+    to {
+        width: 100%;
+    }
+}
+
+/* تحسين التأثير للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .title-line {
+        animation: slideInUp 1s ease 0.5s forwards;
+    }
+    
+    .title-highlight {
+        animation: slideInUpScale 1.2s ease 1s forwards;
+    }
+    
+    .title-highlight::after {
+        animation: underlineExpand 0.8s ease 2s forwards;
+    }
+}
+
+
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease 0.6s both;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.hero-features {
+    display: flex;
+    gap: 25px;
+    animation: fadeInUp 1s ease 0.8s both;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.feature-item i {
+    color: #ffd700;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    animation: fadeInUp 1s ease 1.2s both;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 18px 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+    min-width: 120px;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    animation: fadeInUp 1s ease 1.4s both;
+}
+
+.scroll-text {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.scroll-indicator i {
+    font-size: 1.5rem;
+    color: white;
+    animation: bounce 2s infinite;
+}
+
+.hero-navigation {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 3;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-dot.active {
+    background: #ffd700;
+    transform: scale(1.3);
+}
+
+.nav-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* الأقسام العامة */
+.section {
+    padding: 80px 0;
+    will-change: transform, opacity;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* معلومات التحديث */
+.update-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 25px;
+    font-size: 0.95rem;
+    color: #555;
+    flex-wrap: wrap;
+}
+
+.update-info i {
+    color: #667eea;
+    font-size: 1rem;
+}
+
+.update-info span {
+    font-weight: 500;
+}
+
+.update-info .fas.fa-calendar-alt {
+    color: #28a745;
+}
+
+.update-info .fas.fa-info-circle {
+    color: #17a2b8;
+}
+
+/* قسم الخدمات */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* بطاقات القلب */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 350px;
+    perspective: 1000px;
+    border-radius: 15px;
+    will-change: transform, opacity;
+}
+
+.service-image {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px 15px 0 0;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+    filter: brightness(0.9) contrast(1.1);
+    will-change: transform, filter;
+}
+
+.flip-card:hover .service-image img {
+    transform: scale(1.05);
+    filter: brightness(1.05) contrast(1.1) saturate(1.05);
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.flip-card-front {
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+    padding: 0;
+    justify-content: flex-start;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: rotateY(180deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -35px auto 20px;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.flip-card-back .service-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.service-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.flip-card-front h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #333;
+    padding: 0 20px;
+}
+
+.flip-card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.flip-card-front p {
+    color: #666;
+    line-height: 1.6;
+    padding: 0 20px 20px 20px;
+}
+
+.flip-card-back p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    margin-top: auto;
+    text-decoration: none;
+}
+
+.more-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* تحسين ظل بطاقات الخدمات عند التحويم */
+.flip-card:hover .flip-card-front {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* معلومات العمل في اليونان */
+.work-info-section {
+    margin-top: 50px;
+}
+
+.work-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.work-info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
+}
+
+.work-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.work-info-card:hover::before {
+    transform: scaleX(1);
+}
+
+.work-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.info-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s;
+}
+
+.work-info-card:hover .info-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.info-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.work-info-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.work-info-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.work-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.detail-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.detail-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.detail-section h3 {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.detail-section h3 i {
+    margin-left: 12px;
+    color: #667eea;
+    font-size: 1.6rem;
+}
+
+.detail-section p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* مواقع البحث عن العمل */
+.job-sites-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.job-sites-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 35px;
+    color: #333;
+    position: relative;
+}
+
+.job-sites-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.job-sites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.job-site-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
+}
+
+.job-site-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.job-site-card:hover::before {
+    transform: scaleX(1);
+}
+
+.job-site-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.site-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s;
+}
+
+.job-site-card:hover .site-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.site-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.job-site-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.job-site-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.site-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.site-link:hover {
+    background: white;
+    color: #667eea;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.site-link i {
+    font-size: 0.8rem;
+}
+
+/* قسم المنظمات */
+.organizations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.org-card {
+    background: white;
+    padding: 0;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+    border: 1px solid #eee;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.org-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+
+.org-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+    filter: brightness(0.9) contrast(1.1);
+    will-change: transform, filter;
+}
+
+.org-card:hover .org-image img {
+    transform: scale(1.05);
+    filter: brightness(1.05) contrast(1.1) saturate(1.05);
+}
+
+.org-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.org-logo {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -35px auto 20px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.org-logo i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.org-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+    padding: 0 20px;
+}
+
+.org-card p {
+    color: #666;
+    padding: 0 20px 15px 20px;
+    line-height: 1.6;
+}
+
+.org-card .more-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 20px 20px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.org-card .more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+
+.org-card .more-btn:active {
+    transform: translateY(0);
+}
+
+/* قسم المكاتب */
+.offices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.office-category {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border-top: 4px solid #667eea;
+}
+
+.office-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.office-category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.office-category-header i {
+    font-size: 2rem;
+    color: #667eea;
+    margin-left: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.office-category-header h3 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.office-category-content p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.office-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.office-example {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.office-example:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.office-example i {
+    color: #667eea;
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+.office-example span {
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.office-category .more-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.office-category .more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+
+.office-category .more-btn:active {
+    transform: translateY(0);
+}
+
+/* قسم السياحة */
+.tourism-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.tourism-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-out;
+    position: relative;
+    cursor: pointer;
+    will-change: transform;
+}
+
+.tourism-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.tourism-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tourism-card:hover::before {
+    opacity: 1;
+}
+
+.tourism-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tourism-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+    filter: brightness(0.85) contrast(1.1);
+    opacity: 1;
+    display: block;
+    transform: scale(1);
+    will-change: transform, filter;
+}
+
+.tourism-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.05) contrast(1.1) saturate(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tourism-content {
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+    background: white;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tourism-card:hover .tourism-content {
+    transform: translateY(-5px);
+}
+
+.tourism-content h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.tourism-content p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.tourism-content .more-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.tourism-content .more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+
+.tourism-content .more-btn:active {
+    transform: translateY(0);
+}
+
+/* فئات السياحة الإضافية */
+.tourism-categories-section {
+    margin-top: 80px;
+}
+
+.tourism-categories-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 50px;
+    font-weight: 600;
+    position: relative;
+}
+
+.tourism-categories-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.tourism-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.tourism-category {
+    background: white;
+    border-radius: 15px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border-top: 4px solid #667eea;
+    overflow: hidden;
+}
+
+.tourism-category-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.tourism-category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+    filter: brightness(0.9) contrast(1.1);
+    will-change: transform, filter;
+}
+
+.tourism-category:hover .tourism-category-image img {
+    transform: scale(1.05);
+    filter: brightness(1.05) contrast(1.1) saturate(1.05);
+}
+
+.tourism-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tourism-category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 25px 25px 15px 25px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tourism-category-header i {
+    font-size: 2rem;
+    color: #667eea;
+    margin-left: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tourism-category-header h3 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.tourism-category-content {
+    padding: 0 25px 25px 25px;
+}
+
+.tourism-category-content p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.tourism-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.tourism-example {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.tourism-example:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.tourism-example i {
+    color: #667eea;
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+.tourism-example span {
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.tourism-category .more-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.tourism-category .more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+
+.tourism-category .more-btn:active {
+    transform: translateY(0);
+}
+
+.tourism-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tourism-content p {
+    color: #666;
+}
+
+/* زر الصعود إلى الأعلى */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.scroll-to-top:active {
+    transform: translateY(-1px);
+}
+
+.scroll-to-top i {
+    transition: transform 0.3s ease;
+}
+
+.scroll-to-top:hover i {
+    transform: translateY(-2px);
+}
+
+/* الفوتر */
+.footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: #667eea;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.8;
+}
+
+/* الرسوم المتحركة */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    .hero-content {
+        max-width: 100%;
+        gap: 25px;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+        max-width: 100%;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-navigation {
+        right: 15px;
+    }
+    
+    .stat-item {
+        padding: 15px 20px;
+        min-width: 100px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .update-info {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+
+    
+    .offices-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .office-category {
+        padding: 25px;
+    }
+    
+    .office-examples {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .office-category-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .office-category .more-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        margin-top: 15px;
+    }
+    
+    .services-grid,
+    .organizations-grid,
+    .tourism-grid,
+    .tourism-categories-grid,
+    .job-sites-grid,
+    .work-info-grid,
+    .work-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .tourism-categories-title {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+    
+    .tourism-category-image {
+        height: 150px;
+    }
+    
+    .tourism-category-header {
+        padding: 20px 20px 15px 20px;
+    }
+    
+    .tourism-category-content {
+        padding: 0 20px 20px 20px;
+    }
+    
+    .tourism-examples {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .tourism-category-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .tourism-category .more-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        margin-top: 15px;
+    }
+    
+    .tourism-content .more-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        margin-top: 12px;
+    }
+    
+    .tourism-card:hover img {
+        transform: scale(1.08);
+    }
+    
+    .tourism-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .flip-card {
+        height: 320px;
+    }
+    
+    .service-image {
+        height: 120px;
+    }
+    
+    .flip-card-front h3 {
+        padding: 0 15px;
+        font-size: 1.3rem;
+    }
+    
+    .flip-card-front p {
+        padding: 0 15px 15px 15px;
+    }
+    
+    .flip-card-front, .flip-card-back {
+        padding: 20px;
+    }
+    
+    .sidebar {
+        width: 280px;
+        right: -280px;
+    }
+    
+    .menu-toggle {
+        top: 15px;
+        right: 15px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top {
+        bottom: 20px;
+        left: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section {
+        padding: 60px 0;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .org-image {
+        height: 140px;
+    }
+    
+    .org-card h3 {
+        padding: 0 15px;
+    }
+    
+    .org-card p {
+        padding: 0 15px 15px 15px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
