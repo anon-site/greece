@@ -9,28 +9,533 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- القائمة الجانبية -->
+    <!-- القائمة الجانبية المحسنة -->
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h3><i class="fas fa-landmark"></i> اليونان</h3>
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="brand-text">
+                    <h3>اليونان</h3>
+                    <span>دليل الحياة</span>
+                </div>
+            </div>
             <button class="close-btn" id="closeSidebar">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        <ul class="sidebar-menu">
-            <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
-            <li><a href="#services"><i class="fas fa-concierge-bell"></i> الخدمات</a></li>
-            <li><a href="#work"><i class="fas fa-briefcase"></i> العمل</a></li>
-            <li><a href="#organizations"><i class="fas fa-building"></i> المنظمات</a></li>
-            <li><a href="#offices"><i class="fas fa-map-marker-alt"></i> المكاتب</a></li>
-            <li><a href="#tourism"><i class="fas fa-plane"></i> السياحة</a></li>
-        </ul>
+        
+        <!-- مربع البحث -->
+        <div class="sidebar-search">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="ابحث في الموقع..." class="search-input" id="sidebarSearch">
+                <button class="search-btn" id="sidebarSearchBtn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="search-results" id="sidebarSearchResults"></div>
+        </div>
+        
+        <div class="sidebar-content">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="#home" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="menu-text">
+                            <span class="menu-title">الرئيسية</span>
+                            <span class="menu-description">الصفحة الرئيسية</span>
+                        </div>
+                        <div class="menu-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a href="#services" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <div class="menu-text">
+                            <span class="menu-title">الخدمات</span>
+                            <span class="menu-description">جميع الخدمات المتاحة</span>
+                        </div>
+                        <div class="menu-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="#services" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">مكاتب حكومية</span>
+                                    <span class="submenu-description">الخدمات الحكومية والمراكز الإدارية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#services" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">مكاتب اللجوء</span>
+                                    <span class="submenu-description">خدمات اللجوء واللجنة الإدارية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#work" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">عقارات وسكن</span>
+                                    <span class="submenu-description">خدمات الإيجار والشراء للمساكن</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#organizations" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">مستشفيات</span>
+                                    <span class="submenu-description">الرعاية الصحية والمراكز الطبية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#tourism" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-bus"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">وسائل النقل</span>
+                                    <span class="submenu-description">شبكة مواصلات متطورة ومتنوعة</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#tourism" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-plane"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">سياحة</span>
+                                    <span class="submenu-description">السياحة والترفيه والمعالم التاريخية</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#work" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="menu-text">
+                            <span class="menu-title">العمل</span>
+                            <span class="menu-description">فرص العمل والوظائف</span>
+                        </div>
+                        <div class="menu-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a href="#organizations" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="menu-text">
+                            <span class="menu-title">المنظمات</span>
+                            <span class="menu-description">المؤسسات والمنظمات</span>
+                        </div>
+                        <div class="menu-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="#organizations" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">منظمات تعليمية</span>
+                                    <span class="submenu-description">جامعات ومعاهد ومؤسسات تعليمية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#organizations" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">منظمات طبية</span>
+                                    <span class="submenu-description">مستشفيات ومراكز طبية ومؤسسات رعاية صحية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#organizations" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">منظمات إنسانية</span>
+                                    <span class="submenu-description">منظمات خيرية وإنسانية وخدمات اجتماعية</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a href="#offices" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="menu-text">
+                            <span class="menu-title">المكاتب</span>
+                            <span class="menu-description">مكاتب الخدمات</span>
+                        </div>
+                        <div class="menu-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="#offices" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">مكاتب خدمية</span>
+                                    <span class="submenu-description">مكاتب الخدمات العامة والمراكز الإدارية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#offices" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">مكاتب محاسبة</span>
+                                    <span class="submenu-description">مكاتب المحاسبة والمراجعة المالية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#offices" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-gavel"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">مكاتب محامين</span>
+                                    <span class="submenu-description">مكاتب المحاماة والاستشارات القانونية</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a href="#tourism" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="menu-text">
+                            <span class="menu-title">السياحة</span>
+                            <span class="menu-description">السياحة والترفيه</span>
+                        </div>
+                        <div class="menu-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="#tourism" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-island-tropical"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">الجزر اليونانية</span>
+                                    <span class="submenu-description">أكثر من 6000 جزيرة ساحرة</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#tourism" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">الآثار التاريخية</span>
+                                    <span class="submenu-description">مواقع أثرية تعود لآلاف السنين</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#tourism" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">المطاعم والمقاهي</span>
+                                    <span class="submenu-description">مأكولات تقليدية ومطاعم عصرية</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#tourism" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">فنادق</span>
+                                    <span class="submenu-description">فنادق فاخرة ومتوسطة وبسيطة</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="#tourism" class="submenu-link">
+                                <div class="submenu-icon">
+                                    <i class="fas fa-pills"></i>
+                                </div>
+                                <div class="submenu-text">
+                                    <span class="submenu-title">صيدليات ومتاجر</span>
+                                    <span class="submenu-description">صيدليات ومتاجر متنوعة</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- زر فتح القائمة -->
+    <!-- زر فتح القائمة المحسن -->
     <button class="menu-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i>
+        <div class="menu-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span class="menu-toggle-text">القائمة</span>
     </button>
+
+    <!-- زر الإعدادات -->
+    <button class="settings-toggle" id="settingsToggle">
+        <i class="fas fa-cog"></i>
+        <span>الإعدادات</span>
+    </button>
+
+    <!-- النافذة المنبثقة للإعدادات -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-cog"></i>
+                    <h2>الإعدادات</h2>
+                </div>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- قسم المظهر -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <i class="fas fa-palette"></i>
+                        <h3>المظهر</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="theme-options">
+                            <button class="theme-option active" data-theme="light">
+                                <div class="theme-preview light-theme">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content"></div>
+                                </div>
+                                <span>فاتح</span>
+                            </button>
+                            <button class="theme-option" data-theme="dark">
+                                <div class="theme-preview dark-theme">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content"></div>
+                                </div>
+                                <span>داكن</span>
+                            </button>
+                            <button class="theme-option" data-theme="auto">
+                                <div class="theme-preview auto-theme">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content"></div>
+                                </div>
+                                <span>تلقائي</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قسم الخط -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <i class="fas fa-font"></i>
+                        <h3>الخط</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="font-options">
+                            <button class="font-option active" data-font="cairo">
+                                <span class="font-preview" style="font-family: 'Cairo';">Aa</span>
+                                <span>Cairo</span>
+                            </button>
+                            <button class="font-option" data-font="tajawal">
+                                <span class="font-preview" style="font-family: 'Tajawal';">Aa</span>
+                                <span>Tajawal</span>
+                            </button>
+                            <button class="font-option" data-font="almarai">
+                                <span class="font-preview" style="font-family: 'Almarai';">Aa</span>
+                                <span>Almarai</span>
+                            </button>
+                        </div>
+                        
+                        <div class="font-size-control">
+                            <label>حجم الخط</label>
+                            <div class="size-slider">
+                                <input type="range" id="fontSizeSlider" min="0.8" max="1.4" step="0.1" value="1">
+                                <span class="size-value">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قسم إمكانية الوصول -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <i class="fas fa-eye"></i>
+                        <h3>إمكانية الوصول</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="accessibility-options">
+                            <label class="accessibility-option">
+                                <input type="checkbox" id="highContrast">
+                                <div class="checkbox-custom"></div>
+                                <div class="option-text">
+                                    <span>تباين عالي</span>
+                                    <small>تحسين وضوح النصوص والصور</small>
+                                </div>
+                            </label>
+                            
+                            <label class="accessibility-option">
+                                <input type="checkbox" id="largeText">
+                                <div class="checkbox-custom"></div>
+                                <div class="option-text">
+                                    <span>نص كبير</span>
+                                    <small>تكبير جميع النصوص في الموقع</small>
+                                </div>
+                            </label>
+                            
+                            <label class="accessibility-option">
+                                <input type="checkbox" id="reduceMotion">
+                                <div class="checkbox-custom"></div>
+                                <div class="option-text">
+                                    <span>تقليل الحركة</span>
+                                    <small>إيقاف التأثيرات الحركية</small>
+                                </div>
+                            </label>
+                            
+                            <label class="accessibility-option">
+                                <input type="checkbox" id="focusIndicator">
+                                <div class="checkbox-custom"></div>
+                                <div class="option-text">
+                                    <span>مؤشر التركيز</span>
+                                    <small>إظهار مؤشر واضح للعناصر المحددة</small>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قسم اللغة -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <i class="fas fa-language"></i>
+                        <h3>اللغة</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="language-options">
+                            <button class="language-option active" data-lang="ar">
+                                <div class="flag-icon">🇸🇦</div>
+                                <span>العربية</span>
+                            </button>
+                            <button class="language-option" data-lang="en">
+                                <div class="flag-icon">🇺🇸</div>
+                                <span>English</span>
+                            </button>
+                            <button class="language-option" data-lang="el">
+                                <div class="flag-icon">🇬🇷</div>
+                                <span>Ελληνικά</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قسم إضافي -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>معلومات إضافية</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <i class="fas fa-clock"></i>
+                                <div class="info-text">
+                                    <span>متاح 24/7</span>
+                                    <small>خدمة مستمرة على مدار الساعة</small>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-phone"></i>
+                                <div class="info-text">
+                                    <span>+30 210 1234567</span>
+                                    <small>اتصل بنا للحصول على المساعدة</small>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-envelope"></i>
+                                <div class="info-text">
+                                    <span>info@greece-life.gr</span>
+                                    <small>راسلنا عبر البريد الإلكتروني</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn-secondary" id="resetSettings">
+                    <i class="fas fa-undo"></i>
+                    إعادة تعيين
+                </button>
+                <button class="btn-primary" id="saveSettings">
+                    <i class="fas fa-save"></i>
+                    حفظ الإعدادات
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- القسم الرئيسي -->
     <main class="main-content">
