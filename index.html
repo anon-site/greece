@@ -17,8 +17,9 @@
     
     <!-- تحميل CSS محسن -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- تحسين تحميل الخطوط -->
     <style>
@@ -31,7 +32,7 @@
         
         /* تحسين الأداء للصور */
         img {
-            loading: lazy;
+            content-visibility: auto;
         }
         
         /* تحسين التمرير */
@@ -387,175 +388,207 @@
                     <i class="fas fa-cog"></i>
                     <h2>الإعدادات</h2>
                 </div>
+                <div class="settings-tabs">
+                    <button class="tab-btn active" data-tab="appearance"><i class="fas fa-paint-brush"></i> المظهر</button>
+                    <button class="tab-btn" data-tab="accessibility"><i class="fas fa-universal-access"></i> إمكانية الوصول</button>
+                    <button class="tab-btn" data-tab="power"><i class="fas fa-bolt"></i> توفير الطاقة</button>
+                </div>
                 <button class="modal-close" id="modalClose">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
             <div class="modal-body">
-                <!-- قسم المظهر -->
-                <div class="settings-section">
-                    <div class="section-header">
-                        <i class="fas fa-palette"></i>
-                        <h3>المظهر</h3>
-                    </div>
-                    <div class="section-content">
-                        <div class="theme-options">
-                            <button class="theme-option active" data-theme="light">
-                                <div class="theme-preview light-theme">
-                                    <div class="preview-header"></div>
-                                    <div class="preview-content"></div>
-                                </div>
-                                <span>فاتح</span>
-                            </button>
-                            <button class="theme-option" data-theme="dark">
-                                <div class="theme-preview dark-theme">
-                                    <div class="preview-header"></div>
-                                    <div class="preview-content"></div>
-                                </div>
-                                <span>داكن</span>
-                            </button>
-                            <button class="theme-option" data-theme="auto">
-                                <div class="theme-preview auto-theme">
-                                    <div class="preview-header"></div>
-                                    <div class="preview-content"></div>
-                                </div>
-                                <span>تلقائي</span>
-                            </button>
+                <!-- تبويب المظهر -->
+                <div class="tab-content active" id="appearance-tab">
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <i class="fas fa-palette"></i>
+                            <h3>إعدادات المظهر</h3>
                         </div>
-                    </div>
-                </div>
-
-                <!-- قسم الخط -->
-                <div class="settings-section">
-                    <div class="section-header">
-                        <i class="fas fa-font"></i>
-                        <h3>الخط</h3>
-                    </div>
-                    <div class="section-content">
-                        <div class="font-options">
-                            <button class="font-option active" data-font="cairo">
-                                <span class="font-preview" style="font-family: 'Cairo';">Aa</span>
-                                <span>Cairo</span>
-                            </button>
-                            <button class="font-option" data-font="tajawal">
-                                <span class="font-preview" style="font-family: 'Tajawal';">Aa</span>
-                                <span>Tajawal</span>
-                            </button>
-                            <button class="font-option" data-font="almarai">
-                                <span class="font-preview" style="font-family: 'Almarai';">Aa</span>
-                                <span>Almarai</span>
-                            </button>
-                        </div>
-                        
-                        <div class="font-size-control">
-                            <label>حجم الخط</label>
-                            <div class="size-slider">
-                                <input type="range" id="fontSizeSlider" min="0.8" max="1.4" step="0.1" value="1">
-                                <span class="size-value">100%</span>
+                        <div class="section-content">
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-moon"></i>
+                                    <span>الوضع الليلي</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="darkModeToggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-font"></i>
+                                    <span>حجم الخط</span>
+                                </div>
+                                <div class="range-container">
+                                    <input type="range" id="fontSizeSlider" min="12" max="24" value="16">
+                                    <span class="size-value">16px</span>
+                                </div>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-text-height"></i>
+                                    <span>نوع الخط</span>
+                                </div>
+                                <div class="select-wrapper">
+                                    <select id="fontFamilySelect">
+                                        <option value="Cairo">Cairo</option>
+                                        <option value="Tajawal">Tajawal</option>
+                                        <option value="Arial">Arial</option>
+                                        <option value="sans-serif">Sans-Serif</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-border-style"></i>
+                                    <span>نمط الأزرار</span>
+                                </div>
+                                <div class="style-options">
+                                    <button class="style-option rounded" data-style="rounded">
+                                        <span>دائري</span>
+                                    </button>
+                                    <button class="style-option squared" data-style="squared">
+                                        <span>مربع</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- قسم إمكانية الوصول -->
-                <div class="settings-section">
-                    <div class="section-header">
-                        <i class="fas fa-eye"></i>
-                        <h3>إمكانية الوصول</h3>
-                    </div>
-                    <div class="section-content">
-                        <div class="accessibility-options">
-                            <label class="accessibility-option">
-                                <input type="checkbox" id="highContrast">
-                                <div class="checkbox-custom"></div>
-                                <div class="option-text">
-                                    <span>تباين عالي</span>
-                                    <small>تحسين وضوح النصوص والصور</small>
+                <!-- تبويب إمكانية الوصول -->
+                <div class="tab-content" id="accessibility-tab">
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <i class="fas fa-universal-access"></i>
+                            <h3>إمكانية الوصول</h3>
+                        </div>
+                        <div class="section-content">
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-adjust"></i>
+                                    <span>عالي التباين</span>
                                 </div>
-                            </label>
-                            
-                            <label class="accessibility-option">
-                                <input type="checkbox" id="largeText">
-                                <div class="checkbox-custom"></div>
-                                <div class="option-text">
-                                    <span>نص كبير</span>
-                                    <small>تكبير جميع النصوص في الموقع</small>
+                                <label class="switch">
+                                    <input type="checkbox" id="highContrastToggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-volume-up"></i>
+                                    <span>قراءة النص</span>
                                 </div>
-                            </label>
-                            
-                            <label class="accessibility-option">
-                                <input type="checkbox" id="reduceMotion">
-                                <div class="checkbox-custom"></div>
-                                <div class="option-text">
-                                    <span>تقليل الحركة</span>
-                                    <small>إيقاف التأثيرات الحركية</small>
+                                <label class="switch">
+                                    <input type="checkbox" id="textToSpeechToggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>تكبير النص</span>
                                 </div>
-                            </label>
-                            
-                            <label class="accessibility-option">
-                                <input type="checkbox" id="focusIndicator">
-                                <div class="checkbox-custom"></div>
-                                <div class="option-text">
-                                    <span>مؤشر التركيز</span>
-                                    <small>إظهار مؤشر واضح للعناصر المحددة</small>
+                                <label class="switch">
+                                    <input type="checkbox" id="textZoomToggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-eye"></i>
+                                    <span>وضع القراءة</span>
                                 </div>
-                            </label>
+                                <label class="switch">
+                                    <input type="checkbox" id="readingModeToggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-keyboard"></i>
+                                    <span>إختصارات لوحة المفاتيح</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="keyboardShortcutsToggle" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- قسم اللغة -->
-                <div class="settings-section">
-                    <div class="section-header">
-                        <i class="fas fa-language"></i>
-                        <h3>اللغة</h3>
-                    </div>
-                    <div class="section-content">
-                        <div class="language-options">
-                            <button class="language-option active" data-lang="ar">
-                                <div class="flag-icon">🇸🇦</div>
-                                <span>العربية</span>
-                            </button>
-                            <button class="language-option" data-lang="en">
-                                <div class="flag-icon">🇺🇸</div>
-                                <span>English</span>
-                            </button>
-                            <button class="language-option" data-lang="el">
-                                <div class="flag-icon">🇬🇷</div>
-                                <span>Ελληνικά</span>
-                            </button>
+                <!-- تبويب توفير الطاقة -->
+                <div class="tab-content" id="power-tab">
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <i class="fas fa-bolt"></i>
+                            <h3>توفير الطاقة</h3>
                         </div>
-                    </div>
-                </div>
-
-                <!-- قسم إضافي -->
-                <div class="settings-section">
-                    <div class="section-header">
-                        <i class="fas fa-info-circle"></i>
-                        <h3>معلومات إضافية</h3>
-                    </div>
-                    <div class="section-content">
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <i class="fas fa-clock"></i>
-                                <div class="info-text">
-                                    <span>متاح 24/7</span>
-                                    <small>خدمة مستمرة على مدار الساعة</small>
+                        <div class="section-content">
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-battery-three-quarters"></i>
+                                    <span>وضع توفير الطاقة</span>
+                                    <span class="info-tooltip" title="سيقلل من استهلاك البطارية عن طريق تقليل الحركات والرسوم المتحركة">
+                                        <i class="fas fa-info-circle"></i>
+                                    </span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="powerSavingToggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-tint"></i>
+                                    <span>تعتيم الخلفية</span>
+                                    <span class="info-tooltip" title="يخفت ألوان الخلفية لتقليل استهلاك الطاقة في الشاشات OLED">
+                                        <i class="fas fa-info-circle"></i>
+                                    </span>
+                                </div>
+                                <div class="range-container">
+                                    <input type="range" id="backgroundDimmingSlider" min="0" max="100" value="0" disabled>
+                                    <span class="size-value">0%</span>
                                 </div>
                             </div>
-                            <div class="info-card">
-                                <i class="fas fa-phone"></i>
-                                <div class="info-text">
-                                    <span>+30 210 1234567</span>
-                                    <small>اتصل بنا للحصول على المساعدة</small>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-image"></i>
+                                    <span>جودة الصور</span>
+                                </div>
+                                <div class="select-wrapper">
+                                    <select id="imageQualitySelect">
+                                        <option value="high">عالية (افتراضي)</option>
+                                        <option value="medium">متوسطة</option>
+                                        <option value="low">منخفضة</option>
+                                        <option value="off">إيقاف التحميل التلقائي</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
                                 </div>
                             </div>
-                            <div class="info-card">
-                                <i class="fas fa-envelope"></i>
-                                <div class="info-text">
-                                    <span>info@greece-life.gr</span>
-                                    <small>راسلنا عبر البريد الإلكتروني</small>
+                            <div class="setting-option">
+                                <div class="option-label">
+                                    <i class="fas fa-video"></i>
+                                    <span>تعطيل الفيديوهات التلقائية</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="disableAutoplayToggle" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="power-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-battery-three-quarters"></i>
+                                    <span>حالة البطارية: <span id="battery-level">جاري التحميل...</span></span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>الوقت المتبقي: <span id="battery-time">--</span></span>
                                 </div>
                             </div>
                         </div>
@@ -649,9 +682,9 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                                            <div class="service-image">
-                                <img src="images/mouseio.jpg" alt="مكاتب حكومية" loading="lazy" decoding="async">
-                            </div>
+                                <div class="service-image">
+                                    <img src="images/mouseio.jpg" alt="مكاتب حكومية" loading="lazy" decoding="async">
+                                </div>
                                 <div class="service-icon">
                                     <i class="fas fa-building"></i>
                                 </div>
@@ -669,9 +702,9 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                                            <div class="service-image">
-                                <img src="images/Υπηρεσία-ασύλου-1.jpg" alt="مكاتب اللجوء" loading="lazy" decoding="async">
-                            </div>
+                                <div class="service-image">
+                                    <img src="images/Υπηρεσία-ασύλου-1.jpg" alt="مكاتب اللجوء" loading="lazy" decoding="async">
+                                </div>
                                 <div class="service-icon">
                                     <i class="fas fa-shield-alt"></i>
                                 </div>
@@ -729,9 +762,9 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                                            <div class="service-image">
-                                <img src="images/59375496_1554320324698256_1609006418231296_n (2).jpg" alt="وسائل النقل" loading="lazy" decoding="async">
-                            </div>
+                                <div class="service-image">
+                                    <img src="images/59375496_1554320324698256_1609006418231296_n (2).jpg" alt="وسائل النقل" loading="lazy" decoding="async">
+                                </div>
                                 <div class="service-icon">
                                     <i class="fas fa-bus"></i>
                                 </div>
@@ -749,9 +782,9 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                                            <div class="service-image">
-                                <img src="images/Types-of-tourism-in-Greece (2).jpg" alt="سياحة" loading="lazy" decoding="async">
-                            </div>
+                                <div class="service-image">
+                                    <img src="images/Types-of-tourism-in-Greece (2).jpg" alt="سياحة" loading="lazy" decoding="async">
+                                </div>
                                 <div class="service-icon">
                                     <i class="fas fa-plane"></i>
                                 </div>
@@ -1230,6 +1263,7 @@
 
     <!-- تحميل JavaScript محسن -->
     <script src="js/script.js" defer></script>
+    <script src="js/settings.js" defer></script>
     
     <!-- تحسين الأداء -->
     <script>

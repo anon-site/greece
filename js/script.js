@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, 1000);
     }, { passive: true });
+    
+    // العناصر الرئيسية للواجهة
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.getElementById('menuToggle');
     const closeSidebar = document.getElementById('closeSidebar');
@@ -29,29 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarSearchBtn = document.getElementById('sidebarSearchBtn');
     const sidebarSearchResults = document.getElementById('sidebarSearchResults');
     
-    // عناصر القائمة الفرعية
-    const servicesMenuItem = document.querySelector('.has-submenu');
-    const submenuLinks = document.querySelectorAll('.submenu-link');
-    
-    // عناصر جميع القوائم الفرعية
+    // عناصر القوائم الفرعية
     const allSubmenuItems = document.querySelectorAll('.has-submenu');
     const allSubmenuLinks = document.querySelectorAll('.submenu-link');
     
-    // عناصر النافذة المنبثقة للإعدادات
+    // عناصر النافذة المنبثقة للإعدادات (يتم التحكم بها الآن في ملف settings.js)
     const settingsToggle = document.getElementById('settingsToggle');
-    const settingsModal = document.getElementById('settingsModal');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const resetSettings = document.getElementById('resetSettings');
-    const saveSettings = document.getElementById('saveSettings');
-    
-    // عناصر الإعدادات
-    const themeOptions = document.querySelectorAll('.theme-option');
-    const fontOptions = document.querySelectorAll('.font-option');
-    const fontSizeSlider = document.getElementById('fontSizeSlider');
-    const sizeValue = document.querySelector('.size-value');
-    const accessibilityOptions = document.querySelectorAll('.accessibility-option input');
-    const languageOptions = document.querySelectorAll('.language-option');
 
     // فتح القائمة الجانبية
     menuToggle.addEventListener('click', function() {
@@ -264,208 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // النافذة المنبثقة للإعدادات
-    function openSettingsModal() {
-        settingsModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        loadCurrentSettings();
-    }
-
-    function closeSettingsModal() {
-        settingsModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    // فتح النافذة المنبثقة
-    settingsToggle.addEventListener('click', openSettingsModal);
-
-    // إغلاق النافذة المنبثقة
-    modalClose.addEventListener('click', closeSettingsModal);
-    modalOverlay.addEventListener('click', closeSettingsModal);
-
-    // إغلاق النافذة المنبثقة عند الضغط على Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && settingsModal.classList.contains('active')) {
-            closeSettingsModal();
-        }
-    });
-
-    // متغيرات الإعدادات
-    let currentSettings = {
-        theme: 'light',
-        font: 'cairo',
-        fontSize: 1,
-        highContrast: false,
-        largeText: false,
-        reduceMotion: false,
-        focusIndicator: false,
-        language: 'ar'
-    };
-
-    // تحميل الإعدادات الحالية
-    function loadCurrentSettings() {
-        const savedSettings = JSON.parse(localStorage.getItem('userSettings')) || {};
-        currentSettings = { ...currentSettings, ...savedSettings };
-        
-        // تطبيق الإعدادات على الواجهة
-        applySettingsToUI();
-    }
-
-    // تطبيق الإعدادات على الواجهة
-    function applySettingsToUI() {
-        // تطبيق المظهر
-        themeOptions.forEach(option => {
-            option.classList.remove('active');
-            if (option.dataset.theme === currentSettings.theme) {
-                option.classList.add('active');
-            }
-        });
-
-        // تطبيق الخط
-        fontOptions.forEach(option => {
-            option.classList.remove('active');
-            if (option.dataset.font === currentSettings.font) {
-                option.classList.add('active');
-            }
-        });
-
-        // تطبيق حجم الخط
-        fontSizeSlider.value = currentSettings.fontSize;
-        sizeValue.textContent = Math.round(currentSettings.fontSize * 100) + '%';
-
-        // تطبيق خيارات إمكانية الوصول
-        document.getElementById('highContrast').checked = currentSettings.highContrast;
-        document.getElementById('largeText').checked = currentSettings.largeText;
-        document.getElementById('reduceMotion').checked = currentSettings.reduceMotion;
-        document.getElementById('focusIndicator').checked = currentSettings.focusIndicator;
-
-        // تطبيق اللغة
-        languageOptions.forEach(option => {
-            option.classList.remove('active');
-            if (option.dataset.lang === currentSettings.language) {
-                option.classList.add('active');
-            }
-        });
-    }
-
-    // تطبيق الإعدادات على الموقع
-    function applySettingsToSite() {
-        // تطبيق المظهر
-        document.body.classList.remove('dark-mode', 'light-mode');
-        if (currentSettings.theme === 'dark') {
-            document.body.classList.add('dark-mode');
-        } else if (currentSettings.theme === 'auto') {
-            // تطبيق الوضع التلقائي حسب تفضيلات النظام
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.body.classList.add('dark-mode');
-            }
-        }
-
-        // تطبيق الخط
-        document.body.style.fontFamily = getFontFamily(currentSettings.font);
-
-        // تطبيق حجم الخط
-        document.body.style.fontSize = currentSettings.fontSize + 'rem';
-
-        // تطبيق خيارات إمكانية الوصول
-        if (currentSettings.highContrast) {
-            document.body.classList.add('high-contrast');
-        } else {
-            document.body.classList.remove('high-contrast');
-        }
-
-        if (currentSettings.largeText) {
-            document.body.classList.add('large-text');
-        } else {
-            document.body.classList.remove('large-text');
-        }
-
-        if (currentSettings.reduceMotion) {
-            document.body.classList.add('reduce-motion');
-        } else {
-            document.body.classList.remove('reduce-motion');
-        }
-
-        if (currentSettings.focusIndicator) {
-            document.body.classList.add('focus-indicator');
-        } else {
-            document.body.classList.remove('focus-indicator');
-        }
-    }
-
-    // الحصول على عائلة الخط
-    function getFontFamily(font) {
-        const fonts = {
-            'cairo': "'Cairo', sans-serif",
-            'tajawal': "'Tajawal', sans-serif",
-            'almarai': "'Almarai', sans-serif"
-        };
-        return fonts[font] || fonts['cairo'];
-    }
-
-    // أحداث الإعدادات
-    themeOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            themeOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-            currentSettings.theme = this.dataset.theme;
-        });
-
-    });
-
-    fontOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            fontOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-            currentSettings.font = this.dataset.font;
-        });
-    });
-
-    fontSizeSlider.addEventListener('input', function() {
-        currentSettings.fontSize = parseFloat(this.value);
-        sizeValue.textContent = Math.round(currentSettings.fontSize * 100) + '%';
-    });
-
-    accessibilityOptions.forEach(option => {
-        option.addEventListener('change', function() {
-            currentSettings[this.id] = this.checked;
-        });
-    });
-
-    languageOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            languageOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-            currentSettings.language = this.dataset.lang;
-        });
-    });
-
-    // حفظ الإعدادات
-    saveSettings.addEventListener('click', function() {
-        localStorage.setItem('userSettings', JSON.stringify(currentSettings));
-        applySettingsToSite();
-        closeSettingsModal();
-        showNotification('تم حفظ الإعدادات بنجاح!');
-    });
-
-    // إعادة تعيين الإعدادات
-    resetSettings.addEventListener('click', function() {
-        currentSettings = {
-            theme: 'light',
-            font: 'cairo',
-            fontSize: 1,
-            highContrast: false,
-            largeText: false,
-            reduceMotion: false,
-            focusIndicator: false,
-            language: 'ar'
-        };
-        
-        applySettingsToUI();
-        applySettingsToSite();
-        localStorage.removeItem('userSettings');
-        showNotification('تم إعادة تعيين الإعدادات!');
-    });
+    // تم نقل إدارة الإعدادات بالكامل إلى ملف settings.js
 
     // تأثيرات دخول العناصر في القائمة
     function animateSidebarElements() {
@@ -532,9 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // تحميل الإعدادات عند بدء التطبيق
-    loadCurrentSettings();
-    applySettingsToSite();
+    // تم تحميل الإعدادات من خلال ملف settings.js
 
     // تأثير التمرير على القائمة
     let ticking = false;
