@@ -1,3 +1,14 @@
+/* متغيرات CSS للإعدادات */
+:root {
+    --base-font-size: 16px;
+    --font-family: 'Cairo', sans-serif;
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --text-color: #333;
+    --bg-color: #fff;
+    --dim-opacity: 0;
+}
+
 /* إعدادات عامة */
 * {
     margin: 0;
@@ -42,9 +53,11 @@ html {
 }
 
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -2307,29 +2320,28 @@ body {
 }
 
 .dark-mode .bg-light {
-    background-color: #2a2a2a !important;
+    background-color: #333 !important;
 }
 
 .dark-mode .flip-card-front,
 .dark-mode .flip-card-back {
     background-color: #2a2a2a;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
+.dark-mode .service-card,
 .dark-mode .org-card,
 .dark-mode .tourism-card,
 .dark-mode .job-site-card,
-.dark-mode .work-info-card,
-.dark-mode .office-category,
-.dark-mode .tourism-category {
+.dark-mode .work-info-card {
     background-color: #2a2a2a;
-    color: #ffffff;
-    border: 1px solid #444;
+    color: var(--text-color);
+    border-color: #444;
 }
 
 .dark-mode .footer {
     background-color: #1a1a1a;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .dark-mode .section-title {
@@ -2360,11 +2372,11 @@ body {
 }
 
 .dark-mode .footer-section a {
-    color: #ffffff;
+    color: #bbb;
 }
 
 .dark-mode .footer-section a:hover {
-    color: #667eea;
+    color: var(--primary-color);
 }
 
 /* تحسينات إضافية للوضع الليلي */
@@ -2376,7 +2388,7 @@ body {
 }
 
 .dark-mode .hero-overlay {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 /* تأثيرات إضافية للقائمة الجانبية */

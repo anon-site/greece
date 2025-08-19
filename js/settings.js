@@ -18,6 +18,8 @@ class SettingsManager {
         this.loadSettings();
         this.applyAllSettings();
         this.initBatteryStatus();
+        this.initEventListeners();
+        this.initTextToSpeech();
     }
 
     loadSettings() {
@@ -134,29 +136,45 @@ class SettingsManager {
     updateBatteryStatus(battery) {
         const batteryLevel = Math.round(battery.level * 100);
         const isCharging = battery.charging;
-        const batteryStatus = document.getElementById('batteryStatus');
-        const batteryIcon = document.getElementById('batteryIcon');
+        const batteryLevelElement = document.getElementById('battery-level');
+        const batteryTimeElement = document.getElementById('battery-time');
         
-        if (batteryStatus && batteryIcon) {
-            // Update battery icon
-            let iconClass = 'fa-battery-full';
-            if (batteryLevel <= 20) iconClass = 'fa-battery-quarter';
-            else if (batteryLevel <= 50) iconClass = 'fa-battery-half';
-            else if (batteryLevel <= 80) iconClass = 'fa-battery-three-quarters';
-            
-            batteryIcon.className = `fas ${iconClass} ${isCharging ? 'fa-bolt' : ''}`;
-            
-            // Update battery status text
-            batteryStatus.textContent = isCharging 
-                ? `الشحن: ${batteryLevel}% (يتم الشحن)`
-                : `مستوى البطارية: ${batteryLevel}%`;
-            
-            // Auto-enable power saving if battery is low and not charging
-            if (batteryLevel <= 20 && !isCharging) {
-                this.settings.powerSaving = true;
-                this.applyPowerSaving();
-                this.showNotification('تم تفعيل وضع توفير الطاقة تلقائياً بسبب انخفاض شحن البطارية');
+        if (batteryLevelElement) {
+            batteryLevelElement.textContent = isCharging 
+                ? `${batteryLevel}% (يتم الشحن)`
+                : `${batteryLevel}%`;
+        }
+        
+        if (batteryTimeElement) {
+            if (isCharging) {
+                batteryTimeElement.textContent = 'يتم الشحن';
+            } else {
+                // تقدير بسيط للوقت المتبقي
+                const estimatedHours = Math.round(batteryLevel / 20);
+                batteryTimeElement.textContent = `${estimatedHours} ساعة تقريباً`;
             }
+        }
+        
+        // Auto-enable power saving if battery is low and not charging
+        if (batteryLevel <= 20 && !isCharging) {
+            this.settings.powerSaving = true;
+            this.applyPowerSaving();
+            this.showNotification('تم تفعيل وضع توفير الطاقة تلقائياً بسبب انخفاض شحن البطارية');
+        }
+    }
+
+    initTextToSpeech() {
+        if ('speechSynthesis' in window) {
+            // إضافة مستمع للنقر على النصوص عند تفعيل قراءة النص
+            document.addEventListener('click', (e) => {
+                if (this.settings.textToSpeech && e.target.tagName === 'P' || e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'H3') {
+                    const text = e.target.textContent;
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'ar-SA';
+                    utterance.rate = 0.8;
+                    speechSynthesis.speak(utterance);
+                }
+            });
         }
     }
 
@@ -234,14 +252,18 @@ class SettingsManager {
             const element = document.getElementById(id);
             if (element) {
                 element.value = this.settings[setting];
+                // Update the value display
+                const valueDisplay = element.parentElement.querySelector('.size-value');
+                if (valueDisplay) {
+                    valueDisplay.textContent = this.settings[setting] + (setting === 'fontSize' ? 'px' : '%');
+                }
             }
         });
         
         // Update select elements
         const selects = {
             'fontFamilySelect': 'fontFamily',
-            'imageQualitySelect': 'imageQuality',
-            'buttonStyleSelect': 'buttonStyle'
+            'imageQualitySelect': 'imageQuality'
         };
         
         Object.entries(selects).forEach(([id, setting]) => {
@@ -251,18 +273,113 @@ class SettingsManager {
             }
         });
         
-        // Update slider value displays
-        const valueDisplays = {
-            'fontSizeValue': 'fontSize',
-            'dimmingValue': 'backgroundDimming'
-        };
-        
-        Object.entries(valueDisplays).forEach(([id, setting]) => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.textContent = this.settings[setting] + (setting === 'fontSize' ? 'px' : '%');
+        // Update style options
+        const styleOptions = document.querySelectorAll('.style-option');
+        styleOptions.forEach(option => {
+            const style = option.getAttribute('data-style');
+            if (style === this.settings.buttonStyle) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
             }
         });
+    }
+
+    initEventListeners() {
+        // Toggle switches
+        const toggleSwitches = document.querySelectorAll('.switch input[type="checkbox"]');
+        toggleSwitches.forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const setting = e.target.id.replace('Toggle', '');
+                this.settings[setting] = e.target.checked;
+                
+                // Apply the setting immediately
+                switch (setting) {
+                    case 'darkMode':
+                        this.applyDarkMode();
+                        break;
+                    case 'highContrast':
+                    case 'textZoom':
+                    case 'readingMode':
+                        this.applyAccessibility();
+                        break;
+                    case 'powerSaving':
+                    case 'disableAutoplay':
+                        this.applyPowerSaving();
+                        break;
+                    case 'textToSpeech':
+                        if (e.target.checked) {
+                            this.showNotification('تم تفعيل قراءة النص. انقر على أي نص لسماعه');
+                        }
+                        break;
+                }
+            });
+        });
+        
+        // Sliders
+        const sliders = document.querySelectorAll('input[type="range"]');
+        sliders.forEach(slider => {
+            slider.addEventListener('input', (e) => {
+                const setting = e.target.id.replace('Slider', '');
+                this.settings[setting] = parseInt(e.target.value);
+                
+                // Update the value display
+                const valueDisplay = e.target.parentElement.querySelector('.size-value');
+                if (valueDisplay) {
+                    valueDisplay.textContent = e.target.value + (setting === 'fontSize' ? 'px' : '%');
+                }
+                
+                // Apply the setting immediately
+                if (setting === 'fontSize') {
+                    this.applyFontSize();
+                } else if (setting === 'backgroundDimming' && this.settings.powerSaving) {
+                    document.documentElement.style.setProperty('--dim-opacity', `${e.target.value / 100}`);
+                }
+            });
+        });
+        
+        // Select dropdowns
+        const selects = document.querySelectorAll('select');
+        selects.forEach(select => {
+            select.addEventListener('change', (e) => {
+                const setting = e.target.id.replace('Select', '');
+                this.settings[setting] = e.target.value;
+                
+                // Apply the setting immediately
+                if (setting === 'fontFamily') {
+                    this.applyFontFamily();
+                } else if (setting === 'imageQuality' && this.settings.powerSaving) {
+                    this.applyPowerSaving();
+                }
+            });
+        });
+        
+        // Style options
+        const styleOptions = document.querySelectorAll('.style-option');
+        styleOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                const style = e.currentTarget.getAttribute('data-style');
+                this.settings.buttonStyle = style;
+                this.applyButtonStyle();
+                
+                // Update active state
+                styleOptions.forEach(opt => opt.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+            });
+        });
+
+        // Enable/disable background dimming slider based on power saving toggle
+        const powerSavingToggle = document.getElementById('powerSavingToggle');
+        const backgroundDimmingSlider = document.getElementById('backgroundDimmingSlider');
+        
+        if (powerSavingToggle && backgroundDimmingSlider) {
+            powerSavingToggle.addEventListener('change', (e) => {
+                backgroundDimmingSlider.disabled = !e.target.checked;
+            });
+            
+            // Set initial state
+            backgroundDimmingSlider.disabled = !powerSavingToggle.checked;
+        }
     }
 }
 
@@ -310,71 +427,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Toggle switches
-    const toggleSwitches = document.querySelectorAll('.toggle-switch input[type="checkbox"]');
-    toggleSwitches.forEach(toggle => {
-        toggle.addEventListener('change', (e) => {
-            const setting = e.target.id.replace('Toggle', '');
-            settingsManager.settings[setting] = e.target.checked;
-            
-            // Apply the setting immediately
-            switch (setting) {
-                case 'darkMode':
-                    settingsManager.applyDarkMode();
-                    break;
-                case 'highContrast':
-                case 'textZoom':
-                case 'readingMode':
-                    settingsManager.applyAccessibility();
-                    break;
-                case 'powerSaving':
-                case 'disableAutoplay':
-                    settingsManager.applyPowerSaving();
-                    break;
-            }
-        });
-    });
-    
-    // Sliders
-    const sliders = document.querySelectorAll('input[type="range"]');
-    sliders.forEach(slider => {
-        slider.addEventListener('input', (e) => {
-            const setting = e.target.id.replace('Slider', '');
-            settingsManager.settings[setting] = parseInt(e.target.value);
-            
-            // Update the value display
-            const valueDisplay = document.getElementById(`${setting}Value`);
-            if (valueDisplay) {
-                valueDisplay.textContent = e.target.value + (setting === 'fontSize' ? 'px' : '%');
-            }
-            
-            // Apply the setting immediately
-            if (setting === 'fontSize') {
-                settingsManager.applyFontSize();
-            } else if (setting === 'backgroundDimming' && settingsManager.settings.powerSaving) {
-                document.documentElement.style.setProperty('--dim-opacity', `${e.target.value / 100}`);
-            }
-        });
-    });
-    
-    // Select dropdowns
-    const selects = document.querySelectorAll('select');
-    selects.forEach(select => {
-        select.addEventListener('change', (e) => {
-            const setting = e.target.id.replace('Select', '');
-            settingsManager.settings[setting] = e.target.value;
-            
-            // Apply the setting immediately
-            if (setting === 'fontFamily') {
-                settingsManager.applyFontFamily();
-            } else if (setting === 'buttonStyle') {
-                settingsManager.applyButtonStyle();
-            } else if (setting === 'imageQuality' && settingsManager.settings.powerSaving) {
-                settingsManager.applyPowerSaving();
-            }
-        });
-    });
-    
     // Reset settings
     if (resetSettings) {
         resetSettings.addEventListener('click', () => {
@@ -395,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Initialize tooltips
-    const tooltips = document.querySelectorAll('.tooltip-trigger');
+    const tooltips = document.querySelectorAll('.info-tooltip');
     tooltips.forEach(trigger => {
         trigger.addEventListener('mouseenter', (e) => {
             const tooltip = e.currentTarget.querySelector('.tooltip');
@@ -416,4 +468,24 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Update UI with current settings
     settingsManager.updateUI();
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        if (settingsManager.settings.keyboardShortcuts) {
+            // Ctrl/Cmd + , to open settings
+            if ((e.ctrlKey || e.metaKey) && e.key === ',') {
+                e.preventDefault();
+                toggleSettingsModal();
+            }
+            
+            // Escape to close settings
+            if (e.key === 'Escape' && settingsModal.classList.contains('active')) {
+                toggleSettingsModal();
+            }
+        }
+    });
+
+    // Debug: Log successful initialization
+    console.log('✅ تم تحميل نظام الإعدادات بنجاح!');
+    console.log('🔧 الإعدادات المتاحة:', Object.keys(settingsManager.settings));
 });
