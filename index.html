@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل شامل للحياة في اليونان - خدمات، عمل، منظمات، سياحة">
+    <meta name="keywords" content="اليونان, خدمات, عمل, منظمات, سياحة">
+    <meta name="author" content="الحياة في اليونان">
+    
+    <!-- تحسين الأداء -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
     <title>الحياة في اليونان - اكتشف جمال اليونان</title>
+    
+    <!-- تحميل CSS محسن -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- تحسين تحميل الخطوط -->
+    <style>
+        /* تحميل الخطوط بشكل محسن */
+        @font-face {
+            font-family: 'Cairo';
+            font-display: swap;
+            src: url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        }
+        
+        /* تحسين الأداء للصور */
+        img {
+            loading: lazy;
+        }
+        
+        /* تحسين التمرير */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* تحسين الأداء للعناصر المتحركة */
+        .hero-slide,
+        .flip-card,
+        .feature-item {
+            will-change: transform;
+        }
+    </style>
 </head>
 <body>
     <!-- القائمة الجانبية المحسنة -->
@@ -542,9 +581,9 @@
         <!-- قسم الهيرو -->
         <section id="home" class="hero">
             <div class="hero-background">
-                <div class="hero-slide active" style="background-image: url('images/pexels-jimmy-teoh-294331-951531.jpg')"></div>
-                <div class="hero-slide" style="background-image: url('images/pexels-tirachard-kumtanom-112571-347141.jpg')"></div>
-                <div class="hero-slide" style="background-image: url('images/pexels-pixabay-164041.jpg')"></div>
+                <div class="hero-slide active" style="background-image: url('images/pexels-jimmy-teoh-294331-951531.jpg')" loading="lazy"></div>
+                <div class="hero-slide" style="background-image: url('images/pexels-tirachard-kumtanom-112571-347141.jpg')" loading="lazy"></div>
+                <div class="hero-slide" style="background-image: url('images/pexels-pixabay-164041.jpg')" loading="lazy"></div>
             </div>
             <div class="hero-overlay"></div>
             
@@ -611,7 +650,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                                             <div class="service-image">
-                                <img src="images/mouseio.jpg" alt="مكاتب حكومية">
+                                <img src="images/mouseio.jpg" alt="مكاتب حكومية" loading="lazy" decoding="async">
                             </div>
                                 <div class="service-icon">
                                     <i class="fas fa-building"></i>
@@ -631,7 +670,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                                             <div class="service-image">
-                                <img src="images/Υπηρεσία-ασύλου-1.jpg" alt="مكاتب اللجوء">
+                                <img src="images/Υπηρεσία-ασύλου-1.jpg" alt="مكاتب اللجوء" loading="lazy" decoding="async">
                             </div>
                                 <div class="service-icon">
                                     <i class="fas fa-shield-alt"></i>
@@ -651,7 +690,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                 <div class="service-image">
-                                    <img src="images/pexels-photo-1396122.jpg" alt="عقارات وسكن">
+                                    <img src="images/pexels-photo-1396122.jpg" alt="عقارات وسكن" loading="lazy" decoding="async">
                                 </div>
                                 <div class="service-icon">
                                     <i class="fas fa-home"></i>
@@ -671,7 +710,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                 <div class="service-image">
-                                    <img src="images/pexels-photo-247786.jpg" alt="مستشفيات">
+                                    <img src="images/pexels-photo-247786.jpg" alt="مستشفيات" loading="lazy" decoding="async">
                                 </div>
                                 <div class="service-icon">
                                     <i class="fas fa-hospital"></i>
@@ -691,7 +730,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                                             <div class="service-image">
-                                <img src="images/59375496_1554320324698256_1609006418231296_n (2).jpg" alt="وسائل النقل">
+                                <img src="images/59375496_1554320324698256_1609006418231296_n (2).jpg" alt="وسائل النقل" loading="lazy" decoding="async">
                             </div>
                                 <div class="service-icon">
                                     <i class="fas fa-bus"></i>
@@ -711,7 +750,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                                             <div class="service-image">
-                                <img src="images/Types-of-tourism-in-Greece (2).jpg" alt="سياحة">
+                                <img src="images/Types-of-tourism-in-Greece (2).jpg" alt="سياحة" loading="lazy" decoding="async">
                             </div>
                                 <div class="service-icon">
                                     <i class="fas fa-plane"></i>
@@ -882,7 +921,7 @@
                 <div class="organizations-grid">
                     <div class="org-card">
                         <div class="org-image">
-                            <img src="images/pexels-photo-267885.jpg" alt="منظمات تعليمية">
+                            <img src="images/pexels-photo-267885.jpg" alt="منظمات تعليمية" loading="lazy" decoding="async">
                         </div>
                         <div class="org-logo">
                             <i class="fas fa-graduation-cap"></i>
@@ -893,7 +932,7 @@
                     </div>
                     <div class="org-card">
                         <div class="org-image">
-                            <img src="images/pexels-photo-247786 (1).jpg" alt="منظمات طبية">
+                            <img src="images/pexels-photo-247786 (1).jpg" alt="منظمات طبية" loading="lazy" decoding="async">
                         </div>
                         <div class="org-logo">
                             <i class="fas fa-heartbeat"></i>
@@ -904,7 +943,7 @@
                     </div>
                     <div class="org-card">
                         <div class="org-image">
-                            <img src="images/pexels-photo-6647119.jpg" alt="منظمات إنسانية">
+                            <img src="images/pexels-photo-6647119.jpg" alt="منظمات إنسانية" loading="lazy" decoding="async">
                         </div>
                         <div class="org-logo">
                             <i class="fas fa-hands-helping"></i>
@@ -1018,7 +1057,7 @@
                 <h2 class="section-title">السياحة والترفيه</h2>
                 <div class="tourism-grid">
                     <div class="tourism-card">
-                        <img src="images/من-اجمل-جزر-اليونان-السياحية-الساحرة-1 (2).jpg" alt="الجزر اليونانية">
+                        <img src="images/من-اجمل-جزر-اليونان-السياحية-الساحرة-1 (2).jpg" alt="الجزر اليونانية" loading="lazy" decoding="async">
                         <div class="tourism-content">
                             <h3>الجزر اليونانية</h3>
                             <p>أكثر من 6000 جزيرة ساحرة</p>
@@ -1026,7 +1065,7 @@
                         </div>
                     </div>
                     <div class="tourism-card">
-                        <img src="images/temple-of-hephaestus.jpg" alt="الآثار التاريخية">
+                        <img src="images/temple-of-hephaestus.jpg" alt="الآثار التاريخية" loading="lazy" decoding="async">
                         <div class="tourism-content">
                             <h3>الآثار التاريخية</h3>
                             <p>مواقع أثرية تعود لآلاف السنين</p>
@@ -1034,7 +1073,7 @@
                         </div>
                     </div>
                     <div class="tourism-card">
-                        <img src="images/scalini-terrace (2).jpg" alt="المطاعم والمقاهي">
+                        <img src="images/scalini-terrace (2).jpg" alt="المطاعم والمقاهي" loading="lazy" decoding="async">
                         <div class="tourism-content">
                             <h3>المطاعم والمقاهي</h3>
                             <p>مأكولات تقليدية ومطاعم عصرية</p>
@@ -1053,7 +1092,7 @@
                                 <h3>فنادق</h3>
                             </div>
                             <div class="tourism-category-image">
-                                <img src="images/pexels-photo-261102.jpg" alt="فنادق يونانية">
+                                <img src="images/pexels-photo-261102.jpg" alt="فنادق يونانية" loading="lazy" decoding="async">
                             </div>
                             <div class="tourism-category-content">
                                 <p>فنادق فاخرة ومتوسطة وبسيطة في جميع أنحاء اليونان مع إطلالات رائعة وخدمات متميزة</p>
@@ -1085,7 +1124,7 @@
                                 <h3>صيدليات ومتاجر</h3>
                             </div>
                             <div class="tourism-category-image">
-                                <img src="images/pexels-photo-3985166.jpg" alt="صيدليات ومتاجر">
+                                <img src="images/pexels-photo-3985166.jpg" alt="صيدليات ومتاجر" loading="lazy" decoding="async">
                             </div>
                             <div class="tourism-category-content">
                                 <p>صيدليات ومتاجر متنوعة تقدم جميع احتياجاتك اليومية والأدوية والمنتجات الصحية</p>
@@ -1117,7 +1156,7 @@
                                 <h3>مطاعم</h3>
                             </div>
                             <div class="tourism-category-image">
-                                <img src="images/pexels-photo-958545.jpg" alt="مطاعم يونانية">
+                                <img src="images/pexels-photo-958545.jpg" alt="مطاعم يونانية" loading="lazy" decoding="async">
                             </div>
                             <div class="tourism-category-content">
                                 <p>مطاعم تقليدية وعصرية تقدم أشهى المأكولات اليونانية والعالمية في أجواء رائعة</p>
@@ -1189,6 +1228,41 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script src="js/script.js"></script>
+    <!-- تحميل JavaScript محسن -->
+    <script src="js/script.js" defer></script>
+    
+    <!-- تحسين الأداء -->
+    <script>
+        // تحسين تحميل الصور
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحميل الصور عند الحاجة
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        });
+        
+        // تحسين التمرير
+        let ticking = false;
+        function updateOnScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    // تحديث العناصر المتحركة
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', updateOnScroll, { passive: true });
+    </script>
 </body>
 </html>

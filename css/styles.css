@@ -13,6 +13,32 @@ img {
     -webkit-transform: translateZ(0);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    max-width: 100%;
+    height: auto;
+}
+
+/* تحسين الأداء للعناصر المتحركة */
+.hero-slide,
+.flip-card,
+.feature-item,
+.service-card,
+.org-card,
+.tourism-card {
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* تحسين التمرير */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* تحسين الأداء للقوائم */
+.sidebar-menu,
+.submenu {
+    contain: layout style paint;
 }
 
 body {
@@ -441,10 +467,11 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
     background-color: #f0f0f0;
+    will-change: opacity;
 }
 
 /* تحسين خلفية الهيرو للهواتف المحمولة */
@@ -3098,7 +3125,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* الرسوم المتحركة */
+/* الرسوم المتحركة - محسنة للأداء */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -3107,12 +3134,28 @@ body {
 @keyframes slideInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* تحسين الأداء للرسوم المتحركة */
+.fade-in-up {
+    animation: slideInUp 0.6s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+/* تحسين الأداء للعناصر المتحركة */
+.hero-slide,
+.flip-card,
+.feature-item,
+.service-card,
+.org-card,
+.tourism-card {
+    contain: layout style paint;
 }
 
 /* التصميم المتجاوب للنافذة المنبثقة */
@@ -3648,6 +3691,37 @@ body {
     }
 }
 
+/* تحسين الأداء العام */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* تحسين الأداء للقوائم */
+.sidebar-menu,
+.submenu {
+    contain: layout style paint;
+}
+
+/* تحسين الأداء للبطاقات */
+.flip-card,
+.org-card,
+.tourism-card {
+    contain: layout style paint;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* تحسين الأداء للصور */
+.service-image img,
+.org-image img,
+.tourism-category-image img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
 /* تحسين تأثيرات الألوان للقوائم الفرعية المختلفة */
 .has-submenu:nth-child(2) .submenu-link:hover .submenu-icon {
     background: rgba(255, 215, 0, 0.2);
@@ -3716,4 +3790,66 @@ body {
 
 .has-submenu:nth-child(5) .submenu-link:hover::before {
     background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1));
+}
+
+/* ===== تحسينات الأداء الإضافية ===== */
+
+/* تحسين الأداء للعناصر الثقيلة */
+.hero-background,
+.service-image,
+.org-image,
+.tourism-category-image {
+    contain: layout style paint;
+}
+
+/* تحسين الأداء للتمرير */
+.sidebar,
+.modal-content {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* تحسين الأداء للعناصر المتحركة */
+.hero-slide,
+.flip-card-inner,
+.feature-item,
+.service-icon {
+    will-change: transform;
+}
+
+/* تحسين الأداء للصور */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* تحسين الأداء للخطوط */
+body {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+/* تحسين الأداء للتمرير على الأجهزة المحمولة */
+@media (max-width: 768px) {
+    .hero-slide {
+        background-attachment: scroll !important;
+    }
+    
+    .flip-card {
+        transform: none !important;
+        -webkit-transform: none !important;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+        transform: none !important;
+    }
+}
+
+/* تحسين الأداء للشاشات عالية الدقة */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
 }

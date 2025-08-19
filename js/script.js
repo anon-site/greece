@@ -1,5 +1,24 @@
-// التحكم في القائمة الجانبية المحسنة والنافذة المنبثقة للإعدادات
+// تحسين الأداء - تحميل محسن
 document.addEventListener('DOMContentLoaded', function() {
+    // تحسين الأداء للعناصر الثقيلة
+    const heavyElements = document.querySelectorAll('.flip-card, .hero-slide, .service-image');
+    heavyElements.forEach(el => {
+        el.style.willChange = 'transform';
+    });
+    
+    // تحسين التمرير
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(() => {
+            // إيقاف will-change بعد التمرير
+            heavyElements.forEach(el => {
+                el.style.willChange = 'auto';
+            });
+        }, 1000);
+    }, { passive: true });
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.getElementById('menuToggle');
     const closeSidebar = document.getElementById('closeSidebar');
@@ -595,33 +614,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // التحكم في عرض شرائح الهيرو
+    // التحكم في عرض شرائح الهيرو - محسن للأداء
     const heroSlides = document.querySelectorAll('.hero-slide');
     const navDots = document.querySelectorAll('.nav-dot');
     let currentSlide = 0;
+    let slideInterval;
+    let isTransitioning = false;
 
     function showSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
         heroSlides.forEach(slide => slide.classList.remove('active'));
         navDots.forEach(dot => dot.classList.remove('active'));
         
         heroSlides[index].classList.add('active');
         navDots[index].classList.add('active');
+        
+        // إعادة تعيين بعد انتهاء الانتقال
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 800);
     }
 
-    // التبديل التلقائي للشرائح
+    // التبديل التلقائي للشرائح - محسن
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % heroSlides.length;
-        showSlide(currentSlide);
+        if (!isTransitioning) {
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            showSlide(currentSlide);
+        }
     }
 
-    // تبديل الشرائح كل 5 ثوان
-    setInterval(nextSlide, 5000);
+    // تبديل الشرائح كل 5 ثوان - محسن
+    slideInterval = setInterval(nextSlide, 5000);
 
-    // النقر على نقاط التنقل
+    // النقر على نقاط التنقل - محسن
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            currentSlide = index;
-            showSlide(currentSlide);
+            if (!isTransitioning) {
+                currentSlide = index;
+                showSlide(currentSlide);
+                // إعادة تعيين المؤقت
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
         });
     });
 
@@ -629,47 +665,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    // تأثير التمرير على مؤشر التمرير
+    // تأثير التمرير على مؤشر التمرير - محسن للأداء
     const scrollIndicator = document.querySelector('.scroll-indicator');
     if (scrollIndicator) {
         let scrollTicking = false;
+        let lastScrollTop = 0;
+        
         window.addEventListener('scroll', function() {
             if (!scrollTicking) {
                 requestAnimationFrame(() => {
                     const scrollTop = window.pageYOffset;
                     const windowHeight = window.innerHeight;
                     
-                    if (scrollTop > windowHeight * 0.5) {
-                        scrollIndicator.style.opacity = '0';
-                    } else {
-                        scrollIndicator.style.opacity = '1';
+                    // تحسين الأداء - تحديث فقط عند تغيير كبير
+                    if (Math.abs(scrollTop - lastScrollTop) > 10) {
+                        if (scrollTop > windowHeight * 0.5) {
+                            scrollIndicator.style.opacity = '0';
+                        } else {
+                            scrollIndicator.style.opacity = '1';
+                        }
+                        lastScrollTop = scrollTop;
                     }
                     scrollTicking = false;
                 });
                 scrollTicking = true;
             }
-        });
+        }, { passive: true });
     }
 
-    // تحسين الأداء للصور
+    // تحسين الأداء للصور - محسن
     const images = document.querySelectorAll('img');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                
+                // تحميل الصورة عند الحاجة
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                
+                // إضافة معالج للأخطاء
+                img.addEventListener('error', function() {
+                    console.log('فشل في تحميل الصورة:', this.src);
+                    this.style.display = 'none';
+                });
+                
+                // إضافة معالج للتحميل الناجح
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                
+                // تعيين الشفافية الأولية
+                if (!img.complete) {
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.3s ease';
+                }
+                
+                observer.unobserve(img);
+            }
+        });
+    }, { rootMargin: '50px' });
+    
     images.forEach(img => {
-        // إضافة معالج للأخطاء
-        img.addEventListener('error', function() {
-            console.log('فشل في تحميل الصورة:', this.src);
-            this.style.display = 'none';
-        });
-        
-        // إضافة معالج للتحميل الناجح
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        // تعيين الشفافية الأولية فقط للصور التي لم تحمل بعد
-        if (!img.complete) {
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.3s ease';
-        }
+        imageObserver.observe(img);
     });
 
     // إضافة تأثيرات للروابط في الفوتر
@@ -821,24 +881,40 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// تشغيل تأثير الظهور عند دخول البطاقات إلى مجال الرؤية
+// تشغيل تأثير الظهور عند دخول البطاقات إلى مجال الرؤية - محسن للأداء
 window.addEventListener('load', () => {
     // بطاقات عامة موجودة مسبقاً
     addScrollEffects();
 
-    // مراقبة بطاقات الخدمات لتفعيل الظهور عند التمرير
-    const observeTargets = document.querySelectorAll('.flip-card');
+    // مراقبة بطاقات الخدمات لتفعيل الظهور عند التمرير - محسن
+    const observeTargets = document.querySelectorAll('.flip-card, .org-card, .tourism-card');
     if (observeTargets.length) {
         const cardsObserver = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
+                    // تأخير بسيط لتحسين الأداء
+                    requestAnimationFrame(() => {
+                        entry.target.classList.add('fade-in-up');
+                    });
                     obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        }, { 
+            threshold: 0.1, 
+            rootMargin: '0px 0px -50px 0px' 
+        });
 
         observeTargets.forEach(card => cardsObserver.observe(card));
     }
+    
+    // تحسين الأداء - إزالة will-change بعد التحميل
+    setTimeout(() => {
+        const heavyElements = document.querySelectorAll('.flip-card, .hero-slide, .service-image');
+        heavyElements.forEach(el => {
+            el.style.willChange = 'auto';
+        });
+    }, 3000);
+    
+    console.log('🚀 تم تحسين أداء الموقع بنجاح!');
 });
 
