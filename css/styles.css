@@ -22,6 +22,8 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -445,6 +447,27 @@ body {
     background-color: #f0f0f0;
 }
 
+/* تحسين خلفية الهيرو للهواتف المحمولة */
+@media (max-width: 768px) {
+    .hero-slide {
+        background-attachment: scroll;
+        background-position: center center;
+    }
+    
+    /* تحسين الأداء على الهواتف المحمولة */
+    .hero {
+        will-change: transform;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+    
+    .hero-content {
+        will-change: transform;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+}
+
 .hero-slide.active {
     opacity: 1;
 }
@@ -472,6 +495,7 @@ body {
     height: 100%;
     gap: 35px;
     margin: 0 auto;
+    min-height: 400px;
 }
 
 .hero-badge {
@@ -561,14 +585,33 @@ body {
 @media (max-width: 768px) {
     .title-line {
         animation: slideInUp 1s ease 0.5s forwards;
+        font-size: 0.9em;
     }
     
     .title-highlight {
         animation: slideInUpScale 1.2s ease 1s forwards;
+        font-size: 1.1em;
     }
     
     .title-highlight::after {
         animation: underlineExpand 0.8s ease 2s forwards;
+        height: 2px;
+        bottom: -8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-line {
+        font-size: 0.85em;
+    }
+    
+    .title-highlight {
+        font-size: 1em;
+    }
+    
+    .title-highlight::after {
+        height: 2px;
+        bottom: -6px;
     }
 }
 
@@ -601,11 +644,31 @@ body {
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .feature-item:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
+}
+
+/* تحسين التفاعل للهواتف المحمولة */
+@media (max-width: 768px) {
+    .feature-item:active {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0.95);
+    }
+    
+    .stat-item:active {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0.95);
+    }
+    
+    .nav-dot:active {
+        background: #ffd700;
+        transform: scale(1.2);
+    }
 }
 
 .feature-item i {
@@ -635,6 +698,8 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s;
     min-width: 120px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .stat-item:hover {
@@ -698,6 +763,8 @@ body {
     border: none;
     cursor: pointer;
     transition: all 0.3s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nav-dot.active {
@@ -1840,42 +1907,94 @@ body {
 
 /* التصميم المتجاوب */
 @media (max-width: 768px) {
+    .hero {
+        height: 100vh;
+        min-height: 600px;
+    }
+    
     .hero-content {
         max-width: 100%;
-        gap: 25px;
+        gap: 20px;
+        padding: 0 15px;
+        justify-content: center;
     }
     
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         max-width: 100%;
+        line-height: 1.2;
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         max-width: 100%;
+        line-height: 1.5;
+    }
+    
+    .hero-badge {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+    
+    .hero-badge i {
+        font-size: 1rem;
     }
     
     .hero-features {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .feature-item {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
     }
     
     .hero-stats {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .hero-navigation {
-        right: 15px;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
     }
     
     .stat-item {
-        padding: 15px 20px;
-        min-width: 100px;
+        padding: 12px 15px;
+        min-width: 80px;
+        flex: 1;
     }
     
     .stat-number {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .hero-navigation {
+        right: 10px;
+        gap: 10px;
+    }
+    
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .scroll-indicator {
+        bottom: 20px;
+    }
+    
+    .scroll-text {
+        font-size: 0.8rem;
+    }
+    
+    .scroll-indicator i {
+        font-size: 1.2rem;
     }
     
     .section-title {
@@ -2006,6 +2125,84 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        height: 100vh;
+        min-height: 500px;
+    }
+    
+    .hero-content {
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    
+    .hero-badge {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+    
+    .hero-badge i {
+        font-size: 0.9rem;
+    }
+    
+    .hero-features {
+        gap: 8px;
+    }
+    
+    .feature-item {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .hero-stats {
+        gap: 8px;
+    }
+    
+    .stat-item {
+        padding: 10px 12px;
+        min-width: 70px;
+    }
+    
+    .stat-number {
+        font-size: 1.3rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .hero-navigation {
+        right: 8px;
+        gap: 8px;
+    }
+    
+    .nav-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .scroll-indicator {
+        bottom: 15px;
+    }
+    
+    .scroll-text {
+        font-size: 0.7rem;
+    }
+    
+    .scroll-indicator i {
+        font-size: 1rem;
+    }
+    
     .scroll-to-top {
         bottom: 20px;
         left: 20px;
@@ -2013,13 +2210,17 @@ body {
         height: 45px;
         font-size: 1rem;
     }
-
-    .hero-title {
-        font-size: 2rem;
+    
+    /* تحسينات إضافية للهيرو على الهواتف الصغيرة */
+    .hero-overlay {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
     }
     
-    .hero-subtitle {
-        font-size: 1rem;
+    .hero-badge,
+    .feature-item,
+    .stat-item {
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
     }
     
     .section {
