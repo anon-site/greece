@@ -251,18 +251,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // تم نقل إدارة الإعدادات بالكامل إلى ملف settings.js
 
-    // تأثيرات دخول العناصر في القائمة
+    // تأثيرات دخول العناصر في القائمة (مبسطة)
     function animateSidebarElements() {
         const elements = sidebar.querySelectorAll('.menu-item, .submenu-item');
-        elements.forEach((element, index) => {
+        elements.forEach((element) => {
             element.style.opacity = '0';
-            element.style.transform = 'translateX(20px)';
+            element.style.transition = 'opacity 0.2s ease';
             
             setTimeout(() => {
-                element.style.transition = 'all 0.3s ease';
                 element.style.opacity = '1';
-                element.style.transform = 'translateX(0)';
-            }, index * 100);
+            }, 50);
         });
     }
 
@@ -318,39 +316,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // تم تحميل الإعدادات من خلال ملف settings.js
 
-    // تأثير التمرير على القائمة
-    let ticking = false;
+    // تأثير التمرير على القائمة (مبسط)
     window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                const scrollTop = window.pageYOffset;
-                
-                if (scrollTop > 100) {
-                    menuToggle.style.transform = 'scale(0.95)';
-                    settingsToggle.style.transform = 'scale(0.95)';
-                } else {
-                    menuToggle.style.transform = 'scale(1)';
-                    settingsToggle.style.transform = 'scale(1)';
-                }
-                ticking = false;
-            });
-            ticking = true;
+        const scrollTop = window.pageYOffset;
+        
+        if (scrollTop > 100) {
+            menuToggle.style.opacity = '0.8';
+        } else {
+            menuToggle.style.opacity = '1';
         }
-    });
+    }, { passive: true });
 
-    // تأثيرات البطاقات
+    // تأثيرات البطاقات (مبسطة)
     const cards = document.querySelectorAll('.org-card, .tourism-card, .job-site-card, .work-info-card, .detail-section');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            requestAnimationFrame(() => {
-                this.style.transform = 'translateY(-8px) scale(1.01)';
-            });
+            this.style.transform = 'translateY(-3px)';
         });
         
         card.addEventListener('mouseleave', function() {
-            requestAnimationFrame(() => {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            this.style.transform = 'translateY(0)';
         });
     });
 
