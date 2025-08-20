@@ -3,1312 +3,2357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="دليل شامل للحياة في اليونان - خدمات، عمل، منظمات، سياحة">
-    <meta name="keywords" content="اليونان, خدمات, عمل, منظمات, سياحة">
-    <meta name="author" content="الحياة في اليونان">
-    
-    <!-- تحسين الأداء -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
-    <title>الحياة في اليونان - اكتشف جمال اليونان</title>
-    
-    <!-- تحميل CSS محسن -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/settings.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- تحسين تحميل الخطوط -->
-    <style>
-        /* تحميل الخطوط بشكل محسن */
-        @font-face {
-            font-family: 'Cairo';
-            font-display: swap;
-            src: url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
-        }
-        
-        /* تحسين الأداء للصور */
-        img {
-            content-visibility: auto;
-        }
-        
-        /* تحسين التمرير */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* تحسين الأداء للعناصر المتحركة */
-        .hero-slide,
-        .flip-card,
-        .feature-item {
-            will-change: transform;
-        }
-    </style>
+    <title>الحياة في اليونان</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tabs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-    <!-- القائمة الجانبية المحسنة -->
-    <nav class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="sidebar-brand">
-                <div class="brand-icon">
-                    <i class="fas fa-landmark"></i>
-                </div>
-                <div class="brand-text">
-                    <h3>اليونان</h3>
-                    <span>دليل الحياة</span>
-                </div>
+    <!-- إشعار فوري (تنبيه) -->
+    <div id="siteAlert" style="display:none;position:fixed;top:0;left:0;width:100vw;z-index:2000;background:#1976d2;color:#fff;padding:18px 32px 18px 48px;font-size:1.13rem;font-weight:700;box-shadow:0 4px 18px #1976d233;direction:rtl;transition:top 0.3s;align-items:center;justify-content:center;gap:16px;">
+      <span id="siteAlertMsg">تنبيه هام!</span>
+      <button id="siteAlertClose" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">&times;</button>
+    </div>
+    <!-- نهاية الإشعار الفوري -->
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-landmark"></i> الحياة في اليونان</h1>
+                <div class="tagline">دليلك الشامل للحياة في اليونان</div>
             </div>
-            <button class="close-btn" id="closeSidebar">
-                <i class="fas fa-times"></i>
+            <nav class="desktop-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="#home"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="pages/asylum.html">
+                                <i class="fas fa-passport"></i>
+                                دوائر اللجوء
+                            </a>
+                            <a href="pages/government.html">
+                                <i class="fas fa-landmark"></i>
+                                دوائر حكومية
+                            </a>
+                            <a href="pages/housing.html">
+                                <i class="fas fa-home"></i>
+                                عقارات وسكن
+                            </a>
+                            <a href="pages/hospitals.html">
+                                <i class="fas fa-hospital"></i>
+                                مستشفيات
+                            </a>
+                            <a href="pages/transportation.html">
+                                <i class="fas fa-bus"></i>
+                                خطوط النقل
+                            </a>
+                            <a href="pages/tourism-services.html">
+                                <i class="fas fa-umbrella-beach"></i>
+                                سياحة
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#humanitarian">منظمات إنسانية</a>
+                            <a href="#medical-org">منظمات طبية</a>
+                            <a href="#educational">منظمات تعليمية</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#service-offices">مكاتب خدمية</a>
+                            <a href="#accounting">مكاتب محاسبة</a>
+                            <a href="#lawyers">مكاتب محامين</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#hotels">فنادق</a>
+                            <a href="#pharmacies">صيدليات ومتاجر</a>
+                            <a href="#restaurants">مطاعم</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <button class="desktop-settings-btn" title="الإعدادات">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="desktop-search-btn" title="بحث">
+                <i class="fas fa-search"></i>
+            </button>
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="فتح القائمة الرئيسية">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
         </div>
-        
-        <!-- مربع البحث -->
-        <div class="sidebar-search">
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" placeholder="ابحث في الموقع..." class="search-input" id="sidebarSearch">
-                <button class="search-btn" id="sidebarSearchBtn">
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-            <div class="search-results" id="sidebarSearchResults"></div>
-        </div>
-        
-        <div class="sidebar-content">
-            <ul class="sidebar-menu">
-                <li class="menu-item">
-                    <a href="#home" class="menu-link">
-                        <div class="menu-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="menu-text">
-                            <span class="menu-title">الرئيسية</span>
-                            <span class="menu-description">الصفحة الرئيسية</span>
-                        </div>
-                        <div class="menu-arrow">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="menu-item has-submenu">
-                    <a href="#services" class="menu-link">
-                        <div class="menu-icon">
-                            <i class="fas fa-concierge-bell"></i>
-                        </div>
-                        <div class="menu-text">
-                            <span class="menu-title">الخدمات</span>
-                            <span class="menu-description">جميع الخدمات المتاحة</span>
-                        </div>
-                        <div class="menu-arrow">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item">
-                            <a href="#services" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">مكاتب حكومية</span>
-                                    <span class="submenu-description">الخدمات الحكومية والمراكز الإدارية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#services" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">مكاتب اللجوء</span>
-                                    <span class="submenu-description">خدمات اللجوء واللجنة الإدارية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#work" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">عقارات وسكن</span>
-                                    <span class="submenu-description">خدمات الإيجار والشراء للمساكن</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#organizations" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-hospital"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">مستشفيات</span>
-                                    <span class="submenu-description">الرعاية الصحية والمراكز الطبية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#tourism" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-bus"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">وسائل النقل</span>
-                                    <span class="submenu-description">شبكة مواصلات متطورة ومتنوعة</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#tourism" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-plane"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">سياحة</span>
-                                    <span class="submenu-description">السياحة والترفيه والمعالم التاريخية</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="#work" class="menu-link">
-                        <div class="menu-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="menu-text">
-                            <span class="menu-title">العمل</span>
-                            <span class="menu-description">فرص العمل والوظائف</span>
-                        </div>
-                        <div class="menu-arrow">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="menu-item has-submenu">
-                    <a href="#organizations" class="menu-link">
-                        <div class="menu-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <div class="menu-text">
-                            <span class="menu-title">المنظمات</span>
-                            <span class="menu-description">المؤسسات والمنظمات</span>
-                        </div>
-                        <div class="menu-arrow">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item">
-                            <a href="#organizations" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">منظمات تعليمية</span>
-                                    <span class="submenu-description">جامعات ومعاهد ومؤسسات تعليمية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#organizations" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-heartbeat"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">منظمات طبية</span>
-                                    <span class="submenu-description">مستشفيات ومراكز طبية ومؤسسات رعاية صحية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#organizations" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">منظمات إنسانية</span>
-                                    <span class="submenu-description">منظمات خيرية وإنسانية وخدمات اجتماعية</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item has-submenu">
-                    <a href="#offices" class="menu-link">
-                        <div class="menu-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="menu-text">
-                            <span class="menu-title">المكاتب</span>
-                            <span class="menu-description">مكاتب الخدمات</span>
-                        </div>
-                        <div class="menu-arrow">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item">
-                            <a href="#offices" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">مكاتب خدمية</span>
-                                    <span class="submenu-description">مكاتب الخدمات العامة والمراكز الإدارية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#offices" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-calculator"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">مكاتب محاسبة</span>
-                                    <span class="submenu-description">مكاتب المحاسبة والمراجعة المالية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#offices" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-gavel"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">مكاتب محامين</span>
-                                    <span class="submenu-description">مكاتب المحاماة والاستشارات القانونية</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item has-submenu">
-                    <a href="#tourism" class="menu-link">
-                        <div class="menu-icon">
-                            <i class="fas fa-plane"></i>
-                        </div>
-                        <div class="menu-text">
-                            <span class="menu-title">السياحة</span>
-                            <span class="menu-description">السياحة والترفيه</span>
-                        </div>
-                        <div class="menu-arrow">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item">
-                            <a href="#tourism" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-island-tropical"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">الجزر اليونانية</span>
-                                    <span class="submenu-description">أكثر من 6000 جزيرة ساحرة</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#tourism" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-landmark"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">الآثار التاريخية</span>
-                                    <span class="submenu-description">مواقع أثرية تعود لآلاف السنين</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#tourism" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">المطاعم والمقاهي</span>
-                                    <span class="submenu-description">مأكولات تقليدية ومطاعم عصرية</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#tourism" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-bed"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">فنادق</span>
-                                    <span class="submenu-description">فنادق فاخرة ومتوسطة وبسيطة</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="#tourism" class="submenu-link">
-                                <div class="submenu-icon">
-                                    <i class="fas fa-pills"></i>
-                                </div>
-                                <div class="submenu-text">
-                                    <span class="submenu-title">صيدليات ومتاجر</span>
-                                    <span class="submenu-description">صيدليات ومتاجر متنوعة</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                
-                <!-- زر الإعدادات -->
-                <li class="menu-item settings-menu-item">
-                    <a href="#" class="menu-link" id="settingsToggle">
-                        <div class="menu-icon">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <div class="menu-text">
-                            <span class="menu-title">الإعدادات</span>
-                            <span class="menu-description">تخصيص الموقع</span>
-                        </div>
-                        <div class="menu-arrow">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    </header>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav">
+        <ul>
+            <li class="nav-item">
+                <a href="#home"><i class="fas fa-home nav-icon"></i><span>الرئيسية</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#services"><i class="fas fa-hands-helping nav-icon"></i><span>الخدمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="pages/asylum.html">دوائر اللجوء</a></li>
+                    <li><a href="pages/government.html">دوائر حكومية</a></li>
+                    <li><a href="pages/housing.html">عقارات وسكن</a></li>
+                    <li><a href="pages/hospitals.html">مستشفيات</a></li>
+                    <li><a href="pages/transportation.html">خطوط النقل</a></li>
+                    <li><a href="pages/tourism-services.html">سياحة</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#work"><i class="fas fa-briefcase nav-icon"></i><span>العمل</span></a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#organizations"><i class="fas fa-users nav-icon"></i><span>المنظمات</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="#humanitarian">منظمات إنسانية</a></li>
+                    <li><a href="#medical-org">منظمات طبية</a></li>
+                    <li><a href="#educational">منظمات تعليمية</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#offices"><i class="fas fa-building nav-icon"></i><span>المكاتب</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="#service-offices">مكاتب خدمية</a></li>
+                    <li><a href="#accounting">مكاتب محاسبة</a></li>
+                    <li><a href="#lawyers">مكاتب محامين</a></li>
+                </ul>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#tourism"><i class="fas fa-plane nav-icon"></i><span>السياحة</span><i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="#hotels">فنادق</a></li>
+                    <li><a href="#pharmacies">صيدليات ومتاجر</a></li>
+                    <li><a href="#restaurants">مطاعم</a></li>
+                </ul>
+            </li>
+        </ul>
     </nav>
 
-    <!-- زر فتح القائمة المحسن -->
-    <button class="menu-toggle" id="menuToggle">
-        <div class="menu-toggle-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <span class="menu-toggle-text">القائمة</span>
-    </button>
-
-
-
-    <!-- النافذة المنبثقة للإعدادات -->
-    <div class="settings-modal" id="settingsModal">
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">
-                    <i class="fas fa-cog"></i>
-                    <h2>الإعدادات</h2>
-                </div>
-                <div class="settings-tabs">
-                    <button class="tab-btn active" data-tab="appearance"><i class="fas fa-paint-brush"></i> المظهر</button>
-                    <button class="tab-btn" data-tab="accessibility"><i class="fas fa-universal-access"></i> إمكانية الوصول</button>
-                    <button class="tab-btn" data-tab="power"><i class="fas fa-bolt"></i> توفير الطاقة</button>
-                </div>
-                <button class="modal-close" id="modalClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="modal-body">
-                <!-- تبويب المظهر -->
-                <div class="tab-content active" id="appearance-tab">
-                    <div class="settings-section">
-                        <div class="section-header">
-                            <i class="fas fa-palette"></i>
-                            <h3>إعدادات المظهر</h3>
-                        </div>
-                        <div class="section-content">
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-moon"></i>
-                                    <span>الوضع الليلي</span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="darkModeToggle">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-font"></i>
-                                    <span>حجم الخط</span>
-                                </div>
-                                <div class="range-container">
-                                    <input type="range" id="fontSizeSlider" min="12" max="24" value="16">
-                                    <span class="size-value">16px</span>
-                                </div>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-text-height"></i>
-                                    <span>نوع الخط</span>
-                                </div>
-                                <div class="select-wrapper">
-                                    <select id="fontFamilySelect">
-                                        <option value="Cairo">Cairo</option>
-                                        <option value="Tajawal">Tajawal</option>
-                                        <option value="Arial">Arial</option>
-                                        <option value="sans-serif">Sans-Serif</option>
-                                    </select>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-border-style"></i>
-                                    <span>نمط الأزرار</span>
-                                </div>
-                                <div class="style-options">
-                                    <button class="style-option rounded" data-style="rounded">
-                                        <span>دائري</span>
-                                    </button>
-                                    <button class="style-option squared" data-style="squared">
-                                        <span>مربع</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- تبويب إمكانية الوصول -->
-                <div class="tab-content" id="accessibility-tab">
-                    <div class="settings-section">
-                        <div class="section-header">
-                            <i class="fas fa-universal-access"></i>
-                            <h3>إمكانية الوصول</h3>
-                        </div>
-                        <div class="section-content">
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-adjust"></i>
-                                    <span>عالي التباين</span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="highContrastToggle">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-volume-up"></i>
-                                    <span>قراءة النص</span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="textToSpeechToggle">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-search-plus"></i>
-                                    <span>تكبير النص</span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="textZoomToggle">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-eye"></i>
-                                    <span>وضع القراءة</span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="readingModeToggle">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-keyboard"></i>
-                                    <span>إختصارات لوحة المفاتيح</span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="keyboardShortcutsToggle" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- تبويب توفير الطاقة -->
-                <div class="tab-content" id="power-tab">
-                    <div class="settings-section">
-                        <div class="section-header">
-                            <i class="fas fa-bolt"></i>
-                            <h3>توفير الطاقة</h3>
-                        </div>
-                        <div class="section-content">
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-battery-three-quarters"></i>
-                                    <span>وضع توفير الطاقة</span>
-                                    <span class="info-tooltip" title="سيقلل من استهلاك البطارية عن طريق تقليل الحركات والرسوم المتحركة">
-                                        <i class="fas fa-info-circle"></i>
-                                    </span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="powerSavingToggle">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-tint"></i>
-                                    <span>تعتيم الخلفية</span>
-                                    <span class="info-tooltip" title="يخفت ألوان الخلفية لتقليل استهلاك الطاقة في الشاشات OLED">
-                                        <i class="fas fa-info-circle"></i>
-                                    </span>
-                                </div>
-                                <div class="range-container">
-                                    <input type="range" id="backgroundDimmingSlider" min="0" max="100" value="0" disabled>
-                                    <span class="size-value">0%</span>
-                                </div>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-image"></i>
-                                    <span>جودة الصور</span>
-                                </div>
-                                <div class="select-wrapper">
-                                    <select id="imageQualitySelect">
-                                        <option value="high">عالية (افتراضي)</option>
-                                        <option value="medium">متوسطة</option>
-                                        <option value="low">منخفضة</option>
-                                        <option value="off">إيقاف التحميل التلقائي</option>
-                                    </select>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                            </div>
-                            <div class="setting-option">
-                                <div class="option-label">
-                                    <i class="fas fa-video"></i>
-                                    <span>تعطيل الفيديوهات التلقائية</span>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="disableAutoplayToggle" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="power-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-battery-three-quarters"></i>
-                                    <span>حالة البطارية: <span id="battery-level">جاري التحميل...</span></span>
-                                </div>
-                                <div class="stat-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>الوقت المتبقي: <span id="battery-time">--</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="animated-title"><span class="typing-text">مرحباً بك في اليونان</span><span class="typing-cursor"></span></h1>
+                <p class="animated-subtitle">اكتشف كل جوانب الحياة في اليونان: من الإقامة والعمل إلى السياحة والخدمات اليومية، دليلك الشامل للعيش والاستمتاع في أرض الحضارة والجمال.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">استكشف الخدمات <i class="fas fa-arrow-left"></i></a>
+                    <a href="#work" class="btn btn-secondary">فرص العمل <i class="fas fa-briefcase"></i></a>
                 </div>
             </div>
-            
-            <div class="modal-footer">
-                <button class="btn-secondary" id="resetSettings">
-                    <i class="fas fa-undo"></i>
-                    إعادة تعيين
-                </button>
-                <button class="btn-primary" id="saveSettings">
-                    <i class="fas fa-save"></i>
-                    حفظ الإعدادات
-                </button>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>دليل شامل</h3>
+                    <p>لجميع الخدمات والمعلومات</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h3>محتوى بالعربية</h3>
+                    <p>معلومات بلغتك لسهولة الوصول</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>تحديث مستمر</h3>
+                    <p>معلومات محدثة باستمرار</p>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+    </section>
 
-    <!-- القسم الرئيسي -->
-    <main class="main-content">
-        <!-- قسم الهيرو -->
-        <section id="home" class="hero">
-            <div class="hero-background">
-                <div class="hero-slide active" style="background-image: url('images/pexels-jimmy-teoh-294331-951531.jpg')" loading="lazy"></div>
-                <div class="hero-slide" style="background-image: url('images/pexels-tirachard-kumtanom-112571-347141.jpg')" loading="lazy"></div>
-                <div class="hero-slide" style="background-image: url('images/pexels-pixabay-164041.jpg')" loading="lazy"></div>
-            </div>
-            <div class="hero-overlay"></div>
-            
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-home"></i>
-                    <span>دليل الحياة في اليونان</span>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">استكشف خدماتنا</span>
+                <div class="section-title-wrapper">
+                    <h2>الخدمات</h2>
+                    <a href="services.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
                 </div>
-                <h1 class="hero-title">
-                    <span class="title-line">الحياة في</span>
-                    <span class="title-highlight">اليونان</span>
-                </h1>
-                <p class="hero-subtitle">دليل شامل لجميع الخدمات والمرافق التي تحتاجها للعيش والعمل في اليونان</p>
-                
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <i class="fas fa-building"></i>
-                        <span>مكاتب حكومية</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-briefcase"></i>
-                        <span>فرص عمل</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-hospital"></i>
-                        <span>خدمات صحية</span>
+                <p>استكشف مجموعة متنوعة من الخدمات المتاحة في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+            
+            <div class="services-categories">
+                <!-- احذف أزرار التبويب الخاصة بجميع الخدمات وخدمات رسمية وخدمات يومية وسياحة وترفيه -->
+            </div>
+            
+            <div class="cards-container">
+                <div class="service-card" id="asylum" data-category="official">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+
+                            <h3>دوائر اللجوء</h3>
+                            <p class="card-info">مساعدة في إجراءات اللجوء، مواقع المكاتب، الأوراق المطلوبة.</p>
+                            <p class="card-brief">إجراءات وخدمات اللجوء الرسمية</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>دوائر اللجوء</h3>
+                            <p>معلومات عن إجراءات اللجوء والمكاتب المختصة</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مكتب اللجوء في أثينا: شارع كاتاخاني 5</li>
+                                <li><i class="fas fa-check-circle"></i> مواعيد العمل: من الاثنين إلى الجمعة (8 ص - 2 م)</li>
+                                <li><i class="fas fa-check-circle"></i> الأوراق المطلوبة: جواز سفر، صور شخصية، وثائق هوية</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-label">مكتب خدمي</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">منظمة</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">خدمات متاحة</span>
+                <div class="service-card" id="government" data-category="official">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+
+                            <h3>دوائر حكومية</h3>
+                            <p class="card-info">مساعدة في الدوائر الرسمية والحكومية، دليل المكاتب، التأمين الاجتماعي.</p>
+                            <p class="card-brief">خدمات الدوائر الرسمية والحكومية</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>دوائر حكومية</h3>
+                            <p>دليل للدوائر الحكومية والخدمات العامة</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مكتب الضرائب (TAX): شارع ستاديو 29، أثينا</li>
+                                <li><i class="fas fa-check-circle"></i> مكتب الإقامة: شارع بيترو رالي 24</li>
+                                <li><i class="fas fa-check-circle"></i> التأمين الاجتماعي (EFKA): شارع أجيو كونستانتينو 8</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="scroll-indicator">
-                <div class="scroll-text">استكشف الخدمات</div>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            
-            <div class="hero-navigation">
-                <button class="nav-dot active" data-slide="0"></button>
-                <button class="nav-dot" data-slide="1"></button>
-                <button class="nav-dot" data-slide="2"></button>
-            </div>
-        </section>
+                
+                <div class="service-card" id="housing" data-category="daily">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
 
-        <!-- قسم الخدمات -->
-        <section id="services" class="section">
-            <div class="container">
-                <h2 class="section-title">الخدمات</h2>
-                <div class="services-grid">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="service-image">
-                                    <img src="images/mouseio.jpg" alt="مكاتب حكومية" loading="lazy" decoding="async">
-                                </div>
-                                <div class="service-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <h3>مكاتب حكومية</h3>
-                                <p>الخدمات الحكومية والمراكز الإدارية</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>مكاتب حكومية</h3>
-                                <p>جميع الخدمات الحكومية والمراكز الإدارية في اليونان. استخراج الوثائق والبطاقات الشخصية والخدمات البلدية.</p>
-                                <a href="#offices" class="more-btn">المزيد</a>
-                            </div>
+                            <h3>عقارات وسكن</h3>
+                            <p class="card-info">خدمات السكن والإيجار والشراء، مواقع البحث، متوسط الإيجار.</p>
+                            <p class="card-brief">خدمات السكن والإيجار وشراء العقارات</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>عقارات وسكن</h3>
+                            <p>خيارات السكن والإيجار وشراء العقارات</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مواقع البحث عن سكن: Spitogatos.gr, xe.gr, Homie.gr</li>
+                                <li><i class="fas fa-check-circle"></i> متوسط الإيجار: 300-500€ للاستوديو، 500-700€ لشقة بغرفة نوم</li>
+                                <li><i class="fas fa-check-circle"></i> المستندات المطلوبة: إقامة سارية، عقد عمل، ضمان مالي</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
                         </div>
                     </div>
-                    
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="service-image">
-                                    <img src="images/Υπηρεσία-ασύλου-1.jpg" alt="مكاتب اللجوء" loading="lazy" decoding="async">
-                                </div>
-                                <div class="service-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <h3>مكاتب اللجوء</h3>
-                                <p>خدمات اللجوء واللجنة الإدارية</p>
+                </div>
+                
+                <div class="service-card" id="hospitals" data-category="daily">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
                             </div>
-                            <div class="flip-card-back">
-                                <h3>مكاتب اللجوء</h3>
-                                <p>مكاتب اللجوء واللجنة الإدارية المستقلة. خدمات طلبات اللجوء والتجديد والمتابعة القانونية.</p>
-                                <a href="#offices" class="more-btn">المزيد</a>
-                            </div>
+
+                            <h3>مستشفيات</h3>
+                            <p class="card-info">خدمات صحية وطبية متكاملة، مستشفيات الطوارئ، التأمين الصحي.</p>
+                            <p class="card-brief">خدمات صحية وطبية متكاملة</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>مستشفيات</h3>
+                            <p>دليل المستشفيات والمراكز الصحية</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مستشفى الطوارئ: المستشفى العام في أثينا - هاتف: 112</li>
+                                <li><i class="fas fa-check-circle"></i> التأمين الصحي: مطلوب بطاقة AMKA للعلاج المجاني</li>
+                                <li><i class="fas fa-check-circle"></i> مراكز صحية: مركز أومونيا، مستشفى إيفانجيليسموس</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
                         </div>
                     </div>
-                    
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="service-image">
-                                    <img src="images/pexels-photo-1396122.jpg" alt="عقارات وسكن" loading="lazy" decoding="async">
-                                </div>
-                                <div class="service-icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <h3>عقارات وسكن</h3>
-                                <p>خدمات الإيجار والشراء للمساكن</p>
+                </div>
+                
+                <div class="service-card" id="transportation" data-category="daily">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-bus"></i>
                             </div>
-                            <div class="flip-card-back">
-                                <h3>عقارات وسكن</h3>
-                                <p>خدمات الإيجار والشراء للمساكن في جميع أنحاء اليونان. شقق، منازل، مكاتب تجارية بأسعار مناسبة.</p>
-                                <a href="#work" class="more-btn">المزيد</a>
-                            </div>
+
+                            <h3>خطوط النقل</h3>
+                            <p class="card-info">وسائل النقل العام والمواصلات، مترو أثينا، بطاقة النقل.</p>
+                            <p class="card-brief">وسائل النقل العام والخاص</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>خطوط النقل</h3>
+                            <p>معلومات عن وسائل النقل العام والخاص</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> مترو أثينا: 3 خطوط رئيسية تغطي معظم المدينة</li>
+                                <li><i class="fas fa-check-circle"></i> بطاقة النقل: بطاقة اثينا كارد بسعر 1.20 لمدة 90 دقيقة</li>
+                                <li><i class="fas fa-check-circle"></i> الحافلات: شبكة واسعة تغطي كل المناطق والضواحي</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
                         </div>
                     </div>
-                    
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="service-image">
-                                    <img src="images/pexels-photo-247786.jpg" alt="مستشفيات" loading="lazy" decoding="async">
-                                </div>
-                                <div class="service-icon">
-                                    <i class="fas fa-hospital"></i>
-                                </div>
-                                <h3>مستشفيات</h3>
-                                <p>الرعاية الصحية والمراكز الطبية</p>
+                </div>
+                
+                <div class="service-card" id="tourism-services" data-category="tourism">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-umbrella-beach"></i>
                             </div>
-                            <div class="flip-card-back">
-                                <h3>مستشفيات</h3>
-                                <p>مستشفيات ومراكز طبية حديثة في جميع أنحاء اليونان. خدمات طبية متخصصة ورعاية صحية شاملة.</p>
-                                <a href="#organizations" class="more-btn">المزيد</a>
-                            </div>
+
+                            <h3>سياحة</h3>
+                            <p class="card-info">معالم سياحية وأنشطة ترفيهية، أهم المعالم السياحية والأنشطة الترفيهية.</p>
+                            <p class="card-brief">معالم سياحية وأنشطة ترفيهية</p>
                         </div>
-                    </div>
-                    
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="service-image">
-                                    <img src="images/59375496_1554320324698256_1609006418231296_n (2).jpg" alt="وسائل النقل" loading="lazy" decoding="async">
-                                </div>
-                                <div class="service-icon">
-                                    <i class="fas fa-bus"></i>
-                                </div>
-                                <h3>وسائل النقل</h3>
-                                <p>شبكة مواصلات متطورة ومتنوعة</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>وسائل النقل</h3>
-                                <p>شبكة مواصلات متطورة تشمل المترو، الحافلات، الترام، القطارات. بطاقات مواصلات موحدة وخدمات نقل مريحة.</p>
-                                <a href="#tourism" class="more-btn">المزيد</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="service-image">
-                                    <img src="images/Types-of-tourism-in-Greece (2).jpg" alt="سياحة" loading="lazy" decoding="async">
-                                </div>
-                                <div class="service-icon">
-                                    <i class="fas fa-plane"></i>
-                                </div>
-                                <h3>سياحة</h3>
-                                <p>السياحة والترفيه والمعالم التاريخية</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>سياحة</h3>
-                                <p>اكتشف جمال اليونان السياحي. جزر ساحرة، آثار تاريخية، مطاعم تقليدية، فنادق فاخرة وخدمات سياحية متكاملة.</p>
-                                <a href="#tourism" class="more-btn">المزيد</a>
-                            </div>
+                        <div class="card-back">
+                            <h3>سياحة</h3>
+                            <p>أهم المعالم السياحية والأنشطة الترفيهية</p>
+                            <ul class="service-details">
+                                <li><i class="fas fa-check-circle"></i> الأكروبوليس: المعلم الأشهر في أثينا - سعر التذكرة 20€</li>
+                                <li><i class="fas fa-check-circle"></i> الجزر: سانتوريني، ميكونوس، كريت من أشهر الجزر</li>
+                                <li><i class="fas fa-check-circle"></i> المتاحف: متحف الأكروبوليس والمتحف الأثري الوطني</li>
+                            </ul>
+                            <a href="#" class="card-link">المزيد <i class="fas fa-arrow-left"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- قسم العمل -->
-        <section id="work" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title">فرص العمل</h2>
-                <div class="update-info">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>آخر تحديث: يناير 2025</span>
+    <!-- Work Section -->
+    <section id="work" class="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">فرص العمل</span>
+                <div class="section-title-wrapper">
+                    <h2>العمل</h2>
+                    <a href="work.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>أفضل المواقع للبحث عن فرص العمل والتوظيف في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+            
+            <div class="work-info-box">
+                <div class="info-header">
                     <i class="fas fa-info-circle"></i>
-                    <span>معلومات محدثة وفقاً للقوانين اليونانية الحالية</span>
+                    <h3>معلومات مهمة عن العمل في اليونان</h3>
                 </div>
-
-                <!-- معلومات مفيدة عن العمل في اليونان -->
-                <div class="work-info-section">
-                    <div class="work-info-grid">
-                        <div class="work-info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-euro-sign"></i>
-                            </div>
-                            <h3>الحد الأدنى للأجور</h3>
-                            <p>830 يورو شهرياً </p>
-                        </div>
-                        
-                        <div class="work-info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h3>ساعات العمل</h3>
-                            <p>40 ساعة أسبوعياً </p>
-                        </div>
-                        
-                        <div class="work-info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <h3>الإجازات السنوية</h3>
-                            <p>25 يوم مدفوع الأجر </p>
-                        </div>
-                        
-                        <div class="work-info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>التأمين الاجتماعي</h3>
-                            <p>إجباري لجميع العمال </p>
-                        </div>
-                    </div>
-                    
-                    <div class="work-details">
-                        <div class="detail-section">
-                            <h3><i class="fas fa-file-contract"></i> عقد العمل</h3>
-                            <p>يجب أن يكون عقد العمل مكتوباً ويحدد الشروط والأجور وساعات العمل. العقد غير المحدد المدة هو الأكثر شيوعاً.</p>
-                        </div>
-                        
-                        <div class="detail-section">
-                            <h3><i class="fas fa-id-card"></i> الأوراق المطلوبة</h3>
-                            <p>بطاقة الهوية اليونانية أو جواز السفر مع تصريح الإقامة، رقم الضمان الاجتماعي (AMKA)، شهادات التعليم والخبرة.</p>
-                        </div>
-                        
-                        <div class="detail-section">
-                            <h3><i class="fas fa-balance-scale"></i> حقوق العمال</h3>
-                            <p>الحق في عقد عمل مكتوب، الحد الأدنى للأجور، الإجازات السنوية مدفوعة الأجر، التأمين الصحي، الحماية من الفصل التعسفي.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- مواقع البحث عن العمل -->
-                <div class="job-sites-section">
-                    <h3 class="job-sites-title">أفضل مواقع البحث عن العمل في اليونان</h3>
-                    <div class="job-sites-grid">
-                        <div class="job-site-card">
-                            <div class="site-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <h4>CareerBuilder.gr</h4>
-                            <p>أحد أكبر مواقع التوظيف في اليونان مع آلاف الوظائف الشاغرة في مختلف القطاعات</p>
-                            <a href="https://www.careerbuilder.gr" class="site-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                زيارة الموقع
-                            </a>
-                        </div>
-                        
-                        <div class="job-site-card">
-                            <div class="site-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h4>Kariera.gr</h4>
-                            <p>منصة توظيف يونانية متخصصة في مختلف القطاعات والمجالات المهنية</p>
-                            <a href="https://www.kariera.gr" class="site-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                زيارة الموقع
-                            </a>
-                        </div>
-                        
-                        <div class="job-site-card">
-                            <div class="site-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <h4>Skywalker.gr</h4>
-                            <p>موقع بحث عن العمل مع قاعدة بيانات شاملة للوظائف في جميع أنحاء اليونان</p>
-                            <a href="https://www.skywalker.gr" class="site-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                زيارة الموقع
-                            </a>
-                        </div>
-                        
-                        <div class="job-site-card">
-                            <div class="site-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <h4>Xe.gr</h4>
-                            <p>بوابة شاملة للوظائف والعقارات والخدمات في اليونان مع إعلانات محدثة</p>
-                            <a href="https://www.xe.gr" class="site-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                زيارة الموقع
-                            </a>
-                        </div>
-                        
-                        <div class="job-site-card">
-                            <div class="site-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h4>LinkedIn</h4>
-                            <p>منصة التواصل المهني العالمية مع فرص عمل في اليونان وفرص التواصل مع الشركات</p>
-                            <a href="https://www.linkedin.com/jobs/search/?location=Greece" class="site-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                زيارة الموقع
-                            </a>
-                        </div>
-                        
-                        <div class="job-site-card">
-                            <div class="site-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h4>Indeed.gr</h4>
-                            <p>موقع التوظيف العالمي مع قسم مخصص للوظائف في اليونان ومقارنة الرواتب</p>
-                            <a href="https://gr.indeed.com" class="site-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                زيارة الموقع
-                            </a>
-                        </div>
-                    </div>
+                <div class="info-content">
+                    <ul class="info-list">
+                        <li><i class="fas fa-check-circle"></i> <strong>الحد الأدنى للأجور:</strong> 831€ شهرياً لعام 2025</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>ساعات العمل:</strong> 40 ساعة أسبوعياً بشكل قانوني</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>الإجازة السنوية:</strong> 20 يوم عمل كحد أدنى</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>المستندات المطلوبة:</strong> تصريح إقامة، رقم ضريبي (AFM)، رقم التأمين الاجتماعي (AMKA)</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- قسم المنظمات -->
-        <section id="organizations" class="section">
-            <div class="container">
-                <h2 class="section-title">المنظمات والمؤسسات</h2>
-                <div class="organizations-grid">
-                    <div class="org-card">
-                        <div class="org-image">
-                            <img src="images/pexels-photo-267885.jpg" alt="منظمات تعليمية" loading="lazy" decoding="async">
-                        </div>
-                        <div class="org-logo">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>منظمات تعليمية</h3>
-                        <p>جامعات ومعاهد ومؤسسات تعليمية عالية الجودة</p>
-                        <a href="#work" class="more-btn">المزيد</a>
-                    </div>
-                    <div class="org-card">
-                        <div class="org-image">
-                            <img src="images/pexels-photo-247786 (1).jpg" alt="منظمات طبية" loading="lazy" decoding="async">
-                        </div>
-                        <div class="org-logo">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <h3>منظمات طبية</h3>
-                        <p>مستشفيات ومراكز طبية ومؤسسات رعاية صحية</p>
-                        <a href="#tourism" class="more-btn">المزيد</a>
-                    </div>
-                    <div class="org-card">
-                        <div class="org-image">
-                            <img src="images/pexels-photo-6647119.jpg" alt="منظمات إنسانية" loading="lazy" decoding="async">
-                        </div>
-                        <div class="org-logo">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3>منظمات إنسانية</h3>
-                        <p>منظمات خيرية وإنسانية وخدمات اجتماعية</p>
-                        <a href="#services" class="more-btn">المزيد</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم المكاتب -->
-        <section id="offices" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title">المكاتب</h2>
-                <div class="offices-grid">
-                    <div class="office-category">
-                        <div class="office-category-header">
-                            <i class="fas fa-cogs"></i>
-                            <h3>مكاتب خدمية</h3>
-                        </div>
-                        <div class="office-category-content">
-                            <p>مكاتب الخدمات العامة والمراكز الإدارية التي تقدم خدمات متنوعة للمواطنين والمقيمين</p>
-                            <div class="office-examples">
-                                <div class="office-example">
-                                    <i class="fas fa-id-card"></i>
-                                    <span>مكاتب استخراج الوثائق</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-home"></i>
-                                    <span>مكاتب البلدية</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-car"></i>
-                                    <span>مكاتب رخص القيادة</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-passport"></i>
-                                    <span>مكاتب الجوازات</span>
-                                </div>
-                            </div>
-                            <button class="more-btn">المزيد</button>
-                        </div>
-                    </div>
-                    
-                    <div class="office-category">
-                        <div class="office-category-header">
-                            <i class="fas fa-calculator"></i>
-                            <h3>مكاتب محاسبة</h3>
-                        </div>
-                        <div class="office-category-content">
-                            <p>مكاتب المحاسبة والمراجعة المالية التي تقدم خدمات مالية ومحاسبية للشركات والأفراد</p>
-                            <div class="office-examples">
-                                <div class="office-example">
-                                    <i class="fas fa-file-invoice-dollar"></i>
-                                    <span>إعداد التقارير المالية</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>التخطيط الضريبي</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-balance-scale"></i>
-                                    <span>المراجعة المالية</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-hand-holding-usd"></i>
-                                    <span>استشارات مالية</span>
-                                </div>
-                            </div>
-                            <button class="more-btn">المزيد</button>
-                        </div>
-                    </div>
-                    
-                    <div class="office-category">
-                        <div class="office-category-header">
-                            <i class="fas fa-gavel"></i>
-                            <h3>مكاتب محامين</h3>
-                        </div>
-                        <div class="office-category-content">
-                            <p>مكاتب المحاماة والاستشارات القانونية التي تقدم خدمات قانونية شاملة</p>
-                            <div class="office-examples">
-                                <div class="office-example">
-                                    <i class="fas fa-file-contract"></i>
-                                    <span>عقود وتوثيق</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-balance-scale"></i>
-                                    <span>قضايا مدنية</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-building"></i>
-                                    <span>قانون الشركات</span>
-                                </div>
-                                <div class="office-example">
-                                    <i class="fas fa-users"></i>
-                                    <span>قانون العائلة</span>
-                                </div>
-                            </div>
-                            <button class="more-btn">المزيد</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم السياحة -->
-        <section id="tourism" class="section">
-            <div class="container">
-                <h2 class="section-title">السياحة والترفيه</h2>
-                <div class="tourism-grid">
-                    <div class="tourism-card">
-                        <img src="images/من-اجمل-جزر-اليونان-السياحية-الساحرة-1 (2).jpg" alt="الجزر اليونانية" loading="lazy" decoding="async">
-                        <div class="tourism-content">
-                            <h3>الجزر اليونانية</h3>
-                            <p>أكثر من 6000 جزيرة ساحرة</p>
-                            <button class="more-btn">المزيد</button>
-                        </div>
-                    </div>
-                    <div class="tourism-card">
-                        <img src="images/temple-of-hephaestus.jpg" alt="الآثار التاريخية" loading="lazy" decoding="async">
-                        <div class="tourism-content">
-                            <h3>الآثار التاريخية</h3>
-                            <p>مواقع أثرية تعود لآلاف السنين</p>
-                            <button class="more-btn">المزيد</button>
-                        </div>
-                    </div>
-                    <div class="tourism-card">
-                        <img src="images/scalini-terrace (2).jpg" alt="المطاعم والمقاهي" loading="lazy" decoding="async">
-                        <div class="tourism-content">
-                            <h3>المطاعم والمقاهي</h3>
-                            <p>مأكولات تقليدية ومطاعم عصرية</p>
-                            <button class="more-btn">المزيد</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- فئات السياحة الإضافية -->
-                <div class="tourism-categories-section">
-                    <h3 class="tourism-categories-title">خدمات السياحة والترفيه</h3>
-                    <div class="tourism-categories-grid">
-                        <div class="tourism-category">
-                            <div class="tourism-category-header">
-                                <i class="fas fa-bed"></i>
-                                <h3>فنادق</h3>
-                            </div>
-                            <div class="tourism-category-image">
-                                <img src="images/pexels-photo-261102.jpg" alt="فنادق يونانية" loading="lazy" decoding="async">
-                            </div>
-                            <div class="tourism-category-content">
-                                <p>فنادق فاخرة ومتوسطة وبسيطة في جميع أنحاء اليونان مع إطلالات رائعة وخدمات متميزة</p>
-                                <div class="tourism-examples">
-                                    <div class="tourism-example">
-                                        <i class="fas fa-star"></i>
-                                        <span>فنادق 5 نجوم</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-umbrella-beach"></i>
-                                        <span>فنادق شاطئية</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-mountain"></i>
-                                        <span>فنادق جبلية</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-city"></i>
-                                        <span>فنادق وسط المدينة</span>
-                                    </div>
-                                </div>
-                                <button class="more-btn">المزيد</button>
-                            </div>
-                        </div>
-                        
-                        <div class="tourism-category">
-                            <div class="tourism-category-header">
-                                <i class="fas fa-pills"></i>
-                                <h3>صيدليات ومتاجر</h3>
-                            </div>
-                            <div class="tourism-category-image">
-                                <img src="images/pexels-photo-3985166.jpg" alt="صيدليات ومتاجر" loading="lazy" decoding="async">
-                            </div>
-                            <div class="tourism-category-content">
-                                <p>صيدليات ومتاجر متنوعة تقدم جميع احتياجاتك اليومية والأدوية والمنتجات الصحية</p>
-                                <div class="tourism-examples">
-                                    <div class="tourism-example">
-                                        <i class="fas fa-clinic-medical"></i>
-                                        <span>صيدليات 24 ساعة</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-shopping-bag"></i>
-                                        <span>متاجر تجميل</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-baby"></i>
-                                        <span>متاجر أطفال</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-tshirt"></i>
-                                        <span>متاجر ملابس</span>
-                                    </div>
-                                </div>
-                                <button class="more-btn">المزيد</button>
-                            </div>
-                        </div>
-                        
-                        <div class="tourism-category">
-                            <div class="tourism-category-header">
-                                <i class="fas fa-utensils"></i>
-                                <h3>مطاعم</h3>
-                            </div>
-                            <div class="tourism-category-image">
-                                <img src="images/pexels-photo-958545.jpg" alt="مطاعم يونانية" loading="lazy" decoding="async">
-                            </div>
-                            <div class="tourism-category-content">
-                                <p>مطاعم تقليدية وعصرية تقدم أشهى المأكولات اليونانية والعالمية في أجواء رائعة</p>
-                                <div class="tourism-examples">
-                                    <div class="tourism-example">
-                                        <i class="fas fa-fish"></i>
-                                        <span>مطاعم مأكولات بحرية</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-coffee"></i>
-                                        <span>مقاهي تقليدية</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-pizza-slice"></i>
-                                        <span>مطاعم إيطالية</span>
-                                    </div>
-                                    <div class="tourism-example">
-                                        <i class="fas fa-bread-slice"></i>
-                                        <span>مخابز وحلويات</span>
-                                    </div>
-                                </div>
-                                <button class="more-btn">المزيد</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- الفوتر -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>الحياة في اليونان</h3>
-                        <p>اكتشف جمال التاريخ والثقافة والحياة العصرية في اليونان</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-section">
-                        <h4>روابط سريعة</h4>
-                        <ul>
-                            <li><a href="#services">الخدمات</a></li>
-                            <li><a href="#work">العمل</a></li>
-                            <li><a href="#organizations">المنظمات</a></li>
-                            <li><a href="#tourism">السياحة</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>معلومات الاتصال</h4>
-                        <p><i class="fas fa-phone"></i> +30 210 1234567</p>
-                        <p><i class="fas fa-envelope"></i> info@greece-life.gr</p>
-                        <p><i class="fas fa-map-marker-alt"></i> أثينا، اليونان</p>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2024 الحياة في اليونان. جميع الحقوق محفوظة.</p>
-                </div>
-            </div>
-        </footer>
-    </main>
-
-    <!-- زر الصعود إلى الأعلى -->
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- تحميل JavaScript محسن -->
-    <script src="js/script.js" defer></script>
-    <script src="js/settings.js" defer></script>
-    
-    <!-- تحسين الأداء -->
-    <script>
-        // تحسين تحميل الصور
-        document.addEventListener('DOMContentLoaded', function() {
-            // تحميل الصور عند الحاجة
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.src;
-                        observer.unobserve(img);
-                    }
-                });
-            });
             
-            images.forEach(img => imageObserver.observe(img));
-        });
-        
-        // تحسين التمرير
-        let ticking = false;
-        function updateOnScroll() {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    // تحديث العناصر المتحركة
-                    ticking = false;
-                });
-                ticking = true;
-            }
+            <div class="cards-container">
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>منصة مهنية للتواصل وفرص العمل</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-globe"></i> عالمي</span>
+                        <span class="job-tag"><i class="fas fa-language"></i> متعدد اللغات</span>
+                    </div>
+                    <a href="https://www.linkedin.com" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Indeed</h3>
+                    <p>محرك بحث عالمي للوظائف</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-globe"></i> عالمي</span>
+                        <span class="job-tag"><i class="fas fa-language"></i> متعدد اللغات</span>
+                    </div>
+                    <a href="https://www.indeed.com" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Kariera.gr</h3>
+                    <p>موقع توظيف يوناني مشهور</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-map-marker-alt"></i> يوناني</span>
+                        <span class="job-tag"><i class="fas fa-star"></i> موصى به</span>
+                    </div>
+                    <a href="https://www.kariera.gr" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Skywalker.gr</h3>
+                    <p>بوابة توظيف شاملة في اليونان</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-map-marker-alt"></i> يوناني</span>
+                        <span class="job-tag"><i class="fas fa-star"></i> موصى به</span>
+                    </div>
+                    <a href="https://www.skywalker.gr" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>EURES</h3>
+                    <p>بوابة التوظيف الأوروبية</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-flag-checkered"></i> أوروبي</span>
+                        <span class="job-tag"><i class="fas fa-check-circle"></i> رسمي</span>
+                    </div>
+                    <a href="https://ec.europa.eu/eures/" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card job-card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Glassdoor</h3>
+                    <p>تقييمات الشركات وفرص العمل</p>
+                    <div class="job-details">
+                        <span class="job-tag"><i class="fas fa-globe"></i> عالمي</span>
+                        <span class="job-tag"><i class="fas fa-comments"></i> تقييمات</span>
+                    </div>
+                    <a href="https://www.glassdoor.com" target="_blank" class="card-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizations Section -->
+    <section id="organizations" class="organizations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">الدعم والمساعدة</span>
+                <div class="section-title-wrapper">
+                    <h2>المنظمات</h2>
+                    <a href="organizations.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>المنظمات الإنسانية والطبية والتعليمية التي تقدم خدمات للمهاجرين واللاجئين</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-hands-helping"></i></span>
+                </div>
+            </div>
+            
+            <div class="org-intro">
+                <div class="org-intro-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="org-intro-text">
+                    <p>تقدم المنظمات في اليونان خدمات متنوعة مثل المساعدة القانونية، الدعم النفسي، الرعاية الصحية، والتعليم. معظم الخدمات مجانية ومتاحة بلغات متعددة.</p>
+                </div>
+            </div>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="humanitarian"><i class="fas fa-hands-helping"></i> منظمات إنسانية</button>
+                    <button class="tab-btn" data-tab="medical-org"><i class="fas fa-stethoscope"></i> منظمات طبية</button>
+                    <button class="tab-btn" data-tab="educational"><i class="fas fa-graduation-cap"></i> منظمات تعليمية</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="humanitarian-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-hands-helping"></i>
+                                    </div>
+                                    <h3>الصليب الأحمر اليوناني</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة إنسانية تقدم المساعدات الطارئة والدعم</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> خدمات البحث عن المفقودين ولم شمل العائلات</li>
+                                        <li><i class="fas fa-check-circle"></i> مساعدات غذائية وملابس ومواد أساسية</li>
+                                        <li><i class="fas fa-check-circle"></i> الإسعافات الأولية والدعم النفسي</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، سالونيكا، باتراس</span>
+                                        <span><i class="fas fa-globe"></i> متوفر باللغة العربية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.redcross.gr" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <h3>UNHCR اليونان</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>المفوضية السامية للأمم المتحدة لشؤون اللاجئين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مساعدة قانونية مجانية لطالبي اللجوء</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج إسكان ومساعدات مالية</li>
+                                        <li><i class="fas fa-check-circle"></i> توفير معلومات عن إجراءات اللجوء</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> مكاتب في أثينا والجزر</span>
+                                        <span><i class="fas fa-phone"></i> خط مساعدة: 214 1009 800</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.unhcr.org/greece.html" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h3>Solidarity Now</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة تقدم الدعم القانوني والنفسي والاجتماعي</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراكز تضامن في أثينا وسالونيكا</li>
+                                        <li><i class="fas fa-check-circle"></i> دعم التوظيف والتدريب المهني</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج تعليمية للأطفال والبالغين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع أخارنون 12</span>
+                                        <span><i class="fas fa-language"></i> خدمات الترجمة متوفرة</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.solidaritynow.org" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="medical-org-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-stethoscope"></i>
+                                    </div>
+                                    <h3>أطباء بلا حدود</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة طبية إنسانية دولية تقدم الرعاية الصحية للاجئين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> عيادات متنقلة في مخيمات اللاجئين والمناطق النائية</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات طبية مجانية للفئات الضعيفة</li>
+                                        <li><i class="fas fa-check-circle"></i> دعم نفسي واجتماعي للمتضررين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ليسبوس، ساموس</span>
+                                        <span><i class="fas fa-globe"></i> متوفر بعدة لغات</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.msf.org/greece" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-heartbeat"></i>
+                                    </div>
+                                    <h3>أطباء العالم</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة طبية تقدم الرعاية الصحية للفئات المحرومة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> عيادات مفتوحة للمهاجرين واللاجئين</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج توعية صحية ووقائية</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات طب الأسنان والرعاية النفسية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ثيسالونيكي</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 32 13 150</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://mdmgreece.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-first-aid"></i>
+                                    </div>
+                                    <h3>مركز PRAKSIS الطبي</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة طبية يونانية تقدم خدمات صحية للمهمشين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> عيادات طبية مجانية للمهاجرين واللاجئين</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات الصحة العقلية والدعم النفسي</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج الوقاية والتوعية الصحية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، بيرياس</span>
+                                        <span><i class="fas fa-globe"></i> خدمات الترجمة متوفرة</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.praksis.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="educational-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <h3>مؤسسة التعليم اليونانية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مؤسسة تقدم دعم تعليمي وبرامج تدريبية للاجئين والمهاجرين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> دروس اللغة اليونانية والإنجليزية للمهاجرين</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج تعليمية للأطفال والشباب</li>
+                                        <li><i class="fas fa-check-circle"></i> دورات مهنية وتقنية للبالغين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ثيسالونيكي</span>
+                                        <span><i class="fas fa-globe"></i> متوفر بعدة لغات</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.iky.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-book-reader"></i>
+                                    </div>
+                                    <h3>منظمة ميتادراسي</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>منظمة تعليمية تقدم خدمات تعليمية للاجئين والمهاجرين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراكز تعليمية للأطفال والشباب</li>
+                                        <li><i class="fas fa-check-circle"></i> دروس اللغة والمهارات الحياتية</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج التوجيه المهني والتدريب</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، ليسبوس</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 88 39 877</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://metadrasi.org/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <h3>مؤسسة Bodossaki</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مؤسسة تقدم منح دراسية وبرامج تعليمية للطلاب والباحثين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> منح دراسية للدراسات العليا والبحث العلمي</li>
+                                        <li><i class="fas fa-check-circle"></i> دعم المشاريع التعليمية والثقافية</li>
+                                        <li><i class="fas fa-check-circle"></i> برامج لدعم الطلاب اللاجئين والمهاجرين</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا</span>
+                                        <span><i class="fas fa-globe"></i> متوفر باللغة الإنجليزية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="https://www.bodossaki.gr/en/" target="_blank" class="org-link">زيارة الموقع <i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offices Section -->
+    <section id="offices" class="offices">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">خدمات متخصصة</span>
+                <div class="section-title-wrapper">
+                    <h2>المكاتب</h2>
+                    <a href="offices.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>مكاتب الخدمات والمحاسبة والمحاماة التي تقدم خدمات للمهاجرين واللاجئين</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-briefcase"></i></span>
+                </div>
+            </div>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="service-offices">مكاتب خدمية</button>
+                    <button class="tab-btn" data-tab="accounting">مكاتب محاسبة</button>
+                    <button class="tab-btn" data-tab="lawyers">مكاتب محامين</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="service-offices-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-language"></i>
+                                    </div>
+                                    <h3>مكاتب الترجمة المعتمدة</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خدمات ترجمة معتمدة للوثائق الرسمية والمستندات القانونية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> ترجمة معتمدة للشهادات والوثائق الرسمية</li>
+                                        <li><i class="fas fa-check-circle"></i> ترجمة المستندات القانونية والعقود</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات الترجمة الفورية للمقابلات والاجتماعات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع ستاديو 15</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 32 45 678</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#translation" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <h3>مكاتب المعاملات الحكومية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مساعدة في إنجاز المعاملات الحكومية والرسمية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> استخراج وتجديد تصاريح الإقامة والعمل</li>
+                                        <li><i class="fas fa-check-circle"></i> التسجيل في التأمين الاجتماعي والضرائب</li>
+                                        <li><i class="fas fa-check-circle"></i> توثيق وتصديق المستندات الرسمية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع بانيبيستيميو 25</span>
+                                        <span><i class="fas fa-clock"></i> من الإثنين إلى الجمعة: 9ص - 5م</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#government" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <h3>مكاتب التأمين</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خدمات التأمين الصحي والعقاري والسيارات</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> تأمين صحي خاص للمهاجرين واللاجئين</li>
+                                        <li><i class="fas fa-check-circle"></i> تأمين الممتلكات والعقارات</li>
+                                        <li><i class="fas fa-check-circle"></i> تأمين السيارات والمركبات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> فروع متعددة في أثينا وسالونيكا</span>
+                                        <span><i class="fas fa-globe"></i> خدمات بعدة لغات</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#insurance" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="accounting-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                    <h3>مكاتب ضريبية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات ضريبية وإعداد الإقرارات للمهاجرين والمقيمين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> إعداد وتقديم الإقرارات الضريبية السنوية</li>
+                                        <li><i class="fas fa-check-circle"></i> استخراج الرقم الضريبي (AFM) للمهاجرين</li>
+                                        <li><i class="fas fa-check-circle"></i> تقديم استشارات حول الإعفاءات والخصومات الضريبية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع ستاديو 29</span>
+                                        <span><i class="fas fa-clock"></i> مواعيد بحجز مسبق</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#tax" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h3>مكاتب محاسبة عامة</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خدمات محاسبية شاملة للأفراد والشركات الصغيرة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مسك الدفاتر والسجلات المحاسبية</li>
+                                        <li><i class="fas fa-check-circle"></i> إعداد الميزانيات والقوائم المالية</li>
+                                        <li><i class="fas fa-check-circle"></i> تسجيل الشركات الجديدة والمؤسسات الفردية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، سالونيكا</span>
+                                        <span><i class="fas fa-globe"></i> خدمات باللغة العربية والإنجليزية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#accounting" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <h3>مكاتب استشارات مالية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات مالية واستثمارية للمقيمين في اليونان</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> تخطيط مالي شخصي وعائلي</li>
+                                        <li><i class="fas fa-check-circle"></i> استشارات استثمارية وإدارة الأصول</li>
+                                        <li><i class="fas fa-check-circle"></i> تحويلات مالية دولية بأسعار تنافسية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع بانيبيستيميو 32</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 33 87 500</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#financial" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="lawyers-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-gavel"></i>
+                                    </div>
+                                    <h3>محامي الهجرة واللجوء</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات قانونية متخصصة في قضايا الهجرة واللجوء والإقامة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مساعدة قانونية في طلبات اللجوء والاستئناف</li>
+                                        <li><i class="fas fa-check-circle"></i> استخراج وتجديد تصاريح الإقامة والعمل</li>
+                                        <li><i class="fas fa-check-circle"></i> تمثيل قانوني أمام المحاكم والهيئات الحكومية</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: بالقرب من محكمة أثينا</span>
+                                        <span><i class="fas fa-globe"></i> خدمات بعدة لغات منها العربية</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#immigration-lawyers" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <h3>محامي العمل</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات قانونية في قضايا العمل وحقوق العمال والموظفين</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراجعة عقود العمل والتفاوض بشأنها</li>
+                                        <li><i class="fas fa-check-circle"></i> قضايا الفصل التعسفي والتعويضات</li>
+                                        <li><i class="fas fa-check-circle"></i> مشاكل التأمينات الاجتماعية وحقوق العمال</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا: شارع ستاديو 35</span>
+                                        <span><i class="fas fa-phone"></i> هاتف: 210 32 56 789</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#labor-lawyers" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <h3>محامي العقارات</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>استشارات قانونية في قضايا العقارات والإيجارات والملكية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراجعة عقود الإيجار والبيع والشراء</li>
+                                        <li><i class="fas fa-check-circle"></i> التحقق من الملكية والمستندات القانونية</li>
+                                        <li><i class="fas fa-check-circle"></i> حل نزاعات الملكية ومشاكل الإخلاء</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> أثينا، سالونيكا</span>
+                                        <span><i class="fas fa-envelope"></i> البريد الإلكتروني: property@lawyers.gr</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="offices.html#property-lawyers" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourism Section -->
+    <section id="tourism" class="tourism">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">استكشف اليونان</span>
+                <div class="section-title-wrapper">
+                    <h2>السياحة</h2>
+                    <a href="tourism.html" class="section-more-btn">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <p>استكشف أماكن الإقامة والتسوق والمطاعم في اليونان</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-umbrella-beach"></i></span>
+                </div>
+            </div>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="hotels">فنادق</button>
+                    <button class="tab-btn" data-tab="pharmacies">صيدليات ومتاجر</button>
+                    <button class="tab-btn" data-tab="restaurants">مطاعم</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="hotels-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-hotel"></i>
+                                    </div>
+                                    <h3>فنادق 5 نجوم</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>أفخم الفنادق في اليونان للباحثين عن الرفاهية والخدمات المميزة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> فنادق Grande Bretagne و King George في أثينا</li>
+                                        <li><i class="fas fa-check-circle"></i> منتجعات فاخرة في سانتوريني وميكونوس</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار تبدأ من 200€ لليلة مع إفطار فاخر</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> مواقع مركزية في أثينا والجزر</span>
+                                        <span><i class="fas fa-concierge-bell"></i> خدمات الكونسيرج والسبا</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#luxury-hotels" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-bed"></i>
+                                    </div>
+                                    <h3>فنادق متوسطة</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>خيارات إقامة مريحة بأسعار معقولة للسياح والزوار</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> فنادق 3-4 نجوم في مناطق مختلفة من اليونان</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار تتراوح بين 70-150€ لليلة حسب الموسم</li>
+                                        <li><i class="fas fa-check-circle"></i> خدمات مثل الإفطار والواي فاي ومواقف السيارات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> منتشرة في معظم المدن والجزر</span>
+                                        <span><i class="fas fa-globe"></i> حجز عبر Booking.com و Hotels.com</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#mid-range-hotels" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <h3>شقق سياحية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>شقق مفروشة للإيجار القصير مناسبة للعائلات والمجموعات</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> شقق متوفرة على Airbnb و Booking و VRBO</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار تبدأ من 50€ لليلة مع مطبخ مجهز</li>
+                                        <li><i class="fas fa-check-circle"></i> خيارات متنوعة من الاستوديو إلى شقق بعدة غرف</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> متوفرة في جميع أنحاء اليونان</span>
+                                        <span><i class="fas fa-star"></i> البحث عن التقييمات قبل الحجز</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#apartments" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="pharmacies-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-prescription-bottle-alt"></i>
+                                    </div>
+                                    <h3>صيدليات</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>صيدليات منتشرة في جميع أنحاء اليونان مع صيدليات مناوبة ليلية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> صيدليات مناوبة على مدار 24 ساعة (قائمة منشورة أسبوعياً)</li>
+                                        <li><i class="fas fa-check-circle"></i> أدوية بوصفة طبية وبدون وصفة طبية</li>
+                                        <li><i class="fas fa-check-circle"></i> منتجات العناية الشخصية ومستحضرات التجميل</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> منتشرة في جميع المناطق والأحياء</span>
+                                        <span><i class="fas fa-phone"></i> رقم الطوارئ: 14944 لمعرفة الصيدليات المناوبة</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#pharmacies" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <h3>سوبر ماركت</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>متاجر للمواد الغذائية والاحتياجات اليومية بأسعار متنوعة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> سلاسل كبرى: AB Vassilopoulos، Sklavenitis، Lidl، My Market</li>
+                                        <li><i class="fas fa-check-circle"></i> متاجر صغيرة محلية منتشرة في كل الأحياء</li>
+                                        <li><i class="fas fa-check-circle"></i> منتجات محلية وعالمية بأسعار مختلفة</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-clock"></i> مواعيد العمل: 8ص - 9م معظم الأيام</span>
+                                        <span><i class="fas fa-credit-card"></i> قبول بطاقات الائتمان والدفع الإلكتروني</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#supermarkets" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-tshirt"></i>
+                                    </div>
+                                    <h3>متاجر الملابس</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>متاجر للملابس والأحذية والإكسسوارات بمختلف الماركات والأسعار</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مراكز تسوق: شارع إرمو في أثينا، مول اتيكا، مول ذا مول</li>
+                                        <li><i class="fas fa-check-circle"></i> ماركات عالمية ومحلية بمختلف الأسعار</li>
+                                        <li><i class="fas fa-check-circle"></i> مواسم التخفيضات في يناير ويوليو</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-clock"></i> مواعيد العمل: 9ص - 9م معظم الأيام</span>
+                                        <span><i class="fas fa-info-circle"></i> المحلات مغلقة أيام الأحد في بعض المناطق</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#shopping" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="restaurants-content">
+                        <div class="cards-container">
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <h3>مطاعم يونانية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>تذوق المأكولات اليونانية التقليدية والأطباق المحلية الأصيلة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> تافيرنا تقليدية تقدم المزات اليونانية والمشاوي</li>
+                                        <li><i class="fas fa-check-circle"></i> مطاعم للمأكولات البحرية الطازجة في المناطق الساحلية</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار متنوعة تبدأ من 10€ للوجبة الكاملة</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> منتشرة في جميع المدن والجزر</span>
+                                        <span><i class="fas fa-info-circle"></i> أشهر المناطق: بلاكا وبسيري في أثينا، ليمينوس في سالونيكا</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#greek-restaurants" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-coffee"></i>
+                                    </div>
+                                    <h3>مطاعم عربية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مطاعم تقدم المأكولات العربية المتنوعة من مختلف البلدان العربية</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مطاعم سورية ولبنانية ومصرية في مناطق مختلفة</li>
+                                        <li><i class="fas fa-check-circle"></i> وجبات شاورما وفلافل وكباب وحلويات شرقية</li>
+                                        <li><i class="fas fa-check-circle"></i> أسعار معقولة تناسب جميع الميزانيات</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> تتركز في أثينا: منطقة أومونيا وفيكتوريا</span>
+                                        <span><i class="fas fa-language"></i> طاقم عمل يتحدث العربية في معظم المطاعم</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#arabic-restaurants" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="org-card">
+                                <div class="org-card-header">
+                                    <div class="org-logo">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <h3>مطاعم عالمية</h3>
+                                </div>
+                                <div class="org-card-body">
+                                    <p>مطاعم متنوعة من مختلف المطابخ العالمية لتجربة طعام متنوعة</p>
+                                    <ul class="org-services">
+                                        <li><i class="fas fa-check-circle"></i> مطابخ إيطالية وآسيوية وأمريكية وهندية وغيرها</li>
+                                        <li><i class="fas fa-check-circle"></i> سلاسل مطاعم عالمية ومطاعم محلية فاخرة</li>
+                                        <li><i class="fas fa-check-circle"></i> خيارات للنباتيين ومطاعم صديقة للأطفال</li>
+                                    </ul>
+                                    <div class="org-contact">
+                                        <span><i class="fas fa-map-marker-alt"></i> تتركز في المناطق السياحية والمراكز التجارية</span>
+                                        <span><i class="fas fa-clock"></i> معظمها يعمل من الظهر حتى منتصف الليل</span>
+                                    </div>
+                                </div>
+                                <div class="org-card-footer">
+                                    <a href="tourism.html#international-restaurants" class="org-link">المزيد من التفاصيل <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Times Section -->
+    <section id="prayer-times" class="prayer-times">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">مواقيت الصلاة</span>
+                <div class="section-title-wrapper">
+                    <h2>مواقيت الصلاة في اليونان</h2>
+                    <a href="#" class="section-more-btn" id="refreshPrayerTimes">تحديث <i class="fas fa-sync-alt"></i></a>
+                </div>
+                <p>مواقيت الصلاة الدقيقة لمدن اليونان المختلفة</p>
+                <div class="section-divider">
+                    <span><i class="fas fa-mosque"></i></span>
+                </div>
+            </div>
+            
+            <div class="prayer-times-container">
+                <div class="prayer-location-selector">
+                    <div class="location-input">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="prayerLocation" placeholder="اختر المدينة (مثال: أثينا، سالونيكا)" value="أثينا">
+                        <button id="searchLocation" class="search-location-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="current-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+                
+                <div class="next-prayer-counter">
+                    <div class="counter-simple">
+                        <div class="next-prayer-badge">
+                            <i class="fas fa-mosque"></i>
+                            <span id="nextPrayerName">--</span>
+                        </div>
+                        <div class="countdown-simple">
+                            <span class="countdown-text">متبقي:</span>
+                            <span class="countdown-time" id="countdownSimple">--:--:--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prayer-times-grid">
+                    <div class="prayer-time-card fajr">
+                        <div class="prayer-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>الفجر</h3>
+                            <div class="prayer-time" id="fajr-time">--:--</div>
+                            <div class="prayer-status" id="fajr-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card dhuhr">
+                        <div class="prayer-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>الظهر</h3>
+                            <div class="prayer-time" id="dhuhr-time">--:--</div>
+                            <div class="prayer-status" id="dhuhr-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card asr">
+                        <div class="prayer-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>العصر</h3>
+                            <div class="prayer-time" id="asr-time">--:--</div>
+                            <div class="prayer-status" id="asr-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card maghrib">
+                        <div class="prayer-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>المغرب</h3>
+                            <div class="prayer-time" id="maghrib-time">--:--</div>
+                            <div class="prayer-status" id="maghrib-status">قادم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-time-card isha">
+                        <div class="prayer-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="prayer-info">
+                            <h3>العشاء</h3>
+                            <div class="prayer-time" id="isha-time">--:--</div>
+                            <div class="prayer-status" id="isha-status">قادم</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prayer-info-footer">
+                    <div class="prayer-source">
+                        <i class="fas fa-info-circle"></i>
+                        <span>المصدر: Aladhan API - مواقيت دقيقة ومحدثة</span>
+                    </div>
+                    <div class="prayer-calculation">
+                        <i class="fas fa-calculator"></i>
+                        <span>طريقة الحساب: جامعة أم القرى، مكة المكرمة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#222c3a" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,138.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320,C480,320,384,320,288,320,C192,320,96,320,48,320,L0,320Z"></path></svg>
+        </div>
+        <div class="footer-content-wrapper dark-footer-wrapper">
+            <div class="container">
+                <div class="footer-content footer-row-cards">
+                    <!-- IP & Country Flag -->
+                    <div class="footer-card footer-ip-card">
+                        <div class="footer-ip-flag-row">
+                            <span id="footerCountryFlag"></span>
+                            <span id="footerIP" class="footer-ip-text">IP</span>
+                            <span id="footerIPType" class="footer-ip-type" style="display:none;font-size:0.93em;color:#bfc9d6;margin-right:6px;"></span>
+                        </div>
+                        <span id="footerCountryName" class="footer-country-name" style="display:none;"></span>
+                        <span id="footerIPLocation" class="footer-ip-location" style="font-size:0.97em;color:#bfc9d6;"></span>
+                        <span id="footerISP" class="footer-isp-name" style="font-size:0.97em;color:#bfc9d6;"></span>
+                    </div>
+                    <!-- Live Clock -->
+                    <div class="footer-card footer-clock-card">
+                        <div class="clock-daystate-row">
+                            <span id="clock-daystate-icon" class="clock-daystate-icon">☀️</span>
+                            <span id="clock-daystate-label" class="clock-daystate-label">صباحاً</span>
+                        </div>
+                        <div class="footer-clock-row">
+                            <span id="footerLocalTime" class="modern-clock">
+                                <span class="clock-group"><span class="clock-digit" id="clock-h1">0</span><span class="clock-digit" id="clock-h2">0</span></span>
+                                <span class="clock-sep">:</span>
+                                <span class="clock-group"><span class="clock-digit" id="clock-m1">0</span><span class="clock-digit" id="clock-m2">0</span></span>
+                                <span class="clock-sep">:</span>
+                                <span class="clock-group"><span class="clock-digit" id="clock-s1">0</span><span class="clock-digit" id="clock-s2">0</span></span>
+                                <span id="clock-period" class="clock-period-modern"></span>
+                            </span>
+                        </div>
+                        <span class="footer-clock-label">الوقت المحلي لمدينة أثينا</span>
+                        <span id="footerLocalDate" class="footer-clock-date"></span>
+                    </div>
+                    <!-- Weather -->
+                    <div class="footer-card footer-weather-card">
+                        <div class="footer-weather-row">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span id="footerWeather">--°C</span>
+                        </div>
+                        <span id="footerWeatherDesc"></span>
+                        <span id="footerWeatherLocation"></span>
+                        <span id="footerWeatherHumidity" style="display:block;font-size:0.97em;color:#bfc9d6;"></span>
+                        <span id="footerWeatherWind" style="display:block;font-size:0.97em;color:#bfc9d6;"></span>
+                    </div>
+                    <!-- Social Media -->
+                    <!-- تم حذف خانة أيقونات وسائل التواصل الاجتماعي بالكامل -->
+                    </div>
+                <div class="footer-links-bar always-horizontal-footer-links">
+                    <a href="#" class="footer-link">سياسة الخصوصية</a>
+                    <span class="footer-link-sep">-</span>
+                    <a href="#" class="footer-link">من نحن</a>
+                    <span class="footer-link-sep">-</span>
+                    <a href="#" class="footer-link">اتصل بنا</a>
+                </div>
+                <div class="footer-bottom-bar popup-copyright-bar" style="margin-top: 40px; margin-bottom: 20px;">
+                    <div class="copyright-content">
+                        <div class="copyright-icon-wrapper">
+                            <i class="fas fa-shield-alt copyright-shield"></i>
+                            <span class="copyright-symbol">&copy;</span>
+                        </div>
+                        <div class="copyright-text-wrapper">
+                            <div class="copyright-main-text">2025 الحياة في اليونان</div>
+                            <div class="copyright-sub-text">جميع الحقوق محفوظة</div>
+                        </div>
+                        <div class="copyright-decoration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <style>
+    .footer-row-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+        align-items: stretch;
+        padding: 36px 0 14px 0;
+        background: none;
+    }
+    .footer-card {
+        background: rgba(34,44,58,0.96);
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(44,62,80,0.13);
+        padding: 16px 14px 12px 14px;
+        min-width: 160px;
+        max-width: 220px;
+        flex: 1 1 160px;
+        margin: 0 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1.5px solid #263246;
+        transition: box-shadow 0.18s, transform 0.18s;
+        position: relative;
+    }
+    .footer-card:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 60%;
+        background: linear-gradient(180deg, #263246 0%, #34425a 100%);
+        opacity: 0.18;
+        border-radius: 2px;
+        z-index: 1;
+        display: none;
+    }
+    .footer-row-cards > .footer-card:not(:first-child) {
+        margin-right: 0;
+    }
+    .footer-card:hover {
+        box-shadow: 0 8px 32px rgba(44,62,80,0.23);
+        transform: translateY(-4px) scale(1.03);
+    }
+    .footer-ip-flag-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+    .footer-ip-text {
+        color: #fff;
+        font-size: 1.13rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    .footer-country-name {
+        font-size: 0.95rem;
+        color: #bfc9d6;
+        margin-top: 2px;
+    }
+    .footer-clock-row, .footer-weather-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.18rem;
+        margin-bottom: 4px;
+        color: #fff;
+    }
+    .footer-clock-label {
+        font-size: 0.92rem;
+        color: #bfc9d6;
+        margin-top: 2px;
+    }
+    .footer-weather-row i {
+        color: #f7b731;
+    }
+    .footer-clock-row i {
+        color: #4fc3f7;
+    }
+    .footer-social-label { display: none; }
+    .footer-social-icons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-social-icon {
+        font-size: 1.45rem;
+        color: #fff;
+        background: linear-gradient(135deg, #263246 60%, #2c3e50 100%);
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s, transform 0.18s, box-shadow 0.18s;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+        border: 1.5px solid #34425a;
+    }
+    .footer-social-icon:hover {
+        background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%);
+        color: #fff;
+        transform: scale(1.15) rotate(-8deg);
+        box-shadow: 0 8px 32px rgba(44,62,80,0.23);
+    }
+    .footer-social-icon[title="Telegram"] { color: #29b6f6; }
+    .footer-social-icon[title="WhatsApp"] { color: #25d366; }
+    .footer-social-icon[title="YouTube"] { color: #ff5252; }
+    .footer-social-icon[title="TikTok"] { color: #fff; }
+    .footer-bottom-bar {
+        width: 100%;
+        background: rgba(20, 26, 36, 0.93);
+        border-radius: 0 0 18px 18px;
+        border-top: 1.5px solid #232b38;
+        margin-top: 24px;
+        padding: 10px 0 6px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 -2px 12px rgba(44,62,80,0.10);
+    }
+    .copyright-text {
+        color: #bfc9d6;
+        font-size: 0.98rem;
+        letter-spacing: 0.2px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 400;
+    }
+    .copyright-icon {
+        font-size: 1.15em;
+        color: #4fc3f7;
+        margin-left: 2px;
+    }
+    @media (max-width: 900px) {
+        .footer-row-cards { flex-direction: column; gap: 12px; padding: 12px 0 4px 0; }
+        .footer-card { min-width: 0; width: 100%; max-width: 100%; }
+        .footer-card:not(:last-child)::after { display: none; }
+        .footer-bottom-bar { border-radius: 0 0 12px 12px; margin-top: 12px; padding: 8px 0 4px 0; }
+        .copyright-text { font-size: 0.93rem; }
+    }
+    .footer-links-bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 2px;
+        margin-top: 10px;
+    }
+    .footer-link {
+        color: #bfc9d6;
+        font-size: 1.04rem;
+        text-decoration: none;
+        transition: color 0.18s;
+        font-weight: 500;
+        padding: 2px 6px;
+        border-radius: 6px;
+    }
+    .footer-link:hover {
+        color: #4fc3f7;
+        background: rgba(79,195,247,0.08);
+    }
+    .footer-link-sep {
+        color: #4fc3f7;
+        font-size: 1.1em;
+        font-weight: bold;
+        opacity: 0.7;
+        user-select: none;
+    }
+    @media (max-width: 900px) {
+        .footer-links-bar { flex-direction: column; gap: 4px; margin-top: 6px; }
+        .footer-link-sep { display: none; }
+    }
+    @media (max-width: 900px) {
+        .footer-row-cards {
+            flex-direction: column;
+            gap: 10px;
+            padding: 8px 0 2px 0;
+        }
+        .footer-card {
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+            border-radius: 18px;
+            margin: 0 auto 6px auto;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.10) inset, 0 1px 6px rgba(44,62,80,0.08);
+            background: linear-gradient(120deg, #232e3c 80%, #1a2230 100%);
+            padding: 18px 8px 14px 8px;
+        }
+        .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer-ip-text, .footer-country-name, .footer-clock-label {
+            font-size: 1.08rem;
+        }
+        .footer-clock-row i, .footer-weather-row i {
+            font-size: 1.25em;
+        }
+        .footer-ip-flag-row img {
+            width: 30px !important;
+            height: 22px !important;
+        }
+        .footer-card {
+            text-align: center;
+        }
+        .footer-weather-row span, .footer-clock-row span, .footer-ip-flag-row span {
+            font-size: 1.13rem;
+        }
+        .footer-country-name {
+            margin-top: 4px;
+            font-size: 1.01rem;
+        }
+    }
+    @media (max-width: 900px) {
+        .footer-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+        .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
+            width: 100%;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        .footer-card > * {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .footer-country-name, .footer-clock-label, #footerWeatherDesc, #footerWeatherLocation {
+            width: 100%;
+            text-align: center !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+    .popup-copyright-bar {
+        background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%);
+        color: #263246;
+        border-radius: 24px;
+        box-shadow: 
+            0 12px 40px rgba(44,62,80,0.15), 
+            0 4px 20px rgba(52,152,219,0.12),
+            0 0 0 1px rgba(255,255,255,0.8) inset;
+        border: 2px solid rgba(79,195,247,0.2);
+        width: max-content;
+        min-width: 280px;
+        max-width: 98vw;
+        margin: 0 auto 20px auto;
+        padding: 16px 32px 14px 32px;
+        position: relative;
+        top: -20px;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 1.01rem;
+        margin-bottom: 0 !important;
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+    }
+    
+    .popup-copyright-bar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(79,195,247,0.1), transparent);
+        transition: left 0.8s ease;
+        z-index: -1;
+    }
+    
+    .popup-copyright-bar:hover::before {
+        left: 100%;
+    }
+    
+    .popup-copyright-bar:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 
+            0 20px 60px rgba(44,62,80,0.25), 
+            0 8px 30px rgba(52,152,219,0.18),
+            0 0 0 1px rgba(255,255,255,0.9) inset;
+        border-color: rgba(79,195,247,0.4);
+    }
+    
+    .copyright-content {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+    }
+    
+    .copyright-icon-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #4fc3f7 0%, #1976d2 100%);
+        border-radius: 50%;
+        box-shadow: 
+            0 4px 16px rgba(79,195,247,0.3),
+            0 0 0 2px rgba(255,255,255,0.8) inset;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+    
+    .copyright-icon-wrapper::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+        transform: rotate(45deg);
+        transition: all 0.6s ease;
+        opacity: 0;
+    }
+    
+    .copyright-icon-wrapper:hover {
+        transform: rotate(360deg) scale(1.1);
+        box-shadow: 
+            0 8px 24px rgba(79,195,247,0.4),
+            0 0 0 3px rgba(255,255,255,0.9) inset;
+    }
+    
+    .copyright-icon-wrapper:hover::before {
+        opacity: 1;
+        transform: rotate(45deg) translateX(100%);
+    }
+    
+    .copyright-shield {
+        color: white;
+        font-size: 1.2rem;
+        position: absolute;
+        z-index: 2;
+    }
+    
+    .copyright-symbol {
+        color: white;
+        font-size: 0.9rem;
+        font-weight: bold;
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        z-index: 3;
+    }
+    
+    .copyright-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    .copyright-main-text {
+        color: #263246;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        line-height: 1.2;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .copyright-main-text::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #4fc3f7, #1976d2);
+        transition: width 0.3s ease;
+        border-radius: 1px;
+    }
+    
+    .popup-copyright-bar:hover .copyright-main-text::after {
+        width: 100%;
+    }
+    
+    .copyright-sub-text {
+        color: #64748b;
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        transition: color 0.3s ease;
+    }
+    
+    .popup-copyright-bar:hover .copyright-sub-text {
+        color: #4fc3f7;
+    }
+    
+    .copyright-decoration {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-right: 8px;
+    }
+    
+    .decoration-line {
+        width: 20px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, #4fc3f7 50%, transparent 100%);
+        border-radius: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .decoration-line::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        transition: left 0.6s ease;
+    }
+    
+    .popup-copyright-bar:hover .decoration-line::before {
+        left: 100%;
+    }
+    
+    .popup-copyright-bar:hover .decoration-line {
+        width: 24px;
+        background: linear-gradient(90deg, transparent 0%, #1976d2 50%, transparent 100%);
+    }
+    
+    .decoration-heart {
+        color: #ef4444;
+        font-size: 0.9rem;
+        animation: heartbeat 2s ease-in-out infinite;
+        transition: all 0.3s ease;
+    }
+    
+    .popup-copyright-bar:hover .decoration-heart {
+        color: #dc2626;
+        transform: scale(1.2);
+    }
+    
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+    
+    @keyframes copyrightFadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    .popup-copyright-bar {
+        animation: copyrightFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    @media (max-width: 900px) {
+        .popup-copyright-bar {
+            padding: 12px 20px 10px 20px;
+            min-width: 0;
+            border-radius: 18px;
+            top: -12px;
+            margin: 0 auto 16px auto;
         }
         
-        window.addEventListener('scroll', updateOnScroll, { passive: true });
+        .copyright-content {
+            gap: 12px;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .copyright-icon-wrapper {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .copyright-shield {
+            font-size: 1rem;
+        }
+        
+        .copyright-symbol {
+            font-size: 0.8rem;
+        }
+        
+        .copyright-main-text {
+            font-size: 1rem;
+        }
+        
+        .copyright-sub-text {
+            font-size: 0.85rem;
+        }
+        
+        .copyright-decoration {
+            margin-right: 0;
+            margin-top: 4px;
+        }
+        
+        .decoration-line {
+            width: 16px;
+        }
+        
+        .decoration-heart {
+            font-size: 0.8rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .popup-copyright-bar {
+            padding: 10px 16px 8px 16px;
+            border-radius: 16px;
+        }
+        
+        .copyright-content {
+            gap: 8px;
+        }
+        
+        .copyright-icon-wrapper {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .copyright-main-text {
+            font-size: 0.95rem;
+        }
+        
+        .copyright-sub-text {
+            font-size: 0.8rem;
+        }
+    }
+    .vertical-footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        position: relative;
+        top: -8px;
+        z-index: 11;
+    }
+    .vertical-footer-links .footer-link {
+        font-size: 1.09rem;
+        padding: 3px 12px;
+        border-radius: 8px;
+        color: #4fc3f7;
+        background: rgba(255,255,255,0.07);
+        font-weight: 600;
+        transition: background 0.18s, color 0.18s;
+    }
+    .vertical-footer-links .footer-link:hover {
+        background: #4fc3f7;
+        color: #fff;
+    }
+    .footer-links-bar:not(.vertical-footer-links) { display: none; }
+    @media (max-width: 900px) {
+        .vertical-footer-links { gap: 4px; margin-bottom: 7px; top: -4px; }
+        .vertical-footer-links .footer-link { font-size: 1.01rem; padding: 3px 6px; border-radius: 7px; }
+    }
+    .horizontal-footer-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        position: relative;
+        top: -8px;
+        z-index: 11;
+    }
+    .horizontal-footer-links .footer-link {
+        font-size: 1.09rem;
+        padding: 3px 12px;
+        border-radius: 8px;
+        color: #4fc3f7;
+        background: rgba(255,255,255,0.07);
+        font-weight: 600;
+        transition: background 0.18s, color 0.18s;
+        text-decoration: none;
+    }
+    .horizontal-footer-links .footer-link:hover {
+        background: #4fc3f7;
+        color: #fff;
+    }
+    .horizontal-footer-links .footer-link-sep {
+        color: #4fc3f7;
+        font-size: 1.1em;
+        font-weight: bold;
+        opacity: 0.7;
+        user-select: none;
+        margin: 0 2px;
+    }
+    .footer-links-bar:not(.horizontal-footer-links) { display: none; }
+    @media (max-width: 900px) {
+        .horizontal-footer-links {
+            flex-direction: row;
+            gap: 10px;
+            margin-bottom: 7px;
+            top: -4px;
+        }
+        .horizontal-footer-links .footer-link { font-size: 1.01rem; padding: 3px 6px; border-radius: 7px; }
+        .horizontal-footer-links .footer-link-sep { display: inline; }
+    }
+    .always-horizontal-footer-links {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        position: relative;
+        top: -8px;
+        z-index: 11;
+        width: 100%;
+    }
+    .always-horizontal-footer-links .footer-link {
+        font-size: 1.09rem;
+        padding: 3px 12px;
+        border-radius: 8px;
+        color: #4fc3f7;
+        background: rgba(255,255,255,0.07);
+        font-weight: 600;
+        transition: background 0.18s, color 0.18s;
+        text-decoration: none;
+    }
+    .always-horizontal-footer-links .footer-link:hover {
+        background: #4fc3f7;
+        color: #fff;
+    }
+    .always-horizontal-footer-links .footer-link-sep {
+        color: #4fc3f7;
+        font-size: 1.1em;
+        font-weight: bold;
+        opacity: 0.7;
+        user-select: none;
+        margin: 0 2px;
+    }
+    /* ألغِ أي تحويل لعمودي أو إخفاء للروابط في جميع الشاشات */
+    .footer-links-bar:not(.always-horizontal-footer-links) { display: none !important; }
+    @media (max-width: 900px) {
+        .always-horizontal-footer-links {
+            flex-direction: row !important;
+            gap: 10px;
+            margin-bottom: 7px;
+            top: -4px;
+        }
+        .always-horizontal-footer-links .footer-link { font-size: 1.01rem; padding: 3px 6px; border-radius: 7px; }
+        .always-horizontal-footer-links .footer-link-sep { display: inline; }
+    }
+    </style>
+
+    <script>
+    // Live Clock
+    function updateFooterClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('footerLocalTime').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateFooterClock, 1000);
+    updateFooterClock();
+
+    // Get IP, Country, and Weather
+    async function updateFooterIPAndWeather() {
+      try {
+        // Get IP and location
+        const ipRes = await fetch('https://ipapi.co/json/');
+        const ipData = await ipRes.json();
+        document.getElementById('footerIP').textContent = ipData.ip;
+        document.getElementById('footerCountryFlag').textContent = ipData.country_emoji || '';
+        document.getElementById('footerCountryName').textContent = ipData.country_name || '';
+        // Get weather (ثابت لأثينا)
+        const lat = 37.98, lon = 23.72;
+        // Open-Meteo API (no key needed)
+        const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=relative_humidity_2m,windspeed_10m&timezone=auto`);
+        const weatherData = await weatherRes.json();
+        if (weatherData.current_weather) {
+          document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
+          document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
+          document.getElementById('footerWeatherLocation').textContent = '(أثينا)';
+          // رطوبة
+          let humidity = '--';
+          if (weatherData.hourly && weatherData.hourly.relative_humidity_2m && weatherData.hourly.time) {
+            const now = new Date();
+            const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+            const hourStr = athensTime.toISOString().slice(0, 13);
+            const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
+            if (idx !== -1) humidity = weatherData.hourly.relative_humidity_2m[idx];
+          }
+          document.getElementById('footerWeatherHumidity').textContent = `الرطوبة: ${humidity}%`;
+          // رياح
+          let wind = '--';
+          if (weatherData.hourly && weatherData.hourly.windspeed_10m && weatherData.hourly.time) {
+            const now = new Date();
+            const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+            const hourStr = athensTime.toISOString().slice(0, 13);
+            const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
+            if (idx !== -1) wind = weatherData.hourly.windspeed_10m[idx];
+          }
+          document.getElementById('footerWeatherWind').textContent = `الرياح: ${wind} كم/س`;
+        }
+      } catch (e) {
+        document.getElementById('footerIP').textContent = 'غير متوفر';
+        document.getElementById('footerWeather').textContent = '--°C';
+        document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
+        document.getElementById('footerWeatherHumidity').textContent = '';
+        document.getElementById('footerWeatherWind').textContent = '';
+      }
+    }
+    function weatherCodeToDesc(code) {
+      // Simplified mapping for demo
+      const map = {
+        0: 'صحو', 1: 'غائم جزئي', 2: 'غائم', 3: 'غائم كلي', 45: 'ضباب', 48: 'ضباب', 51: 'رذاذ', 53: 'رذاذ', 55: 'رذاذ', 61: 'مطر خفيف', 63: 'مطر', 65: 'مطر غزير', 71: 'ثلج خفيف', 73: 'ثلج', 75: 'ثلج كثيف', 80: 'زخات مطر', 81: 'زخات مطر', 82: 'زخات مطر غزيرة', 95: 'عاصفة رعدية'
+      };
+      return map[code] || '';
+    }
+    updateFooterIPAndWeather();
     </script>
+
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/tabs.js"></script>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+        <a href="#home" class="mobile-bottom-nav-link" title="الرئيسية">
+            <i class="fas fa-house-chimney-window"></i>
+            <span>الرئيسية</span>
+            <span class="nav-badge" id="homeBadge" style="display:none;">0</span>
+        </a>
+        <a href="#favorites" class="mobile-bottom-nav-link" title="المفضلة">
+            <i class="fas fa-heart"></i>
+            <span>المفضلة</span>
+            <span class="nav-badge" id="favoritesBadge" style="display:none;">0</span>
+        </a>
+        <a href="#menu" class="mobile-bottom-nav-link menu-icon" title="القائمة">
+            <i class="fas fa-grip-lines"></i>
+            <span>القائمة</span>
+        </a>
+        <button class="mobile-bottom-nav-center" title="الصعود للأعلى" aria-label="الصعود للأعلى">
+            <i class="fas fa-circle-chevron-up"></i>
+        </button>
+        <a href="#search" class="mobile-bottom-nav-link" title="البحث">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>البحث</span>
+        </a>
+        <a href="#settings" class="mobile-bottom-nav-link" title="الإعدادات">
+            <i class="fas fa-sliders"></i>
+            <span>الإعدادات</span>
+        </a>
+        <a href="#emergency" class="mobile-bottom-nav-link emergency-nav" title="الطوارئ" id="emergencyNavBtn">
+            <i class="fas fa-phone-alt"></i>
+            <span>الطوارئ</span>
+        </a>
+    </nav>
+
+    <!-- Popup Menu Overlay and Window -->
+    <div class="menu-popup-overlay" id="menuPopupOverlay"></div>
+    <div class="menu-popup" id="menuPopup">
+      <div class="menu-popup-content">
+        <ul class="menu-popup-list">
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#services" class="submenu-anchor-popup"><i class="fas fa-hands-helping"></i> الخدمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="pages/asylum.html">دوائر اللجوء</a></li>
+              <li><a href="pages/government.html">دوائر حكومية</a></li>
+              <li><a href="pages/housing.html">عقارات وسكن</a></li>
+              <li><a href="pages/hospitals.html">مستشفيات</a></li>
+              <li><a href="pages/transportation.html">خطوط النقل</a></li>
+              <li><a href="pages/tourism-services.html">سياحة</a></li>
+            </ul>
+          </li>
+          <li><a href="#work" class="submenu-anchor-popup"><i class="fas fa-briefcase"></i> العمل</a></li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#organizations" class="submenu-anchor-popup"><i class="fas fa-users"></i> المنظمات</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="#humanitarian">منظمات إنسانية</a></li>
+              <li><a href="#medical-org">منظمات طبية</a></li>
+              <li><a href="#educational">منظمات تعليمية</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#offices" class="submenu-anchor-popup"><i class="fas fa-building"></i> المكاتب</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="#service-offices">مكاتب خدمية</a></li>
+              <li><a href="#accounting">مكاتب محاسبة</a></li>
+              <li><a href="#lawyers">مكاتب محامين</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <div class="submenu-row">
+              <a href="#tourism" class="submenu-anchor-popup"><i class="fas fa-plane"></i> السياحة</a>
+              <button class="submenu-toggle-popup" aria-label="فتح القائمة الفرعية"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <ul class="submenu">
+              <li><a href="#hotels">فنادق</a></li>
+              <li><a href="#pharmacies">صيدليات ومتاجر</a></li>
+              <li><a href="#restaurants">مطاعم</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="siteSettingsModal" class="settings-modal" tabindex="-1" aria-hidden="true">
+      <div class="settings-modal-content">
+        <button class="settings-modal-close" title="إغلاق" aria-label="إغلاق الإعدادات">&times;</button>
+        <h2 class="settings-modal-title"><i class="fas fa-sliders-h"></i> إعدادات الموقع</h2>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-language"></i> اللغة</label>
+          <select id="settingsLanguage" class="settings-select">
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+            <option value="el">Ελληνικά</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="tr">Türkçe</option>
+            <option value="fa">فارسی</option>
+          </select>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-moon"></i> الوضع الليلي</label>
+          <label class="switch">
+            <input type="checkbox" id="settingsDarkMode">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-palette"></i> السمة (الألوان)</label>
+          <div class="settings-themes">
+            <button class="theme-btn" data-theme="red" style="background:#e74c3c;"></button>
+            <button class="theme-btn" data-theme="green" style="background:#27ae60;"></button>
+            <button class="theme-btn" data-theme="orange" style="background:#f39c12;"></button>
+            <button class="theme-btn" data-theme="purple" style="background:#8e44ad;"></button>
+            <button class="theme-btn" data-theme="pink" style="background:#e84393;"></button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-text-height"></i> حجم النص</label>
+          <div class="settings-fontsize">
+            <button id="fontSizeMinus" class="font-btn">A-</button>
+            <span id="fontSizeValue">100%</span>
+            <button id="fontSizePlus" class="font-btn">A+</button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-volume-up"></i> قراءة النصوص بالصوت</label>
+          <div class="tts-controls">
+            <button id="ttsToggleBtn" class="settings-action-btn" aria-label="تشغيل أو إيقاف قراءة النص"><i class="fas fa-play"></i> استمع للنص</button>
+            <label style="font-size:0.98em;margin:0 8px;">السرعة:
+              <input type="range" id="ttsRate" min="0.5" max="2" step="0.1" value="1" style="vertical-align:middle;width:90px;">
+            </label>
+            <span id="ttsStatus" style="font-size:0.97em;color:#4fc3f7;margin-right:8px;"></span>
+          </div>
+        </div>
+        <div class="settings-section">
+          <button id="resetSettingsBtn" class="settings-reset-btn"><i class="fas fa-undo"></i> إعادة الإعدادات الافتراضية</button>
+        </div>
+        <div class="settings-section">
+          <label class="settings-label"><i class="fas fa-bolt"></i> الوضع الاقتصادي/البطء</label>
+          <label class="switch">
+            <input type="checkbox" id="settingsEconomyMode">
+            <span class="slider round"></span>
+          </label>
+          <span style="font-size:0.97em;color:#888;margin-right:8px;">تقليل استهلاك البيانات: إخفاء الصور، تعطيل الحركات والمؤثرات.</span>
+        </div>
+        <!-- تم حذف وضع عمى الألوان بناءً على طلب المستخدم -->
+      </div>
+    </div>
+
+    <!-- زر دليل الطوارئ السريع -->
+    <button id="emergencyBtn" title="دليل الطوارئ" style="position:fixed;bottom:32px;left:32px;z-index:1200;background:#e74c3c;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 18px #e74c3c33;display:flex;align-items:center;justify-content:center;font-size:2rem;cursor:pointer;transition:background 0.18s;">
+      <i class="fas fa-phone-alt"></i>
+    </button>
+    <!-- نافذة الطوارئ -->
+    <div id="emergencyModal" style="display:none;position:fixed;z-index:1300;left:0;top:0;width:100vw;height:100vh;background:rgba(34,44,58,0.32);align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:18px;box-shadow:0 8px 40px #e74c3c33;padding:32px 24px 22px 24px;min-width:320px;max-width:98vw;width:410px;position:relative;direction:rtl;">
+        <button id="emergencyModalClose" style="position:absolute;left:18px;top:18px;background:none;border:none;font-size:2rem;color:#e74c3c;cursor:pointer;z-index:2;">&times;</button>
+        <h2 style="font-size:1.35rem;font-weight:700;color:#e74c3c;margin-bottom:18px;display:flex;align-items:center;gap:8px;"><i class="fas fa-exclamation-triangle"></i> دليل الطوارئ السريع</h2>
+        <ul style="list-style:none;padding:0;margin:0 0 12px 0;font-size:1.13rem;">
+          <li style="margin-bottom:12px;"><b>الشرطة:</b> <a href="tel:100" style="color:#1976d2;font-weight:700;">100</a></li>
+          <li style="margin-bottom:12px;"><b>الإسعاف:</b> <a href="tel:166" style="color:#1976d2;font-weight:700;">166</a></li>
+          <li style="margin-bottom:12px;"><b>الإطفاء:</b> <a href="tel:199" style="color:#1976d2;font-weight:700;">199</a></li>
+          <li style="margin-bottom:12px;"><b>النجدة الأوروبية:</b> <a href="tel:112" style="color:#1976d2;font-weight:700;">112</a></li>
+          <li style="margin-bottom:12px;"><b>سفارة بلدك:</b> <a href="https://embassy.goabroad.com/embassies-in/greece" target="_blank" style="color:#e74c3c;font-weight:700;">دليل السفارات</a></li>
+        </ul>
+        <div style="font-size:0.98em;color:#666;">اضغط على الرقم للاتصال مباشرة (على الجوال).</div>
+      </div>
+    </div>
+    <!-- نهاية دليل الطوارئ السريع -->
+
+    <!-- نافذة المفضلة -->
+    <div id="favoritesModal" class="settings-modal" tabindex="-1" aria-hidden="true">
+      <div class="settings-modal-content">
+        <button class="settings-modal-close" title="إغلاق" aria-label="إغلاق المفضلة" onclick="closeFavoritesModal()">&times;</button>
+        <h2 class="settings-modal-title"><i class="fas fa-heart"></i> المفضلة</h2>
+        <div id="favoritesList" style="max-height: 400px; overflow-y: auto;">
+          <!-- سيتم ملء هذا القسم ديناميكياً -->
+        </div>
+        <div id="emptyFavorites" style="text-align: center; padding: 40px 20px; color: #666; display: none;">
+          <i class="fas fa-heart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+          <p>لا توجد عناصر في المفضلة</p>
+          <p style="font-size: 0.9rem; margin-top: 10px;">اضغط على أيقونة القلب في أي خدمة لإضافتها للمفضلة</p>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>
