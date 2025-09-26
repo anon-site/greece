@@ -1219,119 +1219,6 @@
         </div>
     </section>
 
-    <!-- Prayer Times Section -->
-    <section id="prayer-times" class="prayer-times">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">مواقيت الصلاة</span>
-                <div class="section-title-wrapper">
-                    <h2>مواقيت الصلاة في اليونان</h2>
-                    <a href="#" class="section-more-btn" id="refreshPrayerTimes">تحديث <i class="fas fa-sync-alt"></i></a>
-                </div>
-                <p>مواقيت الصلاة الدقيقة لمدن اليونان المختلفة</p>
-                <div class="section-divider">
-                    <span><i class="fas fa-mosque"></i></span>
-                </div>
-            </div>
-            
-            <div class="prayer-times-container">
-                <div class="prayer-location-selector">
-                    <div class="location-input">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" id="prayerLocation" placeholder="اختر المدينة (مثال: أثينا، سالونيكا)" value="أثينا">
-                        <button id="searchLocation" class="search-location-btn">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                    <div class="current-date">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span id="currentDate"></span>
-                    </div>
-                </div>
-                
-                <div class="next-prayer-counter">
-                    <div class="counter-simple">
-                        <div class="next-prayer-badge">
-                            <i class="fas fa-mosque"></i>
-                            <span id="nextPrayerName">--</span>
-                        </div>
-                        <div class="countdown-simple">
-                            <span class="countdown-text">متبقي:</span>
-                            <span class="countdown-time" id="countdownSimple">--:--:--</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="prayer-times-grid">
-                    <div class="prayer-time-card fajr">
-                        <div class="prayer-icon">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="prayer-info">
-                            <h3>الفجر</h3>
-                            <div class="prayer-time" id="fajr-time">--:--</div>
-                            <div class="prayer-status" id="fajr-status">قادم</div>
-                        </div>
-                    </div>
-                    
-                    <div class="prayer-time-card dhuhr">
-                        <div class="prayer-icon">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="prayer-info">
-                            <h3>الظهر</h3>
-                            <div class="prayer-time" id="dhuhr-time">--:--</div>
-                            <div class="prayer-status" id="dhuhr-status">قادم</div>
-                        </div>
-                    </div>
-                    
-                    <div class="prayer-time-card asr">
-                        <div class="prayer-icon">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="prayer-info">
-                            <h3>العصر</h3>
-                            <div class="prayer-time" id="asr-time">--:--</div>
-                            <div class="prayer-status" id="asr-status">قادم</div>
-                        </div>
-                    </div>
-                    
-                    <div class="prayer-time-card maghrib">
-                        <div class="prayer-icon">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                        <div class="prayer-info">
-                            <h3>المغرب</h3>
-                            <div class="prayer-time" id="maghrib-time">--:--</div>
-                            <div class="prayer-status" id="maghrib-status">قادم</div>
-                        </div>
-                    </div>
-                    
-                    <div class="prayer-time-card isha">
-                        <div class="prayer-icon">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                        <div class="prayer-info">
-                            <h3>العشاء</h3>
-                            <div class="prayer-time" id="isha-time">--:--</div>
-                            <div class="prayer-status" id="isha-status">قادم</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="prayer-info-footer">
-                    <div class="prayer-source">
-                        <i class="fas fa-info-circle"></i>
-                        <span>المصدر: Aladhan API - مواقيت دقيقة ومحدثة</span>
-                    </div>
-                    <div class="prayer-calculation">
-                        <i class="fas fa-calculator"></i>
-                        <span>طريقة الحساب: جامعة أم القرى، مكة المكرمة</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Toast Container -->
     <div class="toast-container"></div>
@@ -1344,47 +1231,6 @@
         <div class="footer-content-wrapper dark-footer-wrapper">
             <div class="container">
                 <div class="footer-content footer-row-cards">
-                    <!-- IP & Country Flag -->
-                    <div class="footer-card footer-ip-card">
-                        <div class="footer-ip-flag-row">
-                            <span id="footerCountryFlag"></span>
-                            <span id="footerIP" class="footer-ip-text">IP</span>
-                            <span id="footerIPType" class="footer-ip-type" style="display:none;font-size:0.93em;color:#bfc9d6;margin-right:6px;"></span>
-                        </div>
-                        <span id="footerCountryName" class="footer-country-name" style="display:none;"></span>
-                        <span id="footerIPLocation" class="footer-ip-location" style="font-size:0.97em;color:#bfc9d6;"></span>
-                        <span id="footerISP" class="footer-isp-name" style="font-size:0.97em;color:#bfc9d6;"></span>
-                    </div>
-                    <!-- Live Clock -->
-                    <div class="footer-card footer-clock-card">
-                        <div class="clock-daystate-row">
-                            <span id="clock-daystate-icon" class="clock-daystate-icon">☀️</span>
-                            <span id="clock-daystate-label" class="clock-daystate-label">صباحاً</span>
-                        </div>
-                        <div class="footer-clock-row">
-                            <span id="footerLocalTime" class="modern-clock">
-                                <span class="clock-group"><span class="clock-digit" id="clock-h1">0</span><span class="clock-digit" id="clock-h2">0</span></span>
-                                <span class="clock-sep">:</span>
-                                <span class="clock-group"><span class="clock-digit" id="clock-m1">0</span><span class="clock-digit" id="clock-m2">0</span></span>
-                                <span class="clock-sep">:</span>
-                                <span class="clock-group"><span class="clock-digit" id="clock-s1">0</span><span class="clock-digit" id="clock-s2">0</span></span>
-                                <span id="clock-period" class="clock-period-modern"></span>
-                            </span>
-                        </div>
-                        <span class="footer-clock-label">الوقت المحلي لمدينة أثينا</span>
-                        <span id="footerLocalDate" class="footer-clock-date"></span>
-                    </div>
-                    <!-- Weather -->
-                    <div class="footer-card footer-weather-card">
-                        <div class="footer-weather-row">
-                            <i class="fas fa-cloud-sun"></i>
-                            <span id="footerWeather">--°C</span>
-                        </div>
-                        <span id="footerWeatherDesc"></span>
-                        <span id="footerWeatherLocation"></span>
-                        <span id="footerWeatherHumidity" style="display:block;font-size:0.97em;color:#bfc9d6;"></span>
-                        <span id="footerWeatherWind" style="display:block;font-size:0.97em;color:#bfc9d6;"></span>
-                    </div>
                     <!-- Social Media -->
                     <!-- تم حذف خانة أيقونات وسائل التواصل الاجتماعي بالكامل -->
                     </div>
@@ -1458,42 +1304,6 @@
     .footer-card:hover {
         box-shadow: 0 8px 32px rgba(44,62,80,0.23);
         transform: translateY(-4px) scale(1.03);
-    }
-    .footer-ip-flag-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 4px;
-    }
-    .footer-ip-text {
-        color: #fff;
-        font-size: 1.13rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-    .footer-country-name {
-        font-size: 0.95rem;
-        color: #bfc9d6;
-        margin-top: 2px;
-    }
-    .footer-clock-row, .footer-weather-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 1.18rem;
-        margin-bottom: 4px;
-        color: #fff;
-    }
-    .footer-clock-label {
-        font-size: 0.92rem;
-        color: #bfc9d6;
-        margin-top: 2px;
-    }
-    .footer-weather-row i {
-        color: #f7b731;
-    }
-    .footer-clock-row i {
-        color: #4fc3f7;
     }
     .footer-social-label { display: none; }
     .footer-social-icons {
@@ -1608,25 +1418,12 @@
             background: linear-gradient(120deg, #232e3c 80%, #1a2230 100%);
             padding: 18px 8px 14px 8px;
         }
-        .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
+        .footer-clock-row, .footer-weather-row {
             justify-content: center;
             gap: 10px;
         }
-        .footer-ip-text, .footer-country-name, .footer-clock-label {
-            font-size: 1.08rem;
-        }
-        .footer-clock-row i, .footer-weather-row i {
-            font-size: 1.25em;
-        }
-        .footer-ip-flag-row img {
-            width: 30px !important;
-            height: 22px !important;
-        }
         .footer-card {
             text-align: center;
-        }
-        .footer-weather-row span, .footer-clock-row span, .footer-ip-flag-row span {
-            font-size: 1.13rem;
         }
         .footer-country-name {
             margin-top: 4px;
@@ -1641,12 +1438,6 @@
             justify-content: center !important;
             text-align: center !important;
         }
-        .footer-ip-flag-row, .footer-clock-row, .footer-weather-row {
-            width: 100%;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center !important;
-        }
         .footer-card > * {
             width: 100%;
             display: flex;
@@ -1654,12 +1445,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-        }
-        .footer-country-name, .footer-clock-label, #footerWeatherDesc, #footerWeatherLocation {
-            width: 100%;
-            text-align: center !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
         }
     }
     .popup-copyright-bar {
@@ -2088,72 +1873,7 @@
     </style>
 
     <script>
-    // Live Clock
-    function updateFooterClock() {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('footerLocalTime').textContent = `${h}:${m}:${s}`;
-    }
-    setInterval(updateFooterClock, 1000);
-    updateFooterClock();
 
-    // Get IP, Country, and Weather
-    async function updateFooterIPAndWeather() {
-      try {
-        // Get IP and location
-        const ipRes = await fetch('https://ipapi.co/json/');
-        const ipData = await ipRes.json();
-        document.getElementById('footerIP').textContent = ipData.ip;
-        document.getElementById('footerCountryFlag').textContent = ipData.country_emoji || '';
-        document.getElementById('footerCountryName').textContent = ipData.country_name || '';
-        // Get weather (ثابت لأثينا)
-        const lat = 37.98, lon = 23.72;
-        // Open-Meteo API (no key needed)
-        const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=relative_humidity_2m,windspeed_10m&timezone=auto`);
-        const weatherData = await weatherRes.json();
-        if (weatherData.current_weather) {
-          document.getElementById('footerWeather').textContent = weatherData.current_weather.temperature + '°C';
-          document.getElementById('footerWeatherDesc').textContent = weatherData.current_weather.weathercode !== undefined ? weatherCodeToDesc(weatherData.current_weather.weathercode) : '';
-          document.getElementById('footerWeatherLocation').textContent = '(أثينا)';
-          // رطوبة
-          let humidity = '--';
-          if (weatherData.hourly && weatherData.hourly.relative_humidity_2m && weatherData.hourly.time) {
-            const now = new Date();
-            const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
-            const hourStr = athensTime.toISOString().slice(0, 13);
-            const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
-            if (idx !== -1) humidity = weatherData.hourly.relative_humidity_2m[idx];
-          }
-          document.getElementById('footerWeatherHumidity').textContent = `الرطوبة: ${humidity}%`;
-          // رياح
-          let wind = '--';
-          if (weatherData.hourly && weatherData.hourly.windspeed_10m && weatherData.hourly.time) {
-            const now = new Date();
-            const athensTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
-            const hourStr = athensTime.toISOString().slice(0, 13);
-            const idx = weatherData.hourly.time.findIndex(t => t.startsWith(hourStr));
-            if (idx !== -1) wind = weatherData.hourly.windspeed_10m[idx];
-          }
-          document.getElementById('footerWeatherWind').textContent = `الرياح: ${wind} كم/س`;
-        }
-      } catch (e) {
-        document.getElementById('footerIP').textContent = 'غير متوفر';
-        document.getElementById('footerWeather').textContent = '--°C';
-        document.getElementById('footerWeatherDesc').textContent = 'تعذر جلب حالة الطقس';
-        document.getElementById('footerWeatherHumidity').textContent = '';
-        document.getElementById('footerWeatherWind').textContent = '';
-      }
-    }
-    function weatherCodeToDesc(code) {
-      // Simplified mapping for demo
-      const map = {
-        0: 'صحو', 1: 'غائم جزئي', 2: 'غائم', 3: 'غائم كلي', 45: 'ضباب', 48: 'ضباب', 51: 'رذاذ', 53: 'رذاذ', 55: 'رذاذ', 61: 'مطر خفيف', 63: 'مطر', 65: 'مطر غزير', 71: 'ثلج خفيف', 73: 'ثلج', 75: 'ثلج كثيف', 80: 'زخات مطر', 81: 'زخات مطر', 82: 'زخات مطر غزيرة', 95: 'عاصفة رعدية'
-      };
-      return map[code] || '';
-    }
-    updateFooterIPAndWeather();
     </script>
 
     <script src="js/main.js"></script>
